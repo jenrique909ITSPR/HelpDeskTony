@@ -65,7 +65,12 @@ class TicketsController extends AppController
                 $this->Flash->error(__('El ticket ingresado no existe'));
                 return $this->redirect(['action' => 'index']);
             }
-
+            $ticketSearch = $this->Tickets->findById($id)->first();
+            if (empty($ticketSearch)) {
+                $this->Flash->error(__('El ticket ingresado no existe'));
+                return $this->redirect(['action' => 'index']);
+            }
+                
              $ticket = $this->Tickets->get($id, [
             'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles']
             ]);
