@@ -48,7 +48,9 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
 			<ul class="headernav">
 				<li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i> (13)</a></li>
 				<li><a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i> Conocimiento</a></li>
-				<li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> Julio Perea Pastrana</a></li>
+				<li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $this->request->session()
+        ->read('Auth.User.name');
+          ?></a></li>
 
  
       </ul>

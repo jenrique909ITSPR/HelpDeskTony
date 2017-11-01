@@ -27,17 +27,17 @@ class TicketsController extends AppController
     public function index($id = null)
     {
         if (is_null($id)){
-            $this->paginate = [
-            'contain' => [  'Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']
-                                   
-            ];
-            $tickets = $this->paginate($this->Tickets);
-
-        }else{
-            $query = $this->Tickets->find('all')->where(['tickettype_id' => $id])
+           $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id') ])
              ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
              ;
+            
+             $this->set('tickets', $this->paginate($query));
 
+
+        }else{
+            $query = $this->Tickets->find('all')->where(['tickettype_id' => $id , 'user_id' => $this->request->session()->read('Auth.User.id') ])
+             ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
+             ;
             $this->set('tickets', $this->paginate($query));
             
         }

@@ -81,17 +81,11 @@ class AppController extends Controller
         //$this->Auth->allow(['add', 'index', 'edit']);
    }
 
+  
    public function beforeFilter(Event $event)
    {
-       $this->Auth->allow(['index', 'view', 'add','edit','print','delete','changueStateTicket','clonar']);
-   }
-
-
-
-  
-
-
-  
+       $this->Auth->allow(['login', 'logout']);
+   }  
 
     public function beforeRender(Event $event)
     {

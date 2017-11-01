@@ -48,7 +48,7 @@ public function login()
         $user = $this->Auth->identify();
         if ($user) {
             $this->Auth->setUser($user);
-            return $this->redirect(['action' => 'index']);
+            return $this->redirect(['controller' => 'Tickets','action' => 'index']);
         }
         $this->Flash->error('Your username or password is incorrect.');
         }
