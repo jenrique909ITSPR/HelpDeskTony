@@ -51,7 +51,7 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
 				<li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $this->request->session()
         ->read('Auth.User.name');
           ?></a></li>
-
+          <li><?= $this->Html->link(__('Salir'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
  
       </ul>
 	  </div>
