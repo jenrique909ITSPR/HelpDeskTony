@@ -24,13 +24,34 @@ class TicketsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+
+     public function favorite($id = null){
+       $ticket = $this->Tickets->get($id, [
+           'contain' => []
+       ]);
+       $Ticketfavourites = TableRegistry::get('Ticketmarkeds');
+       $ticketfavs =  $Ticketfavourites->newEntity();
+
+
+
+       $ticketfavs->ticket_id= $ticket->id;
+       $ticketfavs->user_id= $this->request->session()->read('Auth.User.id');
+
+       if ($Ticketfavourites->save($ticketfavs)) {
+        // The $article entity contains the id now
+        $id = $ticketfavs->id;
+      }
+      return $this->redirect(['controller' => 'Ticketmarkeds', 'action' => 'index']);
+
+     }
+
     public function index($id = null)
     {
         if (is_null($id)){
            $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id') ])
              ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
              ;
-            
+
              $this->set('tickets', $this->paginate($query));
 
 
@@ -39,7 +60,7 @@ class TicketsController extends AppController
              ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
              ;
             $this->set('tickets', $this->paginate($query));
-            
+
         }
         $this->set(compact('tickets'));
         $this->set('_serialize', ['tickets']);
@@ -52,16 +73,19 @@ class TicketsController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
+
+
+
     public function view($id = null)
     {
         if ($this->request->is("get")){
              $idTicket = $this->request->query('searchticket');
-                      
+
             if (is_null($id)){
                 $id = $idTicket;
             }
             if(is_null($idTicket) && is_null($id)){
-                
+
                 $this->Flash->error(__('El ticket ingresado no existe'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -70,15 +94,15 @@ class TicketsController extends AppController
                 $this->Flash->error(__('El ticket ingresado no existe'));
                 return $this->redirect(['action' => 'index']);
             }
-                
+
              $ticket = $this->Tickets->get($id, [
             'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles']
             ]);
         }
-        
-        
 
-        
+
+
+
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
     }
@@ -175,11 +199,11 @@ class TicketsController extends AppController
         $ticket = $this->Tickets->get($id, [
             'contain' => []
         ]);
-       
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $ticket = $this->Tickets->newEntity();
             $dataTicket = $this->request->getData();
-            
+
             $ticket = $this->Tickets->patchEntity($ticket, $dataTicket);
             $ticket->parent_id = $id;
             if ($this->Tickets->save($ticket)) {
@@ -201,8 +225,8 @@ class TicketsController extends AppController
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories'));
         $this->set('_serialize', ['ticket']);
-            
-        
+
+
     }
 
 
@@ -212,7 +236,7 @@ class TicketsController extends AppController
          $ticket = $this->Tickets->get($id, [
             'contain' => []
         ]);
-        $ticketlogsTable = TableRegistry::get('Ticketlogs');  
+        $ticketlogsTable = TableRegistry::get('Ticketlogs');
         $ticketlog = $ticketlogsTable->newEntity();
         $ticketlog->ticket_id  = $id;
         $ticketlog->user_id = $ticket->user_id;
@@ -220,7 +244,7 @@ class TicketsController extends AppController
         $ticketlog->user_transfer = $ticket->user_id;
         $ticketlog->group_transfer = $ticket->group_id;
         $ticketlog->new_status = $ticket->ticket_status_id;
-      
+
 
          if ($this->request->is('get')){
             if ($ticket->tickettype_id == 4) {
@@ -233,14 +257,14 @@ class TicketsController extends AppController
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 if ($ticketlogsTable->save($ticketlog)) {
-                    $this->Flash->success(__('The ticket has been saved.'));    
+                    $this->Flash->success(__('The ticket has been saved.'));
                     return $this->redirect(['action' => 'view' , $id]);
                 }
-                                
+
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
-            
-            
+
+
 
          }
 
@@ -256,6 +280,6 @@ class TicketsController extends AppController
                 'render' => 'browser',
             ]]);
     }
-    
-    
+
+
 }
