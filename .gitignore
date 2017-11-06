@@ -3,6 +3,7 @@
 /tmp/*
 /logs/*
 /tmp/*
+config/app.php
 
 # OS generated files #
 ######################

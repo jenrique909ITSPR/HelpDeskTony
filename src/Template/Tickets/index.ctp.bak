@@ -6,7 +6,7 @@
 ?>
 
 <div class="tickets index">
-  <h3><?= __('Tickets') ?></h3>
+    <h3><?= __('Tickets') ?></h3>
 	<div class="actions">
 		<ul>
 			<li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?></li>
@@ -22,44 +22,50 @@
                 <!--<th scope="col"><?= $this->Paginator->sort('source_id') ?></th>-->
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <!--<th scope="col"><?= $this->Paginator->sort('description') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('solution') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('itemcode_id') ?></th>-->
+                <th scope="col"><?= $this->Paginator->sort('solution') ?></th>-->
+                <th scope="col"><?= $this->Paginator->sort('itemcode_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('group_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_autor') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_requeried') ?></th>
-                <!--<th scope="col"><?= $this->Paginator->sort('ticketimpact_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('ticketurgency_id') ?></th>-->
-                <th scope="col"><?= $this->Paginator->sort('ticketpriority_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('hdcategory_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('ticketimpact_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('ticketurgency_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('ticketpriority_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('hdcategory_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
 
             <?php foreach ($tickets as $ticket):
-      			     $style = 'style="background: '.$ticket->tickettype->color . '"';
-      			?>
-            <tr >
-				        <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false]); ?></td>
+
+              $color= $ticket->tickettype->color;
+			$style = 'style="background: '.$ticket->tickettype->color . '"';
+			?>
+            <tr <?= $style ?>>
+				<td><?= $this->Form->checkbox('selected.', ['hiddenField' => false]); ?></td>
                 <td><?= $this->Number->format($ticket->id) ?></td>
-                <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->name) : '' ?></td>
+                <td><?= $ticket->has('tickettype') ? ($ticket->tickettype->name) : '' ?></td>
                 <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>
                 <!--<td><?= $ticket->has('source') ? ($ticket->source->title) : '' ?></td>-->
                 <td><?= h($ticket->title) ?></td>
                 <!--<td><?= h($ticket->description) ?></td>
-                <td><?= h($ticket->solution) ?></td>
-                <td><?= $ticket->has('itemcode') ? ($ticket->itemcode->id) : '' ?></td>-->
+                <td><?= h($ticket->solution) ?></td>-->
+                <td><?= $ticket->has('itemcode') ? ($ticket->itemcode->id) : '' ?></td>
                 <td><?= $ticket->has('user') ? ($ticket->user->name) : '' ?></td>
                 <td><?= $ticket->has('group') ? ($ticket->group->name) : '' ?></td>
                 <td><?= $this->Number->format($ticket->user_autor) ?></td>
                 <td><?= $this->Number->format($ticket->user_requeried) ?></td>
-                <!--<td><?= $ticket->has('ticketimpact') ? ($ticket->ticketimpact->name) : '' ?></td>
-                <td><?= $ticket->has('ticketurgency') ? ($ticket->ticketurgency->name) : '' ?></td>-->
-                <td><?= $ticket->has('ticketpriority') ? ($ticket->ticketpriority->name) : '' ?></td>
-                <td><?= $ticket->has('hdcategory') ? ($ticket->hdcategory->title) : '' ?></td>
                 <td><?= h($ticket->created) ?></td>
+                <td><?= $ticket->has('ticketimpact') ? ($ticket->ticketimpact->name) : '' ?></td>
+                <td><?= $ticket->has('ticketurgency') ? ($ticket->ticketurgency->name) : '' ?></td>
+                <td><?= $ticket->has('ticketpriority') ? ($ticket->ticketpriority->name) : '' ?></td>
+                <td><?= $ticket->has('parent_ticket') ? ($ticket->parent_ticket->title) : '' ?></td>
+                <td><?= $ticket->has('hdcategory') ? ($ticket->hdcategory->title) : '' ?></td>
+                <td><?= h($ticket->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $ticket->id]) ?>
                 </td>

@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Itemcode') ?></th>
-            <td><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->name, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode->id]) : '' ?></td>
+            <td><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->id, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
@@ -222,11 +222,7 @@
         <?php endif; ?>
     </div>
     <div class="related" title="<?= __('Ticketsfiles') ?>">
-      <div class="actions">
-        <ul>
-          <li><?= $this->Html->link(__('New ticketsfiles'), ['action' => 'add']) ?> </li>
-        </ul>
-      </div>
+        <h4><?= __('Related Ticketsfiles') ?></h4>
         <?php if (!empty($ticket->ticketsfiles)): ?>
         <table cellpadding="0" cellspacing="0">
           <thead>

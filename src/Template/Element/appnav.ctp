@@ -2,7 +2,7 @@
 
   <div id="appName" class="left">
     <!-- redirecciona a tickets-->
-        <a><?= $this->HTML->link('HelpDesk',['controller'=>'Tickets','action'=>'index']);?></a>
+        <a><?= $this->HTML->link('Tickets',['controller'=>'Tickets','action'=>'index']);?></a>
   </div>
 
   <div class="left">
@@ -17,7 +17,7 @@
 
   <div class="right">
   	<ul class="topnavMenuR">
-        
+
         <li><a href="" title="Dashboard">Equipo</a></li>
         <li><a href="" title="Reportes">Indicadores</a></li>
         <li><a href=""  title="Ajustes">Ajustes</a></li>
@@ -30,8 +30,8 @@
             echo $this->Form->control('searchticket',['label' => false]);
         ?>
     <?= $this->Form->end() ?>
-     
-    
+
+
   </div>
 </div>
 

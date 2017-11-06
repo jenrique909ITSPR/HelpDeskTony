@@ -29,7 +29,7 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
 	<?= $this->Html->css('font-awesome.css') ?>
-	<?= $this->Html->css('themes/default/easyui.css') ?>
+	<?= $this->Html->css('themes/gray/easyui.css') ?>
 	<?= $this->Html->css('themes/icon.css') ?>
 
     <?= $this->fetch('meta') ?>
@@ -47,12 +47,9 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
 	  <div class="right">
 			<ul class="headernav">
 				<li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i> (13)</a></li>
-				<li><a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i> Conocimiento</a></li>
-				<li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $this->request->session()
-        ->read('Auth.User.name');
-          ?></a></li>
-          <li><?= $this->Html->link(__('Salir'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
- 
+				<li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i> ' . __('Conocimiento'), ['controller' => 'articles','action' => 'index'], ['escape'=> false]) ?></li>
+				<li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $this->request->session()->read('Auth.User.name'); ?></a></li>
+				<li><?= $this->Html->link(__('SALIR'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
       </ul>
 	  </div>
 	</div>

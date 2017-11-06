@@ -73,19 +73,19 @@ class AppController extends Controller
                 'action' => 'login'
             ],
         ]);
-    
-    
+
+
 
         // Allow the display action so our pages controller
         // continues to work.
         //$this->Auth->allow(['add', 'index', 'edit']);
    }
 
-  
+
    public function beforeFilter(Event $event)
    {
        $this->Auth->allow(['login', 'logout']);
-   }  
+   }
 
     public function beforeRender(Event $event)
     {
@@ -98,18 +98,18 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
 
-        $tickettypesTable = TableRegistry::get('Tickettypes');   
+        $tickettypesTable = TableRegistry::get('Tickettypes');
         $query = $tickettypesTable->find('all',['fields' => ['name','id'], 'order' => ['rank' => 'ASC']]);
         $results = $query->all();
         $tickettyperows = $results->toArray();
         //$tickettype = ['Problema','Incidente'];
         $this->set('tickettyperows', $tickettyperows);
 
-    }   
+    }
 
-  
 
-     
-    
+
+
+
 
 }

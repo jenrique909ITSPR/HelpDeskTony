@@ -15,11 +15,15 @@
 		</ul>
 	</div>
 	<div class="viewdata">
-       
+
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($tickettype->name) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Tag') ?></th>
+            <td><?= h($tickettype->tag) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Color') ?></th>

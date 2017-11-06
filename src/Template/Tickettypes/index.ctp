@@ -16,6 +16,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('tag') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('rank') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('color') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -26,8 +27,9 @@
             <tr>
                 <td><?= $this->Number->format($tickettype->id) ?></td>
                 <td><?= h($tickettype->name) ?></td>
+                <td><?= h($tickettype->tag) ?></td>
                 <td><?= $this->Number->format($tickettype->rank) ?></td>
-                <td><?= h($tickettype->color) ?></td>
+                <td style="background: <?= $tickettype->color ?>"><?= h($tickettype->color) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $tickettype->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $tickettype->id]) ?>

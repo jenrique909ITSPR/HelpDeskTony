@@ -11,15 +11,16 @@
 			<li><?= $this->Html->link(__('List Tickettypes'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($tickettype) ?>
         <?php
             echo $this->Form->control('name');
+						echo $this->Form->control('tag');
             echo $this->Form->control('rank');
             echo $this->Form->control('color');
         ?>
-	
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
