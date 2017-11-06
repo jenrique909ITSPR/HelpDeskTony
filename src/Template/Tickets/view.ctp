@@ -1,10 +1,9 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Ticket $ticket
-  */
+  * @var \App\Model\Entity\Ticket $ticket  */
 ?>
-<?= $this->element('helpdesktools') ?>
+
 <div class="tickets view">
     <h3><?= h($ticket->title) ?></h3>
 	<div class="actions">
@@ -66,8 +65,16 @@
             <td><?= $ticket->has('ticketpriority') ? $this->Html->link($ticket->ticketpriority->name, ['controller' => 'Ticketpriorities', 'action' => 'view', $ticket->ticketpriority->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Parent Ticket') ?></th>
+            <td><?= $ticket->has('parent_ticket') ? $this->Html->link($ticket->parent_ticket->title, ['controller' => 'Tickets', 'action' => 'view', $ticket->parent_ticket->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Hdcategory') ?></th>
             <td><?= $ticket->has('hdcategory') ? $this->Html->link($ticket->hdcategory->title, ['controller' => 'Hdcategories', 'action' => 'view', $ticket->hdcategory->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Ip') ?></th>
+            <td><?= h($ticket->ip) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -80,10 +87,6 @@
         <tr>
             <th scope="row"><?= __('User Requeried') ?></th>
             <td><?= $this->Number->format($ticket->user_requeried) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Parent Id') ?></th>
-            <td><?= $this->Number->format($ticket->parent_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
@@ -207,6 +210,100 @@
         </table>
         <?php endif; ?>
     </div>
+    <div class="related" title="<?= __('Ticketmarkeds') ?>">
+        <h4><?= __('Related Ticketmarkeds') ?></h4>
+        <?php if (!empty($ticket->ticketmarkeds)): ?>
+        <table cellpadding="0" cellspacing="0">
+          <thead>
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('User Id') ?></th>
+                <th scope="col"><?= __('Ticket Id') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+		  </thead>
+		  <tbody>
+            <?php foreach ($ticket->ticketmarkeds as $ticketmarkeds): ?>
+            <tr>
+                <td><?= h($ticketmarkeds->id) ?></td>
+                <td><?= h($ticketmarkeds->user_id) ?></td>
+                <td><?= h($ticketmarkeds->ticket_id) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Ticketmarkeds', 'action' => 'view', $ticketmarkeds->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Ticketmarkeds', 'action' => 'edit', $ticketmarkeds->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Ticketmarkeds', 'action' => 'delete', $ticketmarkeds->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticketmarkeds->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+		  </tbody>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related" title="<?= __('Tickets') ?>">
+        <h4><?= __('Related Tickets') ?></h4>
+        <?php if (!empty($ticket->child_tickets)): ?>
+        <table cellpadding="0" cellspacing="0">
+          <thead>
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Tickettype Id') ?></th>
+                <th scope="col"><?= __('Ticket Status Id') ?></th>
+                <th scope="col"><?= __('Source Id') ?></th>
+                <th scope="col"><?= __('Title') ?></th>
+                <th scope="col"><?= __('Description') ?></th>
+                <th scope="col"><?= __('Solution') ?></th>
+                <th scope="col"><?= __('Resolution') ?></th>
+                <th scope="col"><?= __('Itemcode Id') ?></th>
+                <th scope="col"><?= __('User Id') ?></th>
+                <th scope="col"><?= __('Group Id') ?></th>
+                <th scope="col"><?= __('User Autor') ?></th>
+                <th scope="col"><?= __('User Requeried') ?></th>
+                <th scope="col"><?= __('Created') ?></th>
+                <th scope="col"><?= __('Ticketimpact Id') ?></th>
+                <th scope="col"><?= __('Ticketurgency Id') ?></th>
+                <th scope="col"><?= __('Ticketpriority Id') ?></th>
+                <th scope="col"><?= __('Parent Id') ?></th>
+                <th scope="col"><?= __('Hdcategory Id') ?></th>
+                <th scope="col"><?= __('Modified') ?></th>
+                <th scope="col"><?= __('Ip') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+		  </thead>
+		  <tbody>
+            <?php foreach ($ticket->child_tickets as $childTickets): ?>
+            <tr>
+                <td><?= h($childTickets->id) ?></td>
+                <td><?= h($childTickets->tickettype_id) ?></td>
+                <td><?= h($childTickets->ticket_status_id) ?></td>
+                <td><?= h($childTickets->source_id) ?></td>
+                <td><?= h($childTickets->title) ?></td>
+                <td><?= h($childTickets->description) ?></td>
+                <td><?= h($childTickets->solution) ?></td>
+                <td><?= h($childTickets->resolution) ?></td>
+                <td><?= h($childTickets->itemcode_id) ?></td>
+                <td><?= h($childTickets->user_id) ?></td>
+                <td><?= h($childTickets->group_id) ?></td>
+                <td><?= h($childTickets->user_autor) ?></td>
+                <td><?= h($childTickets->user_requeried) ?></td>
+                <td><?= h($childTickets->created) ?></td>
+                <td><?= h($childTickets->ticketimpact_id) ?></td>
+                <td><?= h($childTickets->ticketurgency_id) ?></td>
+                <td><?= h($childTickets->ticketpriority_id) ?></td>
+                <td><?= h($childTickets->parent_id) ?></td>
+                <td><?= h($childTickets->hdcategory_id) ?></td>
+                <td><?= h($childTickets->modified) ?></td>
+                <td><?= h($childTickets->ip) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Tickets', 'action' => 'view', $childTickets->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Tickets', 'action' => 'edit', $childTickets->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Tickets', 'action' => 'delete', $childTickets->id], ['confirm' => __('Are you sure you want to delete # {0}?', $childTickets->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+		  </tbody>
+        </table>
+        <?php endif; ?>
+    </div>
     <div class="related" title="<?= __('Ticketsfiles') ?>">
         <h4><?= __('Related Ticketsfiles') ?></h4>
         <?php if (!empty($ticket->ticketsfiles)): ?>
@@ -265,6 +362,8 @@
         <li><?= $this->Html->link(__('New Ticketurgency'), ['controller' => 'Ticketurgencies', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Ticketpriorities'), ['controller' => 'Ticketpriorities', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Ticketpriority'), ['controller' => 'Ticketpriorities', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Parent Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Parent Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Hdcategory'), ['controller' => 'Hdcategories', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Internalnotes'), ['controller' => 'Internalnotes', 'action' => 'index']) ?> </li>
@@ -273,6 +372,8 @@
         <li><?= $this->Html->link(__('New Publicnote'), ['controller' => 'Publicnotes', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Ticketlogs'), ['controller' => 'Ticketlogs', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Ticketlog'), ['controller' => 'Ticketlogs', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Ticketmarkeds'), ['controller' => 'Ticketmarkeds', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Ticketmarked'), ['controller' => 'Ticketmarkeds', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Ticketsfiles'), ['controller' => 'Ticketsfiles', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Ticketsfile'), ['controller' => 'Ticketsfiles', 'action' => 'add']) ?> </li>
     </ul>

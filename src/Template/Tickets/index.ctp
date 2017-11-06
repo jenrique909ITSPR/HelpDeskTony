@@ -7,11 +7,11 @@
 
 <div class="tickets index">
     <h3><?= __('Tickets') ?></h3>
-	<div class="actions">
-		<ul>
-			<li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?></li>
-		</ul>
-	</div>
+    <div class="actions">
+        <ul>
+            <li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?></li>
+        </ul>
+    </div>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -61,6 +61,7 @@
             <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('ticketimpact') ? $this->Html->link($ticket->ticketimpact->name, ['controller' => 'Ticketimpacts', 'action' => 'view', $ticket->ticketimpact->id]) : '' ?></td>
             <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('ticketurgency') ? $this->Html->link($ticket->ticketurgency->name, ['controller' => 'Ticketurgencies', 'action' => 'view', $ticket->ticketurgency->id]) : '' ?></td>
             <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('ticketpriority') ? $this->Html->link($ticket->ticketpriority->name, ['controller' => 'Ticketpriorities', 'action' => 'view', $ticket->ticketpriority->id]) : '' ?></td>
+             <td style= "background-color:  <?php echo $color ?> "><?= h($ticket->parent_id) ?></td>
             <td style= "background-color:  <?php echo $color ?> "><?= $this->Number->format($ticket->parent_id) ?></td>
             <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('hdcategory') ? $this->Html->link($ticket->hdcategory->title, ['controller' => 'Hdcategories', 'action' => 'view', $ticket->hdcategory->id]) : '' ?></td>
             <td style= "background-color:  <?php echo $color ?> "><?= h($ticket->modified) ?></td>

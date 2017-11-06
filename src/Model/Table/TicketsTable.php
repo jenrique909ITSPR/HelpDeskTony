@@ -18,12 +18,13 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\TicketimpactsTable|\Cake\ORM\Association\BelongsTo $Ticketimpacts
  * @property \App\Model\Table\TicketurgenciesTable|\Cake\ORM\Association\BelongsTo $Ticketurgencies
  * @property \App\Model\Table\TicketprioritiesTable|\Cake\ORM\Association\BelongsTo $Ticketpriorities
- * @property |\Cake\ORM\Association\BelongsTo $ParentTickets
+ * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\BelongsTo $ParentTickets
  * @property \App\Model\Table\HdcategoriesTable|\Cake\ORM\Association\BelongsTo $Hdcategories
  * @property \App\Model\Table\InternalnotesTable|\Cake\ORM\Association\HasMany $Internalnotes
  * @property \App\Model\Table\PublicnotesTable|\Cake\ORM\Association\HasMany $Publicnotes
  * @property \App\Model\Table\TicketlogsTable|\Cake\ORM\Association\HasMany $Ticketlogs
- * @property |\Cake\ORM\Association\HasMany $ChildTickets
+ * @property \App\Model\Table\TicketmarkedsTable|\Cake\ORM\Association\HasMany $Ticketmarkeds
+ * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\HasMany $ChildTickets
  * @property \App\Model\Table\TicketsfilesTable|\Cake\ORM\Association\HasMany $Ticketsfiles
  *
  * @method \App\Model\Entity\Ticket get($primaryKey, $options = [])
@@ -35,8 +36,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Ticket findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
- */
-class TicketsTable extends Table
+ */class TicketsTable extends Table
 {
 
     /**
@@ -98,6 +98,9 @@ class TicketsTable extends Table
         $this->hasMany('Ticketlogs', [
             'foreignKey' => 'ticket_id'
         ]);
+        $this->hasMany('Ticketmarkeds', [
+            'foreignKey' => 'ticket_id'
+        ]);
         $this->hasMany('ChildTickets', [
             'className' => 'Tickets',
             'foreignKey' => 'parent_id'
@@ -116,33 +119,21 @@ class TicketsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('title')
-            ->allowEmpty('title');
-
+            ->scalar('title')            ->allowEmpty('title');
         $validator
-            ->scalar('description')
-            ->allowEmpty('description');
-
+            ->scalar('description')            ->allowEmpty('description');
         $validator
-            ->scalar('solution')
-            ->allowEmpty('solution');
-
+            ->scalar('solution')            ->allowEmpty('solution');
         $validator
-            ->scalar('resolution')
-            ->allowEmpty('resolution');
-
+            ->scalar('resolution')            ->allowEmpty('resolution');
         $validator
-            ->integer('user_autor')
-            ->allowEmpty('user_autor');
-
+            ->integer('user_autor')            ->allowEmpty('user_autor');
         $validator
-            ->integer('user_requeried')
-            ->allowEmpty('user_requeried');
-
+            ->integer('user_requeried')            ->allowEmpty('user_requeried');
+        $validator
+            ->scalar('ip')            ->requirePresence('ip', 'create')            ->notEmpty('ip');
         return $validator;
     }
 

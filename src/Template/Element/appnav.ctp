@@ -6,12 +6,13 @@
   </div>
 
   <div class="left">
-  <ul class="topnavMenuL">
-  <?php foreach ($tickettyperows as $row): ?>
+   <ul class="topnavMenuL">
+  <?php foreach ($ticketrows as $row): ?>
     <li>
-      <?= $this->Html->link(($row->name), ['controller' => 'Tickets', 'action' => 'index', $row->id]); ?>
+      <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), ['controller' => 'Tickets', 'action' => 'index', $row['tickettype_id']]); ?>
     </li>
   <?php endforeach; ?>
+
   </ul>
   </div>
 

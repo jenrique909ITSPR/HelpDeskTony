@@ -3,7 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-<?= $this->element('helpdesktools') ?>
+
 <div class="tickets form">
 	<h3><?= __('Edit Ticket') ?></h3>
 	<div class="actions">
@@ -30,8 +30,9 @@
             echo $this->Form->control('ticketimpact_id', ['options' => $ticketimpacts, 'empty' => true]);
             echo $this->Form->control('ticketurgency_id', ['options' => $ticketurgencies, 'empty' => true]);
             echo $this->Form->control('ticketpriority_id', ['options' => $ticketpriorities, 'empty' => true]);
-            echo $this->Form->control('parent_id');
+            echo $this->Form->control('parent_id', ['options' => $parentTickets, 'empty' => true]);
             echo $this->Form->control('hdcategory_id', ['options' => $hdcategories, 'empty' => true]);
+            echo $this->Form->control('ip');
         ?>
 	
     <?= $this->Form->button(__('Submit')) ?>
@@ -68,6 +69,8 @@
         <li><?= $this->Html->link(__('New Ticketurgency'), ['controller' => 'Ticketurgencies', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Ticketpriorities'), ['controller' => 'Ticketpriorities', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Ticketpriority'), ['controller' => 'Ticketpriorities', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Parent Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Parent Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Hdcategory'), ['controller' => 'Hdcategories', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Internalnotes'), ['controller' => 'Internalnotes', 'action' => 'index']) ?></li>
@@ -76,6 +79,8 @@
         <li><?= $this->Html->link(__('New Publicnote'), ['controller' => 'Publicnotes', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Ticketlogs'), ['controller' => 'Ticketlogs', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Ticketlog'), ['controller' => 'Ticketlogs', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Ticketmarkeds'), ['controller' => 'Ticketmarkeds', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Ticketmarked'), ['controller' => 'Ticketmarkeds', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Ticketsfiles'), ['controller' => 'Ticketsfiles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Ticketsfile'), ['controller' => 'Ticketsfiles', 'action' => 'add']) ?></li>
     </ul>
