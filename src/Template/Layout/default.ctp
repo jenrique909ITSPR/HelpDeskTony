@@ -29,7 +29,7 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
 	<?= $this->Html->css('font-awesome.css') ?>
-	<?= $this->Html->css('themes/default/easyui.css') ?>
+	<?= $this->Html->css('themes/gray/easyui.css') ?>
 	<?= $this->Html->css('themes/icon.css') ?>
 
     <?= $this->fetch('meta') ?>
