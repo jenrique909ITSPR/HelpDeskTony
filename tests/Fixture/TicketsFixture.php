@@ -37,6 +37,7 @@ class TicketsFixture extends TestFixture
         'parent_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'hdcategory_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'ip' => ['type' => 'string', 'length' => 20, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -67,13 +68,14 @@ class TicketsFixture extends TestFixture
             'group_id' => 1,
             'user_autor' => 1,
             'user_requeried' => 1,
-            'created' => '2017-10-16 19:25:11',
+            'created' => '2017-11-06 16:49:56',
             'ticketimpact_id' => 1,
             'ticketurgency_id' => 1,
             'ticketpriority_id' => 1,
             'parent_id' => 1,
             'hdcategory_id' => 1,
-            'modified' => '2017-10-16 19:25:11'
+            'modified' => '2017-11-06 16:49:56',
+            'ip' => 'Lorem ipsum dolor '
         ],
     ];
 }

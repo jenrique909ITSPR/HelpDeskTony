@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+use Cake\Datasource\ConnectionManager;
 /**
  * Application Controller
  *
@@ -92,12 +93,15 @@ class AppController extends Controller
         // Note: These defaults are just to get started quickly with development
         // and should not be used in production. You should instead set "_serialize"
         // in each action as required.
-        if (!array_key_exists('_serialize', $this->viewVars) &&
+         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
         }
+        
+        if (is_null($this->request->session()->read('Auth.User.id'))){
 
+<<<<<<< HEAD
         $tickettypesTable = TableRegistry::get('Tickettypes');
         $query = $tickettypesTable->find('all',['fields' => ['name','id'], 'order' => ['rank' => 'ASC']]);
         $results = $query->all();
@@ -109,6 +113,29 @@ class AppController extends Controller
 
 
 
+=======
+        }else{
+            $connection = ConnectionManager::get('default');
+        $results = $connection->execute('
+                        select count(t.tickettype_id)as total,t.tickettype_id,tt.name,tt.rank,tt.color 
+            from tickets t inner join tickettypes tt on t.tickettype_id = tt.id INNER join ticketstatuses ts
+            on ts.id = t.ticket_status_id
+            where t.user_id ='.
+            $this->request->session()->read('Auth.User.id')
+            .' and ts.value_order = 1
+            GROUP by t.tickettype_id
+            union
+            select 0 as total,id,name,rank,color from tickettypes where id not in(
+            select t.tickettype_id from tickets t,ticketstatuses ts where t.user_id = '.
+            $this->request->session()->read('Auth.User.id')
+            .' and ts.value_order=1 and ts.id = t.ticket_status_id
+            )GROUP by id  order by rank ASC;
+            ')->fetchAll('assoc');
+               
+        $this->set('ticketrows', $results);
+        }
+    }   
+>>>>>>> 49253f55a96d2eb4c4968531cbf3ee2349ab4e66
 
 
 

@@ -36,6 +36,7 @@ class TicketsControllerTest extends IntegrationTestCase
         'app.roles',
         'app.articles',
         'app.hdcategories',
+        'app.hdtemplate',
         'app.articlefiles',
         'app.articles_roles',
         'app.internalnotes',
@@ -55,6 +56,7 @@ class TicketsControllerTest extends IntegrationTestCase
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
+        'app.ticketmarkeds',
         'app.ticketsfiles'
     ];
 

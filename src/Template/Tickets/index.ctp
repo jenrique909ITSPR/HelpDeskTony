@@ -6,12 +6,21 @@
 ?>
 
 <div class="tickets index">
+<<<<<<< HEAD
   <h3><?= __('Tickets') ?></h3>
 	<div class="actions">
 		<ul>
 			<li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?></li>
 		</ul>
 	</div>
+=======
+    <h3><?= __('Tickets') ?></h3>
+    <div class="actions">
+        <ul>
+            <li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?></li>
+        </ul>
+    </div>
+>>>>>>> 49253f55a96d2eb4c4968531cbf3ee2349ab4e66
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -39,6 +48,7 @@
         <tbody>
 
             <?php foreach ($tickets as $ticket):
+<<<<<<< HEAD
       			     $style = 'style="background: '.$ticket->tickettype->color . '"';
       			?>
             <tr >
@@ -63,6 +73,38 @@
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $ticket->id]) ?>
                 </td>
+=======
+
+              $color= $ticket->tickettype->color;
+
+            ?>
+            <tr>
+            <td style= "background-color:  <?php echo $color ?> "><?= $this->Number->format($ticket->id) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('tickettype') ? $this->Html->link($ticket->tickettype->name, ['controller' => 'Tickettypes', 'action' => 'view', $ticket->tickettype->id]) : ''  ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('ticket_status') ? $this->Html->link($ticket->ticket_status->name, ['controller' => 'Ticketstatuses', 'action' => 'view', $ticket->ticket_status->id]) : '' ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('source') ? $this->Html->link($ticket->source->title, ['controller' => 'Sources', 'action' => 'view', $ticket->source->id]) : ''  ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= h($ticket->title) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= h($ticket->description) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= h($ticket->solution) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->id, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode->id]) : '' ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('user') ? $this->Html->link($ticket->user->name, ['controller' => 'Users', 'action' => 'view', $ticket->user->id]) : '' ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('group') ? $this->Html->link($ticket->group->name, ['controller' => 'Groups', 'action' => 'view', $ticket->group->id]) : '' ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $this->Number->format($ticket->user_autor) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $this->Number->format($ticket->user_requeried) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= h($ticket->created) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('ticketimpact') ? $this->Html->link($ticket->ticketimpact->name, ['controller' => 'Ticketimpacts', 'action' => 'view', $ticket->ticketimpact->id]) : '' ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('ticketurgency') ? $this->Html->link($ticket->ticketurgency->name, ['controller' => 'Ticketurgencies', 'action' => 'view', $ticket->ticketurgency->id]) : '' ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('ticketpriority') ? $this->Html->link($ticket->ticketpriority->name, ['controller' => 'Ticketpriorities', 'action' => 'view', $ticket->ticketpriority->id]) : '' ?></td>
+             <td style= "background-color:  <?php echo $color ?> "><?= h($ticket->parent_id) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $this->Number->format($ticket->parent_id) ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= $ticket->has('hdcategory') ? $this->Html->link($ticket->hdcategory->title, ['controller' => 'Hdcategories', 'action' => 'view', $ticket->hdcategory->id]) : '' ?></td>
+            <td style= "background-color:  <?php echo $color ?> "><?= h($ticket->modified) ?></td>
+            <td class="actions" style= "background-color:  <?php echo $color ?> ">
+                <?= $this->Html->link(__('View'), ['action' => 'view', $ticket->id]) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ticket->id]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?>
+            </td>
+>>>>>>> 49253f55a96d2eb4c4968531cbf3ee2349ab4e66
         </tr>
             <?php endforeach; ?>
         </tbody>

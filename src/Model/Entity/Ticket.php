@@ -26,6 +26,7 @@ use Cake\ORM\Entity;
  * @property int $parent_id
  * @property int $hdcategory_id
  * @property \Cake\I18n\FrozenTime $modified
+ * @property string $ip
  *
  * @property \App\Model\Entity\Tickettype $tickettype
  * @property \App\Model\Entity\Ticketstatus $ticket_status
@@ -36,13 +37,15 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Ticketimpact $ticketimpact
  * @property \App\Model\Entity\Ticketurgency $ticketurgency
  * @property \App\Model\Entity\Ticketpriority $ticketpriority
+ * @property \App\Model\Entity\Ticket $parent_ticket
  * @property \App\Model\Entity\Hdcategory $hdcategory
  * @property \App\Model\Entity\Internalnote[] $internalnotes
  * @property \App\Model\Entity\Publicnote[] $publicnotes
  * @property \App\Model\Entity\Ticketlog[] $ticketlogs
+ * @property \App\Model\Entity\Ticketmarked[] $ticketmarkeds
+ * @property \App\Model\Entity\Ticket[] $child_tickets
  * @property \App\Model\Entity\Ticketsfile[] $ticketsfiles
- */
-class Ticket extends Entity
+ */class Ticket extends Entity
 {
 
     /**

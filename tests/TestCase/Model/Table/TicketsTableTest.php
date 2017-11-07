@@ -12,10 +12,8 @@ class TicketsTableTest extends TestCase
 {
 
     /**
-     * Test subject
-     *
-     * @var \App\Model\Table\TicketsTable
-     */
+     * Test subject     *
+     * @var \App\Model\Table\TicketsTable     */
     public $Tickets;
 
     /**
@@ -44,6 +42,7 @@ class TicketsTableTest extends TestCase
         'app.roles',
         'app.articles',
         'app.hdcategories',
+        'app.hdtemplate',
         'app.articlefiles',
         'app.articles_roles',
         'app.internalnotes',
@@ -63,6 +62,7 @@ class TicketsTableTest extends TestCase
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
+        'app.ticketmarkeds',
         'app.ticketsfiles'
     ];
 
@@ -74,9 +74,7 @@ class TicketsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Tickets') ? [] : ['className' => TicketsTable::class];
-        $this->Tickets = TableRegistry::get('Tickets', $config);
-    }
+        $config = TableRegistry::exists('Tickets') ? [] : ['className' => TicketsTable::class];        $this->Tickets = TableRegistry::get('Tickets', $config);    }
 
     /**
      * tearDown method

@@ -31,8 +31,16 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-	
+    
+    
+    <?= $this->Html->css('base.css') ?>
+   
+    <?= $this->Html->css('themes/gray/easyui.css') ?>
+    <?= $this->Html->css('themes/icon.css') ?>
 
+    <?= $this->Html->script('jquery.min.js'); ?>
+    <?= $this->Html->script('jquery.easyui.min.js'); ?>
+  
 </head>
 <body class="bglogin">
 

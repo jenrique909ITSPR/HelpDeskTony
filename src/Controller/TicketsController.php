@@ -96,7 +96,7 @@ class TicketsController extends AppController
             }
 
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles','ParentTickets','ChildTickets']
             ]);
         }
 
@@ -130,11 +130,12 @@ class TicketsController extends AppController
         $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);
         $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
+        $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories'));
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
         $this->set('_serialize', ['ticket']);
     }
 
@@ -168,8 +169,9 @@ class TicketsController extends AppController
         $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
+        $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories'));
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
         $this->set('_serialize', ['ticket']);
     }
 
@@ -221,9 +223,10 @@ class TicketsController extends AppController
         $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
         $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
+        $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories'));
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
         $this->set('_serialize', ['ticket']);
 
 
