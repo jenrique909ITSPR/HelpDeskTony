@@ -3,7 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-
+<?= $this->element('helpdesktools') ?>
 <div class="tickets form">
 	<h3><?= __('Edit Ticket') ?></h3>
 	<div class="actions">

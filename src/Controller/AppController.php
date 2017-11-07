@@ -116,7 +116,7 @@ class AppController extends Controller
             select t.tickettype_id from tickets t,ticketstatuses ts where t.user_id = '.
             $this->request->session()->read('Auth.User.id')
             .' and ts.value_order=1 and ts.id = t.ticket_status_id
-            )GROUP by id;
+            )GROUP by id  order by rank ASC;
             ')->fetchAll('assoc');
                
         $this->set('ticketrows', $results);

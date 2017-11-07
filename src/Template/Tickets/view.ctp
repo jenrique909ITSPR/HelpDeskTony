@@ -1,9 +1,10 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Ticket $ticket  */
+  * @var \App\Model\Entity\Ticket $ticket  
+  */
 ?>
-
+<?= $this->element('helpdesktools') ?>
 <div class="tickets view">
     <h3><?= h($ticket->title) ?></h3>
 	<div class="actions">
