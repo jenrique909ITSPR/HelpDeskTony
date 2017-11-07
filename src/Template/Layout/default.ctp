@@ -38,8 +38,45 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
 
 	<?= $this->Html->script('jquery.min.js'); ?>
 	<?= $this->Html->script('jquery.easyui.min.js'); ?>
+  <?= $this->Html->script('tinymce/jquery.tinymce.min.js'); ?>
+  <?= $this->Html->script('tinymce/tinymce.min.js'); ?>
 
 </head>
+
+<script>
+  tinymce.init({
+    selector: '.txtAreaTiny',
+    height: 700,
+  menubar: false,
+  //readonly: true,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor textcolor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code help'
+  ],
+  toolbar: 'undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | table | help',
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css']
+
+});
+
+  </script>
+  <script>
+    tinymce.init({
+      selector: '.txtAreaPreview',
+      height: 700,
+    menubar: false,
+    toolbar: false,
+    readonly: true,
+
+    content_css: [
+      '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+      '//www.tinymce.com/css/codepen.min.css']
+
+  });
+
+    </script>
 <body>
 	<div id="header">
 	  <div id="mainmenu" class="left"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -49,7 +86,7 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
 				<li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i> (13)</a></li>
 				<li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i> ' . __('Conocimiento'), ['controller' => 'articles','action' => 'index'], ['escape'=> false]) ?></li>
 				<li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $this->request->session()->read('Auth.User.name'); ?></a></li>
-				<li><?= $this->Html->link(__('SALIR'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+				<li><?= $this->Html->link('<i class="fa fa-ban" aria-hidden="true"></i> ' . __('SALIR'), ['controller' => 'Users', 'action' => 'logout'], ['escape'=> false]) ?></li>
       </ul>
 	  </div>
 	</div>

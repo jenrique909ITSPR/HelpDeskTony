@@ -48,8 +48,7 @@
     </table>
 	</div>
     <div class="row">
-        <h4><?= __('Answer') ?></h4>
-        <?= $this->Text->autoParagraph(h($article->answer)); ?>
+        <?php echo $this->Form->input('answer', ['class' => 'txtAreaPreview', 'value' => $article->answer]); ?>
     </div>
 <div class="easyui-tabs">
     <div class="related" title="<?= __('Articlefiles') ?>">
