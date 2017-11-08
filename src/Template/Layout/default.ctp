@@ -84,18 +84,11 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
 	  <div class="right">
 			<ul class="headernav">
 				<li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i> (13)</a></li>
-<<<<<<< HEAD
-				<li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i> ' . __('Conocimiento'), ['controller' => 'articles','action' => 'index'], ['escape'=> false]) ?></li>
-				<li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $this->request->session()->read('Auth.User.name'); ?></a></li>
-				<li><?= $this->Html->link('<i class="fa fa-ban" aria-hidden="true"></i> ' . __('SALIR'), ['controller' => 'Users', 'action' => 'logout'], ['escape'=> false]) ?></li>
-=======
 				<li><a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i> Conocimiento</a></li>
 				<li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i><?= $this->request->session()
         ->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name');
           ?></a></li>
           <li><?= $this->Html->link(__('Salir'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
-
->>>>>>> 49253f55a96d2eb4c4968531cbf3ee2349ab4e66
       </ul>
 	  </div>
 	</div>

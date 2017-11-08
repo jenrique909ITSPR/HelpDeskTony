@@ -101,19 +101,6 @@ class AppController extends Controller
         
         if (is_null($this->request->session()->read('Auth.User.id'))){
 
-<<<<<<< HEAD
-        $tickettypesTable = TableRegistry::get('Tickettypes');
-        $query = $tickettypesTable->find('all',['fields' => ['name','id'], 'order' => ['rank' => 'ASC']]);
-        $results = $query->all();
-        $tickettyperows = $results->toArray();
-        //$tickettype = ['Problema','Incidente'];
-        $this->set('tickettyperows', $tickettyperows);
-
-    }
-
-
-
-=======
         }else{
             $connection = ConnectionManager::get('default');
         $results = $connection->execute('
@@ -135,7 +122,7 @@ class AppController extends Controller
         $this->set('ticketrows', $results);
         }
     }   
->>>>>>> 49253f55a96d2eb4c4968531cbf3ee2349ab4e66
+
 
 
 
