@@ -118,7 +118,7 @@ class TicketsController extends AppController
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('The ticket has been saved.'));
+                $this->Flash->success(__('Ticket creado correctamente'));
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -154,11 +154,11 @@ class TicketsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('The ticket has been saved.'));
+                $this->Flash->success(__('Datos del ticket actualizados '));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+            $this->Flash->error(__('Error al actualizar datos'));
         }
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
@@ -187,7 +187,7 @@ class TicketsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $ticket = $this->Tickets->get($id);
         if ($this->Tickets->delete($ticket)) {
-            $this->Flash->success(__('The ticket has been deleted.'));
+            $this->Flash->success(__('El ticket ha sido borrado'));
         } else {
             $this->Flash->error(__('The ticket could not be deleted. Please, try again.'));
         }
@@ -209,11 +209,11 @@ class TicketsController extends AppController
             $ticket = $this->Tickets->patchEntity($ticket, $dataTicket);
             $ticket->parent_id = $id;
             if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('The ticket has been saved.'));
+                $this->Flash->success(__('El ticket ha sido clonado'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+            $this->Flash->error(__('No se puede clonar :('));
         }
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
@@ -252,20 +252,20 @@ class TicketsController extends AppController
          if ($this->request->is('get')){
             if ($ticket->tickettype_id == 4) {
                 $ticket->tickettype_id = 1;
-                $ticketlog->coments = 'CAMBIO DE ESTADO A INCIDENTE';
+                $ticketlog->coments = 'CAMBIO A INCIDENTE';
             }else{
                 $ticket->tickettype_id = 4;
-                $ticketlog->coments = 'CAMBIO DE ESTADO A SOLICITUD';
+                $ticketlog->coments = 'CAMBIO A SOLICITUD';
             }
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 if ($ticketlogsTable->save($ticketlog)) {
-                    $this->Flash->success(__('The ticket has been saved.'));
+                    $this->Flash->success(__('EL TICKET '.$ticketlog->coments));
                     return $this->redirect(['action' => 'view' , $id]);
                 }
 
             }
-            $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+            $this->Flash->error(__('Error al cambiar de estado :('));
 
 
 
