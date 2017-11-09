@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 
 /**
  * Items Controller
@@ -21,7 +21,6 @@ class ItemsController extends AppController
      */
     public function index()
     {
-        $this->viewBuilder()->layout("items");
         $this->paginate = [
             'contain' => ['Itemcategories', 'Currencies', 'Brands']
         ];
@@ -118,5 +117,12 @@ class ItemsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('items'); // New in 3.1
+        // or
+        //$this->layout = 'admin'; // Before 3.1
     }
 }
