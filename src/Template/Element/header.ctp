@@ -12,8 +12,8 @@
  * @since         0.10.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
- 
-$cakeDescription = 'TONI TI: HelpDesk & Asset Management';
+
+$cakeDescription = 'Portal TI';
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,45 +38,9 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
 
 	<?= $this->Html->script('jquery.min.js'); ?>
 	<?= $this->Html->script('jquery.easyui.min.js'); ?>
-  <?= $this->Html->script('tinymce/jquery.tinymce.min.js'); ?>
-  <?= $this->Html->script('tinymce/tinymce.min.js'); ?>
+
 
 </head>
-
-<script>
-  tinymce.init({
-    selector: '.txtAreaTiny',
-    height: 700,
-  menubar: false,
-  //readonly: true,
-  plugins: [
-    'advlist autolink lists link image charmap print preview anchor textcolor',
-    'searchreplace visualblocks code fullscreen',
-    'insertdatetime media table contextmenu paste code help'
-  ],
-  toolbar: 'undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | table | help',
-  content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    '//www.tinymce.com/css/codepen.min.css']
-
-});
-
-  </script>
-  <script>
-    tinymce.init({
-      selector: '.txtAreaPreview',
-      height: 700,
-    menubar: false,
-    toolbar: false,
-    readonly: true,
-
-    content_css: [
-      '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-      '//www.tinymce.com/css/codepen.min.css']
-
-  });
-
-    </script>
 <body>
 
 <div id="header">
@@ -85,10 +49,8 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
   <div class="right">
     <ul class="headernav">
       <li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i> (13)</a></li>
-      <li><a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i> Conocimiento</a></li>
-      <li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i><?= $this->request->session()
-      ->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name');
-        ?></a></li>
+      <li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i> ' . __('KNOWLEDGE'), ['controller' => 'Articles', 'action' => 'index'], ['escape' => false]) ?></li>
+      <li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $this->request->session()->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name'); ?></a></li>
         <li><?= $this->Html->link(__('Salir'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
     </ul>
   </div>

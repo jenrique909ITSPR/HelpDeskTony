@@ -6,7 +6,7 @@
   <div id="topnav" class="clear">
     <div id="appName" class="left">
       <!-- redirecciona a tickets-->
-          <?= $this->HTML->link(__('Items'),['controller'=>'Items','action'=>'index']);?>
+          <?= $this->HTML->link(__('Knowledge'),['controller'=>'Articles','action'=>'index']);?>
     </div>
 
     <div class="left">

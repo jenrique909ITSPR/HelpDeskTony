@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Dompdf\Adapter\CPDF;
 use Dompdf\Dompdf;
@@ -284,5 +285,10 @@ class TicketsController extends AppController
             ]]);
     }
 
+
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('tickets'); 
+    }
 
 }

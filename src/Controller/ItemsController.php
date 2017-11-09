@@ -121,8 +121,6 @@ class ItemsController extends AppController
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
-        $this->viewBuilder()->layout('items'); // New in 3.1
-        // or
-        //$this->layout = 'admin'; // Before 3.1
+        $this->viewBuilder()->layout('items'); 
     }
 }

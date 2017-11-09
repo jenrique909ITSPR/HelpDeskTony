@@ -494,30 +494,47 @@ ul.pagination li {
 }
 
 /*  */
-
+.navleft {
+    width: 180px;
+}
 .side-nav {
     display: block;
     font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     list-style-position: outside;
     list-style-type: none;
     margin: 0;
-    padding: 0.875rem 0
-}
+    padding: 0.875rem 0;
 
+}
 .side-nav li {
     font-size: 0.875rem;
     font-weight: normal;
-    margin: 0 0 0.4375rem 0;
-    float: left;
+    margin: 1px 0;
+    /*float: left;*/
 }
 
-.side-nav li a:not(.button) {
-    color: #008CBA;
+.side-nav li a {
+    color: #999;
+    font-weight: bold;
+    text-decoration: none;
     display: block;
-    margin: 0;
-    padding: 0.4375rem 0.875rem
+    margin: 0 0;
+    padding: .6rem .5rem;
+    border-left: 3px solid #CCC;
+    background: #EEE;
+    /*-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;*/
 }
-
+.side-nav li a:hover {
+  background: #DDD;
+  color: #000;
+  border-left: 3px solid #337AB7;
+}
+.side-nav li a:active {
+  color: #000;
+}
+/*
 .side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
     background: rgba(0, 0, 0, 0.025);
     color: #1cc7ff
@@ -531,7 +548,7 @@ ul.pagination li {
     color: #1cc7ff;
     font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     font-weight: normal
-}
+}*/
 
 .side-nav li.divider {
     border-top: 1px solid;
@@ -543,9 +560,12 @@ ul.pagination li {
 
 .side-nav li.heading {
     color: #008CBA;
-    font-size: 0.875rem;
-    font-weight: bold;
-    text-transform: uppercase
+    font-size: 1.1rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    clear:both;
+    margin: 5px 0 0 3px;
+    /*border-bottom: 1px solid #ccc;*/
 }
 
 fieldset {
