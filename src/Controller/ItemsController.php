@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+
 /**
  * Items Controller
  *
@@ -20,6 +21,7 @@ class ItemsController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->layout("items");
         $this->paginate = [
             'contain' => ['Itemcategories', 'Currencies', 'Brands']
         ];
