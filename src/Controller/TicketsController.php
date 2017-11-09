@@ -100,10 +100,7 @@ class TicketsController extends AppController
             'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles','ParentTickets','ChildTickets']
             ]);
         }
-
-
-
-
+        $this->dataOptions();
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
     }
@@ -125,18 +122,8 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
         }
-        $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
-        $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
-        $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
-        $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
-        $users = $this->Tickets->Users->find('list', ['limit' => 200]);
-        $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
-        $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
-        $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
-        $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
-        $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
-        $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
+        $this->set('ticket', $ticket);
+        $this->dataOptions();
         $this->set('_serialize', ['ticket']);
     }
 
@@ -161,18 +148,8 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('Error al actualizar datos'));
         }
-        $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
-        $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
-        $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
-        $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
-        $users = $this->Tickets->Users->find('list', ['limit' => 200]);
-        $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
-        $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
-        $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
-        $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
-        $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
-        $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
+        $this->set('ticket', $ticket);
+        $this->dataOptions();
         $this->set('_serialize', ['ticket']);
     }
 
@@ -216,18 +193,8 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('No se puede clonar :('));
         }
-        $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
-        $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
-        $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
-        $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
-        $users = $this->Tickets->Users->find('list', ['limit' => 200]);
-        $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
-        $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
-        $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
-        $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
-        $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
-        $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
+        $this->set('ticket', $ticket);
+        $this->dataOptions();
         $this->set('_serialize', ['ticket']);
 
 
@@ -284,11 +251,25 @@ class TicketsController extends AppController
                 'render' => 'browser',
             ]]);
     }
-
+    public function dataOptions()
+    {
+      $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
+      $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
+      $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
+      $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
+      $users = $this->Tickets->Users->find('list', ['limit' => 200]);
+      $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
+      $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
+      $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
+      $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
+      $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
+      $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
+      $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
+    }
 
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
-        $this->viewBuilder()->layout('tickets'); 
+        $this->viewBuilder()->layout('tickets');
     }
 
 }
