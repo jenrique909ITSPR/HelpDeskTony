@@ -70,6 +70,7 @@ class ComposerStaticInit26cfc32dc4f9cb5242c06940027c8322
         ),
         'C' => 
         array (
+            'CsvView\\' => 8,
             'Composer\\Spdx\\' => 14,
             'Composer\\Semver\\' => 16,
             'Composer\\CaBundle\\' => 18,
@@ -196,6 +197,10 @@ class ComposerStaticInit26cfc32dc4f9cb5242c06940027c8322
         'DebugKit\\' => 
         array (
             0 => __DIR__ . '/..' . '/cakephp/debug_kit/src',
+        ),
+        'CsvView\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofcake/cakephp-csvview/src',
         ),
         'Composer\\Spdx\\' => 
         array (

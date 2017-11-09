@@ -219,3 +219,4 @@ if (Configure::read('debug')) {
 
 Plugin::load('Tony', ['bootstrap' => false, 'routes' => true]);
 Plugin::load('Dompdf');
+Plugin::load('CsvView');

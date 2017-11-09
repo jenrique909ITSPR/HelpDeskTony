@@ -98,13 +98,13 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
-        
+
         if (is_null($this->request->session()->read('Auth.User.id'))){
 
         }else{
             $connection = ConnectionManager::get('default');
         $results = $connection->execute('
-                        select count(t.tickettype_id)as total,t.tickettype_id,tt.name,tt.rank,tt.color 
+                        select count(t.tickettype_id)as total,t.tickettype_id,tt.name,tt.rank,tt.color
             from tickets t inner join tickettypes tt on t.tickettype_id = tt.id INNER join ticketstatuses ts
             on ts.id = t.ticket_status_id
             where t.user_id ='.
@@ -118,12 +118,9 @@ class AppController extends Controller
             .' and ts.value_order=1 and ts.id = t.ticket_status_id
             )GROUP by id  order by rank ASC;
             ')->fetchAll('assoc');
-               
+
         $this->set('ticketrows', $results);
         }
-    }   
-
-
-
+    }
 
 }

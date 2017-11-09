@@ -32,6 +32,7 @@ return array(
     'JsonSchema\\' => array($vendorDir . '/justinrainbow/json-schema/src/JsonSchema'),
     'DebugKit\\Test\\Fixture\\' => array($vendorDir . '/cakephp/debug_kit/tests/Fixture'),
     'DebugKit\\' => array($vendorDir . '/cakephp/debug_kit/src'),
+    'CsvView\\' => array($vendorDir . '/friendsofcake/cakephp-csvview/src'),
     'Composer\\Spdx\\' => array($vendorDir . '/composer/spdx-licenses/src'),
     'Composer\\Semver\\' => array($vendorDir . '/composer/semver/src'),
     'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
