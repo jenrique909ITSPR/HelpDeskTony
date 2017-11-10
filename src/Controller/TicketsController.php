@@ -26,25 +26,31 @@ class TicketsController extends AppController
      * @return \Cake\Http\Response|void
      */
 
-     public function favorite($id = null){
-       $ticket = $this->Tickets->get($id, [
-           'contain' => []
-       ]);
-       $Ticketfavourites = TableRegistry::get('Ticketmarkeds');
-       $ticketfavs =  $Ticketfavourites->newEntity();
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Filters');
+    }
+
+    public function favorite($id = null){
+    $ticket = $this->Tickets->get($id, [
+       'contain' => []
+    ]);
+    $Ticketfavourites = TableRegistry::get('Ticketmarkeds');
+    $ticketfavs =  $Ticketfavourites->newEntity();
 
 
 
-       $ticketfavs->ticket_id= $ticket->id;
-       $ticketfavs->user_id= $this->request->session()->read('Auth.User.id');
+    $ticketfavs->ticket_id= $ticket->id;
+    $ticketfavs->user_id= $this->request->session()->read('Auth.User.id');
 
-       if ($Ticketfavourites->save($ticketfavs)) {
-        // The $article entity contains the id now
-        $id = $ticketfavs->id;
-      }
-      return $this->redirect(['controller' => 'Ticketmarkeds', 'action' => 'index']);
+    if ($Ticketfavourites->save($ticketfavs)) {
+    // The $article entity contains the id now
+    $id = $ticketfavs->id;
+    }
+    return $this->redirect(['controller' => 'Ticketmarkeds', 'action' => 'index']);
 
-     }
+    }
 
     public function index($id = null)
     {
@@ -54,7 +60,6 @@ class TicketsController extends AppController
              ;
 
              $this->set('tickets', $this->paginate($query));
-
 
         }else{
             $query = $this->Tickets->find('all')->where(['tickettype_id' => $id , 'user_id' => $this->request->session()->read('Auth.User.id') ])
@@ -241,7 +246,7 @@ class TicketsController extends AppController
 
     }
 
-      public function print($filename=null)
+    public function print($filename=null)
     {
         $this->viewBuilder()
             ->className('Dompdf.Pdf')
@@ -251,6 +256,7 @@ class TicketsController extends AppController
                 'render' => 'browser',
             ]]);
     }
+
     public function dataOptions()
     {
       $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
@@ -273,13 +279,12 @@ class TicketsController extends AppController
     }
 
     public function exportcsv($id=null){
-
 		$this->response->download('export.csv');
 		$data = $this->Tickets->find('all')->toArray();
 		$_serialize = 'data';
    		$this->set(compact('data', '_serialize'));
 		$this->viewBuilder()->className('CsvView.Csv');
 		return;
- }
+    }  
 
 }
