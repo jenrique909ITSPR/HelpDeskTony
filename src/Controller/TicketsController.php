@@ -4,11 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
-use Dompdf\Adapter\CPDF;
-use Dompdf\Dompdf;
-use Dompdf\Exception;
 use Cake\Core\Configure;
-use Dompdf\Options;
 
 /**
  * Tickets Controller
@@ -246,16 +242,7 @@ class TicketsController extends AppController
 
     }
 
-    public function print($filename=null)
-    {
-        $this->viewBuilder()
-            ->className('Dompdf.Pdf')
-            ->layout('Dompdf.default')
-            ->options(['config' => [
-                'filename' => $filename,
-                'render' => 'browser',
-            ]]);
-    }
+
 
     public function dataOptions()
     {
@@ -278,13 +265,6 @@ class TicketsController extends AppController
         $this->viewBuilder()->layout('tickets');
     }
 
-    public function exportcsv($id=null){
-		$this->response->download('export.csv');
-		$data = $this->Tickets->find('all')->toArray();
-		$_serialize = 'data';
-   		$this->set(compact('data', '_serialize'));
-		$this->viewBuilder()->className('CsvView.Csv');
-		return;
-    }  
+
 
 }

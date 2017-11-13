@@ -42,7 +42,7 @@ use Cake\Routing\Route\DashedRoute;
  *
  */
 Router::defaultRouteClass(DashedRoute::class);
-Router::extensions(['pdf', 'xml']);
+
 
 Router::scope('/', function (RouteBuilder $routes) {
     /**
@@ -52,8 +52,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
-    $routes->extensions(['pdf']);
-    
+
+
     $routes->connect('/', ['controller' => 'Users', 'action' => 'login', 'view']);
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
