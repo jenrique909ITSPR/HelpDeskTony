@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Branchgroup[]|\Cake\Collection\CollectionInterface $branchgroups
-  */
+  * @var \App\Model\Entity\Branchgroup[]|\Cake\Collection\CollectionInterface $branchgroups  */
 ?>
 
 <div class="branchgroups index">
@@ -17,6 +16,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -25,6 +25,7 @@
             <tr>
                 <td><?= $this->Number->format($branchgroup->id) ?></td>
                 <td><?= h($branchgroup->name) ?></td>
+                <td><?= $branchgroup->has('user') ? $this->Html->link($branchgroup->user->name, ['controller' => 'Users', 'action' => 'view', $branchgroup->user->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $branchgroup->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $branchgroup->id]) ?>
@@ -50,6 +51,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Branchgroup'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Branches'), ['controller' => 'Branches', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Branch'), ['controller' => 'Branches', 'action' => 'add']) ?></li>
     </ul>

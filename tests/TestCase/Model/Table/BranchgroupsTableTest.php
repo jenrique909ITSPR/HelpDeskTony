@@ -12,10 +12,8 @@ class BranchgroupsTableTest extends TestCase
 {
 
     /**
-     * Test subject
-     *
-     * @var \App\Model\Table\BranchgroupsTable
-     */
+     * Test subject     *
+     * @var \App\Model\Table\BranchgroupsTable     */
     public $Branchgroups;
 
     /**
@@ -25,30 +23,33 @@ class BranchgroupsTableTest extends TestCase
      */
     public $fixtures = [
         'app.branchgroups',
+        'app.users',
+        'app.positionbranches',
         'app.branches',
         'app.layouts',
         'app.positions',
-        'app.positionbranches',
-        'app.itemcodes',
-        'app.items',
-        'app.itemcategories',
         'app.layoutcategories',
+        'app.itemcategories',
+        'app.items',
         'app.currencies',
         'app.brands',
+        'app.itemcodes',
+        'app.invoices',
+        'app.suppliers',
+        'app.statusitems',
         'app.stockmoves_details',
         'app.stockmoves',
         'app.warehouses',
         'app.stocks',
         'app.movereasons',
         'app.movereasontemplates',
-        'app.users',
-        'app.statususers',
-        'app.groups',
-        'app.ticketlogs',
+        'app.shippers',
         'app.tickets',
         'app.tickettypes',
         'app.ticket_statuses',
         'app.sources',
+        'app.groups',
+        'app.ticketlogs',
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
@@ -57,13 +58,12 @@ class BranchgroupsTableTest extends TestCase
         'app.articlefiles',
         'app.roles',
         'app.articles_roles',
+        'app.hdtemplate',
         'app.internalnotes',
         'app.publicnotes',
+        'app.ticketmarkeds',
         'app.ticketsfiles',
-        'app.shippers',
-        'app.invoices',
-        'app.suppliers',
-        'app.statusitems'
+        'app.statususers'
     ];
 
     /**
@@ -74,9 +74,7 @@ class BranchgroupsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Branchgroups') ? [] : ['className' => BranchgroupsTable::class];
-        $this->Branchgroups = TableRegistry::get('Branchgroups', $config);
-    }
+        $config = TableRegistry::exists('Branchgroups') ? [] : ['className' => BranchgroupsTable::class];        $this->Branchgroups = TableRegistry::get('Branchgroups', $config);    }
 
     /**
      * tearDown method
@@ -106,6 +104,16 @@ class BranchgroupsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Branchgroup $branchgroup
-  */
+  * @var \App\Model\Entity\Branchgroup $branchgroup  */
 ?>
 
 <div class="branchgroups view">
@@ -20,6 +19,10 @@
         <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($branchgroup->name) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('User') ?></th>
+            <td><?= $branchgroup->has('user') ? $this->Html->link($branchgroup->user->name, ['controller' => 'Users', 'action' => 'view', $branchgroup->user->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -68,6 +71,8 @@
         <li><?= $this->Form->postLink(__('Delete Branchgroup'), ['action' => 'delete', $branchgroup->id], ['confirm' => __('Are you sure you want to delete # {0}?', $branchgroup->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Branchgroups'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Branchgroup'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Branches'), ['controller' => 'Branches', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Branch'), ['controller' => 'Branches', 'action' => 'add']) ?> </li>
     </ul>
