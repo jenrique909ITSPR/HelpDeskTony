@@ -11,7 +11,7 @@
 			<li><?= $this->Html->link(__('List Tickets'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($ticket) ?>
         <?php
@@ -34,7 +34,7 @@
             echo $this->Form->control('hdcategory_id', ['options' => $hdcategories, 'empty' => true]);
             echo $this->Form->control('ip');
         ?>
-	
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>

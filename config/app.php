@@ -180,11 +180,11 @@ return [
         'default' => [
             'className' => 'Mail',
             // The following keys are used in SMTP transports
-            'host' => 'localhost',
+            'host' => 'mail.tony.mx',
             'port' => 25,
             'timeout' => 30,
-            'username' => 'user',
-            'password' => 'secret',
+            'username' => 'portal-ti@tony.mx',
+            'password' => 'TonyPti$A&S3D',
             'client' => null,
             'tls' => null,
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
@@ -203,7 +203,7 @@ return [
     'Email' => [
         'default' => [
             'transport' => 'default',
-            'from' => 'you@localhost',
+            'from' => 'portal-ti@tony.mx',
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
         ],
@@ -347,7 +347,8 @@ return [
 
      'Session' => [
          'defaults' => 'php',
-
+         'cookie' => 'PortalTI',
+         'timeout' => 1440
      ]
 
 ];

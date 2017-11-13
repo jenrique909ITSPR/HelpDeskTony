@@ -165,7 +165,7 @@ img {
 }
 
 .index, .view, .edit {
-    clear: both;
+    /*clear: both;*/
 }
 
 .view, .edit {
@@ -218,7 +218,7 @@ h3 {
     margin-top: 0.2rem;
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
-    clear: both;
+    /*clear: both;*/
 }
 
 h3 span {
@@ -237,7 +237,7 @@ div.actions a {
     margin-bottom: 5px;
     font-size: 0.875rem;
     font-weight: normal;
-    padding: 3px 8px;
+    padding: 4px 8px 3px 8px;
     background: #dcdcdc;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
     background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
@@ -273,7 +273,7 @@ table {
     border: solid 1px #ddd;
     /*margin-bottom: 1.25rem;*/
     table-layout: auto;
-    clear: both;
+    /*clear: both;*/
 }
 
 /*
@@ -373,19 +373,19 @@ table thead tr th, table tfoot tr th, table tfoot tr td, table tbody tr th, tabl
     border-right: 1px solid #DDD;
     /*padding: 3px;*/
     background: #dcdcdc;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
-    background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
-    background-image: -moz-linear-gradient(top, #fefefe, #dcdcdc);
-    background-image: -ms-linear-gradient(top, #fefefe, #dcdcdc);
-    background-image: -o-linear-gradient(top, #fefefe, #dcdcdc);
-    background-image: linear-gradient(top, #fefefe, #dcdcdc);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#c9c9c9));
+    background-image: -webkit-linear-gradient(top, #f2f2f2, #c9c9c9);
+    background-image: -moz-linear-gradient(top, #f2f2f2, #c9c9c9);
+    background-image: -ms-linear-gradient(top, #f2f2f2, #c9c9c9);
+    background-image: -o-linear-gradient(top, #f2f2f2, #c9c9c9);
+    background-image: linear-gradient(top, #f2f2f2, #c9c9c9);
 }
 
 /* Buttons Datagrid */
 
 td.actions a {
     font-weight: normal;
-    padding: 3px 8px;
+    padding: 4px 8px 3px 8px;
     background: #dcdcdc;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
     background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
@@ -493,9 +493,16 @@ ul.pagination li {
     float: none
 }
 
-/*  */
+/* Admin */
 .navleft {
     width: 180px;
+    float: left;
+    /*height: 400px;
+    overflow: auto;*/
+}
+#contentAjax {
+  margin-left: 200px;
+  padding: 40px 0 40px 0;
 }
 .side-nav {
     display: block;
@@ -503,7 +510,7 @@ ul.pagination li {
     list-style-position: outside;
     list-style-type: none;
     margin: 0;
-    padding: 0.875rem 0;
+    padding: 0 0;
 
 }
 .side-nav li {
@@ -567,6 +574,8 @@ ul.pagination li {
     margin: 5px 0 0 3px;
     /*border-bottom: 1px solid #ccc;*/
 }
+
+
 
 fieldset {
     clear: both;
@@ -847,7 +856,7 @@ label.error {
 
 #logo {
     font-size: 1.5em;
-    padding: 7px 10px 5px 0px;
+    padding: 7px 10px 5px 10px;
     color: #FFF;
 }
 
@@ -871,13 +880,95 @@ label.error {
     z-index: 9999;
 }
 
-#mainmenu {
+/* Main menu */
+.dropdownmenu ul, .dropdownmenu li {
+	margin: 0;
+	padding: 0;
+}
+.dropdownmenu ul {
+	background: gray;
+	list-style: none;
+}
+.dropdownmenu li {
+	float: left;
+	position: relative;
+	width:auto;
+}
+.dropdownmenu a {
+	background: #337AB7;
+  color: #FFFFFF;
+	display: block;
+  font-size: 1.8em;
+  padding: 5px 10px 4px 10px;
+	text-align: left;
+  text-decoration: none;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+.dropdownmenu li:hover a {
+	background: #000000;
+}
+#submenu {
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 35px;
+	visibility: hidden;
+	z-index: 1;
+  width: 180px;
+}
+li:hover ul#submenu {
+	opacity: 1;
+	top: 41px;	/* adjust this as per top nav padding top & bottom comes */
+	visibility: visible;
+}
+#submenu li {
+	float: none;
+	width: 100%;
+}
+#submenu a:hover {
+	background: #DF4B05;
+}
+#submenu a {
+	background-color:#000000;
+  font: bold 12px/20px sans-serif;
+}
+#submenu a i {
+  font-size: 1.3rem;
+  padding: 5px 10px 5px 0;
+  width: 30px;
+}
+.submenu2 {
+  left: 180px;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	z-index: 2;
+  width: 180px;
+}
+#submenu li:hover ul.submenu2 {
+	opacity: 1;
+	top: 0;
+	visibility: visible;
+}
+.iconmenu {
+  float: left;
+  width: 30px;
+}
+.headernav i {
+  width: 25px;
+}
+/*#mainmenu {
     font-size: 1.8em;
     background: #337AB7;
     padding: 5px 10px 4px 10px;
     color: #FFF;
     margin-right: 10px;
-}
+}*/
 
 /* AppNav */
 
@@ -1194,4 +1285,15 @@ ul.topnavPageR li a:hover {
 h4 {
     font-weight: bold;
     padding: 10px 10px;
+}
+
+.loading {
+  text-align: center;
+  /*background: rgba(242, 242, 242, 0.5);*/
+  /*background: url("../img/loading.gif") center 20px no-repeat;
+  padding: 100px 20px 20px 20px;*/
+  z-index: 1400;
+}
+.loading:after {
+    content: "Cargando contenido ... Por favor espere";
 }

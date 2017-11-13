@@ -17,16 +17,13 @@ class BranchgroupsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Users']
-        ];
-        $branchgroups = $this->paginate($this->Branchgroups);
+     public function index()
+     {
+         $branchgroups = $this->paginate($this->Branchgroups);
 
-        $this->set(compact('branchgroups'));
-        $this->set('_serialize', ['branchgroups']);
-    }
+         $this->set(compact('branchgroups'));
+         $this->set('_serialize', ['branchgroups']);
+     }
 
     /**
      * View method
@@ -74,24 +71,23 @@ class BranchgroupsController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
-        $branchgroup = $this->Branchgroups->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $branchgroup = $this->Branchgroups->patchEntity($branchgroup, $this->request->getData());
-            if ($this->Branchgroups->save($branchgroup)) {
-                $this->Flash->success(__('The branchgroup has been saved.'));
+     public function edit($id = null)
+     {
+         $branchgroup = $this->Branchgroups->get($id, [
+             'contain' => []
+         ]);
+         if ($this->request->is(['patch', 'post', 'put'])) {
+             $branchgroup = $this->Branchgroups->patchEntity($branchgroup, $this->request->getData());
+             if ($this->Branchgroups->save($branchgroup)) {
+                 $this->Flash->success(__('The branchgroup has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The branchgroup could not be saved. Please, try again.'));
-        }
-        $users = $this->Branchgroups->Users->find('list', ['limit' => 200]);
-        $this->set(compact('branchgroup', 'users'));
-        $this->set('_serialize', ['branchgroup']);
-    }
+                 return $this->redirect(['action' => 'index']);
+             }
+             $this->Flash->error(__('The branchgroup could not be saved. Please, try again.'));
+         }
+         $this->set(compact('branchgroup'));
+         $this->set('_serialize', ['branchgroup']);
+     }
 
     /**
      * Delete method

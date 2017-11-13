@@ -10,7 +10,7 @@
     <h3><?= __('Tickets') ?></h3>
     <div class="actions">
         <ul>
-            <li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('New Ticket'), ['action' => 'add'], ['escape' => false]) ?></li>
         </ul>
     </div>
 

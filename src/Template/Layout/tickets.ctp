@@ -3,7 +3,7 @@
   <div id="topnav" class="clear">
 
     <div id="appName" class="left">
-          <a><?= $this->HTML->link('Tickets',['controller'=>'Tickets','action'=>'index']);?></a>
+          <?= $this->HTML->link('Tickets',['controller'=>'Tickets','action'=>'index']);?>
     </div>
 
     <div class="left">

@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Tickettypes Controller
@@ -43,7 +44,7 @@ class TickettypesController extends AppController
 
         $this->set('tickettype', $tickettype);
         $this->set('_serialize', ['tickettype']);
-        
+
     }
 
     /**
@@ -111,4 +112,6 @@ class TickettypesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
 }

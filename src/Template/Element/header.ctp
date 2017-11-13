@@ -44,14 +44,62 @@ $cakeDescription = 'Portal TI';
 <body>
 
 <div id="header">
-  <div id="mainmenu" class="left"><i class="fa fa-bars" aria-hidden="true"></i></div>
+  <!--<div id="mainmenu" class="left"><i class="fa fa-bars" aria-hidden="true"></i></div>-->
+  <nav class="dropdownmenu left">
+    <ul>
+      <li><a href="#"><i class='fa fa-bars' aria-hidden='true'></i></a>
+        <ul id="submenu">
+          <li><a href="#"><i class='fa fa-life-ring' aria-hidden='true'></i><?= __('HelpDesk') ?></a>
+            <ul class="submenu2">
+              <li><?= $this->Html->link("<i class='fa fa-ticket' aria-hidden='true'></i>" . __('Tickets'), ['controller' => 'Tickets', 'action' => 'index'], ['escape' => false]) ?></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class='fa fa-graduation-cap' aria-hidden='true'></i><?= __('Knowledge') ?></a>
+            <ul class="submenu2">
+              <li><?= $this->Html->link("<i class='fa fa-book' aria-hidden='true'></i>" . __('Articles'), ['controller' => 'Articles', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-folder-open' aria-hidden='true'></i>" . __('Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index'], ['escape' => false]) ?></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class='fa fa-cubes' aria-hidden='true'></i><?= __('Inventory') ?></a>
+            <ul class="submenu2">
+              <li><?= $this->Html->link("<i class='fa fa-cube' aria-hidden='true'></i>" . __('Items'), ['controller' => 'Items', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-folder' aria-hidden='true'></i>" . __('Itemcategories'), ['controller' => 'Itemcategories', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-trademark' aria-hidden='true'></i>" . __('Brands'), ['controller' => 'Brands', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-home' aria-hidden='true'></i>" . __('Warehouses'), ['controller' => 'Warehouses', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-truck' aria-hidden='true'></i>" . __('Shippers'), ['controller' => 'Shippers', 'action' => 'index'], ['escape' => false]) ?></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class='fa fa-shopping-cart' aria-hidden='true'></i><?= __('Purchases') ?></a>
+            <ul class="submenu2">
+            <li><?= $this->Html->link("<i class='fa fa-handshake-o' aria-hidden='true'></i>" . __('Suppliers'), ['controller' => 'Suppliers', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-file-text-o' aria-hidden='true'></i>" . __('Invoices'), ['controller' => 'Invoices', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-money' aria-hidden='true'></i>" . __('Currencies'), ['controller' => 'Currencies', 'action' => 'index'], ['escape' => false]) ?></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class='fa fa-building-o' aria-hidden='true'></i><?= __('Branches') ?></a>
+            <ul class="submenu2">
+              <li><?= $this->Html->link("<i class='fa fa-home' aria-hidden='true'></i>" . __('Branches'), ['controller' => 'Branches', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-object-group' aria-hidden='true'></i>" . __('Branchgroups'), ['controller' => 'Branchgroups', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-map' aria-hidden='true'></i>" . __('Layouts'), ['controller' => 'Layouts', 'action' => 'index'], ['escape' => false]) ?></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class='fa fa-cogs' aria-hidden='true'></i><?= __('System') ?></a>
+            <ul class="submenu2">
+              <li><?= $this->Html->link("<i class='fa fa-desktop' aria-hidden='true'></i>" . __('Preferences'), ['controller' => 'Pages', 'action' => 'admin'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-cog' aria-hidden='true'></i>" . __('Administration'), ['controller' => 'Pages', 'action' => 'admin'], ['escape' => false]) ?></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
   <div id="logo" class="left">PORTAL TI</div>
   <div class="right">
     <ul class="headernav">
-      <li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i> (13)</a></li>
-      <li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i> ' . __('KNOWLEDGE'), ['controller' => 'Articles', 'action' => 'index'], ['escape' => false]) ?></li>
-      <li><a href=""><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $this->request->session()->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name'); ?></a></li>
-        <li><?= $this->Html->link(__('Salir'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+      <li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i>(13)</a></li>
+      <li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i>' . __('Knowledge'), ['controller' => 'Articles', 'action' => 'index'], ['escape' => false]) ?></li>
+      <li><?= $this->Html->link("<i class='fa fa-user-circle' aria-hidden='true'></i>" . $this->request->session()->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')], ['escape' => false]) ?></li>
+      <li><?= $this->Html->link("<i class='fa fa-power-off' aria-hidden='true'></i>" . __('Logout'), ['controller' => 'Users', 'action' => 'logout'], ['escape' => false]) ?></li>
     </ul>
   </div>
 </div>
