@@ -6,8 +6,7 @@ use App\Controller\AppController;
 /**
  * Branchgroups Controller
  *
- * @property \App\Model\Table\BranchgroupsTable $Branchgroups
- *
+ * @property \App\Model\Table\BranchgroupsTable $Branchgroups *
  * @method \App\Model\Entity\Branchgroup[] paginate($object = null, array $settings = [])
  */
 class BranchgroupsController extends AppController
@@ -20,6 +19,9 @@ class BranchgroupsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Users']
+        ];
         $branchgroups = $this->paginate($this->Branchgroups);
 
         $this->set(compact('branchgroups'));
@@ -36,7 +38,7 @@ class BranchgroupsController extends AppController
     public function view($id = null)
     {
         $branchgroup = $this->Branchgroups->get($id, [
-            'contain' => ['Branches']
+            'contain' => ['Users', 'Branches']
         ]);
 
         $this->set('branchgroup', $branchgroup);
@@ -60,7 +62,8 @@ class BranchgroupsController extends AppController
             }
             $this->Flash->error(__('The branchgroup could not be saved. Please, try again.'));
         }
-        $this->set(compact('branchgroup'));
+        $users = $this->Branchgroups->Users->find('list', ['limit' => 200]);
+        $this->set(compact('branchgroup', 'users'));
         $this->set('_serialize', ['branchgroup']);
     }
 
@@ -85,7 +88,8 @@ class BranchgroupsController extends AppController
             }
             $this->Flash->error(__('The branchgroup could not be saved. Please, try again.'));
         }
-        $this->set(compact('branchgroup'));
+        $users = $this->Branchgroups->Users->find('list', ['limit' => 200]);
+        $this->set(compact('branchgroup', 'users'));
         $this->set('_serialize', ['branchgroup']);
     }
 

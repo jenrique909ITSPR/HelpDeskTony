@@ -8,10 +8,11 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
+ * @property int $user_id
  *
+ * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Branch[] $branches
- */
-class Branchgroup extends Entity
+ */class Branchgroup extends Entity
 {
 
     /**
