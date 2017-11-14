@@ -20,6 +20,8 @@ class PositionsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $positions = $this->paginate($this->Positions);
 
         $this->set(compact('positions'));

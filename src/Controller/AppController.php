@@ -46,6 +46,9 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
 
+    var $limit_data = 50;
+
+
     public function initialize()
     {
        $this->loadComponent('Flash');

@@ -20,6 +20,8 @@ class StatususersController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $statususers = $this->paginate($this->Statususers);
 
         $this->set(compact('statususers'));

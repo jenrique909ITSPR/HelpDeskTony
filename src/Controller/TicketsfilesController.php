@@ -22,6 +22,7 @@ class TicketsfilesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Tickets']
+            ,'limit' => $this->limit_data
         ];
         $ticketsfiles = $this->paginate($this->Ticketsfiles);
 

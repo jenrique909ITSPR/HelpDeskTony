@@ -22,6 +22,7 @@ class MovereasontemplatesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Users', 'Movereasons']
+            ,'limit' => $this->limit_data
         ];
         $movereasontemplates = $this->paginate($this->Movereasontemplates);
 

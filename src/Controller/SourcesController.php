@@ -20,6 +20,8 @@ class SourcesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $sources = $this->paginate($this->Sources);
 
         $this->set(compact('sources'));

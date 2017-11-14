@@ -22,6 +22,7 @@ class PublicnotesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Tickets', 'Users']
+            ,'limit' => $this->limit_data
         ];
         $publicnotes = $this->paginate($this->Publicnotes);
 

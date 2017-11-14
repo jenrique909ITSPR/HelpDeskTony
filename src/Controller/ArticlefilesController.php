@@ -22,6 +22,7 @@ class ArticlefilesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Articles']
+            ,'limit' => $this->limit_data
         ];
         $articlefiles = $this->paginate($this->Articlefiles);
 

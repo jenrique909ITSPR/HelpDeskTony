@@ -20,6 +20,8 @@ class StatusitemsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $statusitems = $this->paginate($this->Statusitems);
 
         $this->set(compact('statusitems'));

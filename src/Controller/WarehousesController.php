@@ -22,6 +22,7 @@ class WarehousesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Branches']
+            ,'limit' => $this->limit_data
         ];
         $warehouses = $this->paginate($this->Warehouses);
 

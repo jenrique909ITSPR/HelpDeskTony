@@ -20,6 +20,8 @@ class BrandsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $brands = $this->paginate($this->Brands);
 
         $this->set(compact('brands'));

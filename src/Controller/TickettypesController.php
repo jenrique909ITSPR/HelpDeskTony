@@ -20,6 +20,8 @@ class TickettypesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $tickettypes = $this->paginate($this->Tickettypes);
 
         $this->set(compact('tickettypes'));

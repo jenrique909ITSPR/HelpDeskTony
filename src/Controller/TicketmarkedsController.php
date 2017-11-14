@@ -21,6 +21,7 @@ class TicketmarkedsController extends AppController
     {
         $this->paginate = [
             'contain' => ['Users', 'Tickets']
+            ,'limit' => $this->limit_data
         ];
         $ticketmarkeds = $this->paginate($this->Ticketmarkeds);
 

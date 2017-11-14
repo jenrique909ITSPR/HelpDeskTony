@@ -22,6 +22,7 @@ class ItemcategoriesController extends AppController
     {
         $this->paginate = [
             'contain' => ['ParentItemcategories']
+            ,'limit' => $this->limit_data
         ];
         $itemcategories = $this->paginate($this->Itemcategories);
 

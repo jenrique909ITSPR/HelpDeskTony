@@ -66,6 +66,7 @@ public function logout()
        $this->set('users', $this->Users->find('all'));
         $this->paginate = [
             'contain' => ['Positionbranches', 'Statususers', 'Groups', 'Roles']
+            ,'limit' => $this->limit_data
         ];
         $users = $this->paginate($this->Users);
 

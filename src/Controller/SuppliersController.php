@@ -20,6 +20,8 @@ class SuppliersController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $suppliers = $this->paginate($this->Suppliers);
 
         $this->set(compact('suppliers'));

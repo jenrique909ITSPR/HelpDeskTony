@@ -23,6 +23,7 @@ class ItemsController extends AppController
     {
         $this->paginate = [
             'contain' => ['Itemcategories', 'Currencies', 'Brands']
+            ,'limit' => $this->limit_data
         ];
         $items = $this->paginate($this->Items);
 

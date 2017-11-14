@@ -22,6 +22,7 @@ class ArticlesRolesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Articles', 'Roles']
+            ,'limit' => $this->limit_data
         ];
         $articlesRoles = $this->paginate($this->ArticlesRoles);
 

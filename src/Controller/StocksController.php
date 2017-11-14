@@ -22,6 +22,7 @@ class StocksController extends AppController
     {
         $this->paginate = [
             'contain' => ['Warehouses', 'Items']
+            ,'limit' => $this->limit_data
         ];
         $stocks = $this->paginate($this->Stocks);
 

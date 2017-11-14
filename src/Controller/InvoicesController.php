@@ -22,6 +22,7 @@ class InvoicesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Suppliers']
+            ,'limit' => $this->limit_data
         ];
         $invoices = $this->paginate($this->Invoices);
 

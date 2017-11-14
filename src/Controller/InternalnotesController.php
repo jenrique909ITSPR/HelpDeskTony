@@ -22,6 +22,7 @@ class InternalnotesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Tickets', 'Users']
+            ,'limit' => $this->limit_data
         ];
         $internalnotes = $this->paginate($this->Internalnotes);
 

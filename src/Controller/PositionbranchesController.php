@@ -22,6 +22,7 @@ class PositionbranchesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Branches', 'Positions']
+            ,'limit' => $this->limit_data
         ];
         $positionbranches = $this->paginate($this->Positionbranches);
 

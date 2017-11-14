@@ -22,6 +22,7 @@ class HdtemplateController extends AppController
     {
         $this->paginate = [
             'contain' => ['Hdcategories']
+            ,'limit' => $this->limit_data
         ];
         $hdtemplate = $this->paginate($this->Hdtemplate);
 

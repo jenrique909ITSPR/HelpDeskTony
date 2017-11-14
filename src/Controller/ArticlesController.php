@@ -23,6 +23,7 @@ class ArticlesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Hdcategories', 'Users']
+            ,'limit' => $this->limit_data
         ];
         $articles = $this->paginate($this->Articles);
 
