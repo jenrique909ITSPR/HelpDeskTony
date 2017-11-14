@@ -19,7 +19,7 @@ $(document).ready(function(){
 });
 </script>
 
-<? $this->assign('title', 'Administration'); ?>
+<?php $this->assign('title', 'Administration'); ?>
 
 
 
