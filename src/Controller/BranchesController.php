@@ -22,6 +22,7 @@ class BranchesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Branchgroups']
+            ,'limit' => $this->limit_data
         ];
         $branches = $this->paginate($this->Branches);
 

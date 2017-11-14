@@ -22,6 +22,7 @@ class ItemcodesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Items', 'Invoices', 'Statusitems', 'Positionbranches']
+            ,'limit' => $this->limit_data
         ];
         $itemcodes = $this->paginate($this->Itemcodes);
 

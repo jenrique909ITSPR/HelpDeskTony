@@ -20,6 +20,8 @@ class GroupsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $groups = $this->paginate($this->Groups);
 
         $this->set(compact('groups'));

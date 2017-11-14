@@ -20,6 +20,8 @@ class HdcategoriesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $hdcategories = $this->paginate($this->Hdcategories);
 
         $this->set(compact('hdcategories'));

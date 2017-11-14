@@ -20,6 +20,8 @@ class CurrenciesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $currencies = $this->paginate($this->Currencies);
 
         $this->set(compact('currencies'));

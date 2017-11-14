@@ -22,6 +22,7 @@ class StockmovesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Warehouses', 'Movereasons', 'Shippers', 'Users']
+            ,'limit' => $this->limit_data
         ];
         $stockmoves = $this->paginate($this->Stockmoves);
 

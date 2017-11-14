@@ -22,6 +22,7 @@ class TicketlogsController extends AppController
     {
         $this->paginate = [
             'contain' => ['Tickets', 'Users', 'Groups']
+            ,'limit' => $this->limit_data
         ];
         $ticketlogs = $this->paginate($this->Ticketlogs);
 

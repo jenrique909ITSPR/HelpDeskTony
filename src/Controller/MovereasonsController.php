@@ -20,6 +20,8 @@ class MovereasonsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $movereasons = $this->paginate($this->Movereasons);
 
         $this->set(compact('movereasons'));

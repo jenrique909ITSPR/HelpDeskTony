@@ -18,7 +18,11 @@ $(document).ready(function(){
 
 });
 </script>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 70a3b784cfe20b92ce66d66949bed6bee5479a42
 <?php $this->assign('title', 'Administration'); ?>
 
 

@@ -22,6 +22,7 @@ class LayoutsController extends AppController
     {
         $this->paginate = [
             'contain' => ['Branches', 'Positions']
+            ,'limit' => $this->limit_data
         ];
         $layouts = $this->paginate($this->Layouts);
 

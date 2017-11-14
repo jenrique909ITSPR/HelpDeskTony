@@ -20,6 +20,8 @@ class ShippersController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'limit' => $this->limit_data ];
         $shippers = $this->paginate($this->Shippers);
 
         $this->set(compact('shippers'));

@@ -22,6 +22,7 @@ class LayoutcategoriesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Itemcategories', 'Layouts']
+            ,'limit' => $this->limit_data
         ];
         $layoutcategories = $this->paginate($this->Layoutcategories);
 
