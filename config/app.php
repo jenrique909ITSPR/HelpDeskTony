@@ -231,12 +231,7 @@ return [
              */
             //'port' => 'non_standard_port_number',
             'username' => 'cakephp',
-            /*'password' => 'cakephp',*/
-<<<<<<< HEAD
-			      'password' => 'cakephp',
-=======
-		    'password' => 'cakephp',
->>>>>>> 70a3b784cfe20b92ce66d66949bed6bee5479a42
+		        'password' => 'cakephp',
             'database' => 'activos_tickets',
             'encoding' => 'utf8',
             'timezone' => 'UTC',

@@ -6,7 +6,7 @@ if (!isset($params['escape']) || $params['escape'] !== false) {
  <script type="text/javascript">
  			mensaje= <?php echo '"'.$message.'"' ?>;
             $.messager.show({
-                title:'My Title',
+                title:'Mensaje',
                 msg: mensaje,
                 showType:'fade',
                 style:{
@@ -14,5 +14,5 @@ if (!isset($params['escape']) || $params['escape'] !== false) {
                     bottom:''
                 }
             });
-        
+
  </script>
