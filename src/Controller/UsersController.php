@@ -50,13 +50,13 @@ public function login()
             $this->Auth->setUser($user);
             return $this->redirect(['controller' => 'Tickets','action' => 'index']);
         }
-        $this->Flash->error('Your username or password is incorrect.');
+        $this->Flash->error_login('Your username or password is incorrect.');
         }
 }
 
 public function logout()
 {
-    $this->Flash->success('You are now logged out.');
+    $this->Flash->error_login('You are now logged out.');
         return $this->redirect($this->Auth->logout());
 }
 

@@ -1,7 +1,9 @@
 <div id="login">
-	<?= $this->Flash->render() ?>
+
 	<h1>PORTAL TI</h1>
 	<!--<div class="logo"></div>-->
+	<?= $this->Flash->render() ?>
+	
 	<?= $this->Form->create() ?>
 	<?= $this->Form->control('name') ?>
 	<?= $this->Form->control('password') ?>

@@ -43,7 +43,7 @@ $cakeDescription = 'TONI TI: HelpDesk & Asset Management';
 <body class="bglogin">
 
     <div id="login">
-		<?= $this->Flash->render() ?>
+		
         <?= $this->fetch('content') ?>
     </div>
 
