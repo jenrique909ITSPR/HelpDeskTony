@@ -161,7 +161,7 @@ img {
 /* NEW */
 
 .container {
-    padding: 10px 10px;
+    padding: 30px 10px 10px 10px;
 }
 
 .index, .view, .edit {
@@ -208,11 +208,11 @@ img {
 h3 {
     color: #2c6877;
     font-family: 'Gill Sans', 'lucida grande', helvetica, arial, sans-serif;
-    font-size: 160%;
+    font-size: 120%;
     margin-bottom: 0.5em;
     float: left;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     line-height: 1.4;
     margin-bottom: 0.5rem;
     margin-top: 0.2rem;
@@ -574,7 +574,10 @@ ul.pagination li {
     margin: 5px 0 0 3px;
     /*border-bottom: 1px solid #ccc;*/
 }
-
+.navleft i {
+  width: 20px;
+  text-align: center;
+}
 
 
 fieldset {
@@ -940,6 +943,7 @@ li:hover ul#submenu {
   font-size: 1.3rem;
   padding: 5px 10px 5px 0;
   width: 30px;
+  text-align: center;
 }
 .submenu2 {
   left: 180px;
@@ -955,10 +959,10 @@ li:hover ul#submenu {
 	top: 0;
 	visibility: visible;
 }
-.iconmenu {
+/*.iconmenu {
   float: left;
   width: 30px;
-}
+}*/
 .headernav i {
   width: 25px;
 }
@@ -1240,4 +1244,46 @@ h4 {
 }
 .loading:after {
     content: "Cargando contenido ... Por favor espere";
+}
+
+/* Filters */
+.boxContainer {
+	position: relative;
+}
+.myfilter {
+  list-style: none;
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+.myfilter li {
+  display:inline-block;
+}
+.myfilter li a {
+  display: block;
+  padding: 6px 10px;
+  width: 150px;
+	margin: 0px 0px;
+	border: none;
+  font-size: 0.9rem;
+	font-weight:: bold;
+	background: #CCCCCC;
+	color: #FFF;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.myfilter li a:hover {
+  background:#62af56;
+}
+.myfilter li.myfilterActive a {
+  background:#62af56;
+}
+.myfilter li:first-child a {
+  -webkit-border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
+}
+.myfilter li:last-child a {
+  -webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
 }
