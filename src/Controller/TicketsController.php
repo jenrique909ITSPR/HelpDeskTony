@@ -48,7 +48,7 @@ class TicketsController extends AppController
         if (is_null($id)){
            $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id') ])
              ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
-             
+
              ;
              $this->paginate = [
             'limit' => $this->limit_data ];
@@ -58,7 +58,7 @@ class TicketsController extends AppController
         }else{
             $query = $this->Tickets->find('all')->where(['tickettype_id' => $id , 'user_id' => $this->request->session()->read('Auth.User.id') ])
              ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
-             
+
              ;
              $this->paginate = [
             'limit' => $this->limit_data ];
@@ -274,6 +274,10 @@ class TicketsController extends AppController
 
 
          }
+
+    }
+
+    public function team() {
 
     }
 

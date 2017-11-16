@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2017 a las 22:27:53
+-- Tiempo de generación: 16-11-2017 a las 01:20:48
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 7.1.7
 
@@ -51,22 +51,6 @@ CREATE TABLE `articles` (
   `selected` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `articles`
---
-
-INSERT INTO `articles` (`id`, `title`, `answer`, `hdcategory_id`, `modified`, `user_id`, `created`, `selected`) VALUES
-(1, 'NO SIRVE PANTALLA', 'CAMBIAR EL CABLE', 12, '2017-10-31 20:30:11', 2, '2017-09-27 17:10:10', 2),
-(2, 'Error de conexion 404', 'Conectar el cable de red y realizar una prueba de conexion', 15, '2017-10-31 18:08:46', 2, '2017-10-31 18:08:46', 2),
-(3, 'SIN CONEXION A INTERNET', 'CONECTAR EL ADAPTADOR DE RED Y REALIZAR UNA PRUEBA DEL SISTEMA', 17, '2017-10-31 20:23:39', 1, '2017-10-31 20:23:10', 2),
-(4, 'NO INICIA WINDOWS', 'INICAIAR LA RECUPERACION DEL SISTEMA', 18, '2017-10-31 20:30:00', 3, '2017-10-31 20:30:00', 1),
-(5, 'ERROR AL ABRR EL SISTEMA DE ACTIVOS', 'REINICIAR LOS SERVICIOS DE SQL', 18, '2017-10-31 20:32:53', 8, '2017-10-31 20:32:53', 1),
-(6, 'NO SE PUEDEN GENERAR PDF', 'INSTALAR MEDIANTE COMPOSER EL PLUGIN DOMPDF', 18, '2017-10-31 20:34:59', 2, '2017-10-31 20:34:59', 3),
-(7, 'CAJA DE COBRO NO FUNCIONA', 'MANDAR UN ANALISIS DEL SISTEMA PARA SABER EL ORIGEN DEL MISMO', 18, '2017-10-31 20:36:19', 4, '2017-10-31 20:36:19', 1),
-(8, 'NO SE PUEDE IMPRIMIR', 'REINSTALAR EL DRIVER DE LA IMPRESORA', 18, '2017-10-31 20:54:45', 7, '2017-10-31 20:54:45', 3),
-(9, 'NO HAY CONEXION AL SERVIDOR', 'HACER UNA PRUEBA DE CONEXION, DESACTIVAR EL FIREWALL Y REINICIAR EL ADAPTADOR DE RED', 18, '2017-10-31 20:58:10', 5, '2017-10-31 20:58:10', 1),
-(10, 'NO RECONOCE DISPOSITIVOS EXTRAIBLES', 'REINSTALAR LOS DRIVERS ', 17, '2017-10-31 20:59:32', 3, '2017-10-31 20:59:32', 6);
-
 -- --------------------------------------------------------
 
 --
@@ -78,19 +62,6 @@ CREATE TABLE `articles_roles` (
   `article_id` int(11) DEFAULT NULL,
   `role_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `articles_roles`
---
-
-INSERT INTO `articles_roles` (`id`, `article_id`, `role_id`) VALUES
-(1, 1, 1),
-(2, 2, 2),
-(3, 3, 1),
-(4, 6, 2),
-(5, 8, 4),
-(6, 9, 1),
-(7, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -109,22 +80,125 @@ CREATE TABLE `branches` (
 --
 
 INSERT INTO `branches` (`id`, `name`, `branchgroup_id`) VALUES
-(1, 'COOPORATIVO', 13),
-(2, 'TONY POZA RICA', 1),
-(3, 'TONY XALAPA', 14),
-(4, 'TONY CD VICTORIA', 15),
-(5, 'TONY VERACRUZ ', 13),
-(6, 'TONY ZAMORA', 1),
-(7, 'TONY IRAPUATO ', 14),
-(8, 'TONY TUXTEPEC', 15),
-(9, 'TONY ACAYUCAN', 13),
-(10, 'TONY NAUCALPAN', 1),
-(11, 'TONY SALTILLO', 14),
-(12, 'TONY APIZACO', 15),
-(13, 'TONY SAN LUIS', 13),
-(14, 'TONY MERIDA', 1),
-(15, 'TONY CHALCO', 14),
-(16, 'TONY ZAPOPAN', 15);
+(17, '221 - PLAZA CRISTAL', 16),
+(18, '253 - PLAZA RIO', 16),
+(19, '280 - JARDINES', 16),
+(20, '285 - VERACRUZ NORTE', 16),
+(21, '286 - VERACRUZ CORTES', 16),
+(22, '801 - TCI', 16),
+(23, '248 - TUXTEPEC', 16),
+(24, '225 - CORDOBA', 16),
+(25, '226 - ORIZABA', 16),
+(26, '228 - ACAYUCAN', 28),
+(27, '239 - XALAPA', 28),
+(28, '258 - SAN ANDRES', 28),
+(29, ' 284 - MARTINEZ', 28),
+(30, '291 - MINATITLAN', 28),
+(31, '306 - TEZIUTLAN', 28),
+(32, '320 - XALAPA REVOLUCION', 28),
+(33, '227 - ZARAGOZA', 28),
+(34, '321 - EL DORADO', 28),
+(35, '201 - TAPACHULA', 29),
+(36, '202 - TUXTLA', 29),
+(37, '242 - LIBRAMIENTO', 29),
+(38, '260 - SAN CRISTOBAL', 29),
+(39, '263 - COMITAN', 29),
+(40, '277 - TAP. BOULEVARD', 29),
+(41, '303 - TONALA', 29),
+(42, '316 - CAMPUSAN CRISTOBAL', 29),
+(43, '229 - MERIDA LA 50', 30),
+(44, '235 - CANCUN', 30),
+(45, '257 - PLAZA ROYAL', 30),
+(46, '270 - CHETUMAL', 30),
+(47, '278 - VILLAS DEL MAR', 30),
+(48, '281 PLAYA DEL CARMEN', 30),
+(49, '297 - MERIDA LA 54', 30),
+(50, '308 - PLAYACAR COLOSIO', 30),
+(51, '309 - MERIDA MACROPLAZA', 30),
+(52, '317 - COMPUCHETUMAL', 30),
+(53, '330 - MERIDA INTERPLAZA', 30),
+(54, '213 - PUEBLA LA 10', 31),
+(55, '214  - PUEBLA LA 8', 31),
+(56, '233 - OAXACA', 31),
+(57, '245 - TEHUACAN', 31),
+(58, '271 - CHOLULA', 31),
+(59, '282 - PERIPLAZA', 31),
+(60, '301 - ATLIXCO', 31),
+(61, '310 - AMALUCAN', 31),
+(62, '315 - APLIZACO', 31),
+(63, '328 - COMPU APIZACO', 31),
+(64, '329 - TEXMELUCAN', 31),
+(65, '327 - PUEBLA CAPU', 31),
+(66, '336 - AGUASCALIENTES BLVD', 38),
+(67, '237 QUERETARO', 32),
+(68, '250 CELAYA', 32),
+(69, '264 ZAMORA', 32),
+(70, '269 MORELIA', 32),
+(71, '287 URUAPAN', 32),
+(72, '295 SALAMANCA', 32),
+(73, '304 LA PIEDAD', 32),
+(74, '312 MORELIA MONUMENTO', 32),
+(75, '335 QUERETARO ZOCO', 32),
+(76, '218 ADUANA', 33),
+(77, '219 PALMAS', 33),
+(78, '223 POZA RICA', 33),
+(79, '247 MY CHAPULTEPEC', 33),
+(80, '268 MADERO', 33),
+(81, '274 ALTAMIRA', 33),
+(82, '275 SALTILLO', 33),
+(83, '296 TUXPAN', 33),
+(84, '300 CD VICTORIA', 33),
+(85, '217 CONSTITUCION', 34),
+(86, '243 CARDENES', 34),
+(87, '246 SAN JOAQUIN', 34),
+(88, '249 CAMAPECHE', 34),
+(89, '256 COMALCALCO', 34),
+(90, '288 MACUSPANA', 34),
+(91, '289 VILLA SENDERO', 34),
+(92, '292 CD DEL CARMEN', 34),
+(93, '262 PALENQUE', 34),
+(94, '319 COMPUPALENQUE', 34),
+(95, '231 CONTRERAS', 35),
+(96, '265 CULIACAN', 35),
+(97, '276 ZAPOPAN', 35),
+(98, '279 LOS MONCHIS', 35),
+(99, '305 TEPÍC', 35),
+(100, '311 GDL INDEPENDENCIA', 35),
+(101, '314 CULIACAN SAN ISIDRO', 35),
+(102, '325 MAZATLAN', 35),
+(103, '203 CRUCES', 37),
+(104, '204 MESONES', 37),
+(105, '210 TLANEPANTLA', 37),
+(106, '211 TOLUCA', 37),
+(107, '212 ECATEPEC', 37),
+(108, '241 FABELA', 37),
+(109, '259 NAUCALPAN', 37),
+(110, '290 CENTRA', 37),
+(111, '323 NICOLAS ROMERO', 37),
+(112, '324 COACALCO', 37),
+(113, '205 IZTAPALPA', 36),
+(114, '255 CHALCO', 36),
+(115, '267 HUIPULCO', 36),
+(116, '294 CHIMALHUACAN', 36),
+(117, '302 LOS REYES', 36),
+(118, '307 IXTAPALUCA', 36),
+(119, '273 CUERNAVACA', 36),
+(120, '272 CAUTLA', 36),
+(121, '238 SAN ANGEL', 36),
+(122, '333 ACAPULCO', 36),
+(123, '331 CUERNAVACA CIVAC', 36),
+(124, '337 ACAPULCO', 36),
+(125, '206 BELISARIO', 38),
+(126, '251 TOREES LANDA', 38),
+(127, '252 AGUASCALIENTES', 38),
+(128, '266 OBELISCO', 38),
+(129, '293 VICTORIA', 38),
+(130, '207 IRAPUATO', 38),
+(131, '322 JCARDENAS', 38),
+(132, '216 SAN LUIS', 38),
+(133, '244 CARRANZA', 38),
+(134, '326 HILAMAS', 38),
+(135, '336 AGUASCALIENTE BLVD', 38);
 
 -- --------------------------------------------------------
 
@@ -134,18 +208,27 @@ INSERT INTO `branches` (`id`, `name`, `branchgroup_id`) VALUES
 
 CREATE TABLE `branchgroups` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL
+  `name` varchar(100) DEFAULT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `branchgroups`
 --
 
-INSERT INTO `branchgroups` (`id`, `name`) VALUES
-(1, 'ZONA SUR'),
-(13, 'ZONA NORTE'),
-(14, 'ZONA ESTE'),
-(15, 'ZONA OESTE');
+INSERT INTO `branchgroups` (`id`, `name`, `user_id`) VALUES
+(16, 'REGION 01', 12),
+(28, 'REGION 02', 13),
+(29, 'REGION 03', 14),
+(30, 'REGION 04', 15),
+(31, 'REGION 05', 16),
+(32, 'REGION 06', 17),
+(33, 'REGION 07', 18),
+(34, 'REGION 08', 19),
+(35, 'REGION 09', 20),
+(36, 'REGION 11', 22),
+(37, 'REGION 10', 21),
+(38, 'REGION 12', 23);
 
 -- --------------------------------------------------------
 
@@ -176,7 +259,9 @@ INSERT INTO `brands` (`id`, `name`) VALUES
 (11, 'OKI'),
 (12, 'DATALOGIC'),
 (13, 'LENOVO'),
-(14, 'STEREN');
+(14, 'STEREN'),
+(15, 'ELEGANCE'),
+(16, 'SEGATE');
 
 -- --------------------------------------------------------
 
@@ -216,7 +301,8 @@ CREATE TABLE `groups` (
 INSERT INTO `groups` (`id`, `name`, `color`) VALUES
 (1, 'ADMINISTRADORES', ''),
 (2, 'MESA DE AYUDA', ''),
-(3, 'VENDEDORES', '');
+(3, 'VENDEDORES', ''),
+(4, 'SUPERVISORES TI', '#35328c');
 
 -- --------------------------------------------------------
 
@@ -229,48 +315,49 @@ CREATE TABLE `hdcategories` (
   `title` varchar(100) DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
   `lft` int(11) NOT NULL,
-  `rght` int(11) NOT NULL
+  `rght` int(11) NOT NULL,
+  `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `hdcategories`
 --
 
-INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`) VALUES
-(11, 'compras', NULL, 1, 34),
-(12, 'analisis de ventas', 11, 2, 21),
-(13, 'Backorder de pedidos', 11, 22, 29),
-(14, 'Bitácora de pedidos cancelados', 11, 30, 33),
-(15, 'Mensaje de error', 12, 3, 4),
-(16, 'Mensaje de error', 13, 23, 24),
-(17, 'Mensaje de error', 14, 31, 32),
-(18, 'Administración', NULL, 35, 68),
-(19, 'Alta empleados', 18, 36, 39),
-(20, 'Baja empleados', 18, 40, 47),
-(21, 'Cambio de cheque por efectivo', 18, 48, 51),
-(22, 'No imprime el reporte', 19, 37, 38),
-(23, 'Error al transferir', 20, 41, 42),
-(24, 'Mensaje de error', 20, 43, 44),
-(25, 'No imprime el reporte', 20, 45, 46),
-(26, 'Mensaje de error', 21, 49, 50),
-(27, 'Cancelaciones', 18, 52, 55),
-(28, 'Mensaje de error', 27, 53, 54),
-(29, 'Captura de anticipos', 18, 56, 61),
-(30, 'Mensaje de error', 29, 57, 58),
-(31, 'No muestra la quincena correcta', 29, 59, 60),
-(32, 'Captura de coberturas', 18, 62, 67),
-(33, 'Mensaje de error', 32, 63, 64),
-(34, 'No muestra la quincena correcta', 32, 65, 66),
-(37, 'Categoria', 12, 5, 6),
-(38, 'Categoria', 12, 7, 8),
-(39, 'Categoria', 12, 9, 10),
-(40, 'Categoria', 12, 11, 12),
-(41, 'Categoria', 12, 13, 14),
-(42, 'Categoria', 12, 15, 16),
-(43, 'Categoria', 13, 25, 26),
-(44, 'Categoria', 13, 27, 28),
-(45, 'Categoria', 12, 17, 18),
-(46, 'a', 12, 19, 20);
+INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `description`) VALUES
+(11, 'compras', NULL, 1, 34, ''),
+(12, 'analisis de ventas', 11, 2, 21, ''),
+(13, 'Backorder de pedidos', 11, 22, 29, ''),
+(14, 'Bitácora de pedidos cancelados', 11, 30, 33, ''),
+(15, 'Mensaje de error', 12, 3, 4, ''),
+(16, 'Mensaje de error', 13, 23, 24, ''),
+(17, 'Mensaje de error', 14, 31, 32, ''),
+(18, 'Administración', NULL, 35, 68, ''),
+(19, 'Alta empleados', 18, 36, 39, ''),
+(20, 'Baja empleados', 18, 40, 47, ''),
+(21, 'Cambio de cheque por efectivo', 18, 48, 51, ''),
+(22, 'No imprime el reporte', 19, 37, 38, ''),
+(23, 'Error al transferir', 20, 41, 42, ''),
+(24, 'Mensaje de error', 20, 43, 44, ''),
+(25, 'No imprime el reporte', 20, 45, 46, ''),
+(26, 'Mensaje de error', 21, 49, 50, ''),
+(27, 'Cancelaciones', 18, 52, 55, ''),
+(28, 'Mensaje de error', 27, 53, 54, ''),
+(29, 'Captura de anticipos', 18, 56, 61, ''),
+(30, 'Mensaje de error', 29, 57, 58, ''),
+(31, 'No muestra la quincena correcta', 29, 59, 60, ''),
+(32, 'Captura de coberturas', 18, 62, 67, ''),
+(33, 'Mensaje de error', 32, 63, 64, ''),
+(34, 'No muestra la quincena correcta', 32, 65, 66, ''),
+(37, 'Categoria', 12, 5, 6, ''),
+(38, 'Categoria', 12, 7, 8, ''),
+(39, 'Categoria', 12, 9, 10, ''),
+(40, 'Categoria', 12, 11, 12, ''),
+(41, 'Categoria', 12, 13, 14, ''),
+(42, 'Categoria', 12, 15, 16, ''),
+(43, 'Categoria', 13, 25, 26, ''),
+(44, 'Categoria', 13, 27, 28, ''),
+(45, 'Categoria', 12, 17, 18, ''),
+(46, 'a', 12, 19, 20, '');
 
 -- --------------------------------------------------------
 
@@ -437,7 +524,8 @@ INSERT INTO `itemcodes` (`id`, `item_id`, `serial`, `invoice_id`, `statusitem_id
 (10, 6, 'ETELE50C00600602B744001', 10, 1, '2017-09-22', '2013-09-15', 4, '14654968514'),
 (11, 7, 'AK25041270A0', 11, 1, '2017-09-22', '2016-08-13', 6, '.'),
 (12, 7, 'AK6A012315A0', 12, 1, '2017-09-22', '2022-01-01', 5, '1231423'),
-(13, 6, 'ETELE50C00600600C614001', 1, 1, '2017-09-22', '2019-04-13', 7, '12312312524534');
+(13, 6, 'ETELE50C00600600C614001', 1, 1, '2017-09-22', '2019-04-13', 7, '12312312524534'),
+(14, 29, 'USA5EKA16090167', 1, 1, '2017-11-14', '2020-05-10', 11, '651654jgiyfv');
 
 -- --------------------------------------------------------
 
@@ -461,19 +549,13 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `itemcategory_id`, `currency_id`, `model`, `color`, `unit_cost`, `brand_id`) VALUES
-(1, 'MONITOR ASUS', 1, 2, '2WAEFSDA342', 'NEGRO', '486.00', 1),
-(2, 'DISCO DURO', 2, 1, 'ASGT453', 'NEGRO', '2900.00', 1),
 (3, 'CPU DELL OPTIPLEX 3020', 2, 2, 'OPTIPLEX 3020', 'NEGRO', '102.00', 3),
 (4, 'IMPRESORA ZEBRA GC420', 11, 2, 'GC420', 'BLANCO', '202.00', 2),
 (5, 'CPU DELL OPTIPLEX 380', 2, 2, 'OPTIPLEX 380', 'NEGRO', '102.00', 3),
 (6, 'PANTALLA LCD ACER X163WB', 4, 2, 'X163WB', 'NEGRO', '90.00', 4),
 (7, 'IMPRESORA DE MATRIZ DE PUNTO OKI ML-621', 11, 2, 'ML-621', 'BLANCO', '205.00', 11),
 (8, 'CABLE HDMI STEREN', 39, 1, 'C12', 'NEGRO', '100.00', 14),
-(24, 'dfg', NULL, NULL, 'asd', NULL, NULL, NULL),
-(25, 'a', 1, 1, 't6798', 'negro', '342.98', 1),
-(26, '', 1, 1, '', '', NULL, 1),
-(27, 'prueba', 1, 1, 'sfdsdf', 'negro', '2342.00', 1),
-(28, 'teca', 5, 2, 't6798', '', NULL, 1);
+(29, 'IMPRESORA DE TICKET TERMICA BIXOLON SRP-350 PLUS', 8, 2, 'SRP-350 PLUS', 'negro', '12.00', 7);
 
 -- --------------------------------------------------------
 
@@ -570,19 +652,18 @@ CREATE TABLE `layouts` (
 --
 
 INSERT INTO `layouts` (`id`, `branch_id`, `position_id`, `layout`) VALUES
-(1, 1, 1, 3),
-(2, 1, 2, 1),
-(3, 1, 5, 1),
-(4, 4, 1, 3),
-(5, 5, 1, 4),
-(6, 5, 2, 1),
-(7, 5, 6, 1),
-(8, 5, 9, 2),
-(9, 5, 10, 1),
-(10, 5, 14, 1),
-(11, 5, 15, 1),
-(12, 5, 23, 1),
-(13, 5, 22, 2);
+(1, 66, 1, 3),
+(2, 66, 2, 1),
+(3, 66, 7, 2),
+(4, 66, 25, 1),
+(5, 66, 8, 1),
+(6, 66, 9, 2),
+(7, 66, 10, 1),
+(8, 66, 11, 3),
+(9, 66, 26, 1),
+(10, 66, 15, 1),
+(11, 66, 22, 2),
+(12, 66, 23, 1);
 
 -- --------------------------------------------------------
 
@@ -643,15 +724,10 @@ CREATE TABLE `positionbranches` (
 --
 
 INSERT INTO `positionbranches` (`id`, `branch_id`, `position_id`, `name`) VALUES
-(1, 2, 1, 'CAJA '),
-(2, 3, 2, 'ATENCION A CLIENTES '),
-(3, 4, 6, 'CENTRO DE COPIADO'),
-(4, 1, 9, 'SURTIDO PEDIDOS'),
-(5, 10, 8, 'MESA DE CONTROL'),
-(6, 16, 10, 'INVENTARIOS'),
-(7, 5, 16, 'VENTAS MOVIL'),
-(8, 13, 7, 'MOSTRADOR '),
-(9, 4, 12, 'ADMINISTRACION DE VENTAS');
+(11, 66, 1, 'CAJA1'),
+(12, 66, 1, 'CAJA 2'),
+(13, 66, 1, 'CAJA 3'),
+(14, 66, 2, 'ATENCION A CLIENTES 1');
 
 -- --------------------------------------------------------
 
@@ -689,7 +765,10 @@ INSERT INTO `positions` (`id`, `name`) VALUES
 (20, 'JEFE DE EMBARQUE'),
 (21, 'FACTURAS'),
 (22, 'SERVIDOR'),
-(23, 'VERIFICADOR DE PRECIOS');
+(23, 'VERIFICADOR DE PRECIOS'),
+(24, 'SUPERVISOR TI'),
+(25, 'ADUANA'),
+(26, 'SGTE');
 
 -- --------------------------------------------------------
 
@@ -986,7 +1065,54 @@ INSERT INTO `ticketlogs` (`id`, `ticket_id`, `user_id`, `group_id`, `user_transf
 (14, 1, 2, 3, 2, 3, '4', '2017-10-26', 'CAMBIO DE ESTADO A SOLICITUD'),
 (15, 1, 2, 3, 2, 3, '4', '2017-10-27', 'CAMBIO DE ESTADO A SOLICITUD'),
 (16, 2, 2, 3, 2, 3, '4', '2017-10-31', 'CAMBIO DE ESTADO A SOLICITUD'),
-(17, 2, 2, 3, 2, 3, '4', '2017-10-31', 'CAMBIO DE ESTADO A INCIDENTE');
+(17, 2, 2, 3, 2, 3, '4', '2017-10-31', 'CAMBIO DE ESTADO A INCIDENTE'),
+(18, 7, 2, 3, 2, 3, '4', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(19, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(20, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(21, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(22, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(23, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(24, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(25, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(26, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(27, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(28, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(29, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(30, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(31, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(32, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(33, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(34, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(35, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(36, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(37, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(38, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(39, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(40, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(41, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(42, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(43, 6, 2, 3, 2, 3, '2', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(44, 22, 23, 4, 23, 4, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(45, 22, 23, 4, 23, 4, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
+(46, 22, 23, 4, 23, 4, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(47, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
+(48, 6, 2, 3, 2, 3, '2', '2017-11-08', 'CAMBIO DE ESTADO A SOLICITUD'),
+(49, 6, 2, 3, 2, 3, '2', '2017-11-08', 'CAMBIO DE ESTADO A INCIDENTE'),
+(50, 6, 2, 3, 2, 3, '2', '2017-11-08', 'CAMBIO DE ESTADO A SOLICITUD'),
+(51, 23, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO DE ESTADO A INCIDENTE'),
+(52, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO DE ESTADO A INCIDENTE'),
+(53, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO DE ESTADO A SOLICITUD'),
+(54, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO DE ESTADO A INCIDENTE'),
+(55, 19, 1, 2, 1, 2, '1', '2017-11-08', 'CAMBIO DE ESTADO A SOLICITUD'),
+(56, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO A SOLICITUD'),
+(57, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO A INCIDENTE'),
+(58, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO A SOLICITUD'),
+(59, 10, 2, 2, 2, 2, '1', '2017-11-08', 'CAMBIO A SOLICITUD'),
+(60, 18, 1, 2, 1, 2, '3', '2017-11-09', 'CAMBIO A INCIDENTE'),
+(61, 6, 2, 3, 2, 3, '2', '2017-11-09', 'CAMBIO A INCIDENTE'),
+(62, 6, 2, 3, 2, 3, '2', '2017-11-09', 'CAMBIO A SOLICITUD'),
+(63, 18, 1, 2, 1, 2, '1', '2017-11-09', 'CAMBIO A SOLICITUD'),
+(64, 20, 3, 2, 3, 2, '1', '2017-11-10', 'CAMBIO A SOLICITUD');
 
 -- --------------------------------------------------------
 
@@ -1008,7 +1134,10 @@ INSERT INTO `ticketmarkeds` (`id`, `user_id`, `ticket_id`) VALUES
 (3, 6, 5),
 (4, 1, 18),
 (5, 1, 19),
-(6, 1, 18);
+(6, 1, 18),
+(7, 2, 10),
+(8, 1, 19),
+(11, 2, 10);
 
 -- --------------------------------------------------------
 
@@ -1056,31 +1185,37 @@ CREATE TABLE `tickets` (
   `ticketpriority_id` int(11) DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
   `hdcategory_id` int(11) DEFAULT NULL,
-  `modified` datetime NOT NULL
+  `modified` datetime NOT NULL,
+  `ip` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tickets`
 --
 
-INSERT INTO `tickets` (`id`, `tickettype_id`, `ticket_status_id`, `source_id`, `title`, `description`, `solution`, `resolution`, `itemcode_id`, `user_id`, `group_id`, `user_autor`, `user_requeried`, `created`, `ticketimpact_id`, `ticketurgency_id`, `ticketpriority_id`, `parent_id`, `hdcategory_id`, `modified`) VALUES
-(5, 1, 1, '1', 'TECLADO', 'NO SIRVE', 'CHECAR LAS ENTRADAS DEL USB DEL TECLADO', 'SE LIMPIARON LAS ENTRADAS', 7, 6, 2, 12, 1, '2017-10-31 17:25:45', 2, 2, 2, NULL, 12, '2017-10-31 18:24:37'),
-(6, 4, 2, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', 'MI MONITOR LCD NO MUESTRA IMAGEN SE APAGO DERREPENTE', '', '', 13, 2, 3, 3, 3, '2017-10-31 18:08:30', 1, 1, 1, 2, 16, '2017-11-03 19:12:24'),
-(7, 1, 4, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', 'MI MONITOR LCD NO MUESTRA IMAGEN SE APAGO DERREPENTE', '', '', 13, 2, 3, 3, 3, '2017-10-31 18:09:08', 1, 1, 1, 2, 16, '2017-10-31 18:09:08'),
-(8, 1, 1, '3', 'ERROR 404', 'ERROR DE CONEXION', 'CONECTAR CABLE DE RED Y REALIZAR UNA PRUEBA', 'CONECTAR CABLE DE RED Y REALIZAR UNA PRUEBA DE CONEXION, DESACTIVAR EL FIREWALL', 11, 4, 2, 2, 1, '2017-10-31 18:10:23', 1, 2, 2, NULL, 26, '2017-10-31 18:10:23'),
-(9, 4, 1, '3', 'COMPUTADORA DELL PROCESADOR INTEL I5', 'SE REQUIERE UNA PC PARA EL AREA DE TI', 'SOLICITUD', 'SOLICITUD', 6, 3, 1, 1, 3, '2017-10-31 18:12:01', 2, 2, 2, NULL, 11, '2017-10-31 18:12:01'),
-(10, 2, 1, '4', 'PC DE CAJA NO ENCIENDE', 'PC NO ENCIENDE, NO MUESTRA IMAGEN PERO EL CPU FUNCIONA', 'CONECTAR O CAMBIAR CABLE DE VIDEO', 'VERIFICAR SI EL MONITOR ESTA EN FUNCIONAMIENTO, REVISAR CABLE DE VIDEO Y REMPLAZARLO DE SER NECESARIO', 5, 2, 2, 3, 3, '2017-10-31 18:14:51', 1, 2, 1, NULL, 11, '2017-10-31 18:14:51'),
-(11, 5, 1, '8', 'CAMBIO DE MONITOR', 'NO SIRVE', 'SE CAMBIARA POR UNO NUEVO ', 'NO PRENDIO EL MONITOR Y SE REEMPLAZARA POR OTRO', 8, 11, 1, 15, 17, '2017-10-31 18:49:14', 3, 3, 3, NULL, 12, '2017-10-31 18:49:14'),
-(12, 2, 3, '4', 'TICKET', 'NO SE IMPRIMIO EL TICKET', 'SE REINSTALO DRIVER DE LA IMPRESORA', 'SE INSTALO EL DRIVER Y SE VOLVIO A IMPRIMIR', 4, 2, 2, 6, 6, '2017-10-31 19:01:04', 2, 2, 2, NULL, 25, '2017-11-01 19:56:30'),
-(13, 4, 5, '5', 'PC NO AGARRA INTERNET', 'NO CONECTA A LA RED', 'SE LE PUSO UN ADAPTADOR WIFI', 'SE LE CONECTO UN ADAPTADOR WIFI', 8, 5, 2, 11, 11, '2017-10-31 19:08:00', 1, 1, 1, NULL, 18, '2017-10-31 19:08:00'),
-(14, 2, 1, '5', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'NO SE PUEDE ENCONTRAR LA INFORMACION SOLICITADA', 'REINICAR LOS SERVICIOS DE SQL', 'SQL REINICIAR LOS SERVICIOS DE BD', 3, 5, 1, 3, 1, '2017-10-31 20:04:37', 1, 1, 1, NULL, 34, '2017-10-31 20:04:37'),
-(15, 5, 2, '2', 'NO INICIA WINDOWS', 'ERROR DE INICIO EN EL SISTEMA', 'REALIZAR UNA COMPROBACION DE DISCO', 'REALIZAR UNA COMPROBACION DE DISCO', 5, 3, 1, 5, 1, '2017-10-31 20:07:58', 2, 2, 1, NULL, 30, '2017-10-31 20:07:58'),
-(16, 5, 3, '3', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'NO CEONECTA A LA INTRANET', 'REVISAR SI EL MODEM ESTA ENCENDIDO', 'REINICIAR EL MODEM', 12, 11, 2, 2, 2, '2017-10-31 20:13:32', 2, 3, 2, NULL, 26, '2017-10-31 20:13:32'),
-(17, 1, 1, '3', 'NO SE REALIZA LA BUSQUEDA DE USUARIOS', 'NO SE PUEDE EFECTUAR UNA BUSQUEDA', 'VERIFICAR SI SE ENCUENTRA DISPONIBLE EL USUARIO DISPONIBLE', 'VERIFICAR SI SE ENCUENTRA DISPONIBLE EL USUARIO DISPONIBLE', 3, 3, 3, 6, 6, '2017-10-31 20:18:20', 2, 2, 2, NULL, 27, '2017-10-31 20:18:20'),
-(18, 2, 1, '3', 'ERROR 404', 'SIN CONEXION', 'CONECTAR CABLE', 'CONECTAR CABLE', 2, 1, 2, 1, 1, '2017-11-01 15:20:21', 1, 1, 1, NULL, 28, '2017-11-01 15:20:21'),
-(19, 1, 1, '2', 'CAJA DE COBRO NO FUNCIONA', 'SIN CONEXION AL SERVIDOR', 'CONECTAR PC POR MEDIO DE ESCRITORIO REMOTO ', 'CONECTAR PC POR MEDIO DE ESCRITORIO REMOTO ', 5, 1, 2, 1, 1, '2017-11-01 15:26:21', 1, 1, 2, NULL, 27, '2017-11-01 15:26:21'),
-(20, 5, 1, '2', 'SISTEMAS OPERATIVOS', 'ERROR DE CONEXION', 'REVISAR LOS SERVICIOS', 'REINICIAR LOS SERVICIOS', 11, 3, 2, 1, 1, '2017-11-01 16:42:13', 2, 1, 1, NULL, 25, '2017-11-01 16:42:13'),
-(21, 2, 3, '2', 'tes', '', '', '', NULL, NULL, NULL, NULL, NULL, '2017-11-03 16:14:23', NULL, NULL, NULL, NULL, NULL, '2017-11-03 16:14:23');
+INSERT INTO `tickets` (`id`, `tickettype_id`, `ticket_status_id`, `source_id`, `title`, `description`, `solution`, `resolution`, `itemcode_id`, `user_id`, `group_id`, `user_autor`, `user_requeried`, `created`, `ticketimpact_id`, `ticketurgency_id`, `ticketpriority_id`, `parent_id`, `hdcategory_id`, `modified`, `ip`) VALUES
+(5, 1, 1, '1', 'TECLADO', 'NO SIRVE', 'CHECAR LAS ENTRADAS DEL USB DEL TECLADO', 'SE LIMPIARON LAS ENTRADAS', 7, 6, 2, 12, 1, '2017-10-31 17:25:45', 2, 2, 2, NULL, 12, '2017-10-31 18:24:37', ''),
+(6, 4, 2, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', 'MI MONITOR LCD NO MUESTRA IMAGEN SE APAGO DERREPENTE', '', '', 13, 2, 3, 3, 3, '2017-10-31 18:08:30', 1, 1, 1, 6, 16, '2017-11-09 18:22:29', '123.123.123.123'),
+(7, 5, 4, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', 'MI MONITOR LCD NO MUESTRA IMAGEN SE APAGO DERREPENTE', '', '', 13, 2, 3, 3, 3, '2017-10-31 18:09:08', 1, 1, 1, NULL, 16, '2017-11-07 14:55:55', '123.124.124.11'),
+(8, 1, 1, '3', 'ERROR 404', 'ERROR DE CONEXION', 'CONECTAR CABLE DE RED Y REALIZAR UNA PRUEBA', 'CONECTAR CABLE DE RED Y REALIZAR UNA PRUEBA DE CONEXION, DESACTIVAR EL FIREWALL', 11, 4, 2, 2, 1, '2017-10-31 18:10:23', 1, 2, 2, NULL, 26, '2017-10-31 18:10:23', ''),
+(9, 4, 1, '3', 'COMPUTADORA DELL PROCESADOR INTEL I5', 'SE REQUIERE UNA PC PARA EL AREA DE TI', 'SOLICITUD', 'SOLICITUD', 6, 3, 1, 1, 3, '2017-10-31 18:12:01', 2, 2, 2, NULL, 11, '2017-10-31 18:12:01', ''),
+(10, 4, 1, '4', 'PC DE CAJA NO ENCIENDE', 'PC NO ENCIENDE, NO MUESTRA IMAGEN PERO EL CPU FUNCIONA', 'CONECTAR O CAMBIAR CABLE DE VIDEO', 'VERIFICAR SI EL MONITOR ESTA EN FUNCIONAMIENTO, REVISAR CABLE DE VIDEO Y REMPLAZARLO DE SER NECESARIO', 5, 2, 2, 3, 3, '2017-10-31 18:14:51', 1, 2, 1, NULL, 11, '2017-11-08 18:20:07', '2'),
+(11, 5, 1, '8', 'CAMBIO DE MONITOR', 'NO SIRVE', 'SE CAMBIARA POR UNO NUEVO ', 'NO PRENDIO EL MONITOR Y SE REEMPLAZARA POR OTRO', 8, 11, 1, 15, 17, '2017-10-31 18:49:14', 3, 3, 3, NULL, 12, '2017-10-31 18:49:14', ''),
+(12, 1, 3, '4', 'TICKET', 'NO SE IMPRIMIO EL TICKET', 'SE REINSTALO DRIVER DE LA IMPRESORA', 'SE INSTALO EL DRIVER Y SE VOLVIO A IMPRIMIR', 4, 2, 2, 6, 6, '2017-10-31 19:01:04', 2, 2, 2, NULL, 25, '2017-11-07 15:03:57', '9'),
+(13, 4, 5, '5', 'PC NO AGARRA INTERNET', 'NO CONECTA A LA RED', 'SE LE PUSO UN ADAPTADOR WIFI', 'SE LE CONECTO UN ADAPTADOR WIFI', 8, 5, 2, 11, 11, '2017-10-31 19:08:00', 1, 1, 1, NULL, 18, '2017-10-31 19:08:00', ''),
+(14, 2, 1, '5', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'NO SE PUEDE ENCONTRAR LA INFORMACION SOLICITADA', 'REINICAR LOS SERVICIOS DE SQL', 'SQL REINICIAR LOS SERVICIOS DE BD', 3, 5, 1, 3, 1, '2017-10-31 20:04:37', 1, 1, 1, NULL, 34, '2017-10-31 20:04:37', ''),
+(15, 5, 2, '2', 'NO INICIA WINDOWS', 'ERROR DE INICIO EN EL SISTEMA', 'REALIZAR UNA COMPROBACION DE DISCO', 'REALIZAR UNA COMPROBACION DE DISCO', 5, 3, 1, 5, 1, '2017-10-31 20:07:58', 2, 2, 1, NULL, 30, '2017-10-31 20:07:58', ''),
+(16, 4, 3, '3', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'NO CEONECTA A LA INTRANET', 'REVISAR SI EL MODEM ESTA ENCENDIDO', 'REINICIAR EL MODEM', 12, 11, 2, 2, 2, '2017-10-31 20:13:32', 2, 3, 2, NULL, 26, '2017-11-08 16:02:55', ''),
+(17, 1, 1, '3', 'NO SE REALIZA LA BUSQUEDA DE USUARIOS', 'NO SE PUEDE EFECTUAR UNA BUSQUEDA', 'VERIFICAR SI SE ENCUENTRA DISPONIBLE EL USUARIO DISPONIBLE', 'VERIFICAR SI SE ENCUENTRA DISPONIBLE EL USUARIO DISPONIBLE', 3, 3, 3, 6, 6, '2017-10-31 20:18:20', 2, 2, 2, NULL, 27, '2017-10-31 20:18:20', ''),
+(18, 5, 1, '2', 'ERROR 404', 'SIN CONEXIONa', 'CONECTAR CABLE', 'CONECTAR CABLE', 2, 1, 2, 1, 1, '2017-11-01 15:20:21', 2, 2, 3, 13, 28, '2017-11-15 20:30:14', 'q11212aa'),
+(19, 4, 1, '2', 'CAJA DE COBRO NO FUNCIONA', 'SIN CONEXION AL SERVIDOR', 'CONECTAR PC POR MEDIO DE ESCRITORIO REMOTO ', 'CONECTAR PC POR MEDIO DE ESCRITORIO REMOTO ', 5, 1, 2, 1, 1, '2017-11-01 15:26:21', 1, 1, 2, NULL, 27, '2017-11-08 16:15:03', '123.123.123.123'),
+(20, 4, 1, '2', 'SISTEMAS OPERATIVOS', 'ERROR DE CONEXION', 'REVISAR LOS SERVICIOS', 'REINICIAR LOS SERVICIOS', 11, 3, 2, 1, 1, '2017-11-01 16:42:13', 2, 1, 1, NULL, 25, '2017-11-10 15:32:09', ''),
+(21, 2, 3, '2', 'tes', '', '', '', NULL, NULL, NULL, NULL, NULL, '2017-11-03 16:14:23', NULL, NULL, NULL, NULL, NULL, '2017-11-03 16:14:23', ''),
+(22, 4, 1, '1', 'Apertura', 'apertura de sucursal tony merida', '', '', NULL, 23, 4, 23, 23, '2017-11-07 18:16:04', 1, 1, 1, NULL, 11, '2017-11-07 18:17:04', '120.25.125.0'),
+(23, 1, 4, '2', 'ERROR 404', 'SIN CONEXION', 'CONECTAR CABLE', 'CONECTAR CABLE', 2, 1, 2, 1, 1, '2017-11-08 15:52:52', 1, 1, 1, 18, 28, '2017-11-09 17:59:53', 'q11212a'),
+(24, 2, 1, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', 'MI MONITOR LCD NO MUESTRA IMAGEN SE APAGO DERREPENTE', '', '', 13, 2, 3, 3, 3, '2017-11-09 18:15:58', 1, 1, 1, 6, 16, '2017-11-09 18:16:28', '123.123.123.123'),
+(25, 4, 2, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', 'MI MONITOR LCD NO MUESTRA IMAGEN SE APAGO DERREPENTE', '', '', 13, 2, 3, 3, 3, '2017-11-09 18:22:41', 1, 1, 1, 6, 16, '2017-11-09 18:22:41', '123.123.123.123'),
+(27, NULL, NULL, '1', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2017-11-14 17:00:10', NULL, NULL, NULL, NULL, NULL, '2017-11-14 17:00:10', '213');
 
 -- --------------------------------------------------------
 
@@ -1137,7 +1272,7 @@ CREATE TABLE `tickettypes` (
 INSERT INTO `tickettypes` (`id`, `name`, `rank`, `color`) VALUES
 (1, 'INCIDENTE', 1, '#F39C12'),
 (2, 'PROBLEMA', 2, '#CEC2D3'),
-(4, 'SOLICITUD', 4, '#3C8DBC'),
+(4, 'SOLICITUD', 4, '#FF8280'),
 (5, 'CAMBIO', 5, '#00C0EF');
 
 -- --------------------------------------------------------
@@ -1185,16 +1320,22 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `last_name`, `positionbranch_id`, `password`, `statususer_id`, `group_id`, `role_id`, `data`, `expires`) VALUES
-(1, 'elena@tony.com', 'ELENA AURORA', 'VALDES CAMACHO', 2, '$2y$10$sMw7h4E.YmpE3QkUIx0s6uG2R23UqpeToh2SgjqkIgx8tywBxcuAK', 1, 1, 3, NULL, NULL),
-(2, 'jperea@tony.com', 'JULIO CESAR', 'PEREA PASTRANA', 9, '$2y$10$dIfudPz867BVWaSvyjuD7OxO.0Hf79fdlVOJ2jOZ8uQCGLKA03G/O', 3, 1, 4, NULL, NULL),
-(3, 'jgonzalez@tony.com', 'JESUS ENRIQUE', 'GONZALEZ GARCIA', 1, '$2y$10$g3Kk3HNQBhowIStKJNXJqOgPFBBxOuIIWKeCGF6TXwb9AD9U5aBTy', 1, 3, 4, NULL, NULL),
-(4, 'candres@tony.com', 'CARLOS ANDRES ', 'COBOS COBOS', 3, '$2y$10$hUGvbkOKjEzfXmji7Nvxo.S053thFQfjcCCcagf5smKXzTzH8g2p2', 1, 3, 1, NULL, NULL),
-(5, 'hmeza@tony.com', 'HECTOR ISAI', 'MEZA HERNANDEZ', 4, '$2y$10$Oppfuh87Ce1BSqzrRAlQjem930dzPBkcJV/MFJv4KH5iQ7DKxhedq', 3, 3, 2, NULL, NULL),
-(6, '', 'BRYAN EMILIO', 'GARCES AQUINO', 6, '12', 2, 2, 3, 0x436f6e6669677c613a313a7b733a343a2274696d65223b693a313530393437343339393b7d466c6173687c613a303a7b7d417574687c613a313a7b733a343a2255736572223b613a31303a7b733a323a226964223b693a313b733a383a22757365726e616d65223b733a31343a22656c656e6140746f6e792e636f6d223b733a343a226e616d65223b733a31323a22454c454e41204155524f5241223b733a393a226c6173745f6e616d65223b733a31343a2256414c4445532043414d4143484f223b733a31373a22706f736974696f6e6272616e63685f6964223b693a323b733a31333a22737461747573757365725f6964223b693a313b733a383a2267726f75705f6964223b693a313b733a373a22726f6c655f6964223b693a333b733a343a2264617461223b4e3b733a373a2265787069726573223b4e3b7d7d, 1509475839),
-(7, '', 'SANDRA DENISSE', 'CRUZ GALLEGOS', 7, '12', 5, 2, 3, 0x436f6e6669677c613a313a7b733a343a2274696d65223b693a313530393437363631343b7d417574687c613a313a7b733a343a2255736572223b613a31303a7b733a323a226964223b693a313b733a383a22757365726e616d65223b733a31343a22656c656e6140746f6e792e636f6d223b733a343a226e616d65223b733a31323a22454c454e41204155524f5241223b733a393a226c6173745f6e616d65223b733a31343a2256414c4445532043414d4143484f223b733a31373a22706f736974696f6e6272616e63685f6964223b693a323b733a31333a22737461747573757365725f6964223b693a313b733a383a2267726f75705f6964223b693a313b733a373a22726f6c655f6964223b693a333b733a343a2264617461223b4e3b733a373a2265787069726573223b4e3b7d7d, 1509478054),
-(8, '', 'RICARDO DANIEL', 'VILLA GALINDO', 8, '12', 4, 2, 1, NULL, NULL),
-(10, 'carlos@hotmail.com', 'MIGUEL ANGEL ', 'MARQUEZ DOMINGUEZ', 3, '$2y$10$NHJSFv7WLOQtXAUj2Ft86OWkJ8q3SG46l72rSnKoQEgYOrusVOsFC', 1, 1, 1, NULL, NULL),
-(11, '', 'PEDRO ADOLFO', 'MORALES', 1, '12', 3, 2, 2, NULL, NULL);
+(1, 'elena@tony.com', 'ELENA AURORA', 'VALDES CAMACHO', NULL, '$2y$10$yTECyTqoJ1UVR6e86soh0.6zD8twyB9k/fbErua2RutfSuTt.ad3.', 1, 1, 3, NULL, NULL),
+(2, 'jperea@tony.com', 'JULIO CESAR', 'PEREA PASTRANA', NULL, '$2y$10$J6yCTjHAatXany/NEfBD0uaAt/aNPHEUpaHfGie.NW7z8BHL/96cu', 3, 1, 4, NULL, NULL),
+(3, 'jgonzalez@tony.com', 'JESUS ENRIQUE', 'GONZALEZ GARCIA', NULL, '$2y$10$ns5tdDsHIOGdSrn3n876Tub0gM5BJUy7HjB2m93KfCv78I.xiYrRa', 1, 3, 4, NULL, NULL),
+(4, 'candres@tony.com', 'CARLOS ANDRES ', 'COBOS COBOS', NULL, '$2y$10$5XK39jeCjyyYFD.JSrwWHun9S4gjOVS/IfQnDXQ5yQO4C1ZBmXld.', 1, 3, 1, NULL, NULL),
+(12, 'rpalacions@tony.mx', 'Ricardo Javier ', 'Palacios Guzman', NULL, '$2y$10$4abaeWiK8TdqPHPRhRKjKe4HgQdSBFlzUll3iIjunHLxjfWDETS/u', 1, 4, 3, NULL, NULL),
+(13, 'rpalma@tony.mx', 'Ricardo', 'Palma Coto', NULL, '$2y$10$pJKXn4q0pOTg8caZRhjywOz0TiG.4JReELxBbTAk2d6iwmcchABpm', 1, 4, 3, NULL, NULL),
+(14, 'flopez@tony.mx', 'Francisco Arturo', 'Lopez Verdugo', NULL, '$2y$10$diJkSHMdvPM65VXB5naZCeRlXahp/SVFNz4sgv3t13SpfFiqBZeOS', 1, 4, 3, NULL, NULL),
+(15, 'wmay@tony.mx', 'Wilfrido Efrain', 'May Sunza', NULL, '$2y$10$Gow6xPUBqTsq3hQgvUg9w.oVBEb.8.umHN8rU8MQp.8Kp.CNi1DKK', 1, 4, 3, NULL, NULL),
+(16, 'ocarmona@tony.mx', 'Orlando', 'Carmona', NULL, '$2y$10$QVTk6afAf.Ag7ETtcFslpO9sIUgWrsvwH5YgUDFLSeKTlwjcBDHue', 1, 4, 3, NULL, NULL),
+(17, 'acuevas@tony.mx', 'Adrian', 'Cuevas Zamora', NULL, '$2y$10$KiZcN34OWzRugx8JYpKmn.ayMIGU6utnZj.yCSoaGeozLYZeyBIH6', 1, 4, 3, NULL, NULL),
+(18, 'sgarcia@tony.mx', 'Salvador', 'Garcia Reyes', NULL, '$2y$10$DZjKewhmpruwyF0OoNDJN.1oFneFReT2jU4MOXQnEKZSjWaHsTuiy', 1, 4, 3, NULL, NULL),
+(19, 'rjimenez@tony.mx', 'Roman', 'Jimenez Xicotencatl', NULL, '$2y$10$6x.HJgxSRtaCULI3Z00Gve/L4TGBJAGJx5XHlyH0.ZFKyYWrPtJGe', 1, 4, 3, NULL, NULL),
+(20, 'mdelavega@tony.mx', 'Misael', 'de la Vega', NULL, '$2y$10$xkxh4lgmMYiGVVTEq6xpT.5IhCPEES3d2pLgHgWZyM9t8FCjw3j.y', 1, 4, 3, NULL, NULL),
+(21, 'fsalgado@tony.mx', 'Juan Francisco', 'Salgado Uvalle', NULL, '$2y$10$UabC4Z9V1R1rpe35.V.qw.cDIbfwEOpE7q7jEe/8GpnK5T9fhTYWu', 1, 4, 3, NULL, NULL),
+(22, 'mcontreras@tony.mx', 'Misael Esteban', 'Contreras Martinez', NULL, '$2y$10$B9aO6qFyLgxeITbj3loTEujlFr6rIVumdTQS4GSr02pGKBlAyEimq', 1, 4, 3, NULL, NULL),
+(23, 'jaalcala@tony.mx', 'Jose Antonio', ' Alcalá Gomez ', NULL, '$2y$10$5K9tZ1CNZ/Lko3ecHrqOru2yYKgcgNJ6To9bXzkFYdfmDGvhWAG.y', 1, 4, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1499,27 +1640,27 @@ ALTER TABLE `articlefiles`
 -- AUTO_INCREMENT de la tabla `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `articles_roles`
 --
 ALTER TABLE `articles_roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 --
 -- AUTO_INCREMENT de la tabla `branchgroups`
 --
 ALTER TABLE `branchgroups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT de la tabla `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `currencies`
 --
@@ -1529,7 +1670,7 @@ ALTER TABLE `currencies`
 -- AUTO_INCREMENT de la tabla `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `hdcategories`
 --
@@ -1559,12 +1700,12 @@ ALTER TABLE `itemcategories`
 -- AUTO_INCREMENT de la tabla `itemcodes`
 --
 ALTER TABLE `itemcodes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT de la tabla `layoutcategories`
 --
@@ -1574,7 +1715,7 @@ ALTER TABLE `layoutcategories`
 -- AUTO_INCREMENT de la tabla `layouts`
 --
 ALTER TABLE `layouts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `movereasons`
 --
@@ -1589,12 +1730,12 @@ ALTER TABLE `movereasontemplates`
 -- AUTO_INCREMENT de la tabla `positionbranches`
 --
 ALTER TABLE `positionbranches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `publicnotes`
 --
@@ -1654,12 +1795,12 @@ ALTER TABLE `ticketimpacts`
 -- AUTO_INCREMENT de la tabla `ticketlogs`
 --
 ALTER TABLE `ticketlogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 --
 -- AUTO_INCREMENT de la tabla `ticketmarkeds`
 --
 ALTER TABLE `ticketmarkeds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `ticketpriorities`
 --
@@ -1669,7 +1810,7 @@ ALTER TABLE `ticketpriorities`
 -- AUTO_INCREMENT de la tabla `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de la tabla `ticketsfiles`
 --
@@ -1694,7 +1835,7 @@ ALTER TABLE `ticketurgencies`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT de la tabla `warehouses`
 --

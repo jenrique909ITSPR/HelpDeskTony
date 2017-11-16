@@ -20,7 +20,7 @@
     <div class="right">
     	<ul class="topnavMenuR">
 
-          <li><a href="" title="Dashboard">Equipo</a></li>
+          <li><?= $this->Html->link(__('My Group'), ['controller' => 'Tickets', 'action' => 'team']); ?></li>
           <li><a href="" title="Reportes">Indicadores</a></li>
           <li><a href=""  title="Ajustes">Ajustes</a></li>
       </ul>
