@@ -51,11 +51,13 @@ class HdcategoriesControllerTest extends IntegrationTestCase
         'app.ticketpriorities',
         'app.internalnotes',
         'app.publicnotes',
+        'app.ticketmarkeds',
         'app.ticketsfiles',
         'app.statususers',
         'app.roles',
         'app.articles_roles',
-        'app.articlefiles'
+        'app.articlefiles',
+        'app.hdtemplate'
     ];
 
     /**

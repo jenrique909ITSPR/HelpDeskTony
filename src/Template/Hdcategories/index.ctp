@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Hdcategory[]|\Cake\Collection\CollectionInterface $hdcategories
-  */
+  * @var \App\Model\Entity\Hdcategory[]|\Cake\Collection\CollectionInterface $hdcategories  */
 ?>
 
 <div class="hdcategories index">
@@ -18,8 +17,7 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('lft') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('rght') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -28,9 +26,8 @@
             <tr>
                 <td><?= $this->Number->format($hdcategory->id) ?></td>
                 <td><?= h($hdcategory->title) ?></td>
-                <td><?= $this->Number->format($hdcategory->parent_id) ?></td>
-                <td><?= $this->Number->format($hdcategory->lft) ?></td>
-                <td><?= $this->Number->format($hdcategory->rght) ?></td>
+                <td><?= $hdcategory->has('parent_hdcategory') ? $this->Html->link($hdcategory->parent_hdcategory->title, ['controller' => 'Hdcategories', 'action' => 'view', $hdcategory->parent_hdcategory->id]) : '' ?></td>
+                <td><?= h($hdcategory->description) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $hdcategory->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $hdcategory->id]) ?>
@@ -58,6 +55,8 @@
         <li><?= $this->Html->link(__('New Hdcategory'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Articles'), ['controller' => 'Articles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Article'), ['controller' => 'Articles', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Hdtemplate'), ['controller' => 'Hdtemplate', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Hdtemplate'), ['controller' => 'Hdtemplate', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
     </ul>

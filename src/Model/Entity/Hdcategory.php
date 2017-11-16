@@ -11,11 +11,14 @@ use Cake\ORM\Entity;
  * @property int $parent_id
  * @property int $lft
  * @property int $rght
+ * @property string $description
  *
+ * @property \App\Model\Entity\Hdcategory $parent_hdcategory
  * @property \App\Model\Entity\Article[] $articles
+ * @property \App\Model\Entity\Hdcategory[] $child_hdcategories
+ * @property \App\Model\Entity\Hdtemplate[] $hdtemplate
  * @property \App\Model\Entity\Ticket[] $tickets
- */
-class Hdcategory extends Entity
+ */class Hdcategory extends Entity
 {
 
     /**

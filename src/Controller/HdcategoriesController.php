@@ -6,8 +6,7 @@ use App\Controller\AppController;
 /**
  * Hdcategories Controller
  *
- * @property \App\Model\Table\HdcategoriesTable $Hdcategories
- *
+ * @property \App\Model\Table\HdcategoriesTable $Hdcategories *
  * @method \App\Model\Entity\Hdcategory[] paginate($object = null, array $settings = [])
  */
 class HdcategoriesController extends AppController
@@ -21,7 +20,8 @@ class HdcategoriesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'limit' => $this->limit_data ];
+            'contain' => ['ParentHdcategories']
+        ];
         $hdcategories = $this->paginate($this->Hdcategories);
 
         $this->set(compact('hdcategories'));
@@ -38,7 +38,7 @@ class HdcategoriesController extends AppController
     public function view($id = null)
     {
         $hdcategory = $this->Hdcategories->get($id, [
-            'contain' => ['Articles', 'Tickets']
+            'contain' => ['ParentHdcategories', 'Articles', 'ChildHdcategories', 'Hdtemplate', 'Tickets']
         ]);
 
         $this->set('hdcategory', $hdcategory);
@@ -62,7 +62,8 @@ class HdcategoriesController extends AppController
             }
             $this->Flash->error(__('The hdcategory could not be saved. Please, try again.'));
         }
-        $this->set(compact('hdcategory'));
+        $parentHdcategories = $this->Hdcategories->ParentHdcategories->find('list', ['limit' => 200]);
+        $this->set(compact('hdcategory', 'parentHdcategories'));
         $this->set('_serialize', ['hdcategory']);
     }
 
@@ -87,7 +88,8 @@ class HdcategoriesController extends AppController
             }
             $this->Flash->error(__('The hdcategory could not be saved. Please, try again.'));
         }
-        $this->set(compact('hdcategory'));
+        $parentHdcategories = $this->Hdcategories->ParentHdcategories->find('list', ['limit' => 200]);
+        $this->set(compact('hdcategory', 'parentHdcategories'));
         $this->set('_serialize', ['hdcategory']);
     }
 

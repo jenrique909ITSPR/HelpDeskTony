@@ -9,10 +9,10 @@ use Cake\Validation\Validator;
 /**
  * Hdcategories Model
  *
- * @property |\Cake\ORM\Association\BelongsTo $ParentHdcategories
+ * @property \App\Model\Table\HdcategoriesTable|\Cake\ORM\Association\BelongsTo $ParentHdcategories
  * @property \App\Model\Table\ArticlesTable|\Cake\ORM\Association\HasMany $Articles
- * @property |\Cake\ORM\Association\HasMany $ChildHdcategories
- * @property |\Cake\ORM\Association\HasMany $Hdtemplate
+ * @property \App\Model\Table\HdcategoriesTable|\Cake\ORM\Association\HasMany $ChildHdcategories
+ * @property \App\Model\Table\HdtemplateTable|\Cake\ORM\Association\HasMany $Hdtemplate
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\HasMany $Tickets
  *
  * @method \App\Model\Entity\Hdcategory get($primaryKey, $options = [])
@@ -24,8 +24,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Hdcategory findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TreeBehavior
- */
-class HdcategoriesTable extends Table
+ */class HdcategoriesTable extends Table
 {
 
     /**
@@ -72,13 +71,11 @@ class HdcategoriesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('title')
-            ->allowEmpty('title');
-
+            ->scalar('title')            ->allowEmpty('title');
+        $validator
+            ->scalar('description')            ->requirePresence('description', 'create')            ->notEmpty('description');
         return $validator;
     }
 

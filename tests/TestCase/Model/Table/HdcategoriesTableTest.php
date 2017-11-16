@@ -12,10 +12,8 @@ class HdcategoriesTableTest extends TestCase
 {
 
     /**
-     * Test subject
-     *
-     * @var \App\Model\Table\HdcategoriesTable
-     */
+     * Test subject     *
+     * @var \App\Model\Table\HdcategoriesTable     */
     public $Hdcategories;
 
     /**
@@ -59,11 +57,13 @@ class HdcategoriesTableTest extends TestCase
         'app.ticketpriorities',
         'app.internalnotes',
         'app.publicnotes',
+        'app.ticketmarkeds',
         'app.ticketsfiles',
         'app.statususers',
         'app.roles',
         'app.articles_roles',
-        'app.articlefiles'
+        'app.articlefiles',
+        'app.hdtemplate'
     ];
 
     /**
@@ -74,9 +74,7 @@ class HdcategoriesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Hdcategories') ? [] : ['className' => HdcategoriesTable::class];
-        $this->Hdcategories = TableRegistry::get('Hdcategories', $config);
-    }
+        $config = TableRegistry::exists('Hdcategories') ? [] : ['className' => HdcategoriesTable::class];        $this->Hdcategories = TableRegistry::get('Hdcategories', $config);    }
 
     /**
      * tearDown method
@@ -106,6 +104,16 @@ class HdcategoriesTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
