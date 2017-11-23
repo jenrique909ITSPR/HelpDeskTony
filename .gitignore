@@ -4,6 +4,7 @@
 /logs/*
 /tmp/*
 config/app.php
+activos_tickets.sql
 
 # OS generated files #
 ######################
