@@ -22,11 +22,10 @@ class TicketsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-
-    public function initialize()
+     public function initialize()
     {
          parent::initialize();
-        $this->loadComponent('Filters');
+        
         $this->loadComponent('Tickettype');
     }
 
@@ -60,7 +59,7 @@ class TicketsController extends AppController
         $this->results = $this->Tickettype->getTotal($typeView); 
             $this->set('ticketrows', $this->results );  
         if (!is_null($typeView)){
-            
+             $this->request->session()->write('typeViewTickets', $typeView);
             //Aqui se cargan el contador de tipos de tickes
             $query = $this->viewTicketsSelection($typeView,$query);
             
@@ -72,7 +71,7 @@ class TicketsController extends AppController
                 $query->where(['Tickets.tickettype_id' => $idTickettype ]);   
             }
         }else{
-            
+            $this->request->session()->write('typeViewTickets', 'default');
         }
         $this->set('tickets', $this->paginate($query));
         $this->set(compact('tickets'));
@@ -186,10 +185,6 @@ class TicketsController extends AppController
         $ticket = $this->Tickets->get($id, [
             'contain' => []
         ]);
-        /*$ticket = $this->Tickets->get($id, [
-       'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles','ParentTickets','ChildTickets']
-     ]);*/
-
         if ($this->request->is(['patch', 'post', 'put'])) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {

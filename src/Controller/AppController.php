@@ -49,11 +49,14 @@ class AppController extends Controller
     var $limit_data = 50;
     var $results = null;
         
+
+
     public function initialize()
     {
        $this->loadComponent('Flash');
        $this->loadComponent('RequestHandler');
        $this->loadComponent('Tickettype');
+
       $this->loadComponent('Auth', [
       /*'authorize'=> 'Controller',*/
             'authenticate' => [
@@ -77,7 +80,7 @@ class AppController extends Controller
                 'action' => 'login'
             ],
         ]);
-        
+
 
 
         // Allow the display action so our pages controller
@@ -101,12 +104,13 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
-  
 
+       
         if (!is_null($this->request->session()->read('Auth.User.id'))){
-            //$this->results = $this->Tickettype->getTotal('default');        
+            $this->results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));        
         }
         $this->set('ticketrows',  $this->results);
+        
     }
 
 }

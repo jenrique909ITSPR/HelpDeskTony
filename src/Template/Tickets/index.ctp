@@ -7,7 +7,7 @@
 
 <div class="tickets index">
 
-  <div class="boxContainer center">
+    <div class="boxContainer center">
     <ul class="myfilter">
       <li><?= $this->Html->link(__('My Ticket'), ['controller' => 'Tickets', 'action' => 'index' ]) ?></li>
       <li class="myfilterActive"><?= $this->Html->link(__('My Group'), ['controller' => 'Tickets', 'action' => 'index' , 'group']) ?></li>
@@ -25,7 +25,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-				<th scope="col" class="actions"><?= $this->Form->checkbox('selectedAll', ['hiddenField' => false]); ?></th>
+                <th scope="col" class="actions"><?= $this->Form->checkbox('selectedAll', ['hiddenField' => false]); ?></th>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tickettype_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('ticket_status_id') ?></th>
@@ -50,10 +50,10 @@
 
             <?php foreach ($tickets as $ticket):
 
-      			     $style = 'style="background: '.$ticket->tickettype->color . '"';
-      			?>
+                     $style = 'style="background: '.$ticket->tickettype->color . '"';
+                ?>
             <tr >
-				        <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false]); ?></td>
+                        <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false]); ?></td>
                 <td><?= $this->Number->format($ticket->id) ?></td>
                 <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->name) : '' ?></td>
                 <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>

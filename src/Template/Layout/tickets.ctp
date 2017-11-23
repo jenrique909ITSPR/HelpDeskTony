@@ -11,7 +11,7 @@
     <?php foreach ($ticketrows as $row): ?>
       <li>
         
-        <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), ['tipo_vista' , $row['tickettype_id']]); ?>
+        <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), [ $this->request->session()->read('typeViewTickets') , $row['tickettype_id']]); ?>
       </li>
     <?php endforeach; ?>
 
@@ -19,7 +19,7 @@
     </div>
 
     <div class="right">
-    	<ul class="topnavMenuR">
+      <ul class="topnavMenuR">
 
           <li><?= $this->Html->link(__('My Group'), ['controller' => 'Tickets', 'action' => 'team']); ?></li>
           <li><a href="" title="Reportes">Indicadores</a></li>
