@@ -111,6 +111,7 @@ class TicketsController extends AppController
 
     public function view($id = null)
     {
+       
         if ($this->request->is("get")){
              $idTicket = $this->request->query('searchticket');
 
@@ -119,8 +120,6 @@ class TicketsController extends AppController
             }
             if(is_null($idTicket) && is_null($id)){
 
-                $this->Flash->error(__('El ticket ingresado no existe'));
-                return $this->redirect(['action' => 'index']);
             }
             $ticketSearch = $this->Tickets->findById($id)->first();
             if (empty($ticketSearch)) {

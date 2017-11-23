@@ -11,7 +11,7 @@
     <?php foreach ($ticketrows as $row): ?>
       <li>
         
-        <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), [ $this->request->session()->read('typeViewTickets') , $row['tickettype_id']]); ?>
+        <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), [ 'controller' => 'Tickets', 'action' => 'index' , $this->request->session()->read('typeViewTickets') , $row['tickettype_id']]); ?>
       </li>
     <?php endforeach; ?>
 
@@ -28,7 +28,7 @@
     </div>
 
     <div class="searchbox right">
-      <?= $this->Form->create('ticketsearch', ['type' => 'get','url' => ['controller' => 'Tickets', 'action' => 'view']]) ?>
+      <?= $this->Form->create('ticketsearch', ['url' => ['controller' => 'Tickets', 'action' => 'view']]) ?>
           <?php
               echo $this->Form->control('searchticket',['label' => false]);
           ?>
