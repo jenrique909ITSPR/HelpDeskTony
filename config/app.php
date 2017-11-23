@@ -225,8 +225,9 @@ return [
             'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
 
-            /*'host' => '10.105.160.119',*/
-			      'host' => '10.105.160.119',
+
+            /*'host' => '10.105.160.63',*/
+			      'host' => 'localhost',
 
             /**
              * CakePHP will use the default DB port based on the driver selected
