@@ -10,7 +10,8 @@
      <ul class="topnavMenuL">
     <?php foreach ($ticketrows as $row): ?>
       <li>
-        <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), ['controller' => 'Tickets', 'action' => 'index', $row['tickettype_id']]); ?>
+        
+        <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), ['tipo_vista' , $row['tickettype_id']]); ?>
       </li>
     <?php endforeach; ?>
 

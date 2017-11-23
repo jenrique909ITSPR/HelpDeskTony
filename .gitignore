@@ -4,6 +4,7 @@
 /logs/*
 /tmp/*
 config/app.php
+activos_tickets.sql
 
 # OS generated files #
 ######################
@@ -30,4 +31,5 @@ Thumbs.db
 nbproject/* # NetBeans
 .vscode # Visual Studio Code
 .sass-cache/ # Sass preprocessor
+config/app.php
 config/app.php

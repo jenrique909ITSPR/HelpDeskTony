@@ -9,9 +9,9 @@
 
   <div class="boxContainer center">
     <ul class="myfilter">
-      <li><?= $this->Html->link(__('My Ticket'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
-      <li class="myfilterActive"><?= $this->Html->link(__('My Group'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
-      <li><?= $this->Html->link(__('All Ticket'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
+      <li><?= $this->Html->link(__('My Ticket'), ['controller' => 'Tickets', 'action' => 'index' ]) ?></li>
+      <li class="myfilterActive"><?= $this->Html->link(__('My Group'), ['controller' => 'Tickets', 'action' => 'index' , 'group']) ?></li>
+      <li><?= $this->Html->link(__('All Ticket'), ['controller' => 'Tickets', 'action' => 'index' ,'all']) ?></li>
     </ul>
   </div>
 

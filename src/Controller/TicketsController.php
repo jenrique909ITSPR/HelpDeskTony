@@ -23,6 +23,13 @@ class TicketsController extends AppController
      * @return \Cake\Http\Response|void
      */
 
+    public function initialize()
+    {
+         parent::initialize();
+        $this->loadComponent('Filters');
+        $this->loadComponent('Tickettype');
+    }
+
      public function favorite($id = null){
        $ticket = $this->Tickets->get($id, [
            'contain' => []
@@ -43,30 +50,54 @@ class TicketsController extends AppController
 
      }
 
-    public function index($id = null)
+    public function index($typeView = null,$idTickettype = null)
     {
-        if (is_null($id)){
-           $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id') ])
-             ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
 
-             ;
-             $this->paginate = [
-            'limit' => $this->limit_data ];
-             $this->set('tickets', $this->paginate($query));
+        $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
+            $this->paginate = ['limit' => $this->limit_data ];
+        
+        $this->results = $this->Tickettype->getTotal($typeView); 
+            $this->set('ticketrows', $this->results );  
+        if (!is_null($typeView)){
+            
+            //Aqui se cargan el contador de tipos de tickes
+            $query = $this->viewTicketsSelection($typeView,$query);
+            
 
 
+            if (!is_null($idTickettype)) {
+                //cargar propios del  filtrados 
+                //$this->TickettypeComponent->getTotal($this->request->session()->read('Auth.User.id'));
+                $query->where(['Tickets.tickettype_id' => $idTickettype ]);   
+            }
         }else{
-            $query = $this->Tickets->find('all')->where(['tickettype_id' => $id , 'user_id' => $this->request->session()->read('Auth.User.id') ])
-             ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
-
-             ;
-             $this->paginate = [
-            'limit' => $this->limit_data ];
-            $this->set('tickets', $this->paginate($query));
-
+            
         }
+        $this->set('tickets', $this->paginate($query));
         $this->set(compact('tickets'));
         $this->set('_serialize', ['tickets']);
+    }
+
+
+    public function viewTicketsSelection($id = null ,$query = null)
+    {
+        switch ($id) {
+            
+                case 'group':
+                    $query->orWhere(['Tickets.group_id' => $this->request->session()->read('Auth.User.group_id')]);
+
+                    break;
+                case 'all':
+                   $query2 = $this->Tickets->find('all')
+                        ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
+                    $this->paginate = ['limit' => $this->limit_data ];
+                    
+                    $query = $query2;
+                break;
+            }
+
+        return $query;
     }
 
     /**
@@ -155,6 +186,10 @@ class TicketsController extends AppController
         $ticket = $this->Tickets->get($id, [
             'contain' => []
         ]);
+        /*$ticket = $this->Tickets->get($id, [
+       'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles','ParentTickets','ChildTickets']
+     ]);*/
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
