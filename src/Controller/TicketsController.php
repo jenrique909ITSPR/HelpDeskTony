@@ -110,8 +110,7 @@ class TicketsController extends AppController
 
 
     public function view($id = null)
-    {
-       
+    {   
         if ($this->request->is("get")){
              $idTicket = $this->request->query('searchticket');
 
@@ -120,6 +119,8 @@ class TicketsController extends AppController
             }
             if(is_null($idTicket) && is_null($id)){
 
+                $this->Flash->error(__('El ticket ingresado no existe'));
+                return $this->redirect(['action' => 'index']);
             }
             $ticketSearch = $this->Tickets->findById($id)->first();
             if (empty($ticketSearch)) {
@@ -128,11 +129,9 @@ class TicketsController extends AppController
             }
 
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles','ParentTickets','ChildTickets']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles']
             ]);
         }
-
-
 
 
         $this->set('ticket', $ticket);
@@ -146,6 +145,7 @@ class TicketsController extends AppController
      */
     public function add()
     {
+
         $ticket = $this->Tickets->newEntity();
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
@@ -156,6 +156,8 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
         }
+        $ticket->group_id = $this->request->session()->read('Auth.User.group_id');
+        $ticket->user_id = $this->request->session()->read('Auth.User.id');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
@@ -167,7 +169,7 @@ class TicketsController extends AppController
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-        $ip = $this->request->clientIp();
+        $ticket->ip = $this->request->clientIp();
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip'));
         $this->set('_serialize', ['ticket']);
     }
@@ -204,6 +206,7 @@ class TicketsController extends AppController
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
+
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
         $this->set('_serialize', ['ticket']);
     }
