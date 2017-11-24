@@ -19,6 +19,8 @@ var plot1 = jQuery.jqplot ('chart1', [data],
         showDataLabels: true
       }
     },
+    seriesColors: [ "#F39C12", "#CEC2D3", "#FF8210","#00C0EF"],
+
     legend: { show:true,
       placement: 'outside',
       rendererOptions: {

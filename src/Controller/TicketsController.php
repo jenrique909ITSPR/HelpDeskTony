@@ -319,7 +319,13 @@ class TicketsController extends AppController
 
          $this->set('dataChartJson',json_encode($dataChartJson,JSON_NUMERIC_CHECK));
 
+         $tt = TableRegistry::get('Tickettypes');
 
+         $query = $tt->find();
+         $dataChartColor = array();
+         foreach ($query as $ttype) {
+}
+$this->set('dataChartColor',json_encode($dataChartJson));
     }
 
     public function beforeFilter(Event $event) {
