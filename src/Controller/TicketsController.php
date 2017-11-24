@@ -5,7 +5,6 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
-
 use Cake\Datasource\ConnectionManager;
 
 
@@ -73,7 +72,7 @@ class TicketsController extends AppController
         $this->set('tickets', $this->paginate($query));
         $this->set(compact('tickets'));
         $this->set('_serialize', ['tickets']);
-        
+
     }
 
 
@@ -308,19 +307,19 @@ class TicketsController extends AppController
     }
 
      public function team() {
-         $query = 'SELECT count(t.tickettype_id)as total, tt.name  FROM tickets t inner join tickettypes tt on tt.id = t.tickettype_id group by t.tickettype_id '; 
+         $query = 'SELECT count(t.tickettype_id)as total, tt.name  FROM tickets t inner join tickettypes tt on tt.id = t.tickettype_id group by t.tickettype_id ';
 
         $connection = ConnectionManager::get('default');
         $dataChart = $connection->execute($query)->fetchAll('assoc');
         $dataChartJson = array();
         foreach ($dataChart as $key => $value) {
-             array_push($dataChartJson, [$value['name'] ,$value['total']]); 
-             
+             array_push($dataChartJson, [$value['name'] ,$value['total']]);
+
          }
-        
+
          $this->set('dataChartJson',json_encode($dataChartJson,JSON_NUMERIC_CHECK));
-        
-        
+
+
     }
 
     public function beforeFilter(Event $event) {

@@ -38,12 +38,10 @@ $cakeDescription = 'Portal TI';
     <?= $this->fetch('script') ?>
 
 	<?= $this->Html->script('jquery.min.js'); ?>
-  <?= $this->Html->script('jqPlot/src/jquery.min.js'); ?>
-<?= $this->Html->script('jqPlot/src/jquery.jqplot.js'); ?>
-<?= $this->Html->script('jqPlot/src/plugins/jqplot.pieRenderer.js'); ?>
-<?= $this->Html->script('jqPlot/src/plugins/jqplot.donutRenderer.js'); ?>
+  <?= $this->Html->script('jqPlot/src/jquery.jqplot.js'); ?>
+  <?= $this->Html->script('jqPlot/src/plugins/jqplot.pieRenderer.js'); ?>
 	<?= $this->Html->script('jquery.easyui.min.js'); ?>
-    <?= $this->Html->script('tinymce/jquery.tinymce.min.js'); ?>
+  <?= $this->Html->script('tinymce/jquery.tinymce.min.js'); ?>
   <?= $this->Html->script('tinymce/tinymce.min.js'); ?>
 
 

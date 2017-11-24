@@ -1,23 +1,31 @@
 <script>
 $(document).ready(function(){
 var data = <?php  echo $dataChartJson ?>;
-/*[
-  ['Test', 12],['Retail', 9], ['Light Industry', 14],
-  ['Out of home', 16],['Commuting', 7], ['Orientation', 9]
-];*/
-
 var plot1 = jQuery.jqplot ('chart1', [data],
   {
+    grid: {
+            drawBorder: false,
+            drawGridlines: false,
+            background: '#ffffff',
+            shadow:false
+        },
     seriesDefaults: {
       // Make this a pie chart.
       renderer: jQuery.jqplot.PieRenderer,
       rendererOptions: {
         // Put data labels on the pie slices.
         // By default, labels show the percentage of the slice.
+        sliceMargin: 7,
         showDataLabels: true
       }
     },
-    legend: { show:true, location: 'e' }
+    legend: { show:true,
+      placement: 'outside',
+      rendererOptions: {
+               numberRows: 1
+           },
+      location: 's'
+    }
   }
 );
 });
@@ -78,6 +86,5 @@ var plot1 = jQuery.jqplot ('chart1', [data],
     </div>
   </div>
 </div>
-<div id="chart1" style=" float: right;margin-top: -90px; height:400px; width:400px; ">
-
+<div id="chart1" style=" float: right; margin: -90px 70px 10px; height:350px; width:350px; position: static;">
 </div>
