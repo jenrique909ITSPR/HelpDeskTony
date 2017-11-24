@@ -6,6 +6,7 @@ use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
 
+
 /**
  * Users Controller
  *
@@ -73,6 +74,7 @@ public function logout()
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
     }
+
 
     /**
      * View method

@@ -120,7 +120,7 @@ return [
         ],
     ],
 
-    
+
 
     /**
      * Configure the Error and Exception handlers used by your application.
@@ -226,8 +226,8 @@ return [
             'persistent' => false,
 
 
-            /*'host' => '10.105.160.63',*/
-			      'host' => 'localhost',
+            'host' => '10.105.160.119',
+			     // 'host' => 'localhost',
 
             /**
              * CakePHP will use the default DB port based on the driver selected
@@ -235,8 +235,8 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'root',
-		        'password' => '',
+            'username' => 'cakephp',
+		        'password' => 'cakephp',
             'database' => 'activos_tickets',
             'encoding' => 'utf8',
             'timezone' => 'UTC',

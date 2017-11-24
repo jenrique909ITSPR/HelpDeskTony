@@ -28,16 +28,24 @@ $cakeDescription = 'Portal TI';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
-	<?= $this->Html->css('font-awesome.css') ?>
-	<?= $this->Html->css('themes/gray/easyui.css') ?>
-	<?= $this->Html->css('themes/icon.css') ?>
+	  <?= $this->Html->css('font-awesome.css') ?>
+	  <?= $this->Html->css('themes/gray/easyui.css') ?>
+	  <?= $this->Html->css('themes/icon.css') ?>
+    <?= $this->Html->css('jquery.jqplot.css')?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
 	<?= $this->Html->script('jquery.min.js'); ?>
+  <?= $this->Html->script('jqPlot/src/jquery.min.js'); ?>
+<?= $this->Html->script('jqPlot/src/jquery.jqplot.js'); ?>
+<?= $this->Html->script('jqPlot/src/plugins/jqplot.pieRenderer.js'); ?>
+<?= $this->Html->script('jqPlot/src/plugins/jqplot.donutRenderer.js'); ?>
 	<?= $this->Html->script('jquery.easyui.min.js'); ?>
+    <?= $this->Html->script('tinymce/jquery.tinymce.min.js'); ?>
+  <?= $this->Html->script('tinymce/tinymce.min.js'); ?>
+
 
 
 </head>
