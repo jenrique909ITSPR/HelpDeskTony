@@ -1,9 +1,10 @@
 <script>
 $(document).ready(function(){
-var data = [
+var data = <?php  echo $dataChartJson ?>;
+/*[
   ['Test', 12],['Retail', 9], ['Light Industry', 14],
   ['Out of home', 16],['Commuting', 7], ['Orientation', 9]
-];
+];*/
 
 var plot1 = jQuery.jqplot ('chart1', [data],
   {
@@ -20,9 +21,9 @@ var plot1 = jQuery.jqplot ('chart1', [data],
   }
 );
 });
+
 </script>
 <div class="tickets index">
-
   <div class="boxContainer center">
     <ul class="myfilter">
       <li><?= $this->Html->link(__('My Ticket'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
