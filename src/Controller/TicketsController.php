@@ -22,6 +22,12 @@ class TicketsController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+     public function initialize()
+    {
+         parent::initialize();
+        
+        $this->loadComponent('Tickettype');
+    }
 
      public function favorite($id = null){
        $ticket = $this->Tickets->get($id, [
@@ -43,30 +49,54 @@ class TicketsController extends AppController
 
      }
 
-    public function index($id = null)
+    public function index($typeView = null,$idTickettype = null)
     {
-        if (is_null($id)){
-           $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id') ])
-             ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
 
-             ;
-             $this->paginate = [
-            'limit' => $this->limit_data ];
-             $this->set('tickets', $this->paginate($query));
+        $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
+            $this->paginate = ['limit' => $this->limit_data ];
+        
+        $this->results = $this->Tickettype->getTotal($typeView); 
+            $this->set('ticketrows', $this->results );  
+        if (!is_null($typeView)){
+             $this->request->session()->write('typeViewTickets', $typeView);
+            //Aqui se cargan el contador de tipos de tickes
+            $query = $this->viewTicketsSelection($typeView,$query);
+            
 
 
+            if (!is_null($idTickettype)) {
+                //cargar propios del  filtrados 
+                //$this->TickettypeComponent->getTotal($this->request->session()->read('Auth.User.id'));
+                $query->where(['Tickets.tickettype_id' => $idTickettype ]);   
+            }
         }else{
-            $query = $this->Tickets->find('all')->where(['tickettype_id' => $id , 'user_id' => $this->request->session()->read('Auth.User.id') ])
-             ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
-
-             ;
-             $this->paginate = [
-            'limit' => $this->limit_data ];
-            $this->set('tickets', $this->paginate($query));
-
+            $this->request->session()->write('typeViewTickets', 'default');
         }
+        $this->set('tickets', $this->paginate($query));
         $this->set(compact('tickets'));
         $this->set('_serialize', ['tickets']);
+    }
+
+
+    public function viewTicketsSelection($id = null ,$query = null)
+    {
+        switch ($id) {
+            
+                case 'group':
+                    $query->orWhere(['Tickets.group_id' => $this->request->session()->read('Auth.User.group_id')]);
+
+                    break;
+                case 'all':
+                   $query2 = $this->Tickets->find('all')
+                        ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
+                    $this->paginate = ['limit' => $this->limit_data ];
+                    
+                    $query = $query2;
+                break;
+            }
+
+        return $query;
     }
 
     /**
@@ -80,7 +110,7 @@ class TicketsController extends AppController
 
 
     public function view($id = null)
-    {
+    {   
         if ($this->request->is("get")){
              $idTicket = $this->request->query('searchticket');
 
@@ -99,11 +129,9 @@ class TicketsController extends AppController
             }
 
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles','ParentTickets','ChildTickets']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles']
             ]);
         }
-
-
 
 
         $this->set('ticket', $ticket);
@@ -117,6 +145,7 @@ class TicketsController extends AppController
      */
     public function add()
     {
+
         $ticket = $this->Tickets->newEntity();
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
@@ -127,6 +156,8 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
         }
+        $ticket->group_id = $this->request->session()->read('Auth.User.group_id');
+        $ticket->user_id = $this->request->session()->read('Auth.User.id');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
@@ -138,7 +169,7 @@ class TicketsController extends AppController
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-        $ip = $this->request->clientIp();
+        $ticket->ip = $this->request->clientIp();
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip'));
         $this->set('_serialize', ['ticket']);
     }
@@ -175,6 +206,7 @@ class TicketsController extends AppController
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
+
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
         $this->set('_serialize', ['ticket']);
     }

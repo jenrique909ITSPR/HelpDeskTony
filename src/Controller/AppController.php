@@ -47,12 +47,15 @@ class AppController extends Controller
         //$this->loadComponent('Security');
 
     var $limit_data = 50;
+    var $results = null;
+        
 
 
     public function initialize()
     {
        $this->loadComponent('Flash');
        $this->loadComponent('RequestHandler');
+       $this->loadComponent('Tickettype');
 
       $this->loadComponent('Auth', [
       /*'authorize'=> 'Controller',*/
@@ -102,28 +105,12 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
 
-        if (is_null($this->request->session()->read('Auth.User.id'))){
-
-        }else{
-            $connection = ConnectionManager::get('default');
-        $results = $connection->execute('
-                        select count(t.tickettype_id)as total,t.tickettype_id,tt.name,tt.rank,tt.color
-            from tickets t inner join tickettypes tt on t.tickettype_id = tt.id INNER join ticketstatuses ts
-            on ts.id = t.ticket_status_id
-            where t.user_id ='.
-            $this->request->session()->read('Auth.User.id')
-            .' and ts.value_order = 1
-            GROUP by t.tickettype_id
-            union
-            select 0 as total,id,name,rank,color from tickettypes where id not in(
-            select t.tickettype_id from tickets t,ticketstatuses ts where t.user_id = '.
-            $this->request->session()->read('Auth.User.id')
-            .' and ts.value_order=1 and ts.id = t.ticket_status_id
-            )GROUP by id  order by rank ASC;
-            ')->fetchAll('assoc');
-
-        $this->set('ticketrows', $results);
+       
+        if (!is_null($this->request->session()->read('Auth.User.id'))){
+            $this->results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));        
         }
+        $this->set('ticketrows',  $this->results);
+        
     }
 
 }
