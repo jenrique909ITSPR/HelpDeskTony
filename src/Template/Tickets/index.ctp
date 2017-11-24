@@ -9,9 +9,9 @@
 
     <div class="boxContainer center">
     <ul class="myfilter">
-      <li><?= $this->Html->link(__('My Ticket'), ['controller' => 'Tickets', 'action' => 'index' ]) ?></li>
-      <li class="myfilterActive"><?= $this->Html->link(__('My Group'), ['controller' => 'Tickets', 'action' => 'index' , 'group']) ?></li>
-      <li><?= $this->Html->link(__('All Ticket'), ['controller' => 'Tickets', 'action' => 'index' ,'all']) ?></li>
+      <li class="<?php if($this->request->session()->read('typeViewTickets') == 'default'){echo 'myfilterActive';} ?>" ><?= $this->Html->link(__('My Ticket'), ['controller' => 'Tickets', 'action' => 'index' ]) ?></li>
+      <li class="<?php if($this->request->session()->read('typeViewTickets') == 'group'){echo 'myfilterActive';} ?>" ><?= $this->Html->link(__('My Group'), ['controller' => 'Tickets', 'action' => 'index' , 'group']) ?></li>
+      <li class="<?php if($this->request->session()->read('typeViewTickets') == 'all'){echo 'myfilterActive';} ?>"><?= $this->Html->link(__('All Ticket'), ['controller' => 'Tickets', 'action' => 'index' ,'all']) ?></li>
     </ul>
   </div>
 
@@ -49,7 +49,6 @@
         <tbody>
 
             <?php foreach ($tickets as $ticket):
-
                      $style = 'style="background: '.$ticket->tickettype->color . '"';
                 ?>
             <tr >

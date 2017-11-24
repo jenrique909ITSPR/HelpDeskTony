@@ -47,8 +47,8 @@ class AppController extends Controller
         //$this->loadComponent('Security');
 
     var $limit_data = 50;
-    var $results = null;
-        
+
+
 
 
     public function initialize()
@@ -104,13 +104,12 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
-
-       
+        $results =  null;
         if (!is_null($this->request->session()->read('Auth.User.id'))){
-            $this->results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));        
+            $results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));
         }
-        $this->set('ticketrows',  $this->results);
-        
+        $this->set('ticketrows',$results );
+
     }
 
 }
