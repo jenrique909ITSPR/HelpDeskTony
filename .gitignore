@@ -31,3 +31,4 @@ nbproject/* # NetBeans
 .vscode # Visual Studio Code
 .sass-cache/ # Sass preprocessor
 config/app.php
+config/app.php
