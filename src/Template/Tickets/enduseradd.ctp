@@ -26,7 +26,7 @@
             echo $this->Form->control('itemcode_id', ['options' => $itemcodes, 'empty' => true]);
             echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
             echo $this->Form->control('group_id', ['options' => $groups, 'empty' => true]);*/
-            echo $this->Form->control('user_autor',['options' => $users , 'empty' => true ]);
+            echo $this->Form->control('user_autor',['options' => $users , 'empty' => true   ]);
             echo $this->Form->control('user_requeried',['options' => $users , 'empty' => true]);
             echo $this->Form->control('ticketimpact_id', ['options' => $ticketimpacts, 'empty' => true]);
             echo $this->Form->control('ticketurgency_id', ['options' => $ticketurgencies, 'empty' => true]);
