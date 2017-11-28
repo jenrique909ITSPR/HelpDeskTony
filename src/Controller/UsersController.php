@@ -50,7 +50,7 @@ public function login()
         if ($user) {
             $this->Auth->setUser($user);
             if ($this->request->session()->read('Auth.User.role_id') == '5') return $this->redirect(['controller' => 'Tickets','action' => 'enduserindex']);
-            return $this->redirect(['controller' => 'Tickets','action' => 'index']);
+            return $this->redirect('/');
         }
         $this->Flash->error_login('Your username or password is incorrect.');
         }
