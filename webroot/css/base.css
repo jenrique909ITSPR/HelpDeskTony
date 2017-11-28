@@ -64,10 +64,10 @@ img {
 
 .fixed {
     position: fixed;
-    top: 0;
+    /*top: 0;
     width: 100%;
     z-index: 99;
-    left: 0
+    left: 0*/
 }
 
 .center {
@@ -109,6 +109,12 @@ img {
     vertical-align: middle
 }
 
+.loginName a {
+  text-transform: lowercase;
+}
+.loginName a::first-letter {
+    text-transform: capitalize;
+}
 .top-bar {
     background: #E7E7E7;
     height: 2.8125rem;
@@ -1289,4 +1295,95 @@ h4 {
 }
 .column2 {
   width: 50%;
+}
+
+/* ENDUSER */
+body.enduser {
+  background: url('../img/bgEndUser.png') -1px repeat-y;
+}
+#logoEndUser {
+  font-size: 1.5em;
+  padding: 7px 10px 7px 10px;
+  color: #FFF;
+  background: #337AB7;
+}
+#contentAjax {
+  margin-left: 200px;
+  padding: 40px 0 40px 0;
+}
+.userIP {
+  font-size: 1.5rem;
+  padding: 20px 0;
+  text-align: center;
+  color: #31708F;
+}
+.userIP p {
+  padding: 5px 0 0 0;
+}
+.userIP i {
+  font-size: 2rem;
+  padding: 13px 37px 10px 12px;
+  background: #CCC;
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  border-radius: 22px;
+  color: #444;
+}
+
+.menuEnduser ul {
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  list-style-position: outside;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0;
+}
+.menuEnduser ul li {
+    font-size: 0.875rem;
+    font-weight: normal;
+    margin: 1px 0;
+    /*float: left;*/
+}
+.menuEnduser ul a {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    margin: 0 0;
+    padding: .9rem .5rem;
+    border-left: 3px solid #CCC;
+    background: #EEE;
+    /*-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;*/
+}
+.menuEnduser ul a:hover {
+  background: #DDD;
+  color: #337AB7;
+  border-left: 3px solid #337AB7;
+}
+.menuEnduser ul li a:active {
+  color: #000;
+}
+.messageEndUser {
+  text-align: center;
+  padding: 10px 10px;
+  border: 1px solid #C1E9F2;
+  background: #D9EDF7;
+  margin-bottom: 10px;
+  color: #31708F;
+}
+.blockEndUser {
+
+}
+.blockEndUser a {
+  display: block;
+  border: 1px solid #CCC;
+  background: #F2F2F2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 20px 20px;
+  margin: 5px 5px;
+  float: left;
 }

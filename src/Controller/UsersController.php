@@ -49,6 +49,7 @@ public function login()
         $user = $this->Auth->identify();
         if ($user) {
             $this->Auth->setUser($user);
+            if ($this->request->session()->read('Auth.User.role_id') == '5') return $this->redirect(['controller' => 'Tickets','action' => 'enduserindex']);
             return $this->redirect(['controller' => 'Tickets','action' => 'index']);
         }
         $this->Flash->error_login('Your username or password is incorrect.');
@@ -175,5 +176,28 @@ public function logout()
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function myaccount($id = null)  {
+        if($this->request->session()->read('Auth.User.role_id') == '5') $this->viewBuilder()->layout('enduser');
+        $user = $this->Users->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The information has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The information could not be saved. Please, try again.'));
+        }
+        //$positionbranches = $this->Users->Positionbranches->find('list', ['limit' => 200]);
+        //$statususers = $this->Users->Statususers->find('list', ['limit' => 200]);
+        //$groups = $this->Users->Groups->find('list', ['limit' => 200]);
+        //$roles = $this->Users->Roles->find('list', ['limit' => 200]);
+        //$this->set(compact('user', 'positionbranches', 'statususers', 'groups', 'roles'));
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
     }
 }
