@@ -3,8 +3,8 @@
 /tmp/*
 /logs/*
 /tmp/*
-config/app.php
-activos_tickets.sql
+/config/app.php
+/activos_tickets.sql
 
 # OS generated files #
 ######################

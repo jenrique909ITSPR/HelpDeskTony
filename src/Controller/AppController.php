@@ -95,19 +95,19 @@ class AppController extends Controller
 
     public function beforeRender(Event $event)
     {
-    
+
          if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
         }
         $results =  null;
-        if (!is_null($this->request->session()->read('Auth.User.id'))){
+        /*if (!is_null($this->request->session()->read('Auth.User.id'))){
             $results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));
             $this->set('ticketrows',$results );
 
-        }
-        
+        }*/
+
     }
 
 }

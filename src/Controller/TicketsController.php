@@ -8,7 +8,6 @@ use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
 
 
-
 /**
  * Tickets Controller
  *
@@ -331,6 +330,80 @@ $this->set('dataChartColor',json_encode($dataChartJson));
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('tickets');
+    }
+
+    public function enduserindex() {
+        $this->viewBuilder()->layout('enduser');
+
+        $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
+            $this->paginate = ['limit' => $this->limit_data ];
+
+         ;
+         $this->paginate = [
+        'limit' => $this->limit_data ];
+        $this->set('tickets', $this->paginate($query));
+
+        $this->set(compact('tickets'));
+        $this->set('_serialize', ['tickets']);
+    }
+
+    public function enduseradd() {
+        $this->viewBuilder()->layout('enduser');
+        $ticket = $this->Tickets->newEntity();
+        if ($this->request->is('post')) {
+            $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
+            if ($this->Tickets->save($ticket)) {
+                $this->Flash->success(__('Ticket creado correctamente'));
+
+                return $this->redirect(['action' => 'enduserindex']);
+            }
+            $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+        }
+        $ticket->group_id = $this->request->session()->read('Auth.User.group_id');
+        $ticket->user_id = $this->request->session()->read('Auth.User.id');
+        $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
+        $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
+        $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
+        $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
+        $users = $this->Tickets->Users->find('list', ['limit' => 200]);
+        $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
+        $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
+        $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
+        $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
+        $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
+        $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
+        $ticket->ip = $this->request->clientIp();
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip'));
+        $this->set('_serialize', ['ticket']);
+    }
+
+    public function enduserview($id = null) {
+        $this->viewBuilder()->layout('enduser');
+        if ($this->request->is("get")){
+            if(is_null($id)){
+                $this->Flash->error(__('El ticket ingresado no existe'));
+                return $this->redirect(['action' => 'enduserindex']);
+            }
+
+             $ticket = $this->Tickets->get($id, [
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles']
+            ]);
+        }
+
+        $this->set('ticket', $ticket);
+        $this->set('_serialize', ['ticket']);
+    }
+
+
+    public function beforeRender(Event $event)
+    {
+        if (!is_null($this->request->session()->read('Auth.User.id'))){
+            $results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));
+            $this->set('ticketrows',$results );
+
+        }
+
     }
 
 }
