@@ -328,11 +328,11 @@ class TicketsController extends AppController
     public function enduserindex() {
         $this->viewBuilder()->layout('enduser');
 
-        $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
+        $query = $this->Tickets->find('all')->where(['Tickets.user_autor' => $this->request->session()->read('Auth.User.id')])
             ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
             $this->paginate = ['limit' => $this->limit_data ];
 
-         ;
+         
          $this->paginate = [
         'limit' => $this->limit_data ];
         $this->set('tickets', $this->paginate($query));
@@ -345,6 +345,8 @@ class TicketsController extends AppController
         $this->viewBuilder()->layout('enduser');
         $ticket = $this->Tickets->newEntity();
         if ($this->request->is('post')) {
+            $ticket->tickettype_id = 1;
+            $ticket->ticket_status_id = 1;
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Ticket creado correctamente'));
@@ -353,6 +355,7 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
         }
+
         $ticket->group_id = $this->request->session()->read('Auth.User.group_id');
         $ticket->user_id = $this->request->session()->read('Auth.User.id');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
@@ -360,6 +363,7 @@ class TicketsController extends AppController
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
         $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);
+        $ticket->user_autor = $this->request->session()->read('Auth.User.id');
         $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
