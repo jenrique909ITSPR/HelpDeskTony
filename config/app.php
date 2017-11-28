@@ -226,7 +226,7 @@ return [
             'persistent' => false,
 
 
-            'host' => '10.105.160.95',
+            'host' => '10.105.160.50',
 			     // 'host' => 'localhost',
 
             /**
