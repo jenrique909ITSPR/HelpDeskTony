@@ -91,7 +91,7 @@ class AppController extends Controller
    public function beforeFilter(Event $event)
    {
        $this->Auth->allow(['login', 'logout']);
-      
+
    }
 
     public function beforeRender(Event $event)
@@ -103,11 +103,10 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
         $results =  null;
-        /*if (!is_null($this->request->session()->read('Auth.User.id'))){
+        if (!is_null($this->request->session()->read('Auth.User.id'))){
             $results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));
             $this->set('ticketrows',$results );
-
-        }*/
+        }
 
     }
 
