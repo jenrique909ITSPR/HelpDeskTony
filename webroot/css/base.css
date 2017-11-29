@@ -1021,7 +1021,7 @@ ul.headernav li a {
     color: #9B9D9D;
     display: block;
     font: bold 12px sans-serif;
-    padding: 12px 10px 12px 10px;
+    padding: 12px 10px 11px 10px;
     text-decoration: none;
 }
 
@@ -1052,7 +1052,7 @@ ul.topnavMenuL li a {
 }
 
 ul.topnavMenuL li a:hover {
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #337AB7;
     color: #333;
 }
 
@@ -1161,13 +1161,15 @@ ul.topnavPageR li a:hover {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    padding: 3px 5px;
+    padding: 3px 45px 3px 10px;
     color: #666;
-    width: 150px;
+    width: 200px;
+    background: #FFF url('../img/bgsearchForm.png') center right no-repeat;
 }
 
 .searchbox input:focus {
     border: 1px solid #CCC;
+    background: #FFF url('../img/bgsearchForm.png') center right no-repeat;
 }
 
 .easyui-tabs {
@@ -1313,7 +1315,7 @@ body.enduser {
 }
 .userIP {
   font-size: 1.5rem;
-  padding: 20px 0;
+  padding: 40px 0;
   text-align: center;
   color: #31708F;
 }

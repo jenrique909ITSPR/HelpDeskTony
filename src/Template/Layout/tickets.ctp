@@ -10,7 +10,7 @@
      <ul class="topnavMenuL">
     <?php foreach ($ticketrows as $row): ?>
       <li>
-        
+
         <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), [ 'controller' => 'Tickets', 'action' => 'index' , $this->request->session()->read('typeViewTickets') , $row['tickettype_id']]); ?>
       </li>
     <?php endforeach; ?>
@@ -22,8 +22,15 @@
       <ul class="topnavMenuR">
 
           <li><?= $this->Html->link(__('My Group'), ['controller' => 'Tickets', 'action' => 'team']); ?></li>
-          <li><a href="" title="Reportes">Indicadores</a></li>
-          <li><a href=""  title="Ajustes">Ajustes</a></li>
+          <li><?= $this->Html->link(__('Dashboard'), ['controller' => 'Tickets', 'action' => 'dashboard']); ?></li>
+          <!--<li>
+            <select class="" name="">
+              <option value="">Crear</option>
+              <option value="">Ticket</option>
+              <option value="">Articulo</option>
+            </select>
+
+          </li>-->
       </ul>
     </div>
 

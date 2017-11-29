@@ -9,7 +9,7 @@
           <?= $this->HTML->link(__('Knowledge'),['controller'=>'Articles','action'=>'index']);?>
     </div>
 
-    <div class="left">
+    <!--<div class="left">
      <ul class="topnavMenuL">
     <?php foreach ($ticketrows as $row): ?>
       <li>
@@ -17,7 +17,7 @@
       </li>
     <?php endforeach; ?>
     </ul>
-    </div>
+	</div>
 
     <div class="right">
     	<ul class="topnavMenuR">
@@ -33,7 +33,7 @@
               echo $this->Form->control('search',['label' => false]);
           ?>
       <?= $this->Form->end() ?>
-    </div>
+    </div>-->
   </div>
 
 

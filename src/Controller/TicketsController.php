@@ -6,7 +6,7 @@ use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
-
+use Cake\Network\Email\Email;
 
 /**
  * Tickets Controller
@@ -53,7 +53,8 @@ class TicketsController extends AppController
     public function index($typeView = null,$idTickettype = null)
     {
         $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
-            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
+            ->order(['Tickets.id' => 'DESC']);
             $this->paginate = ['limit' => $this->limit_data ];
 
         if (!is_null($typeView)){
@@ -186,7 +187,6 @@ class TicketsController extends AppController
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Datos del ticket actualizados '));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Error al actualizar datos'));
@@ -329,10 +329,11 @@ class TicketsController extends AppController
         $this->viewBuilder()->layout('enduser');
 
         $query = $this->Tickets->find('all')->where(['Tickets.user_autor' => $this->request->session()->read('Auth.User.id')])
-            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
-            $this->paginate = ['limit' => $this->limit_data ];
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
+            ->order(['Tickets.id' => 'DESC']);
+            $this->paginate = ['limit' => $this->limit_data];
 
-         
+
          $this->paginate = [
         'limit' => $this->limit_data ];
         $this->set('tickets', $this->paginate($query));
