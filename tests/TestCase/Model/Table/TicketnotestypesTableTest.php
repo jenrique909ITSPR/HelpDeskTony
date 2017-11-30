@@ -1,20 +1,20 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ArticlefilesTable;
+use App\Model\Table\TicketnotestypesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ArticlefilesTable Test Case
+ * App\Model\Table\TicketnotestypesTable Test Case
  */
-class ArticlefilesTableTest extends TestCase
+class TicketnotestypesTableTest extends TestCase
 {
 
     /**
      * Test subject     *
-     * @var \App\Model\Table\ArticlefilesTable     */
-    public $Articlefiles;
+     * @var \App\Model\Table\TicketnotestypesTable     */
+    public $Ticketnotestypes;
 
     /**
      * Fixtures
@@ -22,10 +22,8 @@ class ArticlefilesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.articlefiles',
-        'app.articles',
-        'app.hdcategories',
-        'app.hdtemplate',
+        'app.ticketnotestypes',
+        'app.ticketnotes',
         'app.tickets',
         'app.tickettypes',
         'app.ticket_statuses',
@@ -44,6 +42,10 @@ class ArticlefilesTableTest extends TestCase
         'app.groups',
         'app.ticketlogs',
         'app.roles',
+        'app.articles',
+        'app.hdcategories',
+        'app.hdtemplate',
+        'app.articlefiles',
         'app.articles_roles',
         'app.internalnotes',
         'app.movereasontemplates',
@@ -62,8 +64,6 @@ class ArticlefilesTableTest extends TestCase
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
-        'app.ticketnotes',
-        'app.ticketnotestypes',
         'app.ticketmarkeds',
         'app.ticketsfiles'
     ];
@@ -76,7 +76,7 @@ class ArticlefilesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Articlefiles') ? [] : ['className' => ArticlefilesTable::class];        $this->Articlefiles = TableRegistry::get('Articlefiles', $config);    }
+        $config = TableRegistry::exists('Ticketnotestypes') ? [] : ['className' => TicketnotestypesTable::class];        $this->Ticketnotestypes = TableRegistry::get('Ticketnotestypes', $config);    }
 
     /**
      * tearDown method
@@ -85,7 +85,7 @@ class ArticlefilesTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Articlefiles);
+        unset($this->Ticketnotestypes);
 
         parent::tearDown();
     }
@@ -106,16 +106,6 @@ class ArticlefilesTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

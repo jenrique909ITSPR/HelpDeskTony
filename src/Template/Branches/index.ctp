@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Branch[]|\Cake\Collection\CollectionInterface $branches
-  */
+  * @var \App\Model\Entity\Branch[]|\Cake\Collection\CollectionInterface $branches  */
 ?>
 
 <div class="branches index">
@@ -58,6 +57,8 @@
         <li><?= $this->Html->link(__('New Layout'), ['controller' => 'Layouts', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Positionbranches'), ['controller' => 'Positionbranches', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Positionbranch'), ['controller' => 'Positionbranches', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Warehouses'), ['controller' => 'Warehouses', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Warehouse'), ['controller' => 'Warehouses', 'action' => 'add']) ?></li>
     </ul>

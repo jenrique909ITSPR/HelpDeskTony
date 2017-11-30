@@ -17,6 +17,7 @@ class TicketsfilesControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.ticketsfiles',
+        'app.ticketnotes',
         'app.tickets',
         'app.tickettypes',
         'app.ticket_statuses',
@@ -28,15 +29,16 @@ class TicketsfilesControllerTest extends IntegrationTestCase
         'app.layouts',
         'app.branches',
         'app.branchgroups',
+        'app.users',
         'app.positionbranches',
         'app.positions',
-        'app.users',
         'app.statususers',
         'app.groups',
         'app.ticketlogs',
         'app.roles',
         'app.articles',
         'app.hdcategories',
+        'app.hdtemplate',
         'app.articlefiles',
         'app.articles_roles',
         'app.internalnotes',
@@ -55,7 +57,9 @@ class TicketsfilesControllerTest extends IntegrationTestCase
         'app.statusitems',
         'app.ticketimpacts',
         'app.ticketurgencies',
-        'app.ticketpriorities'
+        'app.ticketpriorities',
+        'app.ticketmarkeds',
+        'app.ticketnotestypes'
     ];
 
     /**

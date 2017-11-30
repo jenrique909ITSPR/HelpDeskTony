@@ -22,7 +22,6 @@ class TicketsFixture extends TestFixture
         'ticket_status_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'source_id' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'title' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'description' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'solution' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'resolution' => ['type' => 'text', 'length' => null, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null],
         'itemcode_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
@@ -38,6 +37,7 @@ class TicketsFixture extends TestFixture
         'hdcategory_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'ip' => ['type' => 'string', 'length' => 20, 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'branch_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -60,7 +60,6 @@ class TicketsFixture extends TestFixture
             'ticket_status_id' => 1,
             'source_id' => 'Lorem ipsum dolor sit amet',
             'title' => 'Lorem ipsum dolor sit amet',
-            'description' => 'Lorem ipsum dolor sit amet',
             'solution' => 'Lorem ipsum dolor sit amet',
             'resolution' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
             'itemcode_id' => 1,
@@ -68,14 +67,15 @@ class TicketsFixture extends TestFixture
             'group_id' => 1,
             'user_autor' => 1,
             'user_requeried' => 1,
-            'created' => '2017-11-06 16:49:56',
+            'created' => '2017-11-30 17:49:02',
             'ticketimpact_id' => 1,
             'ticketurgency_id' => 1,
             'ticketpriority_id' => 1,
             'parent_id' => 1,
             'hdcategory_id' => 1,
-            'modified' => '2017-11-06 16:49:56',
-            'ip' => 'Lorem ipsum dolor '
+            'modified' => '2017-11-30 17:49:02',
+            'ip' => 'Lorem ipsum dolor ',
+            'branch_id' => 1
         ],
     ];
 }

@@ -98,6 +98,10 @@
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($ticket->modified) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Branche') ?></th>
+            <td><?= h($ticket->branche) ?></td>
+        </tr>
     </table>
 
     <div class="row">
@@ -106,13 +110,14 @@
     </div>
 </div>
 
-    <div class="related" title="<?= __('Internalnotes') ?>">
+   <!--Modificar -->
+    <div class="related" title="<?= __('Ticketnotes') ?>">
       <div class="actions">
         <ul>
-          <li><?= $this->Html->link(__('New internalnotes'), ['action' => 'add']) ?> </li>
+          <li><?= $this->Html->link(__('New Ticketnotes'), ['action' => 'add']) ?> </li>
         </ul>
       </div>
-        <?php if (!empty($ticket->internalnotes)): ?>
+        <?php if (!empty($ticket->ticketnotes)): ?>
         <table cellpadding="0" cellspacing="0">
           <thead>
             <tr>
@@ -125,54 +130,17 @@
             </tr>
 		  </thead>
 		  <tbody>
-            <?php foreach ($ticket->internalnotes as $internalnotes): ?>
+            <?php foreach ($ticket->ticketnotes as $ticketnotes): ?>
             <tr>
-                <td><?= h($internalnotes->id) ?></td>
-                <td><?= h($internalnotes->name) ?></td>
-                <td><?= h($internalnotes->ticket_id) ?></td>
-                <td><?= h($internalnotes->user_id) ?></td>
-                <td><?= h($internalnotes->created) ?></td>
+                <td><?= h($ticketnotes->id) ?></td>
+                <td><?= h($ticketnotes->description) ?></td>
+                <td><?= h($ticketnotes->ticket_id) ?></td>
+                <td><?= h($ticketnotes->user_id) ?></td>
+                <td><?= h($ticketnotes->created) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Internalnotes', 'action' => 'view', $internalnotes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Internalnotes', 'action' => 'edit', $internalnotes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Internalnotes', 'action' => 'delete', $internalnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $internalnotes->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-		  </tbody>
-        </table>
-        <?php endif; ?>
-    </div>
-    <div class="related" title="<?= __('Publicnotes') ?>">
-      <div class="actions">
-        <ul>
-          <li><?= $this->Html->link(__('New publicnotes'), ['action' => 'add']) ?> </li>
-        </ul>
-      </div>
-        <?php if (!empty($ticket->publicnotes)): ?>
-        <table cellpadding="0" cellspacing="0">
-          <thead>
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Ticket Id') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-		  </thead>
-		  <tbody>
-            <?php foreach ($ticket->publicnotes as $publicnotes): ?>
-            <tr>
-                <td><?= h($publicnotes->id) ?></td>
-                <td><?= h($publicnotes->name) ?></td>
-                <td><?= h($publicnotes->ticket_id) ?></td>
-                <td><?= h($publicnotes->user_id) ?></td>
-                <td><?= h($publicnotes->created) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Publicnotes', 'action' => 'view', $publicnotes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Publicnotes', 'action' => 'edit', $publicnotes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Publicnotes', 'action' => 'delete', $publicnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $publicnotes->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Publicnotes', 'action' => 'view', $ticketnotes->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Publicnotes', 'action' => 'edit', $ticketnotes->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Publicnotes', 'action' => 'delete', $ticketnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticketnotes->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -319,38 +287,36 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related" title="<?= __('Ticketsfiles') ?>">
-      <div class="actions">
-        <ul>
-          <li><?= $this->Html->link(__('New ticketsfiles'), ['action' => 'add']) ?> </li>
-        </ul>
-      </div>
-        <?php if (!empty($ticket->ticketsfiles)): ?>
+    <div class="related" title="<?= __('Branches') ?>">
+        <h4><?= __('Related Branches') ?></h4>
+        <?php if (!empty($ticket->branches)): ?>
         <table cellpadding="0" cellspacing="0">
           <thead>
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Ticket Id') ?></th>
+                <th scope="col"><?= __('Branchgroup') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-		  </thead>
-		  <tbody>
-            <?php foreach ($ticket->ticketsfiles as $ticketsfiles): ?>
+          </thead>
+          <tbody>
+            <?php foreach ($ticket->branches as $branches): ?>
             <tr>
-                <td><?= h($ticketsfiles->id) ?></td>
-                <td><?= h($ticketsfiles->name) ?></td>
-                <td><?= h($ticketsfiles->ticket_id) ?></td>
+                <td><?= h($branches->id) ?></td>
+                <td><?= h($branches->name) ?></td>
+                <td><?= h($branches->branchgroup_id) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Ticketsfiles', 'action' => 'view', $ticketsfiles->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Ticketsfiles', 'action' => 'edit', $ticketsfiles->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Ticketsfiles', 'action' => 'delete', $ticketsfiles->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticketsfiles->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Branches', 'action' => 'view', $branches->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Branches', 'action' => 'edit', $branches->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Branches', 'action' => 'delete', $branches->id], ['confirm' => __('Are you sure you want to delete # {0}?', $branches->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
-		  </tbody>
+          </tbody>
         </table>
         <?php endif; ?>
+    </div>
+    
     </div>
 </div>
 </div>

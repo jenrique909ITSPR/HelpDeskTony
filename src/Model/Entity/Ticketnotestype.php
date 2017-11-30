@@ -4,18 +4,13 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Publicnote Entity
+ * Ticketnotestype Entity
  *
  * @property int $id
  * @property string $name
- * @property int $ticket_id
- * @property int $user_id
- * @property \Cake\I18n\FrozenTime $created
  *
- * @property \App\Model\Entity\Ticket $ticket
- * @property \App\Model\Entity\User $user
- */
-class Publicnote extends Entity
+ * @property \App\Model\Entity\Ticketnote[] $ticketnotes
+ */class Ticketnotestype extends Entity
 {
 
     /**

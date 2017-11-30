@@ -6,8 +6,7 @@ use App\Controller\AppController;
 /**
  * Branches Controller
  *
- * @property \App\Model\Table\BranchesTable $Branches
- *
+ * @property \App\Model\Table\BranchesTable $Branches *
  * @method \App\Model\Entity\Branch[] paginate($object = null, array $settings = [])
  */
 class BranchesController extends AppController
@@ -22,7 +21,6 @@ class BranchesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Branchgroups']
-            ,'limit' => $this->limit_data
         ];
         $branches = $this->paginate($this->Branches);
 
@@ -40,7 +38,7 @@ class BranchesController extends AppController
     public function view($id = null)
     {
         $branch = $this->Branches->get($id, [
-            'contain' => ['Branchgroups', 'Layouts', 'Positionbranches', 'Warehouses']
+            'contain' => ['Branchgroups', 'Layouts', 'Positionbranches', 'Tickets', 'Warehouses']
         ]);
 
         $this->set('branch', $branch);

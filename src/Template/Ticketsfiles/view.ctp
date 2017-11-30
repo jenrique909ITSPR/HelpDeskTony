@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Ticketsfile $ticketsfile
-  */
+  * @var \App\Model\Entity\Ticketsfile $ticketsfile  */
 ?>
 
 <div class="ticketsfiles view">
@@ -22,12 +21,16 @@
             <td><?= h($ticketsfile->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Ticket') ?></th>
-            <td><?= $ticketsfile->has('ticket') ? $this->Html->link($ticketsfile->ticket->title, ['controller' => 'Tickets', 'action' => 'view', $ticketsfile->ticket->id]) : '' ?></td>
+            <th scope="row"><?= __('Ticketnote') ?></th>
+            <td><?= $ticketsfile->has('ticketnote') ? $this->Html->link($ticketsfile->ticketnote->id, ['controller' => 'Ticketnotes', 'action' => 'view', $ticketsfile->ticketnote->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($ticketsfile->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Created') ?></th>
+            <td><?= h($ticketsfile->created) ?></td>
         </tr>
     </table>
 	</div>
@@ -43,7 +46,7 @@
         <li><?= $this->Form->postLink(__('Delete Ticketsfile'), ['action' => 'delete', $ticketsfile->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticketsfile->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Ticketsfiles'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Ticketsfile'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Ticketnotes'), ['controller' => 'Ticketnotes', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Ticketnote'), ['controller' => 'Ticketnotes', 'action' => 'add']) ?> </li>
     </ul>
 </nav>

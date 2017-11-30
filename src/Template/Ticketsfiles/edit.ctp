@@ -16,7 +16,7 @@
     <?= $this->Form->create($ticketsfile) ?>
         <?php
             echo $this->Form->control('name');
-            echo $this->Form->control('ticket_id', ['options' => $tickets, 'empty' => true]);
+            echo $this->Form->control('ticketnote_id', ['options' => $ticketnotes, 'empty' => true]);
         ?>
 	
     <?= $this->Form->button(__('Submit')) ?>
@@ -35,7 +35,7 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Ticketsfiles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Ticketnotes'), ['controller' => 'Ticketnotes', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Ticketnote'), ['controller' => 'Ticketnotes', 'action' => 'add']) ?></li>
     </ul>
 </nav>

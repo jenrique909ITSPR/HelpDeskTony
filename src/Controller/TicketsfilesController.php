@@ -6,8 +6,7 @@ use App\Controller\AppController;
 /**
  * Ticketsfiles Controller
  *
- * @property \App\Model\Table\TicketsfilesTable $Ticketsfiles
- *
+ * @property \App\Model\Table\TicketsfilesTable $Ticketsfiles *
  * @method \App\Model\Entity\Ticketsfile[] paginate($object = null, array $settings = [])
  */
 class TicketsfilesController extends AppController
@@ -21,8 +20,7 @@ class TicketsfilesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Tickets']
-            ,'limit' => $this->limit_data
+            'contain' => ['Ticketnotes']
         ];
         $ticketsfiles = $this->paginate($this->Ticketsfiles);
 
@@ -40,7 +38,7 @@ class TicketsfilesController extends AppController
     public function view($id = null)
     {
         $ticketsfile = $this->Ticketsfiles->get($id, [
-            'contain' => ['Tickets']
+            'contain' => ['Ticketnotes']
         ]);
 
         $this->set('ticketsfile', $ticketsfile);
@@ -64,8 +62,8 @@ class TicketsfilesController extends AppController
             }
             $this->Flash->error(__('The ticketsfile could not be saved. Please, try again.'));
         }
-        $tickets = $this->Ticketsfiles->Tickets->find('list', ['limit' => 200]);
-        $this->set(compact('ticketsfile', 'tickets'));
+        $ticketnotes = $this->Ticketsfiles->Ticketnotes->find('list', ['limit' => 200]);
+        $this->set(compact('ticketsfile', 'ticketnotes'));
         $this->set('_serialize', ['ticketsfile']);
     }
 
@@ -90,8 +88,8 @@ class TicketsfilesController extends AppController
             }
             $this->Flash->error(__('The ticketsfile could not be saved. Please, try again.'));
         }
-        $tickets = $this->Ticketsfiles->Tickets->find('list', ['limit' => 200]);
-        $this->set(compact('ticketsfile', 'tickets'));
+        $ticketnotes = $this->Ticketsfiles->Ticketnotes->find('list', ['limit' => 200]);
+        $this->set(compact('ticketsfile', 'ticketnotes'));
         $this->set('_serialize', ['ticketsfile']);
     }
 

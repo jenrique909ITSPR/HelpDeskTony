@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\BranchgroupsTable|\Cake\ORM\Association\BelongsTo $Branchgroups
  * @property \App\Model\Table\LayoutsTable|\Cake\ORM\Association\HasMany $Layouts
  * @property \App\Model\Table\PositionbranchesTable|\Cake\ORM\Association\HasMany $Positionbranches
+ * @property |\Cake\ORM\Association\HasMany $Tickets
  * @property \App\Model\Table\WarehousesTable|\Cake\ORM\Association\HasMany $Warehouses
  *
  * @method \App\Model\Entity\Branch get($primaryKey, $options = [])
@@ -21,8 +22,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Branch patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Branch[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Branch findOrCreate($search, callable $callback = null, $options = [])
- */
-class BranchesTable extends Table
+ */class BranchesTable extends Table
 {
 
     /**
@@ -48,6 +48,9 @@ class BranchesTable extends Table
         $this->hasMany('Positionbranches', [
             'foreignKey' => 'branch_id'
         ]);
+        $this->hasMany('Tickets', [
+            'foreignKey' => 'branch_id'
+        ]);
         $this->hasMany('Warehouses', [
             'foreignKey' => 'branch_id'
         ]);
@@ -62,13 +65,9 @@ class BranchesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('name')
-            ->allowEmpty('name');
-
+            ->scalar('name')            ->allowEmpty('name');
         return $validator;
     }
 

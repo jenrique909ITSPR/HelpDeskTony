@@ -9,10 +9,10 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property int $article_id
+ * @property \Cake\I18n\FrozenTime $created
  *
  * @property \App\Model\Entity\Article $article
- */
-class Articlefile extends Entity
+ */class Articlefile extends Entity
 {
 
     /**

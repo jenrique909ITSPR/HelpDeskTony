@@ -20,12 +20,11 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\TicketprioritiesTable|\Cake\ORM\Association\BelongsTo $Ticketpriorities
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\BelongsTo $ParentTickets
  * @property \App\Model\Table\HdcategoriesTable|\Cake\ORM\Association\BelongsTo $Hdcategories
- * @property \App\Model\Table\InternalnotesTable|\Cake\ORM\Association\HasMany $Internalnotes
- * @property \App\Model\Table\PublicnotesTable|\Cake\ORM\Association\HasMany $Publicnotes
+ * @property |\Cake\ORM\Association\BelongsTo $Branches
  * @property \App\Model\Table\TicketlogsTable|\Cake\ORM\Association\HasMany $Ticketlogs
  * @property \App\Model\Table\TicketmarkedsTable|\Cake\ORM\Association\HasMany $Ticketmarkeds
+ * @property \App\Model\Table\TicketnotesTable|\Cake\ORM\Association\HasMany $Ticketnotes
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\HasMany $ChildTickets
- * @property \App\Model\Table\TicketsfilesTable|\Cake\ORM\Association\HasMany $Ticketsfiles
  *
  * @method \App\Model\Entity\Ticket get($primaryKey, $options = [])
  * @method \App\Model\Entity\Ticket newEntity($data = null, array $options = [])
@@ -89,11 +88,9 @@ use Cake\Validation\Validator;
         $this->belongsTo('Hdcategories', [
             'foreignKey' => 'hdcategory_id'
         ]);
-        $this->hasMany('Internalnotes', [
-            'foreignKey' => 'ticket_id'
-        ]);
-        $this->hasMany('Publicnotes', [
-            'foreignKey' => 'ticket_id'
+        $this->belongsTo('Branches', [
+            'foreignKey' => 'branch_id',
+            'joinType' => 'INNER'
         ]);
         $this->hasMany('Ticketlogs', [
             'foreignKey' => 'ticket_id'
@@ -101,12 +98,12 @@ use Cake\Validation\Validator;
         $this->hasMany('Ticketmarkeds', [
             'foreignKey' => 'ticket_id'
         ]);
+        $this->hasMany('Ticketnotes', [
+            'foreignKey' => 'ticket_id'
+        ]);
         $this->hasMany('ChildTickets', [
             'className' => 'Tickets',
             'foreignKey' => 'parent_id'
-        ]);
-        $this->hasMany('Ticketsfiles', [
-            'foreignKey' => 'ticket_id'
         ]);
     }
 
@@ -122,8 +119,6 @@ use Cake\Validation\Validator;
             ->integer('id')            ->allowEmpty('id', 'create');
         $validator
             ->scalar('title')            ->allowEmpty('title');
-        $validator
-            ->scalar('description')            ->allowEmpty('description');
         $validator
             ->scalar('solution')            ->allowEmpty('solution');
         $validator
@@ -157,6 +152,7 @@ use Cake\Validation\Validator;
         $rules->add($rules->existsIn(['ticketpriority_id'], 'Ticketpriorities'));
         $rules->add($rules->existsIn(['parent_id'], 'ParentTickets'));
         $rules->add($rules->existsIn(['hdcategory_id'], 'Hdcategories'));
+        $rules->add($rules->existsIn(['branch_id'], 'Branches'));
 
         return $rules;
     }

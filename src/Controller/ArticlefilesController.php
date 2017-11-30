@@ -6,8 +6,7 @@ use App\Controller\AppController;
 /**
  * Articlefiles Controller
  *
- * @property \App\Model\Table\ArticlefilesTable $Articlefiles
- *
+ * @property \App\Model\Table\ArticlefilesTable $Articlefiles *
  * @method \App\Model\Entity\Articlefile[] paginate($object = null, array $settings = [])
  */
 class ArticlefilesController extends AppController
@@ -22,7 +21,6 @@ class ArticlefilesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Articles']
-            ,'limit' => $this->limit_data
         ];
         $articlefiles = $this->paginate($this->Articlefiles);
 

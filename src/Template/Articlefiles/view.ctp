@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Articlefile $articlefile
-  */
+  * @var \App\Model\Entity\Articlefile $articlefile  */
 ?>
 
 <div class="articlefiles view">
@@ -28,6 +27,10 @@
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($articlefile->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Created') ?></th>
+            <td><?= h($articlefile->created) ?></td>
         </tr>
     </table>
 	</div>

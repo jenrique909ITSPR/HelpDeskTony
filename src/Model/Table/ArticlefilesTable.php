@@ -18,8 +18,9 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Articlefile patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Articlefile[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Articlefile findOrCreate($search, callable $callback = null, $options = [])
- */
-class ArticlefilesTable extends Table
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ */class ArticlefilesTable extends Table
 {
 
     /**
@@ -36,6 +37,8 @@ class ArticlefilesTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
+        $this->addBehavior('Timestamp');
+
         $this->belongsTo('Articles', [
             'foreignKey' => 'article_id'
         ]);
@@ -50,13 +53,9 @@ class ArticlefilesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('name')
-            ->allowEmpty('name');
-
+            ->scalar('name')            ->allowEmpty('name');
         return $validator;
     }
 

@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Articlefile[]|\Cake\Collection\CollectionInterface $articlefiles
-  */
+  * @var \App\Model\Entity\Articlefile[]|\Cake\Collection\CollectionInterface $articlefiles  */
 ?>
 
 <div class="articlefiles index">
@@ -18,6 +17,7 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('article_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -27,6 +27,7 @@
                 <td><?= $this->Number->format($articlefile->id) ?></td>
                 <td><?= h($articlefile->name) ?></td>
                 <td><?= $articlefile->has('article') ? $this->Html->link($articlefile->article->title, ['controller' => 'Articles', 'action' => 'view', $articlefile->article->id]) : '' ?></td>
+                <td><?= h($articlefile->created) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $articlefile->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $articlefile->id]) ?>

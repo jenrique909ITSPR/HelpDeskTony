@@ -1,20 +1,14 @@
 <?php
-namespace App\Test\TestCase\Model\Table;
+namespace App\Test\TestCase\Controller;
 
-use App\Model\Table\ArticlefilesTable;
-use Cake\ORM\TableRegistry;
-use Cake\TestSuite\TestCase;
+use App\Controller\TicketnotestypesController;
+use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Model\Table\ArticlefilesTable Test Case
+ * App\Controller\TicketnotestypesController Test Case
  */
-class ArticlefilesTableTest extends TestCase
+class TicketnotestypesControllerTest extends IntegrationTestCase
 {
-
-    /**
-     * Test subject     *
-     * @var \App\Model\Table\ArticlefilesTable     */
-    public $Articlefiles;
 
     /**
      * Fixtures
@@ -22,10 +16,8 @@ class ArticlefilesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.articlefiles',
-        'app.articles',
-        'app.hdcategories',
-        'app.hdtemplate',
+        'app.ticketnotestypes',
+        'app.ticketnotes',
         'app.tickets',
         'app.tickettypes',
         'app.ticket_statuses',
@@ -44,6 +36,10 @@ class ArticlefilesTableTest extends TestCase
         'app.groups',
         'app.ticketlogs',
         'app.roles',
+        'app.articles',
+        'app.hdcategories',
+        'app.hdtemplate',
+        'app.articlefiles',
         'app.articles_roles',
         'app.internalnotes',
         'app.movereasontemplates',
@@ -62,60 +58,56 @@ class ArticlefilesTableTest extends TestCase
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
-        'app.ticketnotes',
-        'app.ticketnotestypes',
         'app.ticketmarkeds',
         'app.ticketsfiles'
     ];
 
     /**
-     * setUp method
+     * Test index method
      *
      * @return void
      */
-    public function setUp()
-    {
-        parent::setUp();
-        $config = TableRegistry::exists('Articlefiles') ? [] : ['className' => ArticlefilesTable::class];        $this->Articlefiles = TableRegistry::get('Articlefiles', $config);    }
-
-    /**
-     * tearDown method
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        unset($this->Articlefiles);
-
-        parent::tearDown();
-    }
-
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
+    public function testIndex()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
     /**
-     * Test validationDefault method
+     * Test view method
      *
      * @return void
      */
-    public function testValidationDefault()
+    public function testView()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
     /**
-     * Test buildRules method
+     * Test add method
      *
      * @return void
      */
-    public function testBuildRules()
+    public function testAdd()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test edit method
+     *
+     * @return void
+     */
+    public function testEdit()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test delete method
+     *
+     * @return void
+     */
+    public function testDelete()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

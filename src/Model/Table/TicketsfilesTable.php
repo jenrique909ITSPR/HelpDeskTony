@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Ticketsfiles Model
  *
- * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\BelongsTo $Tickets
+ * @property \App\Model\Table\TicketnotesTable|\Cake\ORM\Association\BelongsTo $Ticketnotes
  *
  * @method \App\Model\Entity\Ticketsfile get($primaryKey, $options = [])
  * @method \App\Model\Entity\Ticketsfile newEntity($data = null, array $options = [])
@@ -18,8 +18,9 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Ticketsfile patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Ticketsfile[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Ticketsfile findOrCreate($search, callable $callback = null, $options = [])
- */
-class TicketsfilesTable extends Table
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ */class TicketsfilesTable extends Table
 {
 
     /**
@@ -36,8 +37,10 @@ class TicketsfilesTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Tickets', [
-            'foreignKey' => 'ticket_id'
+        $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Ticketnotes', [
+            'foreignKey' => 'ticketnote_id'
         ]);
     }
 
@@ -50,13 +53,9 @@ class TicketsfilesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('name')
-            ->allowEmpty('name');
-
+            ->scalar('name')            ->allowEmpty('name');
         return $validator;
     }
 
@@ -69,7 +68,7 @@ class TicketsfilesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['ticket_id'], 'Tickets'));
+        $rules->add($rules->existsIn(['ticketnote_id'], 'Ticketnotes'));
 
         return $rules;
     }

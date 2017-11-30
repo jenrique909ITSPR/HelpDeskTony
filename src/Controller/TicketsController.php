@@ -53,7 +53,7 @@ class TicketsController extends AppController
     public function index($typeView = null,$idTickettype = null)
     {
         $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
-            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches'])
             ->order(['Tickets.id' => 'DESC']);
             $this->paginate = ['limit' => $this->limit_data ];
 
@@ -86,7 +86,7 @@ class TicketsController extends AppController
                     break;
                 case 'all':
                    $query2 = $this->Tickets->find('all')
-                        ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']);
+                        ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches']);
                     $this->paginate = ['limit' => $this->limit_data ];
 
                     $query = $query2;
@@ -126,7 +126,7 @@ class TicketsController extends AppController
             }
 
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches']
             ]);
         }
 
@@ -167,7 +167,8 @@ class TicketsController extends AppController
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
         $ticket->ip = $this->request->clientIp();
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip'));
+        $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
     }
 
@@ -202,8 +203,8 @@ class TicketsController extends AppController
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
-
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets'));
+        $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets','branches'));
         $this->set('_serialize', ['ticket']);
     }
 

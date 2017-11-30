@@ -19,6 +19,7 @@ class ArticlefilesControllerTest extends IntegrationTestCase
         'app.articlefiles',
         'app.articles',
         'app.hdcategories',
+        'app.hdtemplate',
         'app.tickets',
         'app.tickettypes',
         'app.ticket_statuses',
@@ -30,9 +31,9 @@ class ArticlefilesControllerTest extends IntegrationTestCase
         'app.layouts',
         'app.branches',
         'app.branchgroups',
+        'app.users',
         'app.positionbranches',
         'app.positions',
-        'app.users',
         'app.statususers',
         'app.groups',
         'app.ticketlogs',
@@ -55,6 +56,9 @@ class ArticlefilesControllerTest extends IntegrationTestCase
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
+        'app.ticketnotes',
+        'app.ticketnotestypes',
+        'app.ticketmarkeds',
         'app.ticketsfiles'
     ];
 

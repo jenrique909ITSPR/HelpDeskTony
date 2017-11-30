@@ -7,22 +7,22 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Internalnotes Model
+ * Ticketnotes Model
  *
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\BelongsTo $Tickets
  * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
+ * @property \App\Model\Table\TicketnotestypesTable|\Cake\ORM\Association\BelongsTo $Ticketnotestypes
  *
- * @method \App\Model\Entity\Internalnote get($primaryKey, $options = [])
- * @method \App\Model\Entity\Internalnote newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Internalnote[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Internalnote|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Internalnote patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Internalnote[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Internalnote findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Ticketnote get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Ticketnote newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Ticketnote[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Ticketnote|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Ticketnote patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Ticketnote[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Ticketnote findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
- */
-class InternalnotesTable extends Table
+ */class TicketnotesTable extends Table
 {
 
     /**
@@ -35,8 +35,8 @@ class InternalnotesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('internalnotes');
-        $this->setDisplayField('name');
+        $this->setTable('ticketnotes');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -46,6 +46,10 @@ class InternalnotesTable extends Table
         ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Ticketnotestypes', [
+            'foreignKey' => 'ticketnotestype_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -59,13 +63,9 @@ class InternalnotesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('name')
-            ->allowEmpty('name');
-
+            ->scalar('description')            ->allowEmpty('description');
         return $validator;
     }
 
@@ -80,6 +80,7 @@ class InternalnotesTable extends Table
     {
         $rules->add($rules->existsIn(['ticket_id'], 'Tickets'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['ticketnotestype_id'], 'Ticketnotestypes'));
 
         return $rules;
     }

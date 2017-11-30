@@ -33,9 +33,9 @@ class TicketsTableTest extends TestCase
         'app.layouts',
         'app.branches',
         'app.branchgroups',
+        'app.users',
         'app.positionbranches',
         'app.positions',
-        'app.users',
         'app.statususers',
         'app.groups',
         'app.ticketlogs',
@@ -62,8 +62,10 @@ class TicketsTableTest extends TestCase
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
+        'app.braches',
         'app.ticketmarkeds',
-        'app.ticketsfiles'
+        'app.ticketnotes',
+        'app.ticketnotestypes'
     ];
 
     /**

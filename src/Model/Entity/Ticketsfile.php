@@ -8,11 +8,11 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property int $ticket_id
+ * @property int $ticketnote_id
+ * @property \Cake\I18n\FrozenTime $created
  *
- * @property \App\Model\Entity\Ticket $ticket
- */
-class Ticketsfile extends Entity
+ * @property \App\Model\Entity\Ticketnote $ticketnote
+ */class Ticketsfile extends Entity
 {
 
     /**

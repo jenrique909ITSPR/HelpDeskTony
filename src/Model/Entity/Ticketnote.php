@@ -4,17 +4,19 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Branch Entity
+ * Ticketnote Entity
  *
  * @property int $id
- * @property string $name
- * @property int $branchgroup_id
+ * @property string $description
+ * @property int $ticket_id
+ * @property int $user_id
+ * @property \Cake\I18n\FrozenTime $created
+ * @property int $ticketnotestype_id
  *
- * @property \App\Model\Entity\Branchgroup $branchgroup
- * @property \App\Model\Entity\Layout[] $layouts
- * @property \App\Model\Entity\Positionbranch[] $positionbranches
- * @property \App\Model\Entity\Warehouse[] $warehouses
- */class Branch extends Entity
+ * @property \App\Model\Entity\Ticket $ticket
+ * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\Ticketnotestype $ticketnotestype
+ */class Ticketnote extends Entity
 {
 
     /**

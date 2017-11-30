@@ -104,8 +104,8 @@ class AppController extends Controller
         }
         $results =  null;
         if (!is_null($this->request->session()->read('Auth.User.id'))){
-            $results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));
-            $this->set('ticketrows',$results );
+          //  $results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));
+            //$this->set('ticketrows',$results );
         }
 
     }
