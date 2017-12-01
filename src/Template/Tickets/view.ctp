@@ -35,16 +35,12 @@
             <td><?= h($ticket->title) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($ticket->description) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Solution') ?></th>
             <td><?= h($ticket->solution) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Itemcode') ?></th>
-            <td><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->name, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode->id]) : '' ?></td>
+            <td><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->name, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
@@ -99,8 +95,8 @@
             <td><?= h($ticket->modified) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Branche') ?></th>
-            <td><?= h($ticket->branche) ?></td>
+            <th scope="row"><?= __('Branch') ?></th>
+            <td><?= h($ticket->branch->name) ?></td>
         </tr>
     </table>
 

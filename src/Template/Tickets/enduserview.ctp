@@ -35,10 +35,6 @@
             <td><?= h($ticket->title) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($ticket->description) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Solution') ?></th>
             <td><?= h($ticket->solution) ?></td>
         </tr>

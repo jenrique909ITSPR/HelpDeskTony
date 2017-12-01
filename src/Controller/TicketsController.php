@@ -144,7 +144,9 @@ class TicketsController extends AppController
     {
 
         $ticket = $this->Tickets->newEntity();
-        if ($this->request->is('post')) {
+         $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
+         
+       /* if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Ticket creado correctamente'));
@@ -152,7 +154,7 @@ class TicketsController extends AppController
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
-        }
+        }*/
         $ticket->group_id = $this->request->session()->read('Auth.User.group_id');
         $ticket->user_id = $this->request->session()->read('Auth.User.id');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
@@ -170,6 +172,7 @@ class TicketsController extends AppController
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
+        $this->_mailsender($ticket);
     }
 
     /**
@@ -388,10 +391,17 @@ class TicketsController extends AppController
              $ticket = $this->Tickets->get($id, [
             'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories',  'Ticketlogs']
             ]);
+
         }
 
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
+    }
+
+    function _mailsender($info){
+
+        debug($info);
+
     }
 
 
