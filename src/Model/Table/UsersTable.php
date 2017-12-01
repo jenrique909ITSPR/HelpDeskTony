@@ -14,12 +14,14 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\GroupsTable|\Cake\ORM\Association\BelongsTo $Groups
  * @property \App\Model\Table\RolesTable|\Cake\ORM\Association\BelongsTo $Roles
  * @property \App\Model\Table\ArticlesTable|\Cake\ORM\Association\HasMany $Articles
- * @property \App\Model\Table\InternalnotesTable|\Cake\ORM\Association\HasMany $Internalnotes
+ * @property |\Cake\ORM\Association\HasMany $Branchgroups
  * @property \App\Model\Table\MovereasontemplatesTable|\Cake\ORM\Association\HasMany $Movereasontemplates
- * @property \App\Model\Table\PublicnotesTable|\Cake\ORM\Association\HasMany $Publicnotes
  * @property \App\Model\Table\StockmovesTable|\Cake\ORM\Association\HasMany $Stockmoves
  * @property \App\Model\Table\TicketlogsTable|\Cake\ORM\Association\HasMany $Ticketlogs
+ * @property |\Cake\ORM\Association\HasMany $Ticketmarkeds
+ * @property |\Cake\ORM\Association\HasMany $Ticketnotes
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\HasMany $Tickets
+ * @property |\Cake\ORM\Association\HasMany $Userendmessages
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
@@ -60,13 +62,10 @@ use Cake\Validation\Validator;
         $this->hasMany('Articles', [
             'foreignKey' => 'user_id'
         ]);
-        $this->hasMany('Internalnotes', [
+        $this->hasMany('Branchgroups', [
             'foreignKey' => 'user_id'
         ]);
         $this->hasMany('Movereasontemplates', [
-            'foreignKey' => 'user_id'
-        ]);
-        $this->hasMany('Publicnotes', [
             'foreignKey' => 'user_id'
         ]);
         $this->hasMany('Stockmoves', [
@@ -75,7 +74,16 @@ use Cake\Validation\Validator;
         $this->hasMany('Ticketlogs', [
             'foreignKey' => 'user_id'
         ]);
+        $this->hasMany('Ticketmarkeds', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Ticketnotes', [
+            'foreignKey' => 'user_id'
+        ]);
         $this->hasMany('Tickets', [
+            'foreignKey' => 'user_id'
+        ]);
+        $this->hasMany('Userendmessages', [
             'foreignKey' => 'user_id'
         ]);
     }
@@ -98,6 +106,10 @@ use Cake\Validation\Validator;
             ->scalar('last_name')            ->allowEmpty('last_name');
         $validator
             ->scalar('password')            ->allowEmpty('password');
+        $validator
+            ->allowEmpty('data');
+        $validator
+            ->integer('expires')            ->allowEmpty('expires');
         return $validator;
     }
 

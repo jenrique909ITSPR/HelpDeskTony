@@ -94,9 +94,9 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related" title="<?= __('Internalnotes') ?>">
-        <h4><?= __('Related Internalnotes') ?></h4>
-        <?php if (!empty($user->internalnotes)): ?>
+    <div class="related" title="<?= __('Ticketnotes') ?>">
+        <h4><?= __('Related Ticketnotes') ?></h4>
+        <?php if (!empty($user->ticketnotes)): ?>
         <table cellpadding="0" cellspacing="0">
           <thead>
             <tr>
@@ -105,21 +105,23 @@
                 <th scope="col"><?= __('Ticket Id') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
+                <th scope="col"><?= __('Ticketnotestype Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
 		  </thead>
 		  <tbody>
-            <?php foreach ($user->internalnotes as $internalnotes): ?>
+            <?php foreach ($user->ticketnotes as $ticketnotes): ?>
             <tr>
-                <td><?= h($internalnotes->id) ?></td>
-                <td><?= h($internalnotes->name) ?></td>
-                <td><?= h($internalnotes->ticket_id) ?></td>
-                <td><?= h($internalnotes->user_id) ?></td>
-                <td><?= h($internalnotes->created) ?></td>
+                <td><?= h($ticketnotes->id) ?></td>
+                <td><?= h($ticketnotes->description) ?></td>
+                <td><?= h($ticketnotes->ticket_id) ?></td>
+                <td><?= h($ticketnotes->user_id) ?></td>
+                <td><?= h($ticketnotes->created) ?></td>
+                <td><?= h($ticketnotes->ticketnotestype_id) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Internalnotes', 'action' => 'view', $internalnotes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Internalnotes', 'action' => 'edit', $internalnotes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Internalnotes', 'action' => 'delete', $internalnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $internalnotes->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Internalnotes', 'action' => 'view', $ticketnotes->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Internalnotes', 'action' => 'edit', $ticketnotes->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Internalnotes', 'action' => 'delete', $ticketnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticketnotes->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -162,39 +164,7 @@
         </table>
         <?php endif; ?>
     </div>
-    <div class="related" title="<?= __('Publicnotes') ?>">
-        <h4><?= __('Related Publicnotes') ?></h4>
-        <?php if (!empty($user->publicnotes)): ?>
-        <table cellpadding="0" cellspacing="0">
-          <thead>
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Ticket Id') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-		  </thead>
-		  <tbody>
-            <?php foreach ($user->publicnotes as $publicnotes): ?>
-            <tr>
-                <td><?= h($publicnotes->id) ?></td>
-                <td><?= h($publicnotes->name) ?></td>
-                <td><?= h($publicnotes->ticket_id) ?></td>
-                <td><?= h($publicnotes->user_id) ?></td>
-                <td><?= h($publicnotes->created) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Publicnotes', 'action' => 'view', $publicnotes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Publicnotes', 'action' => 'edit', $publicnotes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Publicnotes', 'action' => 'delete', $publicnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $publicnotes->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-		  </tbody>
-        </table>
-        <?php endif; ?>
-    </div>
+   
     <div class="related" title="<?= __('Stockmoves') ?>">
         <h4><?= __('Related Stockmoves') ?></h4>
         <?php if (!empty($user->stockmoves)): ?>

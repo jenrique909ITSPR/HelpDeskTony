@@ -28,6 +28,7 @@ class TicketsController extends AppController
          parent::initialize();
 
         $this->loadComponent('Tickettype');
+        $this->loadUserEndMessages();
     }
 
      public function favorite($id = null){
@@ -146,15 +147,18 @@ class TicketsController extends AppController
         $ticket = $this->Tickets->newEntity();
          $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
          
-       /* if ($this->request->is('post')) {
+       if ($this->request->is('post')) {
+         
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
+             //$this->_mailsender($ticket);
             if ($this->Tickets->save($ticket)) {
+                
                 $this->Flash->success(__('Ticket creado correctamente'));
 
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
-        }*/
+        }
         $ticket->group_id = $this->request->session()->read('Auth.User.group_id');
         $ticket->user_id = $this->request->session()->read('Auth.User.id');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
@@ -172,7 +176,7 @@ class TicketsController extends AppController
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
-        $this->_mailsender($ticket);
+        
     }
 
     /**
@@ -195,6 +199,7 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('Error al actualizar datos'));
         }
+
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
@@ -406,9 +411,11 @@ class TicketsController extends AppController
         $this->set('_serialize', ['ticket']);
     }
 
-    function _mailsender($info){
-
-        debug($info);
+    function _mailsender($info = null){
+        
+        
+        $string_email = 'Descripcion: ' .$info->description;
+        debug($string_email);
 
     }
 
@@ -421,6 +428,15 @@ class TicketsController extends AppController
 
         }
 
+    }
+    public function loadUserEndMessages()
+    {
+      $Userendmessages = TableRegistry::get('Userendmessages');
+      $messages = $Userendmessages->find('all')
+      ->where(function ($exp, $q) {
+        return $exp->between('endingdate','2017/12/01','2017/12/02' );
+    });
+      $this->set('messages',$messages );
     }
 
 }

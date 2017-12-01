@@ -2,7 +2,6 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-use Cake\Auth\DefaultPasswordHasher; //include this line
 
 /**
  * User Entity
@@ -16,6 +15,8 @@ use Cake\Auth\DefaultPasswordHasher; //include this line
  * @property int $statususer_id
  * @property int $group_id
  * @property int $role_id
+ * @property string|resource $data
+ * @property int $expires
  *
  * @property \App\Model\Entity\Positionbranch $positionbranch
  * @property \App\Model\Entity\Statususer $statususer
@@ -30,11 +31,7 @@ use Cake\Auth\DefaultPasswordHasher; //include this line
  * @property \App\Model\Entity\Ticket[] $tickets
  */class User extends Entity
 {
- protected function _setPassword($value)
-    {
-        $hasher = new DefaultPasswordHasher();
-        return $hasher->hash($value);
-    }
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *

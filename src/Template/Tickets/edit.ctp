@@ -33,7 +33,7 @@
             echo $this->Form->control('parent_id', ['options' => $parentTickets, 'empty' => true]);
             echo $this->Form->control('hdcategory_id', ['options' => $hdcategories, 'empty' => true]);
             echo $this->Form->control('ip');
-            echo $this->Form->control('branche_id', ['options' => $branches, 'empty' => true]);
+            echo $this->Form->control('branch_id', ['options' => $branches, 'empty' => true]);
         ?>
 
     <?= $this->Form->button(__('Submit')) ?>

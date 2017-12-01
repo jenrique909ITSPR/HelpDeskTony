@@ -69,9 +69,13 @@ $cakeDescription = 'Portal TI';
     </div>
 
     <div id="contentAjax">
+      <?php foreach ($messages as $key):?>
       <div class="messageEndUser">
-      <b>NOTIFICACION:</b> Sucursal 285 Veracruz Norte sin energia electrica. Este es un ejemplo. Funcion pendiente de implementar
+        
+          <b>NOTIFICACION:</b> <?= $key->message ?>
+       
       </div>
+       <?php endforeach; ?>
       <?= $this->Flash->render() ?>
       <?= $this->fetch('content') ?>
       <div class="footer">
@@ -79,11 +83,7 @@ $cakeDescription = 'Portal TI';
       </div>
 
     </div>
-
-
-
 </div>
-
 
 </body>
 </html>
