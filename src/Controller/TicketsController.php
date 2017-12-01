@@ -346,11 +346,19 @@ class TicketsController extends AppController
         $this->set('_serialize', ['tickets']);
     }
 
-    public function enduseradd() {
+    public function enduseradd($tickettype_created = null) {
         $this->viewBuilder()->layout('enduser');
         $ticket = $this->Tickets->newEntity();
         if ($this->request->is('post')) {
-            $ticket->tickettype_id = 1;
+          switch ($tickettype_created) {
+            case 1:
+              $ticket->tickettype_id = 1;
+              break;
+            case 2:
+              $ticket->tickettype_id = 4;
+              break;
+          }
+
             $ticket->ticket_status_id = 1;
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {

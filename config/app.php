@@ -226,7 +226,7 @@ return [
             'persistent' => false,
 
 
-            'host' => '10.105.160.50',
+            'host' => 'localhost',
 			     // 'host' => 'localhost',
 
             /**
@@ -235,8 +235,8 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'cakephp',
-		        'password' => 'cakephp',
+            'username' => 'root',
+		        'password' => '',
             'database' => 'activos_tickets',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
