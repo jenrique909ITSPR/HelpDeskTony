@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
 
 /**
  * Userendmessages Controller
@@ -52,9 +53,14 @@ class UserendmessagesController extends AppController
      */
     public function add()
     {
+
         $userendmessage = $this->Userendmessages->newEntity();
         if ($this->request->is('post')) {
             $userendmessage = $this->Userendmessages->patchEntity($userendmessage, $this->request->getData());
+            $startdateF = new Time($userendmessage->startdate);
+            $endingdateF = new Time($userendmessage->endingdate);
+            $userendmessage->startdate = $startdateF->format('Y-m-d h:i:s');
+            $userendmessage->endingdate = $endingdateF->format('Y-m-d h:i:s');
             if ($this->Userendmessages->save($userendmessage)) {
                 $this->Flash->success(__('The userendmessage has been saved.'));
 

@@ -71,9 +71,9 @@ $cakeDescription = 'Portal TI';
     <div id="contentAjax">
       <?php foreach ($messages as $key):?>
       <div class="messageEndUser">
-        
+
           <b>NOTIFICACION:</b> <?= $key->message ?>
-       
+
       </div>
        <?php endforeach; ?>
       <?= $this->Flash->render() ?>

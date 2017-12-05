@@ -7,6 +7,7 @@ use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
 use Cake\Network\Email\Email;
+use Cake\I18n\Time;
 
 /**
  * Tickets Controller
@@ -146,13 +147,13 @@ class TicketsController extends AppController
 
         $ticket = $this->Tickets->newEntity();
          $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
-         
+
        if ($this->request->is('post')) {
-         
+
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
              //$this->_mailsender($ticket);
             if ($this->Tickets->save($ticket)) {
-                
+
                 $this->Flash->success(__('Ticket creado correctamente'));
 
                 return $this->redirect(['action' => 'index']);
@@ -176,7 +177,7 @@ class TicketsController extends AppController
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
-        
+
     }
 
     /**
@@ -353,17 +354,22 @@ class TicketsController extends AppController
 
     public function enduseradd($tickettype_created = null) {
         $this->viewBuilder()->layout('enduser');
-        $ticket = $this->Tickets->newEntity();
-        if ($this->request->is('post')) {
-          switch ($tickettype_created) {
-            case 1:
-              $ticket->tickettype_id = 1;
-              break;
-            case 2:
-              $ticket->tickettype_id = 4;
-              break;
-          }
 
+        $ticket = $this->Tickets->newEntity();
+        switch ($tickettype_created) {
+          case 1:
+            $ticket->tickettype_id = 1;
+            break;
+          case 2:
+            $ticket->tickettype_id = 4;
+            break;
+          default:
+              $this->Flash->error(__('Opcion invalida'));
+              return $this->redirect(['action' => 'enduserindex']);
+            break;
+        }
+        if ($this->request->is('post')) {
+            
             $ticket->ticket_status_id = 1;
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
@@ -412,8 +418,8 @@ class TicketsController extends AppController
     }
 
     function _mailsender($info = null){
-        
-        
+
+
         $string_email = 'Descripcion: ' .$info->description;
         debug($string_email);
 
@@ -433,10 +439,12 @@ class TicketsController extends AppController
     {
       $Userendmessages = TableRegistry::get('Userendmessages');
       $messages = $Userendmessages->find('all')
-      ->where(function ($exp, $q) {
+      ->where(['startdate <=' => Time::now() , 'endingdate >=' => Time::now()]);
+      /*->where(function ($exp, $q) {
         return $exp->between('endingdate','2017/12/01','2017/12/02' );
-    });
+    });*/
       $this->set('messages',$messages );
     }
+
 
 }
