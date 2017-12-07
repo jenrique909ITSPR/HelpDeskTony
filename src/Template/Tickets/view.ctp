@@ -78,13 +78,13 @@
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($ticket->id) ?></td>
         </tr>
-        <tr>
+         <tr>
             <th scope="row"><?= __('User Autor') ?></th>
-            <td><?= $this->Number->format($ticket->user_autor) ?></td>
+            <td><?= h($ticket->userautor->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('User Requeried') ?></th>
-            <td><?= $this->Number->format($ticket->user_requeried) ?></td>
+            <th scope="row"><?= __('User Requiered') ?></th>
+            <td><?= h($ticket->userrequeried->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>

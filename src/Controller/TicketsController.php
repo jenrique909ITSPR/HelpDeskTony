@@ -55,7 +55,7 @@ class TicketsController extends AppController
     public function index($typeView = null,$idTickettype = null)
     {
         $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
-            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches'])
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors'])
             ->order(['Tickets.id' => 'DESC']);
             $this->paginate = ['limit' => $this->limit_data ];
 
@@ -88,7 +88,7 @@ class TicketsController extends AppController
                     break;
                 case 'all':
                    $query2 = $this->Tickets->find('all')
-                        ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches']);
+                        ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors']);
                     $this->paginate = ['limit' => $this->limit_data ];
 
                     $query = $query2;
@@ -128,7 +128,7 @@ class TicketsController extends AppController
             }
 
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors']
             ]);
         }
 
@@ -167,6 +167,7 @@ class TicketsController extends AppController
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
         $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);
+
         $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);

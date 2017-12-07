@@ -62,6 +62,7 @@ use Cake\Validation\Validator;
         $this->hasMany('Articles', [
             'foreignKey' => 'user_id'
         ]);
+
         $this->hasMany('Branchgroups', [
             'foreignKey' => 'user_id'
         ]);
@@ -83,6 +84,7 @@ use Cake\Validation\Validator;
         $this->hasMany('Tickets', [
             'foreignKey' => 'user_id'
         ]);
+        
         $this->hasMany('Userendmessages', [
             'foreignKey' => 'user_id'
         ]);
