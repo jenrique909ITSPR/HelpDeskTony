@@ -421,7 +421,7 @@ class TicketsController extends AppController
     function _mailsender($subject =null, $dataid = null, $sender = null, $receiver = null){
 
      $datamail = $this->Tickets->get($dataid, [
-         'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']
+         'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories','Userautors','Userrequerieds']
      ]);
 
      $users = TableRegistry::get('Users');
@@ -441,8 +441,8 @@ class TicketsController extends AppController
         'Tipo: '=> $datamail->tickettype->name,
         'Categoria: '=> $datamail->hdcategory->title,
         'Asignado a: '=> $datamail->user->name,
-        'Solicitado por: '=> $datamail->user_requeried,
-        'Creado por: '=> $datamail->user_autor,
+        'Solicitado por: '=> $datamail->userrequeried->name,
+        'Creado por: '=> $datamail->userautor->name,
         'Impacto: '=> $datamail->ticketimpact->name,
         'Urgencia: '=> $datamail->ticketurgency->name,
         'Prioridad: '=> $datamail->ticketpriority->name,
