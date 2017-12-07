@@ -55,7 +55,7 @@ class AppController extends Controller
        $this->loadComponent('Flash');
        $this->loadComponent('RequestHandler');
        $this->loadComponent('Tickettype');
-
+       $this->request->session()->write('System.mail.sender','portal-ti@tony.mx');
       $this->loadComponent('Auth', [
       /*'authorize'=> 'Controller',*/
             'authenticate' => [

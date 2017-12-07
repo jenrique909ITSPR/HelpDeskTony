@@ -6,7 +6,7 @@ use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
-use Cake\Network\Email\Email;
+use Cake\Mailer\Email;
 use Cake\I18n\Time;
 
 /**
@@ -151,11 +151,11 @@ class TicketsController extends AppController
        if ($this->request->is('post')) {
 
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
-             //$this->_mailsender($ticket);
+            $mail= $this->request->session()->read('System.mail.sender');
             if ($this->Tickets->save($ticket)) {
 
                 $this->Flash->success(__('Ticket creado correctamente'));
-
+                $this->_mailsender('Creado',$ticket->id, $mail,$ticket->user_requeried);
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
@@ -370,7 +370,7 @@ class TicketsController extends AppController
             break;
         }
         if ($this->request->is('post')) {
-            
+
             $ticket->ticket_status_id = 1;
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
@@ -418,13 +418,61 @@ class TicketsController extends AppController
         $this->set('_serialize', ['ticket']);
     }
 
-    function _mailsender($info = null){
+    function _mailsender($subject =null, $dataid = null, $sender = null, $receiver = null){
+
+     $datamail = $this->Tickets->get($dataid, [
+         'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']
+     ]);
+
+     $users = TableRegistry::get('Users');
+     $query = $users->find();
+     $query = $users
+     ->find()
+     ->select(['id', 'username'])
+     ->where(['id ' => $receiver]);
+     foreach ($query as $users) {
+       $recipient = $users->username;
+     }
 
 
-        $string_email = 'Descripcion: ' .$info->description;
-        debug($string_email);
+     $data= array(
+    [   'Ticket ID: '=> $dataid,
+        'Titulo: '=> $datamail->title,
+        'Tipo: '=> $datamail->tickettype->name,
+        'Categoria: '=> $datamail->hdcategory->title,
+        'Asignado a: '=> $datamail->user->name,
+        'Solicitado por: '=> $datamail->user_requeried,
+        'Creado por: '=> $datamail->user_autor,
+        'Impacto: '=> $datamail->ticketimpact->name,
+        'Urgencia: '=> $datamail->ticketurgency->name,
+        'Prioridad: '=> $datamail->ticketpriority->name,
+        'Estado: '=> $datamail->ticket_status->name
+       ]
+     );
 
-    }
+
+
+     //debug($data[0]['Titulo: ']);
+     debug($sender);
+     debug($recipient);
+     foreach ($data[0] as $key => $value) {
+       echo ($key.' '.$value."\n");
+     }
+     //implode(' ',array_keys($data[0]))
+     //debug($datamail);
+     $cadena= '';
+     foreach ($data[0] as $key => $value) {
+     $cadena = $cadena.$key.' '.$value."\n";
+     }
+     $email = new Email('default');
+     $email->from([$sender => 'mail.tony.mx'])
+     ->to($sender)
+     ->subject('Ticket #'.$dataid.' '. $subject)
+     ->send(
+       $cadena
+     );
+
+   }
 
 
     public function beforeRender(Event $event)
@@ -445,7 +493,10 @@ class TicketsController extends AppController
         return $exp->between('endingdate','2017/12/01','2017/12/02' );
     });*/
       $this->set('messages',$messages );
+
     }
+
+
 
 
 }
