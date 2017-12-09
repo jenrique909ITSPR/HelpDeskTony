@@ -61,17 +61,21 @@ $cakeDescription = 'Portal TI';
       <div class="menuEnduser">
         <ul>
           <li><?= $this->Html->link("<i class='fa fa-bars' aria-hidden='true'></i>" . __('My Tickets'), ['controller' => 'tickets', 'action' => 'enduserindex'], ['escape' => false]) ?></li>
-          <li><?= $this->Html->link("<i class='fa fa-bug' aria-hidden='true'></i>" . __('Report incident'), ['controller' => 'tickets', 'action' => 'enduseradd'], ['escape' => false]) ?></li>
-          <li><?= $this->Html->link("<i class='fa fa-ticket' aria-hidden='true'></i>" . __('Create a request'), ['controller' => 'tickets', 'action' => 'enduseradd'], ['escape' => false]) ?></li>
+          <li><?= $this->Html->link("<i class='fa fa-bug' aria-hidden='true'></i>" . __('Report incident'), ['controller' => 'tickets', 'action' => 'enduseradd' , 1], ['escape' => false]) ?></li>
+          <li><?= $this->Html->link("<i class='fa fa-ticket' aria-hidden='true'></i>" . __('Create a request'), ['controller' => 'tickets', 'action' => 'enduseradd' , 2], ['escape' => false]) ?></li>
           <li><?= $this->Html->link("<i class='fa fa-graduation-cap' aria-hidden='true'></i>" . __('Knowledge'), ['controller' => 'Articles', 'action' => 'index'], ['escape' => false]) ?></li>
         </ul>
       </div>
     </div>
 
     <div id="contentAjax">
+      <?php foreach ($messages as $key):?>
       <div class="messageEndUser">
-      <b>NOTIFICACION:</b> Sucursal 285 Veracruz Norte sin energia electrica. Este es un ejemplo. Funcion pendiente de implementar
+
+          <b>NOTIFICACION:</b> <?= $key->message ?>
+
       </div>
+       <?php endforeach; ?>
       <?= $this->Flash->render() ?>
       <?= $this->fetch('content') ?>
       <div class="footer">
@@ -79,11 +83,7 @@ $cakeDescription = 'Portal TI';
       </div>
 
     </div>
-
-
-
 </div>
-
 
 </body>
 </html>

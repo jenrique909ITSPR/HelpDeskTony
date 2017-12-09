@@ -95,7 +95,7 @@ public function logout()
         $this->set(compact('user'));
 
         $user = $this->Users->get($id, [
-            'contain' => ['Positionbranches', 'Statususers', 'Groups', 'Roles', 'Articles', 'Internalnotes', 'Movereasontemplates', 'Publicnotes', 'Stockmoves', 'Ticketlogs', 'Tickets']
+            'contain' => ['Positionbranches', 'Statususers', 'Groups', 'Roles', 'Articles'  , 'Movereasontemplates', 'Ticketnotes', 'Stockmoves', 'Ticketlogs', 'Tickets']
         ]);
 
         $this->set('user', $user);

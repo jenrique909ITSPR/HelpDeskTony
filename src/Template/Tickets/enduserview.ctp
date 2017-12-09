@@ -35,10 +35,6 @@
             <td><?= h($ticket->title) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($ticket->description) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Solution') ?></th>
             <td><?= h($ticket->solution) ?></td>
         </tr>
@@ -126,7 +122,7 @@
             </tr>
 		  </thead>
 		  <tbody>
-            <?php foreach ($ticket->publicnotes as $publicnotes): ?>
+            <?php foreach ($ticket->Ticketnote as $publicnotes): ?>
             <tr>
                 <td><?= h($publicnotes->id) ?></td>
                 <td><?= h($publicnotes->name) ?></td>
@@ -134,9 +130,9 @@
                 <td><?= h($publicnotes->user_id) ?></td>
                 <td><?= h($publicnotes->created) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Publicnotes', 'action' => 'view', $publicnotes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Publicnotes', 'action' => 'edit', $publicnotes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Publicnotes', 'action' => 'delete', $publicnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $publicnotes->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['controller' => 'Ticketnote', 'action' => 'view', $publicnotes->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Ticketnote', 'action' => 'edit', $publicnotes->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Ticketnote', 'action' => 'delete', $publicnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $publicnotes->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

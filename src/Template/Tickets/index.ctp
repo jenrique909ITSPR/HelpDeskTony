@@ -54,7 +54,7 @@
             <tr >
                         <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false]); ?></td>
                 <td><?= $this->Number->format($ticket->id) ?></td>
-                <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->name) : '' ?></td>
+                <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->tag) : '' ?></td>
                 <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>
                 <!--<td><?= $ticket->has('source') ? ($ticket->source->title) : '' ?></td>-->
                 <td><?= h($ticket->title) ?></td>
@@ -63,8 +63,11 @@
                 <td><?= $ticket->has('itemcode') ? ($ticket->itemcode->id) : '' ?></td>-->
                 <td><?= $ticket->has('user') ? ($ticket->user->name) : '' ?></td>
                 <td><?= $ticket->has('group') ? ($ticket->group->name) : '' ?></td>
-                <td><?= $this->Number->format($ticket->user_autor) ?></td>
-                <td><?= $this->Number->format($ticket->user_requeried) ?></td>
+                <td><?= $ticket->has('user_autor') ? ($ticket->userautor->name) : '' ?></td>
+
+                <td><?= $ticket->has('user_requeried') ? ($ticket->userrequeried->name) : '' ?></td>
+
+                
                 <!--<td><?= $ticket->has('ticketimpact') ? ($ticket->ticketimpact->name) : '' ?></td>
                 <td><?= $ticket->has('ticketurgency') ? ($ticket->ticketurgency->name) : '' ?></td>-->
                 <td><?= $ticket->has('ticketpriority') ? ($ticket->ticketpriority->name) : '' ?></td>

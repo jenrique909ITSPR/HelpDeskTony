@@ -55,7 +55,7 @@ class AppController extends Controller
        $this->loadComponent('Flash');
        $this->loadComponent('RequestHandler');
        $this->loadComponent('Tickettype');
-
+       $this->request->session()->write('System.mail.sender','portal-ti@tony.mx');
       $this->loadComponent('Auth', [
       /*'authorize'=> 'Controller',*/
             'authenticate' => [
@@ -104,7 +104,7 @@ class AppController extends Controller
         }
         $results =  null;
         if (!is_null($this->request->session()->read('Auth.User.id'))){
-          //  $results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));
+           //$results = $this->Tickettype->getTotal( $this->request->session()->read('typeViewTickets'));
             //$this->set('ticketrows',$results );
         }
 

@@ -1,20 +1,20 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\UsersTable;
+use App\Model\Table\UserendmessagesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\UsersTable Test Case
+ * App\Model\Table\UserendmessagesTable Test Case
  */
-class UsersTableTest extends TestCase
+class UserendmessagesTableTest extends TestCase
 {
 
     /**
      * Test subject     *
-     * @var \App\Model\Table\UsersTable     */
-    public $Users;
+     * @var \App\Model\Table\UserendmessagesTable     */
+    public $Userendmessages;
 
     /**
      * Fixtures
@@ -22,6 +22,7 @@ class UsersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.userendmessages',
         'app.users',
         'app.positionbranches',
         'app.branches',
@@ -75,7 +76,7 @@ class UsersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Users') ? [] : ['className' => UsersTable::class];        $this->Users = TableRegistry::get('Users', $config);    }
+        $config = TableRegistry::exists('Userendmessages') ? [] : ['className' => UserendmessagesTable::class];        $this->Userendmessages = TableRegistry::get('Userendmessages', $config);    }
 
     /**
      * tearDown method
@@ -84,7 +85,7 @@ class UsersTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Users);
+        unset($this->Userendmessages);
 
         parent::tearDown();
     }

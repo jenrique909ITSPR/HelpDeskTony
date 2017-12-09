@@ -66,9 +66,24 @@ use Cake\Validation\Validator;
         $this->belongsTo('Itemcodes', [
             'foreignKey' => 'itemcode_id'
         ]);
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+        
+         $this->belongsTo('Users', [
+            'className' => 'Users',
+            'foreignKey' => 'user_id',
+            'propertyName' => 'user',
         ]);
+
+        $this->belongsTo('Userautors', [
+            'className' => 'Users',
+            'foreignKey' => 'user_autor',
+            'propertyName' => 'userautor',
+        ]);
+        $this->belongsTo('Userrequerieds', [
+            'className' => 'Users',
+            'foreignKey' => 'user_requeried',
+            'propertyName' => 'userrequeried',
+        ]);
+       
         $this->belongsTo('Groups', [
             'foreignKey' => 'group_id'
         ]);
@@ -88,9 +103,10 @@ use Cake\Validation\Validator;
         $this->belongsTo('Hdcategories', [
             'foreignKey' => 'hdcategory_id'
         ]);
+        
         $this->belongsTo('Branches', [
             'foreignKey' => 'branch_id',
-            'joinType' => 'INNER'
+            'joinType' => 'left'
         ]);
         $this->hasMany('Ticketlogs', [
             'foreignKey' => 'ticket_id'
@@ -124,10 +140,6 @@ use Cake\Validation\Validator;
         $validator
             ->scalar('resolution')            ->allowEmpty('resolution');
         $validator
-            ->integer('user_autor')            ->allowEmpty('user_autor');
-        $validator
-            ->integer('user_requeried')            ->allowEmpty('user_requeried');
-        $validator
             ->scalar('ip')            ->requirePresence('ip', 'create')            ->notEmpty('ip');
         return $validator;
     }
@@ -146,6 +158,8 @@ use Cake\Validation\Validator;
         $rules->add($rules->existsIn(['source_id'], 'Sources'));
         $rules->add($rules->existsIn(['itemcode_id'], 'Itemcodes'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['user_requeried'], 'Users'));
+        $rules->add($rules->existsIn(['user_autor'], 'Users'));
         $rules->add($rules->existsIn(['group_id'], 'Groups'));
         $rules->add($rules->existsIn(['ticketimpact_id'], 'Ticketimpacts'));
         $rules->add($rules->existsIn(['ticketurgency_id'], 'Ticketurgencies'));

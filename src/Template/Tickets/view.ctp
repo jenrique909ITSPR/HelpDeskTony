@@ -35,16 +35,12 @@
             <td><?= h($ticket->title) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($ticket->description) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Solution') ?></th>
             <td><?= h($ticket->solution) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Itemcode') ?></th>
-            <td><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->name, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode->id]) : '' ?></td>
+            <td><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->name, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
@@ -79,12 +75,19 @@
             <td><?= h($ticket->ip) ?></td>
         </tr>
         <tr>
+<<<<<<< HEAD
+=======
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($ticket->id) ?></td>
+        </tr>
+         <tr>
+>>>>>>> e9f5194358a6a7b67d6c3c9032c59fd379bcd429
             <th scope="row"><?= __('User Autor') ?></th>
-            <td><?= $this->Number->format($ticket->user_autor) ?></td>
+            <td><?= h($ticket->userautor->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('User Requeried') ?></th>
-            <td><?= $this->Number->format($ticket->user_requeried) ?></td>
+            <th scope="row"><?= __('User Requiered') ?></th>
+            <td><?= h($ticket->userrequeried->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
@@ -95,8 +98,8 @@
             <td><?= h($ticket->modified) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Branche') ?></th>
-            <td><?= h($ticket->branche) ?></td>
+            <th scope="row"><?= __('Branch') ?></th>
+            <td><?= h($ticket->branch->name) ?></td>
         </tr>
     </table>
 

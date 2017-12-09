@@ -6,7 +6,8 @@ use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
-use Cake\Network\Email\Email;
+use Cake\Mailer\Email;
+use Cake\I18n\Time;
 
 /**
  * Tickets Controller
@@ -28,6 +29,7 @@ class TicketsController extends AppController
          parent::initialize();
 
         $this->loadComponent('Tickettype');
+        $this->loadUserEndMessages();
     }
 
      public function favorite($id = null){
@@ -53,7 +55,7 @@ class TicketsController extends AppController
     public function index($typeView = null,$idTickettype = null)
     {
         $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
-            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches'])
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors'])
             ->order(['Tickets.id' => 'DESC']);
             $this->paginate = ['limit' => $this->limit_data ];
 
@@ -86,7 +88,7 @@ class TicketsController extends AppController
                     break;
                 case 'all':
                    $query2 = $this->Tickets->find('all')
-                        ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches']);
+                        ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors']);
                     $this->paginate = ['limit' => $this->limit_data ];
 
                     $query = $query2;
@@ -126,7 +128,7 @@ class TicketsController extends AppController
             }
 
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors']
             ]);
         }
 
@@ -163,11 +165,16 @@ class TicketsController extends AppController
     {
 
         $ticket = $this->Tickets->newEntity();
-        if ($this->request->is('post')) {
-            $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
-            if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('Ticket creado correctamente'));
+         $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
 
+       if ($this->request->is('post')) {
+
+            $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
+            $mail= $this->request->session()->read('System.mail.sender');
+            if ($this->Tickets->save($ticket)) {
+
+                $this->Flash->success(__('Ticket creado correctamente'));
+                $this->_mailsender('Creado',$ticket->id, $mail,$ticket->user_requeried);
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
@@ -179,6 +186,7 @@ class TicketsController extends AppController
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
         $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);
+
         $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
@@ -189,6 +197,7 @@ class TicketsController extends AppController
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
+
     }
 
     /**
@@ -211,6 +220,7 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('Error al actualizar datos'));
         }
+
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
@@ -362,11 +372,24 @@ class TicketsController extends AppController
         $this->set('_serialize', ['tickets']);
     }
 
-    public function enduseradd() {
+    public function enduseradd($tickettype_created = null) {
         $this->viewBuilder()->layout('enduser');
+
         $ticket = $this->Tickets->newEntity();
-        if ($this->request->is('post')) {
+        switch ($tickettype_created) {
+          case 1:
             $ticket->tickettype_id = 1;
+            break;
+          case 2:
+            $ticket->tickettype_id = 4;
+            break;
+          default:
+              $this->Flash->error(__('Opcion invalida'));
+              return $this->redirect(['action' => 'enduserindex']);
+            break;
+        }
+        if ($this->request->is('post')) {
+
             $ticket->ticket_status_id = 1;
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
@@ -405,13 +428,70 @@ class TicketsController extends AppController
             }
 
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Internalnotes', 'Publicnotes', 'Ticketlogs', 'Ticketsfiles']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories',  'Ticketlogs']
             ]);
+
         }
 
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
     }
+
+    function _mailsender($subject =null, $dataid = null, $sender = null, $receiver = null){
+
+     $datamail = $this->Tickets->get($dataid, [
+         'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories','Userautors','Userrequerieds']
+     ]);
+
+     $users = TableRegistry::get('Users');
+     $query = $users->find();
+     $query = $users
+     ->find()
+     ->select(['id', 'username'])
+     ->where(['id ' => $receiver]);
+     foreach ($query as $users) {
+       $recipient = $users->username;
+     }
+
+
+     $data= array(
+    [   'Ticket ID: '=> $dataid,
+        'Titulo: '=> $datamail->title,
+        'Tipo: '=> $datamail->tickettype->name,
+        'Categoria: '=> $datamail->hdcategory->title,
+        'Asignado a: '=> $datamail->user->name,
+        'Solicitado por: '=> $datamail->userrequeried->name,
+        'Creado por: '=> $datamail->userautor->name,
+        'Impacto: '=> $datamail->ticketimpact->name,
+        'Urgencia: '=> $datamail->ticketurgency->name,
+        'Prioridad: '=> $datamail->ticketpriority->name,
+        'Estado: '=> $datamail->ticket_status->name
+       ]
+     );
+
+
+
+     //debug($data[0]['Titulo: ']);
+     debug($sender);
+     debug($recipient);
+     foreach ($data[0] as $key => $value) {
+       echo ($key.' '.$value."\n");
+     }
+     //implode(' ',array_keys($data[0]))
+     //debug($datamail);
+     $cadena= '';
+     foreach ($data[0] as $key => $value) {
+     $cadena = $cadena.$key.' '.$value."\n";
+     }
+     $email = new Email('default');
+     $email->from([$sender => 'mail.tony.mx'])
+     ->to($sender)
+     ->subject('Ticket #'.$dataid.' '. $subject)
+     ->send(
+       $cadena
+     );
+
+   }
 
 
     public function beforeRender(Event $event)
@@ -423,5 +503,19 @@ class TicketsController extends AppController
         }
 
     }
+    public function loadUserEndMessages()
+    {
+      $Userendmessages = TableRegistry::get('Userendmessages');
+      $messages = $Userendmessages->find('all')
+      ->where(['startdate <=' => Time::now() , 'endingdate >=' => Time::now()]);
+      /*->where(function ($exp, $q) {
+        return $exp->between('endingdate','2017/12/01','2017/12/02' );
+    });*/
+      $this->set('messages',$messages );
+
+    }
+
+
+
 
 }
