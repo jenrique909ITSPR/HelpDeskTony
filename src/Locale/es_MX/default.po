@@ -1,0 +1,3072 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2017-12-12 16:34+0000\n"
+"PO-Revision-Date: 2017-12-12 12:21-0600\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.3\n"
+"Last-Translator: \n"
+"Language: es_MX\n"
+
+#: Template/Articlefiles/add.ctp:8
+msgid "Add Articlefile"
+msgstr "Agregar Archivo Articulo"
+
+#: Template/Articlefiles/add.ctp:11;31 Template/Articlefiles/edit.ctp:11;37
+#: Template/Articlefiles/view.ctp:13;47 Template/Articles/view.ctp:125
+msgid "List Articlefiles"
+msgstr ""
+
+#: Template/Articlefiles/add.ctp:22 Template/Articlefiles/edit.ctp:22
+#: Template/Articles/add.ctp:26 Template/Articles/edit.ctp:33
+#: Template/ArticlesRoles/add.ctp:22 Template/ArticlesRoles/edit.ctp:22
+#: Template/Branches/add.ctp:22 Template/Branches/edit.ctp:22
+#: Template/Branchgroups/add.ctp:22 Template/Branchgroups/edit.ctp:22
+#: Template/Brands/add.ctp:21 Template/Brands/edit.ctp:21
+#: Template/Currencies/add.ctp:21 Template/Currencies/edit.ctp:21
+#: Template/Groups/add.ctp:22 Template/Groups/edit.ctp:22
+#: Template/Hdcategories/add.ctp:24 Template/Hdcategories/edit.ctp:23
+#: Template/Hdtemplate/add.ctp:22 Template/Hdtemplate/edit.ctp:22
+#: Template/Invoices/add.ctp:25 Template/Invoices/edit.ctp:25
+#: Template/Itemcategories/add.ctp:22 Template/Itemcategories/edit.ctp:22
+#: Template/Itemcodes/add.ctp:27 Template/Itemcodes/edit.ctp:27
+#: Template/Items/add.ctp:27 Template/Items/edit.ctp:27
+#: Template/Layoutcategories/add.ctp:24 Template/Layoutcategories/edit.ctp:24
+#: Template/Layouts/add.ctp:23 Template/Layouts/edit.ctp:23
+#: Template/Movereasons/add.ctp:22 Template/Movereasons/edit.ctp:22
+#: Template/Movereasontemplates/add.ctp:23
+#: Template/Movereasontemplates/edit.ctp:23
+#: Template/Positionbranches/add.ctp:23 Template/Positionbranches/edit.ctp:23
+#: Template/Positions/add.ctp:21 Template/Positions/edit.ctp:21
+#: Template/Roles/add.ctp:22 Template/Roles/edit.ctp:22
+#: Template/Shippers/add.ctp:21 Template/Shippers/edit.ctp:21
+#: Template/Sources/add.ctp:21 Template/Sources/edit.ctp:21
+#: Template/Statusitems/add.ctp:21 Template/Statusitems/edit.ctp:21
+#: Template/Statususers/add.ctp:21 Template/Statususers/edit.ctp:21
+#: Template/Stockmoves/add.ctp:32 Template/Stockmoves/edit.ctp:32
+#: Template/StockmovesDetails/add.ctp:25 Template/StockmovesDetails/edit.ctp:25
+#: Template/Stocks/add.ctp:23 Template/Stocks/edit.ctp:23
+#: Template/Suppliers/add.ctp:21 Template/Suppliers/edit.ctp:21
+#: Template/Ticketimpacts/add.ctp:21 Template/Ticketimpacts/edit.ctp:21
+#: Template/Ticketlogs/add.ctp:27 Template/Ticketlogs/edit.ctp:27
+#: Template/Ticketmarkeds/add.ctp:22 Template/Ticketmarkeds/edit.ctp:22
+#: Template/Ticketnotes/add.ctp:24 Template/Ticketnotes/edit.ctp:24
+#: Template/Ticketnotestypes/add.ctp:21 Template/Ticketnotestypes/edit.ctp:21
+#: Template/Ticketpriorities/add.ctp:21 Template/Ticketpriorities/edit.ctp:21
+#: Template/Tickets/add.ctp:39 Template/Tickets/edit.ctp:39
+#: Template/Tickets/enduseradd.ctp:39 Template/Tickets/view.ctp:350;365
+#: Template/Ticketsfiles/add.ctp:22 Template/Ticketsfiles/edit.ctp:22
+#: Template/Ticketstatuses/add.ctp:22 Template/Ticketstatuses/edit.ctp:22
+#: Template/Tickettypes/add.ctp:24 Template/Tickettypes/edit.ctp:24
+#: Template/Ticketurgencies/add.ctp:21 Template/Ticketurgencies/edit.ctp:21
+#: Template/Userendmessages/add.ctp:26 Template/Userendmessages/edit.ctp:24
+#: Template/Users/add.ctp:28 Template/Users/edit.ctp:28
+#: Template/Users/myaccount.ctp:20 Template/Warehouses/add.ctp:22
+#: Template/Warehouses/edit.ctp:22
+msgid "Submit"
+msgstr "Guardar"
+
+#: Template/Articlefiles/add.ctp:30 Template/Articlefiles/edit.ctp:30
+#: Template/Articlefiles/index.ctp:21;54 Template/Articlefiles/view.ctp:44
+#: Template/Articles/index.ctp:25 Template/Articles/view.ctp:63;91;116
+#: Template/ArticlesRoles/add.ctp:30 Template/ArticlesRoles/edit.ctp:30
+#: Template/ArticlesRoles/index.ctp:21;53 Template/ArticlesRoles/view.ctp:41
+#: Template/Branches/add.ctp:30 Template/Branches/edit.ctp:30
+#: Template/Branches/index.ctp:20;52
+#: Template/Branches/view.ctp:44;75;123;170;196
+#: Template/Branchgroups/add.ctp:30 Template/Branchgroups/edit.ctp:30
+#: Template/Branchgroups/index.ctp:20;52 Template/Branchgroups/view.ctp:43;69
+#: Template/Brands/add.ctp:29 Template/Brands/edit.ctp:29
+#: Template/Brands/index.ctp:20;51 Template/Brands/view.ctp:45;76
+#: Template/Currencies/add.ctp:29 Template/Currencies/edit.ctp:29
+#: Template/Currencies/index.ctp:20;51 Template/Currencies/view.ctp:45;76
+#: Template/Groups/add.ctp:30 Template/Groups/edit.ctp:30
+#: Template/Groups/index.ctp:21;53 Template/Groups/view.ctp:50;102;153;184
+#: Template/Hdcategories/add.ctp:32 Template/Hdcategories/edit.ctp:31
+#: Template/Hdcategories/index.ctp:21;54
+#: Template/Hdcategories/view.ctp:60;97;129;176;220
+#: Template/Hdtemplate/add.ctp:30 Template/Hdtemplate/edit.ctp:30
+#: Template/Hdtemplate/index.ctp:21;53 Template/Hdtemplate/view.ctp:41
+#: Template/Invoices/add.ctp:33 Template/Invoices/edit.ctp:33
+#: Template/Invoices/index.ctp:24;59 Template/Invoices/view.ctp:62;94
+#: Template/Itemcategories/add.ctp:30 Template/Itemcategories/edit.ctp:30
+#: Template/Itemcategories/index.ctp:21;53
+#: Template/Itemcategories/view.ctp:44;78;114;142 Template/Itemcodes/add.ctp:35
+#: Template/Itemcodes/edit.ctp:35 Template/Itemcodes/index.ctp:27;65
+#: Template/Itemcodes/view.ctp:71;120;163 Template/Items/add.ctp:35
+#: Template/Items/edit.ctp:35 Template/Items/index.ctp:26;63
+#: Template/Items/view.ctp:70;108;141;168 Template/Layoutcategories/add.ctp:32
+#: Template/Layoutcategories/edit.ctp:32
+#: Template/Layoutcategories/index.ctp:23;57
+#: Template/Layoutcategories/view.ctp:49 Template/Layouts/add.ctp:31
+#: Template/Layouts/edit.ctp:31 Template/Layouts/index.ctp:22;55
+#: Template/Layouts/view.ctp:50;78 Template/Movereasons/add.ctp:30
+#: Template/Movereasons/edit.ctp:30 Template/Movereasons/index.ctp:21;53
+#: Template/Movereasons/view.ctp:47;89;125
+#: Template/Movereasontemplates/add.ctp:31
+#: Template/Movereasontemplates/edit.ctp:31
+#: Template/Movereasontemplates/index.ctp:24;59
+#: Template/Movereasontemplates/view.ctp:53
+#: Template/Positionbranches/add.ctp:31 Template/Positionbranches/edit.ctp:31
+#: Template/Positionbranches/index.ctp:22;55
+#: Template/Positionbranches/view.ctp:54;94;125 Template/Positions/add.ctp:29
+#: Template/Positions/edit.ctp:29 Template/Positions/index.ctp:20;51
+#: Template/Positions/view.ctp:41;72;99 Template/Roles/add.ctp:30
+#: Template/Roles/edit.ctp:30 Template/Roles/index.ctp:20;51
+#: Template/Roles/view.ctp:45;84;115 Template/Shippers/add.ctp:29
+#: Template/Shippers/edit.ctp:29 Template/Shippers/index.ctp:20;51
+#: Template/Shippers/view.ctp:50;86 Template/Sources/add.ctp:29
+#: Template/Sources/edit.ctp:29 Template/Sources/index.ctp:20;51
+#: Template/Sources/view.ctp:57;100 Template/Statusitems/add.ctp:29
+#: Template/Statusitems/edit.ctp:29 Template/Statusitems/index.ctp:20;51
+#: Template/Statusitems/view.ctp:46;78 Template/Statususers/add.ctp:29
+#: Template/Statususers/edit.ctp:29 Template/Statususers/index.ctp:20;51
+#: Template/Statususers/view.ctp:45;76 Template/Stockmoves/add.ctp:40
+#: Template/Stockmoves/edit.ctp:40 Template/Stockmoves/index.ctp:30;71
+#: Template/Stockmoves/view.ctp:87;116 Template/StockmovesDetails/add.ctp:33
+#: Template/StockmovesDetails/edit.ctp:33
+#: Template/StockmovesDetails/index.ctp:24;59
+#: Template/StockmovesDetails/view.ctp:53 Template/Stocks/add.ctp:31
+#: Template/Stocks/edit.ctp:31 Template/Stocks/index.ctp:22;55
+#: Template/Stocks/view.ctp:45 Template/Suppliers/add.ctp:29
+#: Template/Suppliers/edit.ctp:29 Template/Suppliers/index.ctp:20;51
+#: Template/Suppliers/view.ctp:43;72 Template/Ticketimpacts/add.ctp:29
+#: Template/Ticketimpacts/edit.ctp:29 Template/Ticketimpacts/index.ctp:20;51
+#: Template/Ticketimpacts/view.ctp:57;100 Template/Ticketlogs/add.ctp:35
+#: Template/Ticketlogs/edit.ctp:35 Template/Ticketlogs/index.ctp:26;63
+#: Template/Ticketlogs/view.ctp:65 Template/Ticketmarkeds/add.ctp:30
+#: Template/Ticketmarkeds/edit.ctp:30 Template/Ticketmarkeds/index.ctp:20;52
+#: Template/Ticketmarkeds/view.ctp:40 Template/Ticketnotes/add.ctp:32
+#: Template/Ticketnotes/edit.ctp:32 Template/Ticketnotes/index.ctp:22;56
+#: Template/Ticketnotes/view.ctp:52 Template/Ticketnotestypes/add.ctp:29
+#: Template/Ticketnotestypes/edit.ctp:29
+#: Template/Ticketnotestypes/index.ctp:19;50
+#: Template/Ticketnotestypes/view.ctp:42;71
+#: Template/Ticketpriorities/add.ctp:29 Template/Ticketpriorities/edit.ctp:29
+#: Template/Ticketpriorities/index.ctp:20;51
+#: Template/Ticketpriorities/view.ctp:57;100 Template/Tickets/clonar.ctp:46
+#: Template/Tickets/enduserindex.ctp:16
+#: Template/Tickets/enduserview.ctp:121;157 Template/Tickets/index.ctp:46
+#: Template/Tickets/view.ctp:126;167;202;249;296
+#: Template/Ticketsfiles/add.ctp:30 Template/Ticketsfiles/edit.ctp:30
+#: Template/Ticketsfiles/index.ctp:21;54 Template/Ticketsfiles/view.ctp:44
+#: Template/Ticketstatuses/add.ctp:30 Template/Ticketstatuses/edit.ctp:30
+#: Template/Ticketstatuses/index.ctp:21 Template/Ticketstatuses/view.ctp:41
+#: Template/Tickettypes/add.ctp:32 Template/Tickettypes/edit.ctp:32
+#: Template/Tickettypes/index.ctp:22;56 Template/Tickettypes/view.ctp:69;112
+#: Template/Ticketurgencies/add.ctp:29 Template/Ticketurgencies/edit.ctp:29
+#: Template/Ticketurgencies/index.ctp:20;51
+#: Template/Ticketurgencies/view.ctp:57;100 Template/Userendmessages/add.ctp:34
+#: Template/Userendmessages/edit.ctp:32
+#: Template/Userendmessages/index.ctp:23;58
+#: Template/Userendmessages/view.ctp:56 Template/Users/add.ctp:36
+#: Template/Users/edit.ctp:36 Template/Users/index.ctp:25
+#: Template/Users/view.ctp:72;109;144;187;232;284
+#: Template/Warehouses/add.ctp:30 Template/Warehouses/edit.ctp:30
+#: Template/Warehouses/index.ctp:21 Template/Warehouses/view.ctp:54;94
+msgid "Actions"
+msgstr "Acciones"
+
+#: Template/Articlefiles/add.ctp:32 Template/Articlefiles/edit.ctp:38
+#: Template/Articlefiles/index.ctp:56 Template/Articlefiles/view.ctp:49
+#: Template/Articles/add.ctp:11 Template/Articles/edit.ctp:18
+#: Template/Articles/view.ctp:14;119 Template/ArticlesRoles/add.ctp:32
+#: Template/ArticlesRoles/edit.ctp:38 Template/ArticlesRoles/index.ctp:55
+#: Template/ArticlesRoles/view.ctp:46 Template/Hdcategories/add.ctp:36
+#: Template/Hdcategories/edit.ctp:41 Template/Hdcategories/index.ctp:56
+#: Template/Hdcategories/view.ctp:227 Template/Roles/add.ctp:34
+#: Template/Roles/edit.ctp:40 Template/Roles/index.ctp:55
+#: Template/Roles/view.ctp:122 Template/Users/add.ctp:46
+#: Template/Users/edit.ctp:52
+msgid "List Articles"
+msgstr "Lista Articulos"
+
+#: Template/Articlefiles/add.ctp:33 Template/Articlefiles/edit.ctp:39
+#: Template/Articlefiles/index.ctp:57 Template/Articlefiles/view.ctp:50
+#: Template/Articles/index.ctp:12 Template/Articles/view.ctp:13;120
+#: Template/ArticlesRoles/add.ctp:33 Template/ArticlesRoles/edit.ctp:39
+#: Template/ArticlesRoles/index.ctp:56 Template/ArticlesRoles/view.ctp:47
+#: Template/Hdcategories/add.ctp:37 Template/Hdcategories/edit.ctp:42
+#: Template/Hdcategories/index.ctp:57 Template/Hdcategories/view.ctp:228
+#: Template/Roles/add.ctp:35 Template/Roles/edit.ctp:41
+#: Template/Roles/index.ctp:56 Template/Roles/view.ctp:123
+#: Template/Users/add.ctp:47 Template/Users/edit.ctp:53
+msgid "New Article"
+msgstr "Nuevo Articulo"
+
+#: Template/Articlefiles/edit.ctp:8 Template/Articlefiles/view.ctp:14;45
+msgid "Edit Articlefile"
+msgstr "Editar Archivo Articulo"
+
+#: Template/Articlefiles/edit.ctp:32 Template/Articlefiles/index.ctp:34
+#: Template/Articles/edit.ctp:13 Template/Articles/index.ctp:41
+#: Template/Articles/view.ctp:75;102 Template/ArticlesRoles/edit.ctp:32
+#: Template/ArticlesRoles/index.ctp:33 Template/Branches/edit.ctp:32
+#: Template/Branches/index.ctp:32 Template/Branches/view.ctp:57;88;153;182
+#: Template/Branchgroups/edit.ctp:32 Template/Branchgroups/index.ctp:32
+#: Template/Branchgroups/view.ctp:55 Template/Brands/edit.ctp:31
+#: Template/Brands/index.ctp:31 Template/Brands/view.ctp:62
+#: Template/Currencies/edit.ctp:31 Template/Currencies/index.ctp:31
+#: Template/Currencies/view.ctp:62 Template/Groups/edit.ctp:32
+#: Template/Groups/index.ctp:33 Template/Groups/view.ctp:68;131;170
+#: Template/Hdcategories/edit.ctp:33 Template/Hdcategories/index.ctp:34
+#: Template/Hdcategories/view.ctp:77;112;141;206
+#: Template/Hdtemplate/edit.ctp:32 Template/Hdtemplate/index.ctp:33
+#: Template/Invoices/edit.ctp:35 Template/Invoices/index.ctp:39
+#: Template/Invoices/view.ctp:80 Template/Itemcategories/edit.ctp:32
+#: Template/Itemcategories/index.ctp:33
+#: Template/Itemcategories/view.ctp:56;95;128 Template/Itemcodes/edit.ctp:37
+#: Template/Itemcodes/index.ctp:45 Template/Itemcodes/view.ctp:86;149
+#: Template/Items/edit.ctp:37 Template/Items/index.ctp:43
+#: Template/Items/view.ctp:88;123;154 Template/Layoutcategories/edit.ctp:34
+#: Template/Layoutcategories/index.ctp:37 Template/Layouts/edit.ctp:33
+#: Template/Layouts/index.ctp:35 Template/Layouts/view.ctp:64
+#: Template/Movereasons/edit.ctp:32 Template/Movereasons/index.ctp:33
+#: Template/Movereasons/view.ctp:62;111
+#: Template/Movereasontemplates/edit.ctp:33
+#: Template/Movereasontemplates/index.ctp:39
+#: Template/Positionbranches/edit.ctp:33 Template/Positionbranches/index.ctp:35
+#: Template/Positionbranches/view.ctp:72;111 Template/Positions/edit.ctp:31
+#: Template/Positions/index.ctp:31 Template/Positions/view.ctp:54;85
+#: Template/Roles/edit.ctp:32 Template/Roles/index.ctp:31
+#: Template/Roles/view.ctp:62;101 Template/Shippers/edit.ctp:31
+#: Template/Shippers/index.ctp:31 Template/Shippers/view.ctp:72
+#: Template/Sources/edit.ctp:31 Template/Sources/index.ctp:31
+#: Template/Sources/view.ctp:86 Template/Statusitems/edit.ctp:31
+#: Template/Statusitems/index.ctp:31 Template/Statusitems/view.ctp:64
+#: Template/Statususers/edit.ctp:31 Template/Statususers/index.ctp:31
+#: Template/Statususers/view.ctp:62 Template/Stockmoves/edit.ctp:42
+#: Template/Stockmoves/index.ctp:51 Template/Stockmoves/view.ctp:102
+#: Template/StockmovesDetails/edit.ctp:35
+#: Template/StockmovesDetails/index.ctp:39 Template/Stocks/edit.ctp:33
+#: Template/Stocks/index.ctp:35 Template/Suppliers/edit.ctp:31
+#: Template/Suppliers/index.ctp:31 Template/Suppliers/view.ctp:58
+#: Template/Ticketimpacts/edit.ctp:31 Template/Ticketimpacts/index.ctp:31
+#: Template/Ticketimpacts/view.ctp:86 Template/Ticketlogs/edit.ctp:37
+#: Template/Ticketlogs/index.ctp:43 Template/Ticketmarkeds/edit.ctp:32
+#: Template/Ticketmarkeds/index.ctp:32 Template/Ticketnotes/edit.ctp:34
+#: Template/Ticketnotes/index.ctp:36 Template/Ticketnotestypes/edit.ctp:31
+#: Template/Ticketnotestypes/index.ctp:30 Template/Ticketnotestypes/view.ctp:57
+#: Template/Ticketpriorities/edit.ctp:31 Template/Ticketpriorities/index.ctp:31
+#: Template/Ticketpriorities/view.ctp:86 Template/Tickets/clonar.ctp:48
+#: Template/Tickets/enduserview.ctp:135;169
+#: Template/Tickets/view.ctp:140;185;214;279;308
+#: Template/Ticketsfiles/edit.ctp:32 Template/Ticketsfiles/index.ctp:34
+#: Template/Ticketstatuses/edit.ctp:32 Template/Ticketstatuses/index.ctp:33
+#: Template/Tickettypes/edit.ctp:34 Template/Tickettypes/index.ctp:36
+#: Template/Tickettypes/view.ctp:98 Template/Ticketurgencies/edit.ctp:31
+#: Template/Ticketurgencies/index.ctp:31 Template/Ticketurgencies/view.ctp:86
+#: Template/Userendmessages/edit.ctp:34 Template/Userendmessages/index.ctp:38
+#: Template/Users/edit.ctp:38 Template/Users/index.ctp:42
+#: Template/Users/view.ctp:89;124;159;209;250;313
+#: Template/Warehouses/edit.ctp:32 Template/Warehouses/index.ctp:33
+#: Template/Warehouses/view.ctp:76;107
+msgid "Delete"
+msgstr "Borrar"
+
+#: Template/Articlefiles/edit.ctp:34 Template/Articlefiles/index.ctp:34
+#: Template/Articlefiles/view.ctp:11;46 Template/Articles/edit.ctp:15
+#: Template/Articles/index.ctp:41 Template/Articles/view.ctp:12;75;102;118
+#: Template/ArticlesRoles/edit.ctp:34 Template/ArticlesRoles/index.ctp:33
+#: Template/ArticlesRoles/view.ctp:12;43 Template/Branches/edit.ctp:34
+#: Template/Branches/index.ctp:32
+#: Template/Branches/view.ctp:11;57;88;153;182;198
+#: Template/Branchgroups/edit.ctp:34 Template/Branchgroups/index.ctp:32
+#: Template/Branchgroups/view.ctp:11;55;71 Template/Brands/edit.ctp:33
+#: Template/Brands/index.ctp:31 Template/Brands/view.ctp:12;62;78
+#: Template/Currencies/edit.ctp:33 Template/Currencies/index.ctp:31
+#: Template/Currencies/view.ctp:12;62;78 Template/Groups/edit.ctp:34
+#: Template/Groups/index.ctp:33 Template/Groups/view.ctp:12;68;131;170;186
+#: Template/Hdcategories/edit.ctp:35 Template/Hdcategories/index.ctp:34
+#: Template/Hdcategories/view.ctp:11;77;112;141;206;222
+#: Template/Hdtemplate/edit.ctp:34 Template/Hdtemplate/index.ctp:33
+#: Template/Hdtemplate/view.ctp:12;43 Template/Invoices/edit.ctp:37
+#: Template/Invoices/index.ctp:39 Template/Invoices/view.ctp:12;80;96
+#: Template/Itemcategories/edit.ctp:34 Template/Itemcategories/index.ctp:33
+#: Template/Itemcategories/view.ctp:12;56;95;128;144
+#: Template/Itemcodes/edit.ctp:39 Template/Itemcodes/index.ctp:45
+#: Template/Itemcodes/view.ctp:12;86;149;165 Template/Items/edit.ctp:39
+#: Template/Items/index.ctp:43 Template/Items/view.ctp:12;88;123;154;170
+#: Template/Layoutcategories/edit.ctp:36 Template/Layoutcategories/index.ctp:37
+#: Template/Layoutcategories/view.ctp:12;51 Template/Layouts/edit.ctp:35
+#: Template/Layouts/index.ctp:35 Template/Layouts/view.ctp:12;64;80
+#: Template/Movereasons/edit.ctp:34 Template/Movereasons/index.ctp:33
+#: Template/Movereasons/view.ctp:12;62;111;127
+#: Template/Movereasontemplates/edit.ctp:35
+#: Template/Movereasontemplates/index.ctp:39
+#: Template/Movereasontemplates/view.ctp:12;55
+#: Template/Positionbranches/edit.ctp:35 Template/Positionbranches/index.ctp:35
+#: Template/Positionbranches/view.ctp:12;72;111;127
+#: Template/Positions/edit.ctp:33 Template/Positions/index.ctp:31
+#: Template/Positions/view.ctp:12;54;85;101 Template/Roles/edit.ctp:34
+#: Template/Roles/index.ctp:31 Template/Roles/view.ctp:12;62;101;117
+#: Template/Shippers/edit.ctp:33 Template/Shippers/index.ctp:31
+#: Template/Shippers/view.ctp:12;72;88 Template/Sources/edit.ctp:33
+#: Template/Sources/index.ctp:31 Template/Sources/view.ctp:12;86;102
+#: Template/Statusitems/edit.ctp:33 Template/Statusitems/index.ctp:31
+#: Template/Statusitems/view.ctp:12;64;80 Template/Statususers/edit.ctp:33
+#: Template/Statususers/index.ctp:31 Template/Statususers/view.ctp:12;62;78
+#: Template/Stockmoves/edit.ctp:44 Template/Stockmoves/index.ctp:51
+#: Template/Stockmoves/view.ctp:12;102;118
+#: Template/StockmovesDetails/edit.ctp:37
+#: Template/StockmovesDetails/index.ctp:39
+#: Template/StockmovesDetails/view.ctp:12;55 Template/Stocks/edit.ctp:35
+#: Template/Stocks/index.ctp:35 Template/Stocks/view.ctp:12;47
+#: Template/Suppliers/edit.ctp:33 Template/Suppliers/index.ctp:31
+#: Template/Suppliers/view.ctp:12;58;74 Template/Ticketimpacts/edit.ctp:33
+#: Template/Ticketimpacts/index.ctp:31
+#: Template/Ticketimpacts/view.ctp:12;86;102 Template/Ticketlogs/edit.ctp:39
+#: Template/Ticketlogs/index.ctp:43 Template/Ticketlogs/view.ctp:12;67
+#: Template/Ticketmarkeds/edit.ctp:34 Template/Ticketmarkeds/index.ctp:32
+#: Template/Ticketmarkeds/view.ctp:11;42 Template/Ticketnotes/edit.ctp:36
+#: Template/Ticketnotes/index.ctp:36 Template/Ticketnotes/view.ctp:11;54
+#: Template/Ticketnotestypes/edit.ctp:33 Template/Ticketnotestypes/index.ctp:30
+#: Template/Ticketnotestypes/view.ctp:11;57;73
+#: Template/Ticketpriorities/edit.ctp:33 Template/Ticketpriorities/index.ctp:31
+#: Template/Ticketpriorities/view.ctp:12;86;102 Template/Tickets/clonar.ctp:50
+#: Template/Tickets/enduserview.ctp:12;135;169
+#: Template/Tickets/view.ctp:12;140;185;214;279;308
+#: Template/Ticketsfiles/edit.ctp:34 Template/Ticketsfiles/index.ctp:34
+#: Template/Ticketsfiles/view.ctp:11;46 Template/Ticketstatuses/edit.ctp:34
+#: Template/Ticketstatuses/index.ctp:33 Template/Ticketstatuses/view.ctp:12;43
+#: Template/Tickettypes/edit.ctp:36 Template/Tickettypes/index.ctp:36
+#: Template/Tickettypes/view.ctp:11;98;114 Template/Ticketurgencies/edit.ctp:33
+#: Template/Ticketurgencies/index.ctp:31
+#: Template/Ticketurgencies/view.ctp:12;86;102
+#: Template/Userendmessages/edit.ctp:36 Template/Userendmessages/index.ctp:38
+#: Template/Userendmessages/view.ctp:11;58 Template/Users/edit.ctp:40
+#: Template/Users/index.ctp:42
+#: Template/Users/view.ctp:11;89;124;159;209;250;313
+#: Template/Warehouses/edit.ctp:34 Template/Warehouses/index.ctp:33
+#: Template/Warehouses/view.ctp:12;76;107
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Articlefiles/index.ctp:8 Template/Articles/view.ctp:54
+#: Template/Pages/admin.ctp:84
+msgid "Articlefiles"
+msgstr "Archivos Articulos"
+
+#: Template/Articlefiles/index.ctp:11;55 Template/Articlefiles/view.ctp:12;48
+#: Template/Articles/view.ctp:126
+msgid "New Articlefile"
+msgstr "Nuevo Archivo Articulo"
+
+#: Template/Articlefiles/index.ctp:32 Template/Articles/index.ctp:39
+#: Template/Articles/view.ctp:73;100 Template/ArticlesRoles/index.ctp:31
+#: Template/Branches/index.ctp:30 Template/Branches/view.ctp:55;86;151;180
+#: Template/Branchgroups/index.ctp:30 Template/Branchgroups/view.ctp:53
+#: Template/Brands/index.ctp:29 Template/Brands/view.ctp:60
+#: Template/Currencies/index.ctp:29 Template/Currencies/view.ctp:60
+#: Template/Groups/index.ctp:31 Template/Groups/view.ctp:66;129;168
+#: Template/Hdcategories/index.ctp:32
+#: Template/Hdcategories/view.ctp:75;110;139;204
+#: Template/Hdtemplate/index.ctp:31 Template/Invoices/index.ctp:37
+#: Template/Invoices/view.ctp:78 Template/Itemcategories/index.ctp:31
+#: Template/Itemcategories/view.ctp:54;93;126 Template/Itemcodes/index.ctp:43
+#: Template/Itemcodes/view.ctp:84;147 Template/Items/index.ctp:41
+#: Template/Items/view.ctp:86;121;152 Template/Layoutcategories/index.ctp:35
+#: Template/Layouts/index.ctp:33 Template/Layouts/view.ctp:62
+#: Template/Movereasons/index.ctp:31 Template/Movereasons/view.ctp:60;109
+#: Template/Movereasontemplates/index.ctp:37
+#: Template/Positionbranches/index.ctp:33
+#: Template/Positionbranches/view.ctp:70;109 Template/Positions/index.ctp:29
+#: Template/Positions/view.ctp:52;83 Template/Roles/index.ctp:29
+#: Template/Roles/view.ctp:60;99 Template/Shippers/index.ctp:29
+#: Template/Shippers/view.ctp:70 Template/Sources/index.ctp:29
+#: Template/Sources/view.ctp:84 Template/Statusitems/index.ctp:29
+#: Template/Statusitems/view.ctp:62 Template/Statususers/index.ctp:29
+#: Template/Statususers/view.ctp:60 Template/Stockmoves/index.ctp:49
+#: Template/Stockmoves/view.ctp:100 Template/StockmovesDetails/index.ctp:37
+#: Template/Stocks/index.ctp:33 Template/Suppliers/index.ctp:29
+#: Template/Suppliers/view.ctp:56 Template/Ticketimpacts/index.ctp:29
+#: Template/Ticketimpacts/view.ctp:84 Template/Ticketlogs/index.ctp:41
+#: Template/Ticketmarkeds/index.ctp:30 Template/Ticketnotes/index.ctp:34
+#: Template/Ticketnotestypes/index.ctp:28 Template/Ticketnotestypes/view.ctp:55
+#: Template/Ticketpriorities/index.ctp:29 Template/Ticketpriorities/view.ctp:84
+#: Template/Tickets/enduserindex.ctp:34
+#: Template/Tickets/enduserview.ctp:133;167 Template/Tickets/index.ctp:77
+#: Template/Tickets/view.ctp:138;183;212;277;306
+#: Template/Ticketsfiles/index.ctp:32 Template/Ticketstatuses/index.ctp:31
+#: Template/Tickettypes/index.ctp:34 Template/Tickettypes/view.ctp:96
+#: Template/Ticketurgencies/index.ctp:29 Template/Ticketurgencies/view.ctp:84
+#: Template/Userendmessages/index.ctp:36 Template/Users/index.ctp:40
+#: Template/Users/view.ctp:87;122;157;207;248;311
+#: Template/Warehouses/index.ctp:31 Template/Warehouses/view.ctp:74;105
+msgid "View"
+msgstr "Detalles"
+
+#: Template/Articlefiles/index.ctp:33 Template/Articles/index.ctp:40
+#: Template/Articles/view.ctp:74;101 Template/ArticlesRoles/index.ctp:32
+#: Template/Branches/index.ctp:31 Template/Branches/view.ctp:56;87;152;181
+#: Template/Branchgroups/index.ctp:31 Template/Branchgroups/view.ctp:54
+#: Template/Brands/index.ctp:30 Template/Brands/view.ctp:61
+#: Template/Currencies/index.ctp:30 Template/Currencies/view.ctp:61
+#: Template/Groups/index.ctp:32 Template/Groups/view.ctp:67;130;169
+#: Template/Hdcategories/index.ctp:33
+#: Template/Hdcategories/view.ctp:76;111;140;205
+#: Template/Hdtemplate/index.ctp:32 Template/Invoices/index.ctp:38
+#: Template/Invoices/view.ctp:79 Template/Itemcategories/index.ctp:32
+#: Template/Itemcategories/view.ctp:55;94;127 Template/Itemcodes/index.ctp:44
+#: Template/Itemcodes/view.ctp:85;148 Template/Items/index.ctp:42
+#: Template/Items/view.ctp:87;122;153 Template/Layoutcategories/index.ctp:36
+#: Template/Layouts/index.ctp:34 Template/Layouts/view.ctp:63
+#: Template/Movereasons/index.ctp:32 Template/Movereasons/view.ctp:61;110
+#: Template/Movereasontemplates/index.ctp:38
+#: Template/Positionbranches/index.ctp:34
+#: Template/Positionbranches/view.ctp:71;110 Template/Positions/index.ctp:30
+#: Template/Positions/view.ctp:53;84 Template/Roles/index.ctp:30
+#: Template/Roles/view.ctp:61;100 Template/Shippers/index.ctp:30
+#: Template/Shippers/view.ctp:71 Template/Sources/index.ctp:30
+#: Template/Sources/view.ctp:85 Template/Statusitems/index.ctp:30
+#: Template/Statusitems/view.ctp:63 Template/Statususers/index.ctp:30
+#: Template/Statususers/view.ctp:61 Template/Stockmoves/index.ctp:50
+#: Template/Stockmoves/view.ctp:101 Template/StockmovesDetails/index.ctp:38
+#: Template/Stocks/index.ctp:34 Template/Suppliers/index.ctp:30
+#: Template/Suppliers/view.ctp:57 Template/Ticketimpacts/index.ctp:30
+#: Template/Ticketimpacts/view.ctp:85 Template/Ticketlogs/index.ctp:42
+#: Template/Ticketmarkeds/index.ctp:31 Template/Ticketnotes/index.ctp:35
+#: Template/Ticketnotestypes/index.ctp:29 Template/Ticketnotestypes/view.ctp:56
+#: Template/Ticketpriorities/index.ctp:30 Template/Ticketpriorities/view.ctp:85
+#: Template/Tickets/enduserview.ctp:134;168
+#: Template/Tickets/view.ctp:139;184;213;278;307
+#: Template/Ticketsfiles/index.ctp:33 Template/Ticketstatuses/index.ctp:32
+#: Template/Tickettypes/index.ctp:35 Template/Tickettypes/view.ctp:97
+#: Template/Ticketurgencies/index.ctp:30 Template/Ticketurgencies/view.ctp:85
+#: Template/Userendmessages/index.ctp:37 Template/Users/index.ctp:41
+#: Template/Users/view.ctp:88;123;158;208;249;312
+#: Template/Warehouses/index.ctp:32 Template/Warehouses/view.ctp:75;106
+msgid "Edit"
+msgstr "Editar"
+
+#: Template/Articlefiles/index.ctp:42 Template/Articles/index.ctp:49
+#: Template/ArticlesRoles/index.ctp:41 Template/Branches/index.ctp:40
+#: Template/Branchgroups/index.ctp:40 Template/Brands/index.ctp:39
+#: Template/Currencies/index.ctp:39 Template/Groups/index.ctp:41
+#: Template/Hdcategories/index.ctp:42 Template/Hdtemplate/index.ctp:41
+#: Template/Invoices/index.ctp:47 Template/Itemcategories/index.ctp:41
+#: Template/Itemcodes/index.ctp:53 Template/Items/index.ctp:51
+#: Template/Layoutcategories/index.ctp:45 Template/Layouts/index.ctp:43
+#: Template/Movereasons/index.ctp:41 Template/Movereasontemplates/index.ctp:47
+#: Template/Positionbranches/index.ctp:43 Template/Positions/index.ctp:39
+#: Template/Roles/index.ctp:39 Template/Shippers/index.ctp:39
+#: Template/Sources/index.ctp:39 Template/Statusitems/index.ctp:39
+#: Template/Statususers/index.ctp:39 Template/Stockmoves/index.ctp:59
+#: Template/StockmovesDetails/index.ctp:47 Template/Stocks/index.ctp:43
+#: Template/Suppliers/index.ctp:39 Template/Ticketimpacts/index.ctp:39
+#: Template/Ticketlogs/index.ctp:51 Template/Ticketmarkeds/index.ctp:40
+#: Template/Ticketnotes/index.ctp:44 Template/Ticketnotestypes/index.ctp:38
+#: Template/Ticketpriorities/index.ctp:39 Template/Tickets/enduserindex.ctp:42
+#: Template/Tickets/index.ctp:86 Template/Ticketsfiles/index.ctp:42
+#: Template/Ticketstatuses/index.ctp:41 Template/Tickettypes/index.ctp:44
+#: Template/Ticketurgencies/index.ctp:39 Template/Userendmessages/index.ctp:46
+#: Template/Users/index.ctp:50 Template/Warehouses/index.ctp:41
+msgid "first"
+msgstr "Inicio"
+
+#: Template/Articlefiles/index.ctp:43 Template/Articles/index.ctp:50
+#: Template/ArticlesRoles/index.ctp:42 Template/Branches/index.ctp:41
+#: Template/Branchgroups/index.ctp:41 Template/Brands/index.ctp:40
+#: Template/Currencies/index.ctp:40 Template/Groups/index.ctp:42
+#: Template/Hdcategories/index.ctp:43 Template/Hdtemplate/index.ctp:42
+#: Template/Invoices/index.ctp:48 Template/Itemcategories/index.ctp:42
+#: Template/Itemcodes/index.ctp:54 Template/Items/index.ctp:52
+#: Template/Layoutcategories/index.ctp:46 Template/Layouts/index.ctp:44
+#: Template/Movereasons/index.ctp:42 Template/Movereasontemplates/index.ctp:48
+#: Template/Positionbranches/index.ctp:44 Template/Positions/index.ctp:40
+#: Template/Roles/index.ctp:40 Template/Shippers/index.ctp:40
+#: Template/Sources/index.ctp:40 Template/Statusitems/index.ctp:40
+#: Template/Statususers/index.ctp:40 Template/Stockmoves/index.ctp:60
+#: Template/StockmovesDetails/index.ctp:48 Template/Stocks/index.ctp:44
+#: Template/Suppliers/index.ctp:40 Template/Ticketimpacts/index.ctp:40
+#: Template/Ticketlogs/index.ctp:52 Template/Ticketmarkeds/index.ctp:41
+#: Template/Ticketnotes/index.ctp:45 Template/Ticketnotestypes/index.ctp:39
+#: Template/Ticketpriorities/index.ctp:40 Template/Tickets/enduserindex.ctp:43
+#: Template/Tickets/index.ctp:87 Template/Ticketsfiles/index.ctp:43
+#: Template/Ticketstatuses/index.ctp:42 Template/Tickettypes/index.ctp:45
+#: Template/Ticketurgencies/index.ctp:40 Template/Userendmessages/index.ctp:47
+#: Template/Users/index.ctp:51 Template/Warehouses/index.ctp:42
+msgid "previous"
+msgstr "Anterior"
+
+#: Template/Articlefiles/index.ctp:45 Template/Articles/index.ctp:52
+#: Template/ArticlesRoles/index.ctp:44 Template/Branches/index.ctp:43
+#: Template/Branchgroups/index.ctp:43 Template/Brands/index.ctp:42
+#: Template/Currencies/index.ctp:42 Template/Groups/index.ctp:44
+#: Template/Hdcategories/index.ctp:45 Template/Hdtemplate/index.ctp:44
+#: Template/Invoices/index.ctp:50 Template/Itemcategories/index.ctp:44
+#: Template/Itemcodes/index.ctp:56 Template/Items/index.ctp:54
+#: Template/Layoutcategories/index.ctp:48 Template/Layouts/index.ctp:46
+#: Template/Movereasons/index.ctp:44 Template/Movereasontemplates/index.ctp:50
+#: Template/Positionbranches/index.ctp:46 Template/Positions/index.ctp:42
+#: Template/Roles/index.ctp:42 Template/Shippers/index.ctp:42
+#: Template/Sources/index.ctp:42 Template/Statusitems/index.ctp:42
+#: Template/Statususers/index.ctp:42 Template/Stockmoves/index.ctp:62
+#: Template/StockmovesDetails/index.ctp:50 Template/Stocks/index.ctp:46
+#: Template/Suppliers/index.ctp:42 Template/Ticketimpacts/index.ctp:42
+#: Template/Ticketlogs/index.ctp:54 Template/Ticketmarkeds/index.ctp:43
+#: Template/Ticketnotes/index.ctp:47 Template/Ticketnotestypes/index.ctp:41
+#: Template/Ticketpriorities/index.ctp:42 Template/Tickets/enduserindex.ctp:45
+#: Template/Tickets/index.ctp:89 Template/Ticketsfiles/index.ctp:45
+#: Template/Ticketstatuses/index.ctp:44 Template/Tickettypes/index.ctp:47
+#: Template/Ticketurgencies/index.ctp:42 Template/Userendmessages/index.ctp:49
+#: Template/Users/index.ctp:53 Template/Warehouses/index.ctp:44
+msgid "next"
+msgstr "Siguiente"
+
+#: Template/Articlefiles/index.ctp:46 Template/Articles/index.ctp:53
+#: Template/ArticlesRoles/index.ctp:45 Template/Branches/index.ctp:44
+#: Template/Branchgroups/index.ctp:44 Template/Brands/index.ctp:43
+#: Template/Currencies/index.ctp:43 Template/Groups/index.ctp:45
+#: Template/Hdcategories/index.ctp:46 Template/Hdtemplate/index.ctp:45
+#: Template/Invoices/index.ctp:51 Template/Itemcategories/index.ctp:45
+#: Template/Itemcodes/index.ctp:57 Template/Items/index.ctp:55
+#: Template/Layoutcategories/index.ctp:49 Template/Layouts/index.ctp:47
+#: Template/Movereasons/index.ctp:45 Template/Movereasontemplates/index.ctp:51
+#: Template/Positionbranches/index.ctp:47 Template/Positions/index.ctp:43
+#: Template/Roles/index.ctp:43 Template/Shippers/index.ctp:43
+#: Template/Sources/index.ctp:43 Template/Statusitems/index.ctp:43
+#: Template/Statususers/index.ctp:43 Template/Stockmoves/index.ctp:63
+#: Template/StockmovesDetails/index.ctp:51 Template/Stocks/index.ctp:47
+#: Template/Suppliers/index.ctp:43 Template/Ticketimpacts/index.ctp:43
+#: Template/Ticketlogs/index.ctp:55 Template/Ticketmarkeds/index.ctp:44
+#: Template/Ticketnotes/index.ctp:48 Template/Ticketnotestypes/index.ctp:42
+#: Template/Ticketpriorities/index.ctp:43 Template/Tickets/enduserindex.ctp:46
+#: Template/Tickets/index.ctp:90 Template/Ticketsfiles/index.ctp:46
+#: Template/Ticketstatuses/index.ctp:45 Template/Tickettypes/index.ctp:48
+#: Template/Ticketurgencies/index.ctp:43 Template/Userendmessages/index.ctp:50
+#: Template/Users/index.ctp:54 Template/Warehouses/index.ctp:45
+msgid "last"
+msgstr "Ultimo"
+
+#: Template/Articlefiles/index.ctp:48 Template/Articles/index.ctp:55
+#: Template/ArticlesRoles/index.ctp:47 Template/Branches/index.ctp:46
+#: Template/Branchgroups/index.ctp:46 Template/Brands/index.ctp:45
+#: Template/Currencies/index.ctp:45 Template/Groups/index.ctp:47
+#: Template/Hdcategories/index.ctp:48 Template/Hdtemplate/index.ctp:47
+#: Template/Invoices/index.ctp:53 Template/Itemcategories/index.ctp:47
+#: Template/Itemcodes/index.ctp:59 Template/Items/index.ctp:57
+#: Template/Layoutcategories/index.ctp:51 Template/Layouts/index.ctp:49
+#: Template/Movereasons/index.ctp:47 Template/Movereasontemplates/index.ctp:53
+#: Template/Positionbranches/index.ctp:49 Template/Positions/index.ctp:45
+#: Template/Roles/index.ctp:45 Template/Shippers/index.ctp:45
+#: Template/Sources/index.ctp:45 Template/Statusitems/index.ctp:45
+#: Template/Statususers/index.ctp:45 Template/Stockmoves/index.ctp:65
+#: Template/StockmovesDetails/index.ctp:53 Template/Stocks/index.ctp:49
+#: Template/Suppliers/index.ctp:45 Template/Ticketimpacts/index.ctp:45
+#: Template/Ticketlogs/index.ctp:57 Template/Ticketmarkeds/index.ctp:46
+#: Template/Ticketnotes/index.ctp:50 Template/Ticketnotestypes/index.ctp:44
+#: Template/Ticketpriorities/index.ctp:45 Template/Tickets/enduserindex.ctp:48
+#: Template/Tickets/index.ctp:92 Template/Ticketsfiles/index.ctp:48
+#: Template/Ticketstatuses/index.ctp:47 Template/Tickettypes/index.ctp:50
+#: Template/Ticketurgencies/index.ctp:45 Template/Userendmessages/index.ctp:52
+#: Template/Users/index.ctp:56 Template/Warehouses/index.ctp:47
+msgid ""
+"Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} "
+"total"
+msgstr ""
+
+#: Template/Articlefiles/view.ctp:11;46
+msgid "Delete Articlefile"
+msgstr "Borrar Archivo Articulo"
+
+#: Template/Articlefiles/view.ctp:20 Template/Articles/view.ctp:61;90
+#: Template/Branches/view.ctp:20;74;168 Template/Branchgroups/view.ctp:20;41
+#: Template/Brands/view.ctp:21;38 Template/Currencies/view.ctp:21;38
+#: Template/Groups/view.ctp:21;146 Template/Itemcategories/view.ctp:21;42;71
+#: Template/Items/view.ctp:21 Template/Movereasons/view.ctp:21
+#: Template/Positionbranches/view.ctp:29;87 Template/Positions/view.ctp:21;71
+#: Template/Roles/view.ctp:21;38 Template/Shippers/view.ctp:21
+#: Template/Statusitems/view.ctp:21 Template/Statususers/view.ctp:21;38
+#: Template/Suppliers/view.ctp:21 Template/Ticketimpacts/view.ctp:21
+#: Template/Ticketnotestypes/view.ctp:20 Template/Ticketpriorities/view.ctp:21
+#: Template/Tickets/enduserview.ctp:117;155 Template/Tickets/view.ctp:122;294
+#: Template/Ticketsfiles/view.ctp:20 Template/Ticketstatuses/view.ctp:21
+#: Template/Tickettypes/view.ctp:21 Template/Ticketurgencies/view.ctp:21
+#: Template/Users/view.ctp:24;104 Template/Warehouses/view.ctp:21
+msgid "Name"
+msgstr "Nombre"
+
+#: Template/Articlefiles/view.ctp:24 Template/ArticlesRoles/view.ctp:21
+msgid "Article"
+msgstr "Articulo"
+
+#: Template/Articlefiles/view.ctp:28 Template/Articles/view.ctp:33;60;89
+#: Template/ArticlesRoles/view.ctp:29
+#: Template/Branches/view.ctp:28;40;71;102;167
+#: Template/Branchgroups/view.ctp:28;40 Template/Brands/view.ctp:25;37
+#: Template/Currencies/view.ctp:25;37 Template/Groups/view.ctp:29;41;82;145
+#: Template/Hdcategories/view.ctp:32;52;91;126;155
+#: Template/Hdtemplate/view.ctp:29 Template/Invoices/view.ctp:41;53
+#: Template/Itemcategories/view.ctp:29;41;70;109
+#: Template/Itemcodes/view.ctp:45;65;100 Template/Items/view.ctp:45;61;102;137
+#: Template/Layoutcategories/view.ctp:29 Template/Layouts/view.ctp:29;45
+#: Template/Movereasons/view.ctp:29;41;76
+#: Template/Movereasontemplates/view.ctp:33
+#: Template/Positionbranches/view.ctp:33;45;86
+#: Template/Positions/view.ctp:25;37;68 Template/Roles/view.ctp:25;37;76
+#: Template/Shippers/view.ctp:25;37 Template/Sources/view.ctp:25;37
+#: Template/Statusitems/view.ctp:25;37 Template/Statususers/view.ctp:25;37
+#: Template/Stockmoves/view.ctp:45;81 Template/StockmovesDetails/view.ctp:33
+#: Template/Stocks/view.ctp:29 Template/Suppliers/view.ctp:25;37
+#: Template/Ticketimpacts/view.ctp:25;37 Template/Ticketlogs/view.ctp:37
+#: Template/Ticketmarkeds/view.ctp:28 Template/Ticketnotes/view.ctp:32
+#: Template/Ticketnotestypes/view.ctp:24;36
+#: Template/Ticketpriorities/view.ctp:25;37
+#: Template/Tickets/enduserview.ctp:78;116;154
+#: Template/Tickets/view.ctp:78;121;158;199;228;293
+#: Template/Ticketsfiles/view.ctp:28 Template/Ticketstatuses/view.ctp:25
+#: Template/Tickettypes/view.ctp:33;49 Template/Ticketurgencies/view.ctp:25;37
+#: Template/Userendmessages/view.ctp:24
+#: Template/Users/view.ctp:52;64;103;138;174;223;264
+#: Template/Warehouses/view.ctp:29;41;90
+msgid "Id"
+msgstr "ID"
+
+#: Template/Articlefiles/view.ctp:32 Template/Articles/view.ctp:45
+#: Template/Branches/view.ctp:114 Template/Groups/view.ctp:48;95
+#: Template/Hdcategories/view.ctp:58;168 Template/Invoices/view.ctp:58
+#: Template/Itemcodes/view.ctp:49;113 Template/Items/view.ctp:66
+#: Template/Movereasons/view.ctp:43 Template/Movereasontemplates/view.ctp:37
+#: Template/Positionbranches/view.ctp:50 Template/Roles/view.ctp:82
+#: Template/Sources/view.ctp:50 Template/Statusitems/view.ctp:42
+#: Template/Ticketimpacts/view.ctp:50 Template/Ticketlogs/view.ctp:49
+#: Template/Ticketnotes/view.ctp:36 Template/Ticketnotestypes/view.ctp:40
+#: Template/Ticketpriorities/view.ctp:50
+#: Template/Tickets/enduserview.ctp:90;120
+#: Template/Tickets/view.ctp:19;91;125;165;241
+#: Template/Ticketsfiles/view.ctp:32 Template/Tickettypes/view.ctp:62
+#: Template/Ticketurgencies/view.ctp:50 Template/Userendmessages/view.ctp:28
+#: Template/Users/view.ctp:70;107;140;230;277
+msgid "Created"
+msgstr "Creado"
+
+#: Template/Articles/add.ctp:8
+msgid "Add Article"
+msgstr "Agregar Articulo"
+
+#: Template/Articles/edit.ctp:9 Template/Articles/view.ctp:15;117
+msgid "Edit Article"
+msgstr "Editar Articulo"
+
+#: Template/Articles/index.ctp:9 Template/Element/header.ctp:68
+#: Template/Hdcategories/view.ctp:46 Template/Pages/admin.ctp:81;83
+#: Template/Roles/view.ctp:70 Template/Users/view.ctp:58
+msgid "Articles"
+msgstr "Articulos"
+
+#: Template/Articles/view.ctp:12;118
+msgid "Delete Article"
+msgstr "Borrar Articulo"
+
+#: Template/Articles/view.ctp:21 Template/Branches/view.ctp:106
+#: Template/Groups/view.ctp:86 Template/Hdcategories/view.ctp:20;53;92;127;159
+#: Template/Hdtemplate/view.ctp:21 Template/Itemcodes/view.ctp:104
+#: Template/Roles/view.ctp:77 Template/Sources/view.ctp:21;41
+#: Template/Ticketimpacts/view.ctp:41 Template/Ticketpriorities/view.ctp:41
+#: Template/Tickets/enduserview.ctp:34 Template/Tickets/view.ctp:34;232
+#: Template/Tickettypes/view.ctp:53 Template/Ticketurgencies/view.ctp:41
+#: Template/Users/view.ctp:65;268
+msgid "Title"
+msgstr "Titulo"
+
+#: Template/Articles/view.ctp:25 Template/Hdtemplate/view.ctp:25
+#: Template/Tickets/enduserview.ctp:70 Template/Tickets/view.ctp:70
+msgid "Hdcategory"
+msgstr "Categoria HD"
+
+#: Template/Articles/view.ctp:29 Template/Branchgroups/view.ctp:24
+#: Template/Movereasontemplates/view.ctp:25 Template/Stockmoves/view.ctp:41
+#: Template/Ticketlogs/view.ctp:25 Template/Ticketmarkeds/view.ctp:20
+#: Template/Ticketnotes/view.ctp:24 Template/Tickets/enduserview.ctp:46
+#: Template/Tickets/view.ctp:46 Template/Userendmessages/view.ctp:20
+msgid "User"
+msgstr "Usuario"
+
+#: Template/Articles/view.ctp:37 Template/Hdcategories/view.ctp:59
+#: Template/Roles/view.ctp:83 Template/Users/view.ctp:71
+msgid "Selected"
+msgstr "Seleccionado"
+
+#: Template/Articles/view.ctp:41 Template/Branches/view.ctp:120
+#: Template/Groups/view.ctp:101 Template/Hdcategories/view.ctp:56;174
+#: Template/Itemcodes/view.ctp:119 Template/Movereasons/view.ctp:44
+#: Template/Movereasontemplates/view.ctp:41 Template/Roles/view.ctp:80
+#: Template/Sources/view.ctp:56 Template/Ticketimpacts/view.ctp:56
+#: Template/Ticketpriorities/view.ctp:56 Template/Tickets/enduserview.ctp:94
+#: Template/Tickets/view.ctp:95;247 Template/Tickettypes/view.ctp:68
+#: Template/Ticketurgencies/view.ctp:56 Template/Userendmessages/view.ctp:32
+#: Template/Users/view.ctp:68;141;283
+msgid "Modified"
+msgstr "Modificado"
+
+#: Template/Articles/view.ctp:55
+msgid "Related Articlefiles"
+msgstr "Archivos Articulo Relacionados"
+
+#: Template/Articles/view.ctp:62
+msgid "Article Id"
+msgstr "ID Articulo"
+
+#: Template/Articles/view.ctp:83 Template/Pages/admin.ctp:60
+#: Template/Roles/index.ctp:9
+msgid "Roles"
+msgstr "Roles"
+
+#: Template/Articles/view.ctp:84
+msgid "Related Roles"
+msgstr "Roles Relacionados"
+
+#: Template/Articles/view.ctp:121 Template/Hdcategories/add.ctp:11;33
+#: Template/Hdcategories/edit.ctp:11;38 Template/Hdcategories/view.ctp:13;223
+#: Template/Hdtemplate/add.ctp:32 Template/Hdtemplate/edit.ctp:38
+#: Template/Hdtemplate/index.ctp:55 Template/Hdtemplate/view.ctp:46
+#: Template/Tickets/clonar.ctp:74
+msgid "List Hdcategories"
+msgstr "Lista Categorias HD"
+
+#: Template/Articles/view.ctp:122 Template/Hdcategories/index.ctp:11;55
+#: Template/Hdcategories/view.ctp:12;224 Template/Hdtemplate/add.ctp:33
+#: Template/Hdtemplate/edit.ctp:39 Template/Hdtemplate/index.ctp:56
+#: Template/Hdtemplate/view.ctp:47 Template/Tickets/clonar.ctp:75
+msgid "New Hdcategory"
+msgstr "Nueva Categoria HD"
+
+#: Template/Articles/view.ctp:123 Template/Branchgroups/add.ctp:32
+#: Template/Branchgroups/edit.ctp:38 Template/Branchgroups/index.ctp:54
+#: Template/Branchgroups/view.ctp:74 Template/Groups/add.ctp:36
+#: Template/Groups/edit.ctp:42 Template/Groups/index.ctp:59
+#: Template/Groups/view.ctp:193 Template/Movereasontemplates/add.ctp:33
+#: Template/Movereasontemplates/edit.ctp:39
+#: Template/Movereasontemplates/index.ctp:61
+#: Template/Movereasontemplates/view.ctp:58
+#: Template/Positionbranches/add.ctp:39 Template/Positionbranches/edit.ctp:45
+#: Template/Positionbranches/index.ctp:63
+#: Template/Positionbranches/view.ctp:136 Template/Roles/add.ctp:32
+#: Template/Roles/edit.ctp:38 Template/Roles/index.ctp:53
+#: Template/Roles/view.ctp:120 Template/Statususers/add.ctp:31
+#: Template/Statususers/edit.ctp:37 Template/Statususers/index.ctp:53
+#: Template/Statususers/view.ctp:81 Template/Stockmoves/add.ctp:48
+#: Template/Stockmoves/edit.ctp:54 Template/Stockmoves/index.ctp:79
+#: Template/Stockmoves/view.ctp:127 Template/Ticketlogs/add.ctp:39
+#: Template/Ticketlogs/edit.ctp:45 Template/Ticketlogs/index.ctp:67
+#: Template/Ticketlogs/view.ctp:72 Template/Ticketmarkeds/add.ctp:32
+#: Template/Ticketmarkeds/edit.ctp:38 Template/Ticketmarkeds/index.ctp:54
+#: Template/Ticketmarkeds/view.ctp:45 Template/Ticketnotes/add.ctp:36
+#: Template/Ticketnotes/edit.ctp:42 Template/Ticketnotes/index.ctp:60
+#: Template/Ticketnotes/view.ctp:59 Template/Tickets/clonar.ctp:62
+#: Template/Userendmessages/add.ctp:36 Template/Userendmessages/edit.ctp:40
+#: Template/Userendmessages/index.ctp:60 Template/Userendmessages/view.ctp:61
+#: Template/Users/add.ctp:11;37 Template/Users/edit.ctp:11;43
+#: Template/Users/view.ctp:13
+msgid "List Users"
+msgstr "Lista Usuarios"
+
+#: Template/Articles/view.ctp:124 Template/Branchgroups/add.ctp:33
+#: Template/Branchgroups/edit.ctp:39 Template/Branchgroups/index.ctp:55
+#: Template/Branchgroups/view.ctp:75 Template/Groups/add.ctp:37
+#: Template/Groups/edit.ctp:43 Template/Groups/index.ctp:60
+#: Template/Groups/view.ctp:194 Template/Movereasontemplates/add.ctp:34
+#: Template/Movereasontemplates/edit.ctp:40
+#: Template/Movereasontemplates/index.ctp:62
+#: Template/Movereasontemplates/view.ctp:59
+#: Template/Positionbranches/add.ctp:40 Template/Positionbranches/edit.ctp:46
+#: Template/Positionbranches/index.ctp:64
+#: Template/Positionbranches/view.ctp:137 Template/Roles/add.ctp:33
+#: Template/Roles/edit.ctp:39 Template/Roles/index.ctp:54
+#: Template/Roles/view.ctp:121 Template/Statususers/add.ctp:32
+#: Template/Statususers/edit.ctp:38 Template/Statususers/index.ctp:54
+#: Template/Statususers/view.ctp:82 Template/Stockmoves/add.ctp:49
+#: Template/Stockmoves/edit.ctp:55 Template/Stockmoves/index.ctp:80
+#: Template/Stockmoves/view.ctp:128 Template/Ticketlogs/add.ctp:40
+#: Template/Ticketlogs/edit.ctp:46 Template/Ticketlogs/index.ctp:68
+#: Template/Ticketlogs/view.ctp:73 Template/Ticketmarkeds/add.ctp:33
+#: Template/Ticketmarkeds/edit.ctp:39 Template/Ticketmarkeds/index.ctp:55
+#: Template/Ticketmarkeds/view.ctp:46 Template/Ticketnotes/add.ctp:37
+#: Template/Ticketnotes/edit.ctp:43 Template/Ticketnotes/index.ctp:61
+#: Template/Ticketnotes/view.ctp:60 Template/Tickets/clonar.ctp:63
+#: Template/Userendmessages/add.ctp:37 Template/Userendmessages/edit.ctp:41
+#: Template/Userendmessages/index.ctp:61 Template/Userendmessages/view.ctp:62
+#: Template/Users/index.ctp:11 Template/Users/view.ctp:12
+msgid "New User"
+msgstr "Nuevo Usuario"
+
+#: Template/Articles/view.ctp:127 Template/ArticlesRoles/add.ctp:34
+#: Template/ArticlesRoles/edit.ctp:40 Template/ArticlesRoles/index.ctp:57
+#: Template/ArticlesRoles/view.ctp:48 Template/Roles/add.ctp:11;31
+#: Template/Roles/edit.ctp:11;37 Template/Roles/view.ctp:14;118
+#: Template/Users/add.ctp:44 Template/Users/edit.ctp:50
+msgid "List Roles"
+msgstr "Lista De Roles"
+
+#: Template/Articles/view.ctp:128 Template/ArticlesRoles/add.ctp:35
+#: Template/ArticlesRoles/edit.ctp:41 Template/ArticlesRoles/index.ctp:58
+#: Template/ArticlesRoles/view.ctp:49 Template/Roles/index.ctp:12;52
+#: Template/Roles/view.ctp:13;119 Template/Users/add.ctp:45
+#: Template/Users/edit.ctp:51
+msgid "New Role"
+msgstr "Nuevo Rol"
+
+#: Template/ArticlesRoles/add.ctp:8
+msgid "Add Articles Role"
+msgstr ""
+
+#: Template/ArticlesRoles/add.ctp:11;31 Template/ArticlesRoles/edit.ctp:11;37
+#: Template/ArticlesRoles/view.ctp:14;44
+msgid "List Articles Roles"
+msgstr ""
+
+#: Template/ArticlesRoles/edit.ctp:8 Template/ArticlesRoles/view.ctp:15;42
+msgid "Edit Articles Role"
+msgstr ""
+
+#: Template/ArticlesRoles/index.ctp:9
+msgid "Articles Roles"
+msgstr ""
+
+#: Template/ArticlesRoles/index.ctp:12;54 Template/ArticlesRoles/view.ctp:13;45
+msgid "New Articles Role"
+msgstr ""
+
+#: Template/ArticlesRoles/view.ctp:12;43
+msgid "Delete Articles Role"
+msgstr ""
+
+#: Template/ArticlesRoles/view.ctp:25 Template/Users/view.ctp:48
+msgid "Role"
+msgstr ""
+
+#: Template/Branches/add.ctp:8
+msgid "Add Branch"
+msgstr ""
+
+#: Template/Branches/add.ctp:11;31 Template/Branches/edit.ctp:11;37
+#: Template/Branches/view.ctp:13;199 Template/Branchgroups/add.ctp:34
+#: Template/Branchgroups/edit.ctp:40 Template/Branchgroups/index.ctp:56
+#: Template/Branchgroups/view.ctp:76 Template/Layouts/add.ctp:33
+#: Template/Layouts/edit.ctp:39 Template/Layouts/index.ctp:57
+#: Template/Layouts/view.ctp:83 Template/Positionbranches/add.ctp:33
+#: Template/Positionbranches/edit.ctp:39 Template/Positionbranches/index.ctp:57
+#: Template/Positionbranches/view.ctp:130 Template/Warehouses/add.ctp:32
+#: Template/Warehouses/edit.ctp:38
+msgid "List Branches"
+msgstr ""
+
+#: Template/Branches/add.ctp:32 Template/Branches/edit.ctp:38
+#: Template/Branches/index.ctp:54 Template/Branches/view.ctp:201
+#: Template/Branchgroups/add.ctp:11;31 Template/Branchgroups/edit.ctp:11;37
+#: Template/Branchgroups/view.ctp:13;72
+msgid "List Branchgroups"
+msgstr ""
+
+#: Template/Branches/add.ctp:33 Template/Branches/edit.ctp:39
+#: Template/Branches/index.ctp:55 Template/Branches/view.ctp:202
+#: Template/Branchgroups/index.ctp:11;53 Template/Branchgroups/view.ctp:12;73
+msgid "New Branchgroup"
+msgstr ""
+
+#: Template/Branches/add.ctp:34 Template/Branches/edit.ctp:40
+#: Template/Branches/index.ctp:56 Template/Branches/view.ctp:203
+#: Template/Layoutcategories/add.ctp:36 Template/Layoutcategories/edit.ctp:42
+#: Template/Layoutcategories/index.ctp:61 Template/Layoutcategories/view.ctp:56
+#: Template/Layouts/add.ctp:11;32 Template/Layouts/edit.ctp:11;38
+#: Template/Layouts/view.ctp:14;81 Template/Positions/add.ctp:31
+#: Template/Positions/edit.ctp:37 Template/Positions/index.ctp:53
+#: Template/Positions/view.ctp:104
+msgid "List Layouts"
+msgstr ""
+
+#: Template/Branches/add.ctp:35 Template/Branches/edit.ctp:41
+#: Template/Branches/index.ctp:57 Template/Branches/view.ctp:204
+#: Template/Layoutcategories/add.ctp:37 Template/Layoutcategories/edit.ctp:43
+#: Template/Layoutcategories/index.ctp:62 Template/Layoutcategories/view.ctp:57
+#: Template/Layouts/index.ctp:12;56 Template/Layouts/view.ctp:13;82
+#: Template/Positions/add.ctp:32 Template/Positions/edit.ctp:38
+#: Template/Positions/index.ctp:54 Template/Positions/view.ctp:105
+msgid "New Layout"
+msgstr ""
+
+#: Template/Branches/add.ctp:36 Template/Branches/edit.ctp:42
+#: Template/Branches/index.ctp:58 Template/Branches/view.ctp:205
+#: Template/Itemcodes/add.ctp:43 Template/Itemcodes/edit.ctp:49
+#: Template/Itemcodes/index.ctp:73 Template/Itemcodes/view.ctp:174
+#: Template/Positionbranches/add.ctp:11;32
+#: Template/Positionbranches/edit.ctp:11;38
+#: Template/Positionbranches/view.ctp:14;128 Template/Positions/add.ctp:33
+#: Template/Positions/edit.ctp:39 Template/Positions/index.ctp:55
+#: Template/Positions/view.ctp:106 Template/Users/add.ctp:38
+#: Template/Users/edit.ctp:44
+msgid "List Positionbranches"
+msgstr ""
+
+#: Template/Branches/add.ctp:37 Template/Branches/edit.ctp:43
+#: Template/Branches/index.ctp:59 Template/Branches/view.ctp:206
+#: Template/Itemcodes/add.ctp:44 Template/Itemcodes/edit.ctp:50
+#: Template/Itemcodes/index.ctp:74 Template/Itemcodes/view.ctp:175
+#: Template/Positionbranches/index.ctp:12;56
+#: Template/Positionbranches/view.ctp:13;129 Template/Positions/add.ctp:34
+#: Template/Positions/edit.ctp:40 Template/Positions/index.ctp:56
+#: Template/Positions/view.ctp:107 Template/Users/add.ctp:39
+#: Template/Users/edit.ctp:45
+msgid "New Positionbranch"
+msgstr ""
+
+#: Template/Branches/add.ctp:38 Template/Branches/edit.ctp:44
+#: Template/Branches/index.ctp:60 Template/Branches/view.ctp:207
+#: Template/Groups/add.ctp:34 Template/Groups/edit.ctp:40
+#: Template/Groups/index.ctp:57 Template/Groups/view.ctp:191
+#: Template/Hdcategories/add.ctp:40 Template/Hdcategories/edit.ctp:45
+#: Template/Hdcategories/index.ctp:60 Template/Hdcategories/view.ctp:231
+#: Template/Itemcodes/add.ctp:47 Template/Itemcodes/edit.ctp:53
+#: Template/Itemcodes/index.ctp:77 Template/Itemcodes/view.ctp:178
+#: Template/Sources/add.ctp:31 Template/Sources/edit.ctp:37
+#: Template/Sources/index.ctp:53 Template/Sources/view.ctp:105
+#: Template/Ticketimpacts/add.ctp:31 Template/Ticketimpacts/edit.ctp:37
+#: Template/Ticketimpacts/index.ctp:53 Template/Ticketimpacts/view.ctp:105
+#: Template/Ticketlogs/add.ctp:37 Template/Ticketlogs/edit.ctp:43
+#: Template/Ticketlogs/index.ctp:65 Template/Ticketlogs/view.ctp:70
+#: Template/Ticketmarkeds/add.ctp:34 Template/Ticketmarkeds/edit.ctp:40
+#: Template/Ticketmarkeds/index.ctp:56 Template/Ticketmarkeds/view.ctp:47
+#: Template/Ticketnotes/add.ctp:34 Template/Ticketnotes/edit.ctp:40
+#: Template/Ticketnotes/index.ctp:58 Template/Ticketnotes/view.ctp:57
+#: Template/Ticketpriorities/add.ctp:31 Template/Ticketpriorities/edit.ctp:37
+#: Template/Ticketpriorities/index.ctp:53
+#: Template/Ticketpriorities/view.ctp:105 Template/Tickets/add.ctp:11
+#: Template/Tickets/clonar.ctp:11;53 Template/Tickets/edit.ctp:11
+#: Template/Tickets/view.ctp:14 Template/Tickettypes/add.ctp:34
+#: Template/Tickettypes/edit.ctp:40 Template/Tickettypes/index.ctp:58
+#: Template/Tickettypes/view.ctp:117 Template/Ticketurgencies/add.ctp:31
+#: Template/Ticketurgencies/edit.ctp:37 Template/Ticketurgencies/index.ctp:53
+#: Template/Ticketurgencies/view.ctp:105 Template/Users/add.ctp:58
+#: Template/Users/edit.ctp:64
+msgid "List Tickets"
+msgstr ""
+
+#: Template/Branches/add.ctp:39 Template/Branches/edit.ctp:45
+#: Template/Branches/index.ctp:61 Template/Branches/view.ctp:208
+#: Template/Groups/add.ctp:35 Template/Groups/edit.ctp:41
+#: Template/Groups/index.ctp:58 Template/Groups/view.ctp:192
+#: Template/Hdcategories/add.ctp:41 Template/Hdcategories/edit.ctp:46
+#: Template/Hdcategories/index.ctp:61 Template/Hdcategories/view.ctp:232
+#: Template/Itemcodes/add.ctp:48 Template/Itemcodes/edit.ctp:54
+#: Template/Itemcodes/index.ctp:78 Template/Itemcodes/view.ctp:179
+#: Template/Sources/add.ctp:32 Template/Sources/edit.ctp:38
+#: Template/Sources/index.ctp:54 Template/Sources/view.ctp:106
+#: Template/Ticketimpacts/add.ctp:32 Template/Ticketimpacts/edit.ctp:38
+#: Template/Ticketimpacts/index.ctp:54 Template/Ticketimpacts/view.ctp:106
+#: Template/Ticketlogs/add.ctp:38 Template/Ticketlogs/edit.ctp:44
+#: Template/Ticketlogs/index.ctp:66 Template/Ticketlogs/view.ctp:71
+#: Template/Ticketmarkeds/add.ctp:35 Template/Ticketmarkeds/edit.ctp:41
+#: Template/Ticketmarkeds/index.ctp:57 Template/Ticketmarkeds/view.ctp:48
+#: Template/Ticketnotes/add.ctp:35 Template/Ticketnotes/edit.ctp:41
+#: Template/Ticketnotes/index.ctp:59 Template/Ticketnotes/view.ctp:58
+#: Template/Ticketpriorities/add.ctp:32 Template/Ticketpriorities/edit.ctp:38
+#: Template/Ticketpriorities/index.ctp:54
+#: Template/Ticketpriorities/view.ctp:106 Template/Tickets/enduserview.ctp:13
+#: Template/Tickets/index.ctp:21 Template/Tickets/view.ctp:13
+#: Template/Tickettypes/add.ctp:35 Template/Tickettypes/edit.ctp:41
+#: Template/Tickettypes/index.ctp:59 Template/Tickettypes/view.ctp:118
+#: Template/Ticketurgencies/add.ctp:32 Template/Ticketurgencies/edit.ctp:38
+#: Template/Ticketurgencies/index.ctp:54 Template/Ticketurgencies/view.ctp:106
+#: Template/Users/add.ctp:59 Template/Users/edit.ctp:65
+msgid "New Ticket"
+msgstr "Nuevo Ticket"
+
+#: Template/Branches/add.ctp:40 Template/Branches/edit.ctp:46
+#: Template/Branches/index.ctp:62 Template/Branches/view.ctp:209
+#: Template/Stockmoves/add.ctp:42 Template/Stockmoves/edit.ctp:48
+#: Template/Stockmoves/index.ctp:73 Template/Stockmoves/view.ctp:121
+#: Template/Stocks/add.ctp:33 Template/Stocks/edit.ctp:39
+#: Template/Stocks/index.ctp:57 Template/Stocks/view.ctp:50
+#: Template/Warehouses/add.ctp:11;31 Template/Warehouses/edit.ctp:11;37
+#: Template/Warehouses/view.ctp:14
+msgid "List Warehouses"
+msgstr ""
+
+#: Template/Branches/add.ctp:41 Template/Branches/edit.ctp:47
+#: Template/Branches/index.ctp:63 Template/Branches/view.ctp:210
+#: Template/Stockmoves/add.ctp:43 Template/Stockmoves/edit.ctp:49
+#: Template/Stockmoves/index.ctp:74 Template/Stockmoves/view.ctp:122
+#: Template/Stocks/add.ctp:34 Template/Stocks/edit.ctp:40
+#: Template/Stocks/index.ctp:58 Template/Stocks/view.ctp:51
+#: Template/Warehouses/index.ctp:12 Template/Warehouses/view.ctp:13
+msgid "New Warehouse"
+msgstr ""
+
+#: Template/Branches/edit.ctp:8 Template/Branches/view.ctp:14;197
+msgid "Edit Branch"
+msgstr ""
+
+#: Template/Branches/index.ctp:8 Template/Branchgroups/view.ctp:34
+#: Template/Element/header.ctp:88;90 Template/Pages/admin.ctp:64;66;108
+#: Template/Tickets/team.ctp:81 Template/Tickets/view.ctp:287
+msgid "Branches"
+msgstr ""
+
+#: Template/Branches/index.ctp:11;53 Template/Branches/view.ctp:12;200
+#: Template/Branchgroups/add.ctp:35 Template/Branchgroups/edit.ctp:41
+#: Template/Branchgroups/index.ctp:57 Template/Branchgroups/view.ctp:77
+#: Template/Layouts/add.ctp:34 Template/Layouts/edit.ctp:40
+#: Template/Layouts/index.ctp:58 Template/Layouts/view.ctp:84
+#: Template/Positionbranches/add.ctp:34 Template/Positionbranches/edit.ctp:40
+#: Template/Positionbranches/index.ctp:58
+#: Template/Positionbranches/view.ctp:131 Template/Warehouses/add.ctp:33
+#: Template/Warehouses/edit.ctp:39
+msgid "New Branch"
+msgstr ""
+
+#: Template/Branches/view.ctp:11;198
+msgid "Delete Branch"
+msgstr ""
+
+#: Template/Branches/view.ctp:24 Template/Tickets/view.ctp:295
+msgid "Branchgroup"
+msgstr ""
+
+#: Template/Branches/view.ctp:34 Template/Element/header.ctp:92
+#: Template/Layouts/index.ctp:9 Template/Pages/admin.ctp:72
+#: Template/Positions/view.ctp:31
+msgid "Layouts"
+msgstr ""
+
+#: Template/Branches/view.ctp:35 Template/Positions/view.ctp:32
+msgid "Related Layouts"
+msgstr ""
+
+#: Template/Branches/view.ctp:41;72;122;169 Template/Positions/view.ctp:38;69
+msgid "Branch Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:42;73 Template/Positions/view.ctp:39;70
+msgid "Position Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:43 Template/Layoutcategories/view.ctp:25
+#: Template/Layouts/view.ctp:33 Template/Positions/view.ctp:40
+msgid "Layout"
+msgstr ""
+
+#: Template/Branches/view.ctp:65 Template/Pages/admin.ctp:75
+#: Template/Positionbranches/index.ctp:9 Template/Positions/view.ctp:62
+msgid "Positionbranches"
+msgstr ""
+
+#: Template/Branches/view.ctp:66 Template/Positions/view.ctp:63
+msgid "Related Positionbranches"
+msgstr ""
+
+#: Template/Branches/view.ctp:96 Template/Element/header.ctp:63
+#: Template/Groups/view.ctp:76 Template/Hdcategories/view.ctp:149
+#: Template/Itemcodes/view.ctp:94 Template/Pages/admin.ctp:27;29
+#: Template/Sources/view.ctp:31 Template/Ticketimpacts/view.ctp:31
+#: Template/Ticketpriorities/view.ctp:31 Template/Tickets/index.ctp:18
+#: Template/Tickets/view.ctp:222 Template/Tickettypes/view.ctp:43
+#: Template/Ticketurgencies/view.ctp:31 Template/Users/view.ctp:258
+msgid "Tickets"
+msgstr ""
+
+#: Template/Branches/view.ctp:97 Template/Groups/view.ctp:77
+#: Template/Hdcategories/view.ctp:150 Template/Itemcodes/view.ctp:95
+#: Template/Sources/view.ctp:32 Template/Ticketimpacts/view.ctp:32
+#: Template/Ticketpriorities/view.ctp:32 Template/Tickets/view.ctp:223
+#: Template/Tickettypes/view.ctp:44 Template/Ticketurgencies/view.ctp:32
+#: Template/Users/view.ctp:259
+msgid "Related Tickets"
+msgstr ""
+
+#: Template/Branches/view.ctp:103 Template/Groups/view.ctp:83
+#: Template/Hdcategories/view.ctp:156 Template/Itemcodes/view.ctp:101
+#: Template/Sources/view.ctp:38 Template/Ticketimpacts/view.ctp:38
+#: Template/Ticketpriorities/view.ctp:38 Template/Tickets/view.ctp:229
+#: Template/Tickettypes/view.ctp:50 Template/Ticketurgencies/view.ctp:38
+#: Template/Users/view.ctp:265
+msgid "Tickettype Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:104 Template/Groups/view.ctp:84
+#: Template/Hdcategories/view.ctp:157 Template/Itemcodes/view.ctp:102
+#: Template/Sources/view.ctp:39 Template/Ticketimpacts/view.ctp:39
+#: Template/Ticketpriorities/view.ctp:39 Template/Tickets/view.ctp:230
+#: Template/Tickettypes/view.ctp:51 Template/Ticketurgencies/view.ctp:39
+#: Template/Users/view.ctp:266
+msgid "Ticket Status Id"
+msgstr "ID Estado De Ticket"
+
+#: Template/Branches/view.ctp:105 Template/Groups/view.ctp:85
+#: Template/Hdcategories/view.ctp:158 Template/Itemcodes/view.ctp:103
+#: Template/Sources/view.ctp:40 Template/Ticketimpacts/view.ctp:40
+#: Template/Ticketpriorities/view.ctp:40 Template/Tickets/view.ctp:231
+#: Template/Tickettypes/view.ctp:52 Template/Ticketurgencies/view.ctp:40
+#: Template/Users/view.ctp:267
+msgid "Source Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:107 Template/Groups/view.ctp:88
+#: Template/Hdcategories/view.ctp:161 Template/Itemcodes/view.ctp:106
+#: Template/Sources/view.ctp:43 Template/Ticketimpacts/view.ctp:43
+#: Template/Ticketpriorities/view.ctp:43 Template/Tickets/enduserview.ctp:38
+#: Template/Tickets/view.ctp:38;234 Template/Tickettypes/view.ctp:55
+#: Template/Ticketurgencies/view.ctp:43 Template/Users/view.ctp:270
+msgid "Solution"
+msgstr ""
+
+#: Template/Branches/view.ctp:108 Template/Groups/view.ctp:89
+#: Template/Hdcategories/view.ctp:162 Template/Itemcodes/view.ctp:107
+#: Template/Sources/view.ctp:44 Template/Ticketimpacts/view.ctp:44
+#: Template/Ticketpriorities/view.ctp:44 Template/Tickets/enduserview.ctp:100
+#: Template/Tickets/view.ctp:105;235 Template/Tickettypes/view.ctp:56
+#: Template/Ticketurgencies/view.ctp:44 Template/Users/view.ctp:271
+msgid "Resolution"
+msgstr ""
+
+#: Template/Branches/view.ctp:109 Template/Groups/view.ctp:90
+#: Template/Hdcategories/view.ctp:163 Template/Itemcodes/view.ctp:68;108
+#: Template/Items/view.ctp:105 Template/Sources/view.ctp:45
+#: Template/Stockmoves/view.ctp:84 Template/Ticketimpacts/view.ctp:45
+#: Template/Ticketpriorities/view.ctp:45 Template/Tickets/view.ctp:236
+#: Template/Tickettypes/view.ctp:57 Template/Ticketurgencies/view.ctp:45
+#: Template/Users/view.ctp:272
+msgid "Itemcode Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:110 Template/Groups/view.ctp:43;91
+#: Template/Hdcategories/view.ctp:57;164 Template/Itemcodes/view.ctp:109
+#: Template/Movereasons/view.ctp:45;85 Template/Roles/view.ctp:81
+#: Template/Shippers/view.ctp:46 Template/Sources/view.ctp:46
+#: Template/Ticketimpacts/view.ctp:46 Template/Ticketnotestypes/view.ctp:39
+#: Template/Ticketpriorities/view.ctp:46 Template/Tickets/enduserview.ctp:119
+#: Template/Tickets/view.ctp:124;160;200;237 Template/Tickettypes/view.ctp:58
+#: Template/Ticketurgencies/view.ctp:46
+#: Template/Users/view.ctp:69;106;142;183;225;273
+#: Template/Warehouses/view.ctp:50
+msgid "User Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:111 Template/Groups/view.ctp:44;92;151
+#: Template/Hdcategories/view.ctp:165 Template/Itemcodes/view.ctp:110
+#: Template/Positionbranches/view.ctp:92 Template/Roles/view.ctp:43
+#: Template/Sources/view.ctp:47 Template/Statususers/view.ctp:43
+#: Template/Ticketimpacts/view.ctp:47 Template/Ticketpriorities/view.ctp:47
+#: Template/Tickets/view.ctp:161;238 Template/Tickettypes/view.ctp:59
+#: Template/Ticketurgencies/view.ctp:47 Template/Users/view.ctp:226;274
+msgid "Group Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:112 Template/Groups/view.ctp:93
+#: Template/Hdcategories/view.ctp:166 Template/Itemcodes/view.ctp:111
+#: Template/Sources/view.ctp:48 Template/Ticketimpacts/view.ctp:48
+#: Template/Ticketpriorities/view.ctp:48 Template/Tickets/enduserview.ctp:82
+#: Template/Tickets/view.ctp:83;239 Template/Tickettypes/view.ctp:60
+#: Template/Ticketurgencies/view.ctp:48 Template/Users/view.ctp:275
+msgid "User Autor"
+msgstr "Usuario Autor "
+
+#: Template/Branches/view.ctp:113 Template/Groups/view.ctp:94
+#: Template/Hdcategories/view.ctp:167 Template/Itemcodes/view.ctp:112
+#: Template/Sources/view.ctp:49 Template/Ticketimpacts/view.ctp:49
+#: Template/Ticketpriorities/view.ctp:49 Template/Tickets/enduserview.ctp:86
+#: Template/Tickets/view.ctp:240 Template/Tickettypes/view.ctp:61
+#: Template/Ticketurgencies/view.ctp:49 Template/Users/view.ctp:276
+msgid "User Requeried"
+msgstr "Requerido Por"
+
+#: Template/Branches/view.ctp:115 Template/Groups/view.ctp:96
+#: Template/Hdcategories/view.ctp:169 Template/Itemcodes/view.ctp:114
+#: Template/Sources/view.ctp:51 Template/Ticketimpacts/view.ctp:51
+#: Template/Ticketpriorities/view.ctp:51 Template/Tickets/view.ctp:242
+#: Template/Tickettypes/view.ctp:63 Template/Ticketurgencies/view.ctp:51
+#: Template/Users/view.ctp:278
+msgid "Ticketimpact Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:116 Template/Groups/view.ctp:97
+#: Template/Hdcategories/view.ctp:170 Template/Itemcodes/view.ctp:115
+#: Template/Sources/view.ctp:52 Template/Ticketimpacts/view.ctp:52
+#: Template/Ticketpriorities/view.ctp:52 Template/Tickets/view.ctp:243
+#: Template/Tickettypes/view.ctp:64 Template/Ticketurgencies/view.ctp:52
+#: Template/Users/view.ctp:279
+msgid "Ticketurgency Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:117 Template/Groups/view.ctp:98
+#: Template/Hdcategories/view.ctp:171 Template/Itemcodes/view.ctp:116
+#: Template/Sources/view.ctp:53 Template/Ticketimpacts/view.ctp:53
+#: Template/Ticketpriorities/view.ctp:53 Template/Tickets/view.ctp:244
+#: Template/Tickettypes/view.ctp:65 Template/Ticketurgencies/view.ctp:53
+#: Template/Users/view.ctp:280
+msgid "Ticketpriority Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:118 Template/Groups/view.ctp:99
+#: Template/Hdcategories/view.ctp:93;172 Template/Itemcategories/view.ctp:43
+#: Template/Itemcodes/view.ctp:117 Template/Movereasons/view.ctp:88
+#: Template/Shippers/view.ctp:49 Template/Sources/view.ctp:54
+#: Template/Stockmoves/view.ctp:65 Template/Ticketimpacts/view.ctp:54
+#: Template/Ticketpriorities/view.ctp:54 Template/Tickets/view.ctp:245
+#: Template/Tickettypes/view.ctp:66 Template/Ticketurgencies/view.ctp:54
+#: Template/Users/view.ctp:186;281 Template/Warehouses/view.ctp:53
+msgid "Parent Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:119 Template/Groups/view.ctp:100
+#: Template/Hdcategories/view.ctp:55;128;173 Template/Itemcodes/view.ctp:118
+#: Template/Roles/view.ctp:79 Template/Sources/view.ctp:55
+#: Template/Ticketimpacts/view.ctp:55 Template/Ticketpriorities/view.ctp:55
+#: Template/Tickets/view.ctp:246 Template/Tickettypes/view.ctp:67
+#: Template/Ticketurgencies/view.ctp:55 Template/Users/view.ctp:67;282
+msgid "Hdcategory Id"
+msgstr ""
+
+#: Template/Branches/view.ctp:121 Template/Hdcategories/view.ctp:175
+#: Template/Tickets/enduserview.ctp:74 Template/Tickets/view.ctp:74;248
+msgid "Ip"
+msgstr ""
+
+#: Template/Branches/view.ctp:161 Template/Element/header.ctp:77
+#: Template/Pages/admin.ctp:68 Template/Warehouses/index.ctp:9
+msgid "Warehouses"
+msgstr ""
+
+#: Template/Branches/view.ctp:162
+msgid "Related Warehouses"
+msgstr ""
+
+#: Template/Branchgroups/add.ctp:8
+msgid "Add Branchgroup"
+msgstr ""
+
+#: Template/Branchgroups/edit.ctp:8 Template/Branchgroups/view.ctp:14;70
+msgid "Edit Branchgroup"
+msgstr ""
+
+#: Template/Branchgroups/index.ctp:8 Template/Element/header.ctp:91
+#: Template/Pages/admin.ctp:67
+msgid "Branchgroups"
+msgstr ""
+
+#: Template/Branchgroups/view.ctp:11;71
+msgid "Delete Branchgroup"
+msgstr ""
+
+#: Template/Branchgroups/view.ctp:35 Template/Tickets/view.ctp:288
+msgid "Related Branches"
+msgstr ""
+
+#: Template/Branchgroups/view.ctp:42
+msgid "Branchgroup Id"
+msgstr ""
+
+#: Template/Brands/add.ctp:8
+msgid "Add Brand"
+msgstr ""
+
+#: Template/Brands/add.ctp:11;30 Template/Brands/edit.ctp:11;36
+#: Template/Brands/view.ctp:14;79 Template/Items/add.ctp:41
+#: Template/Items/edit.ctp:47 Template/Items/index.ctp:69
+#: Template/Items/view.ctp:177
+msgid "List Brands"
+msgstr ""
+
+#: Template/Brands/add.ctp:31 Template/Brands/edit.ctp:37
+#: Template/Brands/index.ctp:53 Template/Brands/view.ctp:81
+#: Template/Currencies/add.ctp:31 Template/Currencies/edit.ctp:37
+#: Template/Currencies/index.ctp:53 Template/Currencies/view.ctp:81
+#: Template/Itemcategories/add.ctp:34 Template/Itemcategories/edit.ctp:40
+#: Template/Itemcategories/index.ctp:55 Template/Itemcategories/view.ctp:149
+#: Template/Itemcodes/add.ctp:37 Template/Itemcodes/edit.ctp:43
+#: Template/Itemcodes/index.ctp:67 Template/Itemcodes/view.ctp:168
+#: Template/Items/add.ctp:11;36 Template/Items/edit.ctp:11;42
+#: Template/Items/view.ctp:14;171 Template/StockmovesDetails/add.ctp:37
+#: Template/StockmovesDetails/edit.ctp:43
+#: Template/StockmovesDetails/index.ctp:63
+#: Template/StockmovesDetails/view.ctp:60 Template/Stocks/add.ctp:35
+#: Template/Stocks/edit.ctp:41 Template/Stocks/index.ctp:59
+#: Template/Stocks/view.ctp:52
+msgid "List Items"
+msgstr ""
+
+#: Template/Brands/add.ctp:32 Template/Brands/edit.ctp:38
+#: Template/Brands/index.ctp:54 Template/Brands/view.ctp:82
+#: Template/Currencies/add.ctp:32 Template/Currencies/edit.ctp:38
+#: Template/Currencies/index.ctp:54 Template/Currencies/view.ctp:82
+#: Template/Itemcategories/add.ctp:35 Template/Itemcategories/edit.ctp:41
+#: Template/Itemcategories/index.ctp:56 Template/Itemcategories/view.ctp:150
+#: Template/Itemcodes/add.ctp:38 Template/Itemcodes/edit.ctp:44
+#: Template/Itemcodes/index.ctp:68 Template/Itemcodes/view.ctp:169
+#: Template/Items/index.ctp:12;64 Template/Items/view.ctp:13;172
+#: Template/StockmovesDetails/add.ctp:38 Template/StockmovesDetails/edit.ctp:44
+#: Template/StockmovesDetails/index.ctp:64
+#: Template/StockmovesDetails/view.ctp:61 Template/Stocks/add.ctp:36
+#: Template/Stocks/edit.ctp:42 Template/Stocks/index.ctp:60
+#: Template/Stocks/view.ctp:53
+msgid "New Item"
+msgstr ""
+
+#: Template/Brands/edit.ctp:8 Template/Brands/view.ctp:15;77
+msgid "Edit Brand"
+msgstr ""
+
+#: Template/Brands/index.ctp:9 Template/Element/header.ctp:76
+#: Template/Pages/admin.ctp:50
+msgid "Brands"
+msgstr ""
+
+#: Template/Brands/index.ctp:12;52 Template/Brands/view.ctp:13;80
+#: Template/Items/add.ctp:42 Template/Items/edit.ctp:48
+#: Template/Items/index.ctp:70 Template/Items/view.ctp:178
+msgid "New Brand"
+msgstr ""
+
+#: Template/Brands/view.ctp:12;78
+msgid "Delete Brand"
+msgstr ""
+
+#: Template/Brands/view.ctp:31 Template/Currencies/view.ctp:31
+#: Template/Element/header.ctp:74 Template/Itemcategories/view.ctp:64
+#: Template/Items/index.ctp:9 Template/Layout/items.ctp:9
+#: Template/Pages/admin.ctp:45;47
+msgid "Items"
+msgstr ""
+
+#: Template/Brands/view.ctp:32 Template/Currencies/view.ctp:32
+#: Template/Itemcategories/view.ctp:65
+msgid "Related Items"
+msgstr ""
+
+#: Template/Brands/view.ctp:39 Template/Currencies/view.ctp:39
+#: Template/Itemcategories/view.ctp:72;110 Template/Layouts/view.ctp:46
+msgid "Itemcategory Id"
+msgstr ""
+
+#: Template/Brands/view.ctp:40 Template/Currencies/view.ctp:40
+#: Template/Itemcategories/view.ctp:73
+msgid "Currency Id"
+msgstr ""
+
+#: Template/Brands/view.ctp:41 Template/Currencies/view.ctp:41
+#: Template/Itemcategories/view.ctp:74 Template/Items/view.ctp:33
+msgid "Model"
+msgstr ""
+
+#: Template/Brands/view.ctp:42 Template/Currencies/view.ctp:42
+#: Template/Groups/view.ctp:25 Template/Itemcategories/view.ctp:75
+#: Template/Items/view.ctp:37 Template/Tickettypes/view.ctp:29
+msgid "Color"
+msgstr ""
+
+#: Template/Brands/view.ctp:43 Template/Currencies/view.ctp:43
+#: Template/Itemcategories/view.ctp:76 Template/Items/view.ctp:49
+msgid "Unit Cost"
+msgstr ""
+
+#: Template/Brands/view.ctp:44 Template/Currencies/view.ctp:44
+#: Template/Itemcategories/view.ctp:77
+msgid "Brand Id"
+msgstr ""
+
+#: Template/Currencies/add.ctp:8
+msgid "Add Currency"
+msgstr ""
+
+#: Template/Currencies/add.ctp:11;30 Template/Currencies/edit.ctp:11;36
+#: Template/Currencies/view.ctp:14;79 Template/Items/add.ctp:39
+#: Template/Items/edit.ctp:45 Template/Items/index.ctp:67
+#: Template/Items/view.ctp:175
+msgid "List Currencies"
+msgstr ""
+
+#: Template/Currencies/edit.ctp:8 Template/Currencies/view.ctp:15;77
+msgid "Edit Currency"
+msgstr ""
+
+#: Template/Currencies/index.ctp:9 Template/Element/header.ctp:85
+#: Template/Pages/admin.ctp:51
+msgid "Currencies"
+msgstr ""
+
+#: Template/Currencies/index.ctp:12;52 Template/Currencies/view.ctp:13;80
+#: Template/Items/add.ctp:40 Template/Items/edit.ctp:46
+#: Template/Items/index.ctp:68 Template/Items/view.ctp:176
+msgid "New Currency"
+msgstr ""
+
+#: Template/Currencies/view.ctp:12;78
+msgid "Delete Currency"
+msgstr ""
+
+#: Template/Element/header.ctp:61 Template/Pages/admin.ctp:105
+msgid "HelpDesk"
+msgstr ""
+
+#: Template/Element/header.ctp:66;110 Template/Layout/articles.ctp:9
+#: Template/Layout/enduser.ctp:66 Template/Pages/admin.ctp:106
+msgid "Knowledge"
+msgstr ""
+
+#: Template/Element/header.ctp:69 Template/Hdcategories/index.ctp:8
+#: Template/Hdcategories/view.ctp:85 Template/Pages/admin.ctp:36
+msgid "Hdcategories"
+msgstr ""
+
+#: Template/Element/header.ctp:72 Template/Pages/admin.ctp:107
+msgid "Inventory"
+msgstr ""
+
+#: Template/Element/header.ctp:75 Template/Itemcategories/index.ctp:9
+#: Template/Itemcategories/view.ctp:35 Template/Pages/admin.ctp:48
+msgid "Itemcategories"
+msgstr ""
+
+#: Template/Element/header.ctp:78 Template/Pages/admin.ctp:54
+#: Template/Shippers/index.ctp:9
+msgid "Shippers"
+msgstr ""
+
+#: Template/Element/header.ctp:81
+msgid "Purchases"
+msgstr ""
+
+#: Template/Element/header.ctp:83 Template/Pages/admin.ctp:53
+#: Template/Suppliers/index.ctp:9
+msgid "Suppliers"
+msgstr ""
+
+#: Template/Element/header.ctp:84 Template/Invoices/index.ctp:9
+#: Template/Pages/admin.ctp:52 Template/Suppliers/view.ctp:31
+msgid "Invoices"
+msgstr "Facturas"
+
+#: Template/Element/header.ctp:95 Template/Pages/admin.ctp:92;111
+msgid "System"
+msgstr "Sistema"
+
+#: Template/Element/header.ctp:97 Template/Pages/admin.ctp:88;110
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: Template/Element/header.ctp:98
+msgid "Administration"
+msgstr "Administracion"
+
+#: Template/Element/header.ctp:101
+msgid "User Portal"
+msgstr "Portal De Usuario"
+
+#: Template/Element/header.ctp:112 Template/Layout/enduser.ctp:51
+msgid "Logout"
+msgstr "Salir"
+
+#: Template/Groups/add.ctp:8
+msgid "Add Group"
+msgstr "Agregar Grupo"
+
+#: Template/Groups/add.ctp:11;31 Template/Groups/edit.ctp:11;37
+#: Template/Groups/view.ctp:14;187 Template/Ticketlogs/add.ctp:41
+#: Template/Ticketlogs/edit.ctp:47 Template/Ticketlogs/index.ctp:69
+#: Template/Ticketlogs/view.ctp:74 Template/Tickets/clonar.ctp:64
+#: Template/Users/add.ctp:42 Template/Users/edit.ctp:48
+msgid "List Groups"
+msgstr "Lista De Grupos"
+
+#: Template/Groups/add.ctp:32 Template/Groups/edit.ctp:38
+#: Template/Groups/index.ctp:55 Template/Groups/view.ctp:189
+#: Template/Ticketlogs/add.ctp:11;36 Template/Ticketlogs/edit.ctp:11;42
+#: Template/Ticketlogs/view.ctp:14;68 Template/Tickets/clonar.ctp:80
+#: Template/Users/add.ctp:56 Template/Users/edit.ctp:62
+msgid "List Ticketlogs"
+msgstr ""
+
+#: Template/Groups/add.ctp:33 Template/Groups/edit.ctp:39
+#: Template/Groups/index.ctp:56 Template/Groups/view.ctp:190
+#: Template/Ticketlogs/index.ctp:12;64 Template/Ticketlogs/view.ctp:13;69
+#: Template/Tickets/clonar.ctp:81 Template/Users/add.ctp:57
+#: Template/Users/edit.ctp:63
+msgid "New Ticketlog"
+msgstr ""
+
+#: Template/Groups/edit.ctp:8 Template/Groups/view.ctp:15;185
+msgid "Edit Group"
+msgstr "Editar Grupo"
+
+#: Template/Groups/index.ctp:9 Template/Pages/admin.ctp:61
+msgid "Groups"
+msgstr "Grupos"
+
+#: Template/Groups/index.ctp:12;54 Template/Groups/view.ctp:13;188
+#: Template/Ticketlogs/add.ctp:42 Template/Ticketlogs/edit.ctp:48
+#: Template/Ticketlogs/index.ctp:70 Template/Ticketlogs/view.ctp:75
+#: Template/Tickets/clonar.ctp:65 Template/Users/add.ctp:43
+#: Template/Users/edit.ctp:49
+msgid "New Group"
+msgstr "Nuevo Grupo"
+
+#: Template/Groups/view.ctp:12;186
+msgid "Delete Group"
+msgstr ""
+
+#: Template/Groups/view.ctp:35 Template/Pages/admin.ctp:40
+#: Template/Ticketlogs/index.ctp:9 Template/Tickets/view.ctp:148
+#: Template/Users/view.ctp:217
+msgid "Ticketlogs"
+msgstr ""
+
+#: Template/Groups/view.ctp:36 Template/Users/view.ctp:218
+msgid "Related Ticketlogs"
+msgstr ""
+
+#: Template/Groups/view.ctp:42 Template/Ticketnotestypes/view.ctp:38
+#: Template/Tickets/enduserview.ctp:118;156
+#: Template/Tickets/view.ctp:123;159;201 Template/Users/view.ctp:105;224
+msgid "Ticket Id"
+msgstr ""
+
+#: Template/Groups/view.ctp:45 Template/Ticketlogs/view.ctp:41
+#: Template/Tickets/view.ctp:162 Template/Users/view.ctp:227
+msgid "User Transfer"
+msgstr ""
+
+#: Template/Groups/view.ctp:46 Template/Ticketlogs/view.ctp:45
+#: Template/Tickets/view.ctp:163 Template/Users/view.ctp:228
+msgid "Group Transfer"
+msgstr ""
+
+#: Template/Groups/view.ctp:47 Template/Ticketlogs/view.ctp:33
+#: Template/Tickets/view.ctp:164 Template/Users/view.ctp:229
+msgid "New Status"
+msgstr ""
+
+#: Template/Groups/view.ctp:49 Template/Ticketlogs/view.ctp:55
+#: Template/Tickets/view.ctp:166 Template/Users/view.ctp:231
+msgid "Coments"
+msgstr ""
+
+#: Template/Groups/view.ctp:87 Template/Hdcategories/view.ctp:28;96;160
+#: Template/Itemcodes/view.ctp:105 Template/Sources/view.ctp:42
+#: Template/Ticketimpacts/view.ctp:42 Template/Ticketnotes/view.ctp:42
+#: Template/Ticketnotestypes/view.ctp:37 Template/Ticketpriorities/view.ctp:42
+#: Template/Tickets/view.ctp:233 Template/Tickettypes/view.ctp:54
+#: Template/Ticketurgencies/view.ctp:42 Template/Users/view.ctp:269
+msgid "Description"
+msgstr ""
+
+#: Template/Groups/view.ctp:139 Template/Pages/admin.ctp:57;59;109
+#: Template/Positionbranches/view.ctp:80 Template/Roles/view.ctp:31
+#: Template/Statususers/view.ctp:31 Template/Tickets/team.ctp:70
+#: Template/Users/index.ctp:8
+msgid "Users"
+msgstr ""
+
+#: Template/Groups/view.ctp:140 Template/Positionbranches/view.ctp:81
+#: Template/Roles/view.ctp:32 Template/Statususers/view.ctp:32
+msgid "Related Users"
+msgstr ""
+
+#: Template/Groups/view.ctp:147 Template/Positionbranches/view.ctp:88
+#: Template/Roles/view.ctp:39 Template/Statususers/view.ctp:39
+#: Template/Users/view.ctp:28
+msgid "Last Name"
+msgstr ""
+
+#: Template/Groups/view.ctp:148 Template/Invoices/view.ctp:60
+#: Template/Items/view.ctp:68 Template/Positionbranches/view.ctp:52;89
+#: Template/Roles/view.ctp:40 Template/Statusitems/view.ctp:44
+#: Template/Statususers/view.ctp:40
+msgid "Positionbranch Id"
+msgstr ""
+
+#: Template/Groups/view.ctp:149 Template/Positionbranches/view.ctp:90
+#: Template/Roles/view.ctp:41 Template/Statususers/view.ctp:41
+#: Template/Users/view.ctp:36
+msgid "Password"
+msgstr ""
+
+#: Template/Groups/view.ctp:150 Template/Positionbranches/view.ctp:91
+#: Template/Roles/view.ctp:42 Template/Statususers/view.ctp:42
+msgid "Statususer Id"
+msgstr ""
+
+#: Template/Groups/view.ctp:152 Template/Positionbranches/view.ctp:93
+#: Template/Roles/view.ctp:44 Template/Statususers/view.ctp:44
+msgid "Role Id"
+msgstr ""
+
+#: Template/Hdcategories/add.ctp:8
+msgid "Add Hdcategory"
+msgstr ""
+
+#: Template/Hdcategories/add.ctp:34 Template/Hdcategories/edit.ctp:39
+#: Template/Hdcategories/view.ctp:225
+msgid "List Parent Hdcategories"
+msgstr ""
+
+#: Template/Hdcategories/add.ctp:35 Template/Hdcategories/edit.ctp:40
+#: Template/Hdcategories/view.ctp:226
+msgid "New Parent Hdcategory"
+msgstr ""
+
+#: Template/Hdcategories/add.ctp:38 Template/Hdcategories/edit.ctp:43
+#: Template/Hdcategories/index.ctp:58 Template/Hdcategories/view.ctp:229
+#: Template/Hdtemplate/add.ctp:11;31 Template/Hdtemplate/edit.ctp:11;37
+#: Template/Hdtemplate/view.ctp:14;44
+msgid "List Hdtemplate"
+msgstr ""
+
+#: Template/Hdcategories/add.ctp:39 Template/Hdcategories/edit.ctp:44
+#: Template/Hdcategories/index.ctp:59 Template/Hdcategories/view.ctp:230
+#: Template/Hdtemplate/index.ctp:12;54 Template/Hdtemplate/view.ctp:13;45
+msgid "New Hdtemplate"
+msgstr ""
+
+#: Template/Hdcategories/edit.ctp:8 Template/Hdcategories/view.ctp:14;221
+msgid "Edit Hdcategory"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:11;222
+msgid "Delete Hdcategory"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:24
+msgid "Parent Hdcategory"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:36;94
+msgid "Lft"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:40;95
+msgid "Rght"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:47 Template/Roles/view.ctp:71
+#: Template/Users/view.ctp:59
+msgid "Related Articles"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:54 Template/Roles/view.ctp:78
+#: Template/Users/view.ctp:66
+msgid "Answer"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:86
+msgid "Related Hdcategories"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:120 Template/Hdtemplate/index.ctp:9
+#: Template/Pages/admin.ctp:37
+msgid "Hdtemplate"
+msgstr ""
+
+#: Template/Hdcategories/view.ctp:121
+msgid "Related Hdtemplate"
+msgstr ""
+
+#: Template/Hdtemplate/add.ctp:8
+msgid "Add Hdtemplate"
+msgstr ""
+
+#: Template/Hdtemplate/edit.ctp:8 Template/Hdtemplate/view.ctp:15;42
+msgid "Edit Hdtemplate"
+msgstr ""
+
+#: Template/Hdtemplate/view.ctp:12;43
+msgid "Delete Hdtemplate"
+msgstr ""
+
+#: Template/Invoices/add.ctp:8
+msgid "Add Invoice"
+msgstr ""
+
+#: Template/Invoices/add.ctp:11;34 Template/Invoices/edit.ctp:11;40
+#: Template/Invoices/view.ctp:14;97 Template/Itemcodes/add.ctp:39
+#: Template/Itemcodes/edit.ctp:45 Template/Itemcodes/index.ctp:69
+#: Template/Itemcodes/view.ctp:170 Template/Suppliers/add.ctp:31
+#: Template/Suppliers/edit.ctp:37 Template/Suppliers/index.ctp:53
+#: Template/Suppliers/view.ctp:77
+msgid "List Invoices"
+msgstr ""
+
+#: Template/Invoices/add.ctp:35 Template/Invoices/edit.ctp:41
+#: Template/Invoices/index.ctp:61 Template/Invoices/view.ctp:99
+#: Template/Suppliers/add.ctp:11;30 Template/Suppliers/edit.ctp:11;36
+#: Template/Suppliers/view.ctp:14;75
+msgid "List Suppliers"
+msgstr ""
+
+#: Template/Invoices/add.ctp:36 Template/Invoices/edit.ctp:42
+#: Template/Invoices/index.ctp:62 Template/Invoices/view.ctp:100
+#: Template/Suppliers/index.ctp:12;52 Template/Suppliers/view.ctp:13;76
+msgid "New Supplier"
+msgstr ""
+
+#: Template/Invoices/add.ctp:37 Template/Invoices/edit.ctp:43
+#: Template/Invoices/index.ctp:63 Template/Invoices/view.ctp:101
+#: Template/Itemcodes/add.ctp:11;36 Template/Itemcodes/edit.ctp:11;42
+#: Template/Itemcodes/view.ctp:14;166 Template/Items/add.ctp:43
+#: Template/Items/edit.ctp:49 Template/Items/index.ctp:71
+#: Template/Items/view.ctp:179 Template/Positionbranches/add.ctp:37
+#: Template/Positionbranches/edit.ctp:43 Template/Positionbranches/index.ctp:61
+#: Template/Positionbranches/view.ctp:134 Template/Statusitems/add.ctp:31
+#: Template/Statusitems/edit.ctp:37 Template/Statusitems/index.ctp:53
+#: Template/Statusitems/view.ctp:83 Template/StockmovesDetails/add.ctp:39
+#: Template/StockmovesDetails/edit.ctp:45
+#: Template/StockmovesDetails/index.ctp:65
+#: Template/StockmovesDetails/view.ctp:62 Template/Tickets/clonar.ctp:60
+msgid "List Itemcodes"
+msgstr ""
+
+#: Template/Invoices/add.ctp:38 Template/Invoices/edit.ctp:44
+#: Template/Invoices/index.ctp:64 Template/Invoices/view.ctp:102
+#: Template/Itemcodes/index.ctp:12;66 Template/Itemcodes/view.ctp:13;167
+#: Template/Items/add.ctp:44 Template/Items/edit.ctp:50
+#: Template/Items/index.ctp:72 Template/Items/view.ctp:180
+#: Template/Positionbranches/add.ctp:38 Template/Positionbranches/edit.ctp:44
+#: Template/Positionbranches/index.ctp:62
+#: Template/Positionbranches/view.ctp:135 Template/Statusitems/add.ctp:32
+#: Template/Statusitems/edit.ctp:38 Template/Statusitems/index.ctp:54
+#: Template/Statusitems/view.ctp:84 Template/StockmovesDetails/add.ctp:40
+#: Template/StockmovesDetails/edit.ctp:46
+#: Template/StockmovesDetails/index.ctp:66
+#: Template/StockmovesDetails/view.ctp:63 Template/Tickets/clonar.ctp:61
+msgid "New Itemcode"
+msgstr ""
+
+#: Template/Invoices/edit.ctp:8 Template/Invoices/view.ctp:15;95
+msgid "Edit Invoice"
+msgstr ""
+
+#: Template/Invoices/index.ctp:12;60 Template/Invoices/view.ctp:13;98
+#: Template/Itemcodes/add.ctp:40 Template/Itemcodes/edit.ctp:46
+#: Template/Itemcodes/index.ctp:70 Template/Itemcodes/view.ctp:171
+#: Template/Suppliers/add.ctp:32 Template/Suppliers/edit.ctp:38
+#: Template/Suppliers/index.ctp:54 Template/Suppliers/view.ctp:78
+msgid "New Invoice"
+msgstr ""
+
+#: Template/Invoices/view.ctp:12;96
+msgid "Delete Invoice"
+msgstr ""
+
+#: Template/Invoices/view.ctp:21 Template/Suppliers/view.ctp:38
+msgid "Number"
+msgstr ""
+
+#: Template/Invoices/view.ctp:25
+msgid "Supplier"
+msgstr ""
+
+#: Template/Invoices/view.ctp:29 Template/Suppliers/view.ctp:40
+msgid "Pdf"
+msgstr ""
+
+#: Template/Invoices/view.ctp:33 Template/Suppliers/view.ctp:41
+msgid "Xml"
+msgstr ""
+
+#: Template/Invoices/view.ctp:37 Template/Suppliers/view.ctp:42
+msgid "Purchase Order"
+msgstr ""
+
+#: Template/Invoices/view.ctp:47 Template/Itemcodes/index.ctp:9
+#: Template/Items/view.ctp:55 Template/Pages/admin.ctp:49
+#: Template/Positionbranches/view.ctp:39 Template/Statusitems/view.ctp:31
+msgid "Itemcodes"
+msgstr ""
+
+#: Template/Invoices/view.ctp:48 Template/Items/view.ctp:56
+#: Template/Positionbranches/view.ctp:40 Template/Statusitems/view.ctp:32
+msgid "Related Itemcodes"
+msgstr ""
+
+#: Template/Invoices/view.ctp:54 Template/Itemcodes/view.ctp:67
+#: Template/Items/view.ctp:62;104;139 Template/Positionbranches/view.ctp:46
+#: Template/Statusitems/view.ctp:38 Template/Stockmoves/view.ctp:83
+#: Template/Warehouses/view.ctp:92
+msgid "Item Id"
+msgstr ""
+
+#: Template/Invoices/view.ctp:55 Template/Itemcodes/view.ctp:25
+#: Template/Items/view.ctp:63 Template/Positionbranches/view.ctp:47
+#: Template/Statusitems/view.ctp:39
+msgid "Serial"
+msgstr ""
+
+#: Template/Invoices/view.ctp:56 Template/Items/view.ctp:64
+#: Template/Positionbranches/view.ctp:48 Template/Statusitems/view.ctp:40
+msgid "Invoice Id"
+msgstr ""
+
+#: Template/Invoices/view.ctp:57 Template/Items/view.ctp:65
+#: Template/Positionbranches/view.ctp:49 Template/Statusitems/view.ctp:41
+msgid "Statusitem Id"
+msgstr ""
+
+#: Template/Invoices/view.ctp:59 Template/Itemcodes/view.ctp:53
+#: Template/Items/view.ctp:67 Template/Positionbranches/view.ctp:51
+#: Template/Statusitems/view.ctp:43
+msgid "Warranty"
+msgstr ""
+
+#: Template/Invoices/view.ctp:61 Template/Itemcodes/view.ctp:41
+#: Template/Items/view.ctp:69 Template/Positionbranches/view.ctp:53
+#: Template/Statusitems/view.ctp:45
+msgid "Service Tag"
+msgstr ""
+
+#: Template/Itemcategories/add.ctp:8
+msgid "Add Itemcategory"
+msgstr ""
+
+#: Template/Itemcategories/add.ctp:11;31 Template/Itemcategories/edit.ctp:11;37
+#: Template/Itemcategories/view.ctp:14;145 Template/Items/add.ctp:37
+#: Template/Items/edit.ctp:43 Template/Items/index.ctp:65
+#: Template/Items/view.ctp:173 Template/Layoutcategories/add.ctp:34
+#: Template/Layoutcategories/edit.ctp:40 Template/Layoutcategories/index.ctp:59
+#: Template/Layoutcategories/view.ctp:54
+msgid "List Itemcategories"
+msgstr ""
+
+#: Template/Itemcategories/add.ctp:32 Template/Itemcategories/edit.ctp:38
+#: Template/Itemcategories/view.ctp:147
+msgid "List Parent Itemcategories"
+msgstr ""
+
+#: Template/Itemcategories/add.ctp:33 Template/Itemcategories/edit.ctp:39
+#: Template/Itemcategories/view.ctp:148
+msgid "New Parent Itemcategory"
+msgstr ""
+
+#: Template/Itemcategories/add.ctp:36 Template/Itemcategories/edit.ctp:42
+#: Template/Itemcategories/index.ctp:57 Template/Itemcategories/view.ctp:151
+#: Template/Layoutcategories/add.ctp:11;33
+#: Template/Layoutcategories/edit.ctp:11;39
+#: Template/Layoutcategories/view.ctp:14;52 Template/Layouts/add.ctp:37
+#: Template/Layouts/edit.ctp:43 Template/Layouts/index.ctp:61
+#: Template/Layouts/view.ctp:87
+msgid "List Layoutcategories"
+msgstr ""
+
+#: Template/Itemcategories/add.ctp:37 Template/Itemcategories/edit.ctp:43
+#: Template/Itemcategories/index.ctp:58 Template/Itemcategories/view.ctp:152
+#: Template/Layoutcategories/index.ctp:12;58
+#: Template/Layoutcategories/view.ctp:13;53 Template/Layouts/add.ctp:38
+#: Template/Layouts/edit.ctp:44 Template/Layouts/index.ctp:62
+#: Template/Layouts/view.ctp:88
+msgid "New Layoutcategory"
+msgstr ""
+
+#: Template/Itemcategories/edit.ctp:8 Template/Itemcategories/view.ctp:15;143
+msgid "Edit Itemcategory"
+msgstr ""
+
+#: Template/Itemcategories/index.ctp:12;54
+#: Template/Itemcategories/view.ctp:13;146 Template/Items/add.ctp:38
+#: Template/Items/edit.ctp:44 Template/Items/index.ctp:66
+#: Template/Items/view.ctp:174 Template/Layoutcategories/add.ctp:35
+#: Template/Layoutcategories/edit.ctp:41 Template/Layoutcategories/index.ctp:60
+#: Template/Layoutcategories/view.ctp:55
+msgid "New Itemcategory"
+msgstr ""
+
+#: Template/Itemcategories/view.ctp:12;144
+msgid "Delete Itemcategory"
+msgstr ""
+
+#: Template/Itemcategories/view.ctp:25
+msgid "Parent Itemcategory"
+msgstr ""
+
+#: Template/Itemcategories/view.ctp:36
+msgid "Related Itemcategories"
+msgstr ""
+
+#: Template/Itemcategories/view.ctp:103 Template/Layoutcategories/index.ctp:9
+#: Template/Layouts/view.ctp:39
+msgid "Layoutcategories"
+msgstr ""
+
+#: Template/Itemcategories/view.ctp:104 Template/Layouts/view.ctp:40
+msgid "Related Layoutcategories"
+msgstr ""
+
+#: Template/Itemcategories/view.ctp:111 Template/Layouts/view.ctp:47
+msgid "Layout Id"
+msgstr ""
+
+#: Template/Itemcategories/view.ctp:112 Template/Itemcodes/view.ctp:69
+#: Template/Items/view.ctp:106 Template/Layoutcategories/view.ctp:33
+#: Template/Layouts/view.ctp:48 Template/Stockmoves/view.ctp:85
+#: Template/StockmovesDetails/view.ctp:37
+msgid "Qty"
+msgstr ""
+
+#: Template/Itemcategories/view.ctp:113 Template/Layoutcategories/view.ctp:37
+#: Template/Layouts/view.ctp:49
+msgid "Compare"
+msgstr ""
+
+#: Template/Itemcodes/add.ctp:8
+msgid "Add Itemcode"
+msgstr ""
+
+#: Template/Itemcodes/add.ctp:41 Template/Itemcodes/edit.ctp:47
+#: Template/Itemcodes/index.ctp:71 Template/Itemcodes/view.ctp:172
+#: Template/Statusitems/add.ctp:11;30 Template/Statusitems/edit.ctp:11;36
+#: Template/Statusitems/view.ctp:14;81
+msgid "List Statusitems"
+msgstr ""
+
+#: Template/Itemcodes/add.ctp:42 Template/Itemcodes/edit.ctp:48
+#: Template/Itemcodes/index.ctp:72 Template/Itemcodes/view.ctp:173
+#: Template/Statusitems/index.ctp:12;52 Template/Statusitems/view.ctp:13;82
+msgid "New Statusitem"
+msgstr ""
+
+#: Template/Itemcodes/add.ctp:45 Template/Itemcodes/edit.ctp:51
+#: Template/Itemcodes/index.ctp:75 Template/Itemcodes/view.ctp:176
+#: Template/Items/add.ctp:45 Template/Items/edit.ctp:51
+#: Template/Items/index.ctp:73 Template/Items/view.ctp:181
+#: Template/Stockmoves/add.ctp:50 Template/Stockmoves/edit.ctp:56
+#: Template/Stockmoves/index.ctp:81 Template/Stockmoves/view.ctp:129
+#: Template/StockmovesDetails/add.ctp:11;34
+#: Template/StockmovesDetails/edit.ctp:11;40
+#: Template/StockmovesDetails/view.ctp:14;56
+msgid "List Stockmoves Details"
+msgstr ""
+
+#: Template/Itemcodes/add.ctp:46 Template/Itemcodes/edit.ctp:52
+#: Template/Itemcodes/index.ctp:76 Template/Itemcodes/view.ctp:177
+#: Template/Items/add.ctp:46 Template/Items/edit.ctp:52
+#: Template/Items/index.ctp:74 Template/Items/view.ctp:182
+#: Template/Stockmoves/add.ctp:51 Template/Stockmoves/edit.ctp:57
+#: Template/Stockmoves/index.ctp:82 Template/Stockmoves/view.ctp:130
+#: Template/StockmovesDetails/index.ctp:12;60
+#: Template/StockmovesDetails/view.ctp:13;57
+msgid "New Stockmoves Detail"
+msgstr ""
+
+#: Template/Itemcodes/edit.ctp:8 Template/Itemcodes/view.ctp:15;164
+msgid "Edit Itemcode"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:12;165
+msgid "Delete Itemcode"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:21 Template/StockmovesDetails/view.ctp:25
+#: Template/Stocks/view.ctp:25
+msgid "Item"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:29
+msgid "Invoice"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:33
+msgid "Statusitem"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:37 Template/Users/view.ctp:32
+msgid "Positionbranch"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:59 Template/Items/view.ctp:96
+#: Template/Stockmoves/view.ctp:75 Template/StockmovesDetails/index.ctp:9
+msgid "Stockmoves Details"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:60 Template/Items/view.ctp:97
+#: Template/Stockmoves/view.ctp:76
+msgid "Related Stockmoves Details"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:66 Template/Items/view.ctp:103
+#: Template/Stockmoves/view.ctp:82
+msgid "Stockmove Id"
+msgstr ""
+
+#: Template/Itemcodes/view.ctp:70 Template/Items/view.ctp:107
+#: Template/Stockmoves/view.ctp:86 Template/StockmovesDetails/view.ctp:41
+msgid "Deliverydate"
+msgstr ""
+
+#: Template/Items/add.ctp:8
+msgid "Add Item"
+msgstr ""
+
+#: Template/Items/add.ctp:47 Template/Items/edit.ctp:53
+#: Template/Items/index.ctp:75 Template/Items/view.ctp:183
+#: Template/Stocks/add.ctp:11;32 Template/Stocks/edit.ctp:11;38
+#: Template/Stocks/view.ctp:14;48 Template/Warehouses/add.ctp:36
+#: Template/Warehouses/edit.ctp:42
+msgid "List Stocks"
+msgstr ""
+
+#: Template/Items/add.ctp:48 Template/Items/edit.ctp:54
+#: Template/Items/index.ctp:76 Template/Items/view.ctp:184
+#: Template/Stocks/index.ctp:12;56 Template/Stocks/view.ctp:13;49
+#: Template/Warehouses/add.ctp:37 Template/Warehouses/edit.ctp:43
+msgid "New Stock"
+msgstr ""
+
+#: Template/Items/edit.ctp:8 Template/Items/view.ctp:15;169
+msgid "Edit Item"
+msgstr ""
+
+#: Template/Items/view.ctp:12;170
+msgid "Delete Item"
+msgstr ""
+
+#: Template/Items/view.ctp:25 Template/Layoutcategories/view.ctp:21
+msgid "Itemcategory"
+msgstr ""
+
+#: Template/Items/view.ctp:29
+msgid "Currency"
+msgstr ""
+
+#: Template/Items/view.ctp:41
+msgid "Brand"
+msgstr ""
+
+#: Template/Items/view.ctp:131 Template/Pages/admin.ctp:70
+#: Template/Stocks/index.ctp:9 Template/Warehouses/view.ctp:84
+msgid "Stocks"
+msgstr ""
+
+#: Template/Items/view.ctp:132 Template/Warehouses/view.ctp:85
+msgid "Related Stocks"
+msgstr ""
+
+#: Template/Items/view.ctp:138 Template/Movereasons/view.ctp:77
+#: Template/Shippers/view.ctp:38 Template/Users/view.ctp:175
+#: Template/Warehouses/view.ctp:42;91
+msgid "Warehouse Id"
+msgstr ""
+
+#: Template/Items/view.ctp:140 Template/Stocks/view.ctp:33
+#: Template/Warehouses/view.ctp:93
+msgid "Reorder"
+msgstr ""
+
+#: Template/Layout/enduser.ctp:63 Template/Tickets/enduserindex.ctp:3
+#: Template/Tickets/enduserview.ctp:14
+msgid "My Tickets"
+msgstr "Mis Tickets"
+
+#: Template/Layout/enduser.ctp:64
+msgid "Report incident"
+msgstr ""
+
+#: Template/Layout/enduser.ctp:65
+msgid "Create a request"
+msgstr ""
+
+#: Template/Layout/error.ctp:35 Template/Error/error400.ctp:36
+#: Template/Error/error500.ctp:41
+msgid "Error"
+msgstr ""
+
+#: Template/Layout/error.ctp:43
+msgid "Back"
+msgstr ""
+
+#: Template/Layout/tickets.ctp:24 Template/Tickets/index.ctp:13
+#: Template/Tickets/team.ctp:40
+msgid "My Group"
+msgstr "Mi Grupo"
+
+#: Template/Layout/tickets.ctp:25
+msgid "Dashboard"
+msgstr ""
+
+#: Template/Layout/tickets.ctp:40
+msgid "Search ticket #"
+msgstr ""
+
+#: Template/Layoutcategories/add.ctp:8
+msgid "Add Layoutcategory"
+msgstr ""
+
+#: Template/Layoutcategories/edit.ctp:8
+#: Template/Layoutcategories/view.ctp:15;50
+msgid "Edit Layoutcategory"
+msgstr ""
+
+#: Template/Layoutcategories/view.ctp:12;51
+msgid "Delete Layoutcategory"
+msgstr ""
+
+#: Template/Layouts/add.ctp:8
+msgid "Add Layout"
+msgstr ""
+
+#: Template/Layouts/add.ctp:35 Template/Layouts/edit.ctp:41
+#: Template/Layouts/index.ctp:59 Template/Layouts/view.ctp:85
+#: Template/Positionbranches/add.ctp:35 Template/Positionbranches/edit.ctp:41
+#: Template/Positionbranches/index.ctp:59
+#: Template/Positionbranches/view.ctp:132 Template/Positions/add.ctp:11;30
+#: Template/Positions/edit.ctp:11;36 Template/Positions/view.ctp:14;102
+msgid "List Positions"
+msgstr ""
+
+#: Template/Layouts/add.ctp:36 Template/Layouts/edit.ctp:42
+#: Template/Layouts/index.ctp:60 Template/Layouts/view.ctp:86
+#: Template/Positionbranches/add.ctp:36 Template/Positionbranches/edit.ctp:42
+#: Template/Positionbranches/index.ctp:60
+#: Template/Positionbranches/view.ctp:133 Template/Positions/index.ctp:12;52
+#: Template/Positions/view.ctp:13;103
+msgid "New Position"
+msgstr ""
+
+#: Template/Layouts/edit.ctp:8 Template/Layouts/view.ctp:15;79
+msgid "Edit Layout"
+msgstr ""
+
+#: Template/Layouts/view.ctp:12;80
+msgid "Delete Layout"
+msgstr ""
+
+#: Template/Layouts/view.ctp:21 Template/Positionbranches/view.ctp:21
+#: Template/Tickets/view.ctp:99 Template/Warehouses/view.ctp:25
+msgid "Branch"
+msgstr ""
+
+#: Template/Layouts/view.ctp:25 Template/Positionbranches/view.ctp:25
+msgid "Position"
+msgstr ""
+
+#: Template/Movereasons/add.ctp:8
+msgid "Add Movereason"
+msgstr ""
+
+#: Template/Movereasons/add.ctp:11;31 Template/Movereasons/edit.ctp:11;37
+#: Template/Movereasons/view.ctp:14;128 Template/Movereasontemplates/add.ctp:35
+#: Template/Movereasontemplates/edit.ctp:41
+#: Template/Movereasontemplates/index.ctp:63
+#: Template/Movereasontemplates/view.ctp:60 Template/Stockmoves/add.ctp:44
+#: Template/Stockmoves/edit.ctp:50 Template/Stockmoves/index.ctp:75
+#: Template/Stockmoves/view.ctp:123
+msgid "List Movereasons"
+msgstr ""
+
+#: Template/Movereasons/add.ctp:32 Template/Movereasons/edit.ctp:38
+#: Template/Movereasons/index.ctp:55 Template/Movereasons/view.ctp:130
+#: Template/Movereasontemplates/add.ctp:11;32
+#: Template/Movereasontemplates/edit.ctp:11;38
+#: Template/Movereasontemplates/view.ctp:14;56 Template/Users/add.ctp:50
+#: Template/Users/edit.ctp:56
+msgid "List Movereasontemplates"
+msgstr ""
+
+#: Template/Movereasons/add.ctp:33 Template/Movereasons/edit.ctp:39
+#: Template/Movereasons/index.ctp:56 Template/Movereasons/view.ctp:131
+#: Template/Movereasontemplates/index.ctp:12;60
+#: Template/Movereasontemplates/view.ctp:13;57 Template/Users/add.ctp:51
+#: Template/Users/edit.ctp:57
+msgid "New Movereasontemplate"
+msgstr ""
+
+#: Template/Movereasons/add.ctp:34 Template/Movereasons/edit.ctp:40
+#: Template/Movereasons/index.ctp:57 Template/Movereasons/view.ctp:132
+#: Template/Shippers/add.ctp:31 Template/Shippers/edit.ctp:37
+#: Template/Shippers/index.ctp:53 Template/Shippers/view.ctp:91
+#: Template/Stockmoves/add.ctp:11;41 Template/Stockmoves/edit.ctp:11;47
+#: Template/Stockmoves/view.ctp:14;119 Template/StockmovesDetails/add.ctp:35
+#: Template/StockmovesDetails/edit.ctp:41
+#: Template/StockmovesDetails/index.ctp:61
+#: Template/StockmovesDetails/view.ctp:58 Template/Users/add.ctp:54
+#: Template/Users/edit.ctp:60 Template/Warehouses/add.ctp:34
+#: Template/Warehouses/edit.ctp:40
+msgid "List Stockmoves"
+msgstr ""
+
+#: Template/Movereasons/add.ctp:35 Template/Movereasons/edit.ctp:41
+#: Template/Movereasons/index.ctp:58 Template/Movereasons/view.ctp:133
+#: Template/Shippers/add.ctp:32 Template/Shippers/edit.ctp:38
+#: Template/Shippers/index.ctp:54 Template/Shippers/view.ctp:92
+#: Template/Stockmoves/index.ctp:12;72 Template/Stockmoves/view.ctp:13;120
+#: Template/StockmovesDetails/add.ctp:36 Template/StockmovesDetails/edit.ctp:42
+#: Template/StockmovesDetails/index.ctp:62
+#: Template/StockmovesDetails/view.ctp:59 Template/Users/add.ctp:55
+#: Template/Users/edit.ctp:61 Template/Warehouses/add.ctp:35
+#: Template/Warehouses/edit.ctp:41
+msgid "New Stockmove"
+msgstr ""
+
+#: Template/Movereasons/edit.ctp:8 Template/Movereasons/view.ctp:15;126
+msgid "Edit Movereason"
+msgstr ""
+
+#: Template/Movereasons/index.ctp:9 Template/Pages/admin.ctp:73
+msgid "Movereasons"
+msgstr ""
+
+#: Template/Movereasons/index.ctp:12;54 Template/Movereasons/view.ctp:13;129
+#: Template/Movereasontemplates/add.ctp:36
+#: Template/Movereasontemplates/edit.ctp:42
+#: Template/Movereasontemplates/index.ctp:64
+#: Template/Movereasontemplates/view.ctp:61 Template/Stockmoves/add.ctp:45
+#: Template/Stockmoves/edit.ctp:51 Template/Stockmoves/index.ctp:76
+#: Template/Stockmoves/view.ctp:124
+msgid "New Movereason"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:12;127
+msgid "Delete Movereason"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:25
+msgid "Factor"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:35 Template/Movereasontemplates/index.ctp:9
+#: Template/Pages/admin.ctp:78 Template/Users/view.ctp:132
+msgid "Movereasontemplates"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:36 Template/Users/view.ctp:133
+msgid "Related Movereasontemplates"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:42 Template/Movereasontemplates/view.ctp:21
+#: Template/Users/view.ctp:139
+msgid "Template"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:46;81 Template/Shippers/view.ctp:42
+#: Template/Users/view.ctp:143;179 Template/Warehouses/view.ctp:46
+msgid "Movereason Id"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:70 Template/Pages/admin.ctp:69
+#: Template/Shippers/view.ctp:31 Template/Stockmoves/index.ctp:9
+#: Template/Users/view.ctp:168 Template/Warehouses/view.ctp:35
+msgid "Stockmoves"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:71 Template/Shippers/view.ctp:32
+#: Template/Users/view.ctp:169 Template/Warehouses/view.ctp:36
+msgid "Related Stockmoves"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:78 Template/Shippers/view.ctp:39
+#: Template/Stockmoves/view.ctp:49 Template/Users/view.ctp:176
+#: Template/Warehouses/view.ctp:43
+msgid "Warehouse 2"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:79 Template/Shippers/view.ctp:40
+#: Template/Stockmoves/view.ctp:53 Template/Users/view.ctp:177
+#: Template/Warehouses/view.ctp:44
+msgid "Receiver"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:80 Template/Shippers/view.ctp:41
+#: Template/Stockmoves/view.ctp:25 Template/Users/view.ctp:178
+#: Template/Warehouses/view.ctp:45
+msgid "Receiver Sign"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:82 Template/Shippers/view.ctp:43
+#: Template/Users/view.ctp:180 Template/Warehouses/view.ctp:47
+msgid "Shipper Id"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:83 Template/Shippers/view.ctp:44
+#: Template/Stockmoves/view.ctp:37 Template/Users/view.ctp:181
+#: Template/Warehouses/view.ctp:48
+msgid "Guide Number"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:84 Template/Shippers/view.ctp:45
+#: Template/Stockmoves/view.ctp:57 Template/Users/view.ctp:182
+#: Template/Warehouses/view.ctp:49
+msgid "Packages"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:86 Template/Shippers/view.ctp:47
+#: Template/Stockmoves/view.ctp:71 Template/Users/view.ctp:184
+#: Template/Warehouses/view.ctp:51
+msgid "Notes"
+msgstr ""
+
+#: Template/Movereasons/view.ctp:87 Template/Shippers/view.ctp:48
+#: Template/Stockmoves/view.ctp:61 Template/Users/view.ctp:185
+#: Template/Warehouses/view.ctp:52
+msgid "Confirmed"
+msgstr ""
+
+#: Template/Movereasontemplates/add.ctp:8
+msgid "Add Movereasontemplate"
+msgstr ""
+
+#: Template/Movereasontemplates/edit.ctp:8
+#: Template/Movereasontemplates/view.ctp:15;54
+msgid "Edit Movereasontemplate"
+msgstr ""
+
+#: Template/Movereasontemplates/view.ctp:12;55
+msgid "Delete Movereasontemplate"
+msgstr ""
+
+#: Template/Movereasontemplates/view.ctp:29 Template/Stockmoves/view.ctp:29
+msgid "Movereason"
+msgstr ""
+
+#: Template/Pages/admin.ctp:30 Template/Tickettypes/index.ctp:8
+msgid "Tickettypes"
+msgstr "Tipos De Ticket"
+
+#: Template/Pages/admin.ctp:31 Template/Ticketstatuses/index.ctp:9
+msgid "Ticketstatuses"
+msgstr "Estados De Tickets"
+
+#: Template/Pages/admin.ctp:32 Template/Sources/index.ctp:9
+msgid "Sources"
+msgstr ""
+
+#: Template/Pages/admin.ctp:33 Template/Ticketimpacts/index.ctp:9
+msgid "Ticketimpacts"
+msgstr ""
+
+#: Template/Pages/admin.ctp:34 Template/Ticketurgencies/index.ctp:9
+msgid "Ticketurgencies"
+msgstr ""
+
+#: Template/Pages/admin.ctp:35 Template/Ticketpriorities/index.ctp:9
+msgid "Ticketpriorities"
+msgstr ""
+
+#: Template/Pages/admin.ctp:38
+msgid "Internalnotes"
+msgstr ""
+
+#: Template/Pages/admin.ctp:39 Template/Tickets/enduserview.ctp:106
+msgid "Publicnotes"
+msgstr ""
+
+#: Template/Pages/admin.ctp:41 Template/Tickets/enduserview.ctp:144
+#: Template/Ticketsfiles/index.ctp:8
+msgid "Ticketsfiles"
+msgstr ""
+
+#: Template/Pages/admin.ctp:42 Template/Ticketmarkeds/index.ctp:8
+#: Template/Tickets/view.ctp:193
+msgid "Ticketmarkeds"
+msgstr ""
+
+#: Template/Pages/admin.ctp:71
+msgid "StockmovesDetails"
+msgstr ""
+
+#: Template/Pages/admin.ctp:74 Template/Positions/index.ctp:9
+msgid "Positions"
+msgstr ""
+
+#: Template/Pages/admin.ctp:76 Template/Statusitems/index.ctp:9
+msgid "Statusitems"
+msgstr ""
+
+#: Template/Pages/admin.ctp:77 Template/Statususers/index.ctp:9
+msgid "Statususers"
+msgstr ""
+
+#: Template/Pages/admin.ctp:85
+msgid "ArticlesRoles"
+msgstr ""
+
+#: Template/Positionbranches/add.ctp:8
+msgid "Add Positionbranch"
+msgstr ""
+
+#: Template/Positionbranches/edit.ctp:8
+#: Template/Positionbranches/view.ctp:15;126
+msgid "Edit Positionbranch"
+msgstr ""
+
+#: Template/Positionbranches/view.ctp:12;127
+msgid "Delete Positionbranch"
+msgstr ""
+
+#: Template/Positions/add.ctp:8
+msgid "Add Position"
+msgstr ""
+
+#: Template/Positions/edit.ctp:8 Template/Positions/view.ctp:15;100
+msgid "Edit Position"
+msgstr ""
+
+#: Template/Positions/view.ctp:12;101
+msgid "Delete Position"
+msgstr ""
+
+#: Template/Roles/add.ctp:8
+msgid "Add Role"
+msgstr ""
+
+#: Template/Roles/edit.ctp:8 Template/Roles/view.ctp:15;116
+msgid "Edit Role"
+msgstr ""
+
+#: Template/Roles/view.ctp:12;117
+msgid "Delete Role"
+msgstr ""
+
+#: Template/Shippers/add.ctp:8
+msgid "Add Shipper"
+msgstr ""
+
+#: Template/Shippers/add.ctp:11;30 Template/Shippers/edit.ctp:11;36
+#: Template/Shippers/view.ctp:14;89 Template/Stockmoves/add.ctp:46
+#: Template/Stockmoves/edit.ctp:52 Template/Stockmoves/index.ctp:77
+#: Template/Stockmoves/view.ctp:125
+msgid "List Shippers"
+msgstr ""
+
+#: Template/Shippers/edit.ctp:8 Template/Shippers/view.ctp:15;87
+msgid "Edit Shipper"
+msgstr ""
+
+#: Template/Shippers/index.ctp:12;52 Template/Shippers/view.ctp:13;90
+#: Template/Stockmoves/add.ctp:47 Template/Stockmoves/edit.ctp:53
+#: Template/Stockmoves/index.ctp:78 Template/Stockmoves/view.ctp:126
+msgid "New Shipper"
+msgstr ""
+
+#: Template/Shippers/view.ctp:12;88
+msgid "Delete Shipper"
+msgstr ""
+
+#: Template/Sources/add.ctp:8
+msgid "Add Source"
+msgstr ""
+
+#: Template/Sources/add.ctp:11;30 Template/Sources/edit.ctp:11;36
+#: Template/Sources/view.ctp:14;103 Template/Tickets/clonar.ctp:58
+msgid "List Sources"
+msgstr ""
+
+#: Template/Sources/edit.ctp:8 Template/Sources/view.ctp:15;101
+msgid "Edit Source"
+msgstr ""
+
+#: Template/Sources/index.ctp:12;52 Template/Sources/view.ctp:13;104
+#: Template/Tickets/clonar.ctp:59
+msgid "New Source"
+msgstr ""
+
+#: Template/Sources/view.ctp:12;102
+msgid "Delete Source"
+msgstr ""
+
+#: Template/Statusitems/add.ctp:8
+msgid "Add Statusitem"
+msgstr ""
+
+#: Template/Statusitems/edit.ctp:8 Template/Statusitems/view.ctp:15;79
+msgid "Edit Statusitem"
+msgstr ""
+
+#: Template/Statusitems/view.ctp:12;80
+msgid "Delete Statusitem"
+msgstr ""
+
+#: Template/Statususers/add.ctp:8
+msgid "Add Statususer"
+msgstr ""
+
+#: Template/Statususers/add.ctp:11;30 Template/Statususers/edit.ctp:11;36
+#: Template/Statususers/view.ctp:14;79 Template/Users/add.ctp:40
+#: Template/Users/edit.ctp:46
+msgid "List Statususers"
+msgstr ""
+
+#: Template/Statususers/edit.ctp:8 Template/Statususers/view.ctp:15;77
+msgid "Edit Statususer"
+msgstr ""
+
+#: Template/Statususers/index.ctp:12;52 Template/Statususers/view.ctp:13;80
+#: Template/Users/add.ctp:41 Template/Users/edit.ctp:47
+msgid "New Statususer"
+msgstr ""
+
+#: Template/Statususers/view.ctp:12;78
+msgid "Delete Statususer"
+msgstr ""
+
+#: Template/Stockmoves/add.ctp:8
+msgid "Add Stockmove"
+msgstr ""
+
+#: Template/Stockmoves/edit.ctp:8 Template/Stockmoves/view.ctp:15;117
+msgid "Edit Stockmove"
+msgstr ""
+
+#: Template/Stockmoves/view.ctp:12;118
+msgid "Delete Stockmove"
+msgstr ""
+
+#: Template/Stockmoves/view.ctp:21 Template/Stocks/view.ctp:21
+msgid "Warehouse"
+msgstr ""
+
+#: Template/Stockmoves/view.ctp:33
+msgid "Shipper"
+msgstr ""
+
+#: Template/StockmovesDetails/add.ctp:8
+msgid "Add Stockmoves Detail"
+msgstr ""
+
+#: Template/StockmovesDetails/edit.ctp:8
+#: Template/StockmovesDetails/view.ctp:15;54
+msgid "Edit Stockmoves Detail"
+msgstr ""
+
+#: Template/StockmovesDetails/view.ctp:12;55
+msgid "Delete Stockmoves Detail"
+msgstr ""
+
+#: Template/StockmovesDetails/view.ctp:21
+msgid "Stockmove"
+msgstr ""
+
+#: Template/StockmovesDetails/view.ctp:29 Template/Tickets/enduserview.ctp:42
+#: Template/Tickets/view.ctp:42
+msgid "Itemcode"
+msgstr ""
+
+#: Template/Stocks/add.ctp:8
+msgid "Add Stock"
+msgstr ""
+
+#: Template/Stocks/edit.ctp:8 Template/Stocks/view.ctp:15;46
+msgid "Edit Stock"
+msgstr ""
+
+#: Template/Stocks/view.ctp:12;47
+msgid "Delete Stock"
+msgstr ""
+
+#: Template/Suppliers/add.ctp:8
+msgid "Add Supplier"
+msgstr ""
+
+#: Template/Suppliers/edit.ctp:8 Template/Suppliers/view.ctp:15;73
+msgid "Edit Supplier"
+msgstr ""
+
+#: Template/Suppliers/view.ctp:12;74
+msgid "Delete Supplier"
+msgstr ""
+
+#: Template/Suppliers/view.ctp:32
+msgid "Related Invoices"
+msgstr ""
+
+#: Template/Suppliers/view.ctp:39
+msgid "Supplier Id"
+msgstr ""
+
+#: Template/Ticketimpacts/add.ctp:8
+msgid "Add Ticketimpact"
+msgstr ""
+
+#: Template/Ticketimpacts/add.ctp:11;30 Template/Ticketimpacts/edit.ctp:11;36
+#: Template/Ticketimpacts/view.ctp:14;103 Template/Tickets/clonar.ctp:66
+msgid "List Ticketimpacts"
+msgstr ""
+
+#: Template/Ticketimpacts/edit.ctp:8 Template/Ticketimpacts/view.ctp:15;101
+msgid "Edit Ticketimpact"
+msgstr ""
+
+#: Template/Ticketimpacts/index.ctp:12;52
+#: Template/Ticketimpacts/view.ctp:13;104 Template/Tickets/clonar.ctp:67
+msgid "New Ticketimpact"
+msgstr ""
+
+#: Template/Ticketimpacts/view.ctp:12;102
+msgid "Delete Ticketimpact"
+msgstr ""
+
+#: Template/Ticketlogs/add.ctp:8
+msgid "Add Ticketlog"
+msgstr ""
+
+#: Template/Ticketlogs/edit.ctp:8 Template/Ticketlogs/view.ctp:15;66
+msgid "Edit Ticketlog"
+msgstr ""
+
+#: Template/Ticketlogs/view.ctp:12;67
+msgid "Delete Ticketlog"
+msgstr ""
+
+#: Template/Ticketlogs/view.ctp:21 Template/Ticketmarkeds/view.ctp:24
+#: Template/Ticketnotes/view.ctp:20
+msgid "Ticket"
+msgstr "Ticket"
+
+#: Template/Ticketlogs/view.ctp:29 Template/Tickets/enduserview.ctp:50
+#: Template/Tickets/view.ctp:50 Template/Users/view.ctp:44
+msgid "Group"
+msgstr "Grupo"
+
+#: Template/Ticketmarkeds/add.ctp:8
+msgid "Add Ticketmarked"
+msgstr ""
+
+#: Template/Ticketmarkeds/add.ctp:11;31 Template/Ticketmarkeds/edit.ctp:11;37
+#: Template/Ticketmarkeds/view.ctp:13;43 Template/Tickets/clonar.ctp:82
+msgid "List Ticketmarkeds"
+msgstr ""
+
+#: Template/Ticketmarkeds/edit.ctp:8 Template/Ticketmarkeds/view.ctp:14;41
+msgid "Edit Ticketmarked"
+msgstr ""
+
+#: Template/Ticketmarkeds/index.ctp:11;53 Template/Ticketmarkeds/view.ctp:12;44
+#: Template/Tickets/clonar.ctp:83
+msgid "New Ticketmarked"
+msgstr ""
+
+#: Template/Ticketmarkeds/view.ctp:11;42
+msgid "Delete Ticketmarked"
+msgstr ""
+
+#: Template/Ticketnotes/add.ctp:8
+msgid "Add Ticketnote"
+msgstr ""
+
+#: Template/Ticketnotes/add.ctp:11;33 Template/Ticketnotes/edit.ctp:11;39
+#: Template/Ticketnotes/view.ctp:13;55 Template/Ticketnotestypes/add.ctp:31
+#: Template/Ticketnotestypes/edit.ctp:37 Template/Ticketnotestypes/index.ctp:52
+#: Template/Ticketnotestypes/view.ctp:76 Template/Ticketsfiles/add.ctp:32
+#: Template/Ticketsfiles/edit.ctp:38 Template/Ticketsfiles/index.ctp:56
+#: Template/Ticketsfiles/view.ctp:49
+msgid "List Ticketnotes"
+msgstr ""
+
+#: Template/Ticketnotes/add.ctp:38 Template/Ticketnotes/edit.ctp:44
+#: Template/Ticketnotes/index.ctp:62 Template/Ticketnotes/view.ctp:61
+#: Template/Ticketnotestypes/add.ctp:11;30
+#: Template/Ticketnotestypes/edit.ctp:11;36
+#: Template/Ticketnotestypes/view.ctp:13;74
+msgid "List Ticketnotestypes"
+msgstr ""
+
+#: Template/Ticketnotes/add.ctp:39 Template/Ticketnotes/edit.ctp:45
+#: Template/Ticketnotes/index.ctp:63 Template/Ticketnotes/view.ctp:62
+#: Template/Ticketnotestypes/index.ctp:11;51
+#: Template/Ticketnotestypes/view.ctp:12;75
+msgid "New Ticketnotestype"
+msgstr ""
+
+#: Template/Ticketnotes/edit.ctp:8 Template/Ticketnotes/view.ctp:14;53
+msgid "Edit Ticketnote"
+msgstr ""
+
+#: Template/Ticketnotes/index.ctp:8 Template/Ticketnotestypes/view.ctp:30
+#: Template/Tickets/view.ctp:111;370 Template/Users/view.ctp:97
+msgid "Ticketnotes"
+msgstr ""
+
+#: Template/Ticketnotes/index.ctp:11;57 Template/Ticketnotes/view.ctp:12;56
+#: Template/Ticketnotestypes/add.ctp:32 Template/Ticketnotestypes/edit.ctp:38
+#: Template/Ticketnotestypes/index.ctp:53 Template/Ticketnotestypes/view.ctp:77
+#: Template/Ticketsfiles/add.ctp:33 Template/Ticketsfiles/edit.ctp:39
+#: Template/Ticketsfiles/index.ctp:57 Template/Ticketsfiles/view.ctp:50
+msgid "New Ticketnote"
+msgstr ""
+
+#: Template/Ticketnotes/view.ctp:11;54
+msgid "Delete Ticketnote"
+msgstr ""
+
+#: Template/Ticketnotes/view.ctp:28
+msgid "Ticketnotestype"
+msgstr ""
+
+#: Template/Ticketnotestypes/add.ctp:8
+msgid "Add Ticketnotestype"
+msgstr ""
+
+#: Template/Ticketnotestypes/edit.ctp:8
+#: Template/Ticketnotestypes/view.ctp:14;72
+msgid "Edit Ticketnotestype"
+msgstr ""
+
+#: Template/Ticketnotestypes/index.ctp:8
+msgid "Ticketnotestypes"
+msgstr ""
+
+#: Template/Ticketnotestypes/view.ctp:11;73
+msgid "Delete Ticketnotestype"
+msgstr ""
+
+#: Template/Ticketnotestypes/view.ctp:31 Template/Users/view.ctp:98
+msgid "Related Ticketnotes"
+msgstr ""
+
+#: Template/Ticketnotestypes/view.ctp:41 Template/Users/view.ctp:108
+msgid "Ticketnotestype Id"
+msgstr ""
+
+#: Template/Ticketpriorities/add.ctp:8
+msgid "Add Ticketpriority"
+msgstr ""
+
+#: Template/Ticketpriorities/add.ctp:11;30
+#: Template/Ticketpriorities/edit.ctp:11;36
+#: Template/Ticketpriorities/view.ctp:14;103 Template/Tickets/clonar.ctp:70
+msgid "List Ticketpriorities"
+msgstr ""
+
+#: Template/Ticketpriorities/edit.ctp:8
+#: Template/Ticketpriorities/view.ctp:15;101
+msgid "Edit Ticketpriority"
+msgstr ""
+
+#: Template/Ticketpriorities/index.ctp:12;52
+#: Template/Ticketpriorities/view.ctp:13;104 Template/Tickets/clonar.ctp:71
+msgid "New Ticketpriority"
+msgstr ""
+
+#: Template/Ticketpriorities/view.ctp:12;102
+msgid "Delete Ticketpriority"
+msgstr ""
+
+#: Template/Tickets/add.ctp:8 Template/Tickets/enduseradd.ctp:8
+msgid "Add Ticket"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:8
+msgid "Clone Ticket"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:38
+msgid "Clonar"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:54 Template/Tickettypes/add.ctp:11;33
+#: Template/Tickettypes/edit.ctp:11;39 Template/Tickettypes/view.ctp:13;115
+msgid "List Tickettypes"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:55 Template/Tickettypes/index.ctp:11;57
+#: Template/Tickettypes/view.ctp:12;116
+msgid "New Tickettype"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:56
+msgid "List Ticket Statuses"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:57
+msgid "New Ticket Status"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:68 Template/Ticketurgencies/add.ctp:11;30
+#: Template/Ticketurgencies/edit.ctp:11;36
+#: Template/Ticketurgencies/view.ctp:14;103
+msgid "List Ticketurgencies"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:69 Template/Ticketurgencies/index.ctp:12;52
+#: Template/Ticketurgencies/view.ctp:13;104
+msgid "New Ticketurgency"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:72
+msgid "List Parent Tickets"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:73
+msgid "New Parent Ticket"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:76 Template/Users/add.ctp:48
+#: Template/Users/edit.ctp:54
+msgid "List Internalnotes"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:77 Template/Users/add.ctp:49
+#: Template/Users/edit.ctp:55
+msgid "New Internalnote"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:78 Template/Users/add.ctp:52
+#: Template/Users/edit.ctp:58
+msgid "List Publicnotes"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:79 Template/Users/add.ctp:53
+#: Template/Users/edit.ctp:59
+msgid "New Publicnote"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:84 Template/Ticketsfiles/add.ctp:11;31
+#: Template/Ticketsfiles/edit.ctp:11;37 Template/Ticketsfiles/view.ctp:13;47
+msgid "List Ticketsfiles"
+msgstr ""
+
+#: Template/Tickets/clonar.ctp:85 Template/Ticketsfiles/index.ctp:11;55
+#: Template/Ticketsfiles/view.ctp:12;48
+msgid "New Ticketsfile"
+msgstr ""
+
+#: Template/Tickets/edit.ctp:8 Template/Tickets/enduserview.ctp:15
+#: Template/Tickets/view.ctp:15
+msgid "Edit Ticket"
+msgstr ""
+
+#: Template/Tickets/enduseradd.ctp:11
+msgid "Cancel"
+msgstr ""
+
+#: Template/Tickets/enduserview.ctp:12 Template/Tickets/view.ctp:12
+msgid "Delete Ticket"
+msgstr ""
+
+#: Template/Tickets/enduserview.ctp:19 Template/Tickets/view.ctp:22
+msgid "View Details"
+msgstr ""
+
+#: Template/Tickets/enduserview.ctp:22
+msgid "Tickettype"
+msgstr "Tipos De Tickets"
+
+#: Template/Tickets/enduserview.ctp:26 Template/Tickets/view.ctp:26
+msgid "Ticket Status"
+msgstr "Estado De Ticket"
+
+#: Template/Tickets/enduserview.ctp:30 Template/Tickets/view.ctp:30
+msgid "Source"
+msgstr "Fuente"
+
+#: Template/Tickets/enduserview.ctp:54 Template/Tickets/view.ctp:54
+msgid "Ticketimpact"
+msgstr "Impacto"
+
+#: Template/Tickets/enduserview.ctp:58 Template/Tickets/view.ctp:58
+msgid "Ticketurgency"
+msgstr "Urgencia"
+
+#: Template/Tickets/enduserview.ctp:62 Template/Tickets/view.ctp:62
+msgid "Ticketpriority"
+msgstr "Prioridad"
+
+#: Template/Tickets/enduserview.ctp:66 Template/Tickets/view.ctp:66
+msgid "Parent Ticket"
+msgstr ""
+
+#: Template/Tickets/enduserview.ctp:109
+msgid "New publicnotes"
+msgstr ""
+
+#: Template/Tickets/enduserview.ctp:147
+msgid "New ticketsfiles"
+msgstr ""
+
+#: Template/Tickets/index.ctp:12 Template/Tickets/team.ctp:39
+msgid "My Ticket"
+msgstr "Mis Tickets"
+
+#: Template/Tickets/index.ctp:14 Template/Tickets/team.ctp:41
+msgid "All Ticket"
+msgstr "Todos Los Tickets"
+
+#: Template/Tickets/team.ctp:65
+msgid "My Team"
+msgstr "Mi Equipo"
+
+#: Template/Tickets/view.ctp:87
+msgid "User Requiered"
+msgstr "Usuario Requerido"
+
+#: Template/Tickets/view.ctp:114
+msgid "New Ticketnotes"
+msgstr ""
+
+#: Template/Tickets/view.ctp:151
+msgid "New ticketlogs"
+msgstr ""
+
+#: Template/Tickets/view.ctp:194
+msgid "Related Ticketmarkeds"
+msgstr ""
+
+#: Template/Tickets/view.ctp:355
+msgid "Add information"
+msgstr ""
+
+#: Template/Tickets/view.ctp:369
+msgid "Tracking Text"
+msgstr ""
+
+#: Template/Tickets/view.ctp:380
+msgid "Internal Note"
+msgstr ""
+
+#: Template/Ticketsfiles/add.ctp:8
+msgid "Add Ticketsfile"
+msgstr ""
+
+#: Template/Ticketsfiles/edit.ctp:8 Template/Ticketsfiles/view.ctp:14;45
+msgid "Edit Ticketsfile"
+msgstr ""
+
+#: Template/Ticketsfiles/view.ctp:11;46
+msgid "Delete Ticketsfile"
+msgstr ""
+
+#: Template/Ticketsfiles/view.ctp:24
+msgid "Ticketnote"
+msgstr ""
+
+#: Template/Ticketstatuses/add.ctp:8
+msgid "Add Ticketstatus"
+msgstr ""
+
+#: Template/Ticketstatuses/add.ctp:11;31 Template/Ticketstatuses/edit.ctp:11;37
+#: Template/Ticketstatuses/view.ctp:14;44
+msgid "List Ticketstatuses"
+msgstr ""
+
+#: Template/Ticketstatuses/edit.ctp:8 Template/Ticketstatuses/view.ctp:15;42
+msgid "Edit Ticketstatus"
+msgstr ""
+
+#: Template/Ticketstatuses/index.ctp:12 Template/Ticketstatuses/view.ctp:13;45
+msgid "New Ticketstatus"
+msgstr ""
+
+#: Template/Ticketstatuses/view.ctp:12;43
+msgid "Delete Ticketstatus"
+msgstr ""
+
+#: Template/Ticketstatuses/view.ctp:29
+msgid "Value Order"
+msgstr ""
+
+#: Template/Tickettypes/add.ctp:8
+msgid "Add Tickettype"
+msgstr ""
+
+#: Template/Tickettypes/edit.ctp:8 Template/Tickettypes/view.ctp:14;113
+msgid "Edit Tickettype"
+msgstr ""
+
+#: Template/Tickettypes/view.ctp:11;114
+msgid "Delete Tickettype"
+msgstr ""
+
+#: Template/Tickettypes/view.ctp:25
+msgid "Tag"
+msgstr ""
+
+#: Template/Tickettypes/view.ctp:37
+msgid "Rank"
+msgstr ""
+
+#: Template/Ticketurgencies/add.ctp:8
+msgid "Add Ticketurgency"
+msgstr ""
+
+#: Template/Ticketurgencies/edit.ctp:8 Template/Ticketurgencies/view.ctp:15;101
+msgid "Edit Ticketurgency"
+msgstr ""
+
+#: Template/Ticketurgencies/view.ctp:12;102
+msgid "Delete Ticketurgency"
+msgstr ""
+
+#: Template/Userendmessages/add.ctp:8
+msgid "Add Userendmessage"
+msgstr ""
+
+#: Template/Userendmessages/add.ctp:11;35
+#: Template/Userendmessages/edit.ctp:11;39
+#: Template/Userendmessages/view.ctp:13;59
+msgid "List Userendmessages"
+msgstr ""
+
+#: Template/Userendmessages/edit.ctp:8 Template/Userendmessages/view.ctp:14;57
+msgid "Edit Userendmessage"
+msgstr ""
+
+#: Template/Userendmessages/index.ctp:8
+msgid "Userendmessages"
+msgstr ""
+
+#: Template/Userendmessages/index.ctp:11;59
+#: Template/Userendmessages/view.ctp:12;60
+msgid "New Userendmessage"
+msgstr ""
+
+#: Template/Userendmessages/view.ctp:11;58
+msgid "Delete Userendmessage"
+msgstr ""
+
+#: Template/Userendmessages/view.ctp:36
+msgid "Startdate"
+msgstr ""
+
+#: Template/Userendmessages/view.ctp:40
+msgid "Endingdate"
+msgstr ""
+
+#: Template/Userendmessages/view.ctp:46
+msgid "Message"
+msgstr ""
+
+#: Template/Users/add.ctp:8
+msgid "Add User"
+msgstr "Agregar Usuario"
+
+#: Template/Users/edit.ctp:8 Template/Users/view.ctp:14
+msgid "Edit User"
+msgstr "Editar Usuario"
+
+#: Template/Users/myaccount.ctp:8
+msgid "My Account"
+msgstr "Mi Cuenta"
+
+#: Template/Users/view.ctp:11
+msgid "Delete User"
+msgstr ""
+
+#: Template/Users/view.ctp:20
+msgid "Username"
+msgstr "Nombre De Usuario"
+
+#: Template/Users/view.ctp:40
+msgid "Statususer"
+msgstr ""
+
+#: Template/Warehouses/add.ctp:8
+msgid "Add Warehouse"
+msgstr ""
+
+#: Template/Warehouses/edit.ctp:8 Template/Warehouses/view.ctp:15
+msgid "Edit Warehouse"
+msgstr ""
+
+#: Template/Warehouses/view.ctp:12
+msgid "Delete Warehouse"
+msgstr ""
+
+#: Template/Error/error400.ctp:37
+msgid "The requested address {0} was not found on this server."
+msgstr ""
+
+#: Template/Error/error500.ctp:39
+msgid "An Internal Error Has Occurred"
+msgstr ""

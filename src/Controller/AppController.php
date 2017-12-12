@@ -18,6 +18,8 @@ use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Datasource\ConnectionManager;
+use Cake\I18n\I18n;
+
 /**
  * Application Controller
  *
@@ -52,6 +54,7 @@ class AppController extends Controller
 
     public function initialize()
     {
+        I18n::setLocale('es_MX');
        $this->loadComponent('Flash');
        $this->loadComponent('RequestHandler');
        $this->loadComponent('Tickettype');
