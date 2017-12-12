@@ -68,7 +68,7 @@ class GroupsTable extends Table
         $validator
             ->scalar('color')
             ->requirePresence('color', 'create')
-            ->notEmpty('color');
+            ->allowEmpty('color');
 
         return $validator;
     }

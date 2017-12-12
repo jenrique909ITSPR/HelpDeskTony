@@ -37,7 +37,7 @@
     <div class="searchbox right">
       <?= $this->Form->create('ticketsearch', ['type' => 'get','url' => ['controller' => 'Tickets', 'action' => 'view']]) ?>
           <?php
-              echo $this->Form->control('searchticket',['label' => false]);
+              echo $this->Form->control('searchticket',['label' => false, 'placeholder' => __('Search ticket #')]);
           ?>
       <?= $this->Form->end() ?>
 

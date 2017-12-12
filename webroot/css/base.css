@@ -82,6 +82,7 @@ img {
     float: right !important
 }
 
+
 .clearfix:before, .clearfix:after {
     content: " ";
     display: table
@@ -1240,7 +1241,8 @@ ul.topnavPageR li a:hover {
 
 h4 {
     font-weight: bold;
-    padding: 10px 10px;
+    padding: 10px 10px 3px 10px;
+    border-bottom: 1px solid #222;
 }
 
 .loading {
@@ -1311,7 +1313,7 @@ body.enduser {
 }
 #contentAjax {
   margin-left: 200px;
-  padding: 40px 0 40px 0;
+  padding: 0 0 40px 0;
 }
 .userIP {
   font-size: 1.5rem;
@@ -1393,4 +1395,36 @@ body.enduser {
 .home {
   background: url('../img/bgHomePortalTI.jpg') bottom right no-repeat;
   height: 524px;
+}
+
+/* Ticket notes */
+.ticketnotes {
+  border: 1px solid #CCC;
+  background: #FFFFFF url('../img/bguser.png') 15px 10px no-repeat;
+  /*-webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;*/
+  padding: 5px 10px 5px 70px;
+  margin: 0 0 0 0;
+  /*-webkit-box-shadow: 3px 3px 5px 0px rgba(153,153,153,1);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(153,153,153,1);
+  box-shadow: 3px 3px 5px 0px rgba(153,153,153,1);*/
+}
+.noteauthor {
+  color: #C2C54D;
+}
+.notes {
+  padding: 10px 0;
+}
+.tech {
+  /*margin: 5px  0 5px 0;*/
+  background: #F7F7F7 url('../img/bgtech.png') 16px 10px no-repeat;
+}
+.noteinternal {
+  background: #D33C44;
+  padding: 3px 10px;
+  color: #FFF;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
