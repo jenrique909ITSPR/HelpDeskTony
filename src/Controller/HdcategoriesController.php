@@ -51,7 +51,7 @@ class HdcategoriesController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
     public function add()
-    {
+    {   
         $hdcategory = $this->Hdcategories->newEntity();
         if ($this->request->is('post')) {
             $hdcategory = $this->Hdcategories->patchEntity($hdcategory, $this->request->getData());
@@ -63,7 +63,18 @@ class HdcategoriesController extends AppController
             $this->Flash->error(__('The hdcategory could not be saved. Please, try again.'));
         }
         $parentHdcategories = $this->Hdcategories->ParentHdcategories->find('list', ['limit' => 200]);
-        $this->set(compact('hdcategory', 'parentHdcategories'));
+        $children = $this->Hdcategories->find('treeList', [
+            'keyPath' => 'id',
+            'valuePath' => 'title',
+            'spacer' => '_'
+        ]);
+        $string1 = null;
+        foreach ($children as $key) {
+            $string1 = $string1 . $key;
+        }
+        $result = preg_split("[_]", $string1);
+        debug($result);
+        $this->set(compact('hdcategory', 'parentHdcategories','children'));
         $this->set('_serialize', ['hdcategory']);
     }
 
