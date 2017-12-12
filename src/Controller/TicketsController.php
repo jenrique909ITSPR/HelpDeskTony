@@ -132,9 +132,29 @@ class TicketsController extends AppController
             ]);
         }
 
-
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
+        $ticketnotestypesTable = TableRegistry::get('Ticketnotestypes');
+        $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
+        $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
+        $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
+        $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
+        $users = $this->Tickets->Users->find('list', ['limit' => 200]);
+        $groups = $this->Tickets->Groups->find('list', ['limit' => 200]);
+        $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
+        $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
+        $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
+        $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
+        $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
+        $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
+        $ticketnotestypes = $ticketnotestypesTable->find('list',['limit' => 200]);
+        $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets','branches'));
+
+        /*$tickets = $this->Ticketnotes->Tickets->find('list', ['limit' => 200]);
+        $users = $this->Ticketnotes->Users->find('list', ['limit' => 200]);
+        $ticketnotestypes = $this->Ticketnotes->Ticketnotestypes->find('list', ['limit' => 200]);
+        $this->set(compact('ticketnote', 'tickets', 'users', 'ticketnotestypes'));*/
+
     }
 
     /**
@@ -421,7 +441,7 @@ class TicketsController extends AppController
     function _mailsender($subject =null, $dataid = null, $sender = null, $receiver = null){
 
      $datamail = $this->Tickets->get($dataid, [
-         'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories']
+         'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories','Userautors','Userrequerieds']
      ]);
 
      $users = TableRegistry::get('Users');
@@ -441,8 +461,8 @@ class TicketsController extends AppController
         'Tipo: '=> $datamail->tickettype->name,
         'Categoria: '=> $datamail->hdcategory->title,
         'Asignado a: '=> $datamail->user->name,
-        'Solicitado por: '=> $datamail->user_requeried,
-        'Creado por: '=> $datamail->user_autor,
+        'Solicitado por: '=> $datamail->userrequeried->name,
+        'Creado por: '=> $datamail->userautor->name,
         'Impacto: '=> $datamail->ticketimpact->name,
         'Urgencia: '=> $datamail->ticketurgency->name,
         'Prioridad: '=> $datamail->ticketpriority->name,
