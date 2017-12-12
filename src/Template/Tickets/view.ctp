@@ -75,13 +75,11 @@
             <td><?= h($ticket->ip) ?></td>
         </tr>
         <tr>
-<<<<<<< HEAD
-=======
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($ticket->id) ?></td>
         </tr>
          <tr>
->>>>>>> e9f5194358a6a7b67d6c3c9032c59fd379bcd429
+
             <th scope="row"><?= __('User Autor') ?></th>
             <td><?= h($ticket->userautor->name) ?></td>
         </tr>
@@ -329,7 +327,7 @@
           <td><?= $this->Form->control('ticketpriority_id', ['options' => $ticketpriorities, 'empty' => true]); ?></td>
         </tr>
       </table>
-  
+
 
     <div class="editdata">
       <?= $this->Form->create($ticket) ?>
@@ -356,7 +354,7 @@
 
     <h4><?= __('Add information') ?></h4>
     <div class="editdata">
-      <?= $this->Form->create($ticketnote, ['url' => ['controller' => 'Ticketnotes', 'action' => 'login']]) ?>
+      <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'login']]) ?>
           <?php
               echo $this->Form->control('description');
               //echo $this->Form->control('ticket_id', ['options' => $tickets, 'empty' => true]);
@@ -377,7 +375,7 @@
               <div class="left">
                 <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->created) ?>
               </div>
-              <? if ($ticketnotes->ticketnotestype_id == 2): ?>
+              <?php if ($ticketnotes->ticketnotestype_id == 2): ?>
               <div class="noteinternal right">
                 <?= __('Internal Note') ?>
               </div>

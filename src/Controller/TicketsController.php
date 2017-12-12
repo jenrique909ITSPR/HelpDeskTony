@@ -134,7 +134,7 @@ class TicketsController extends AppController
 
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
-
+        $ticketnotestypesTable = TableRegistry::get('Ticketnotestypes');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
@@ -147,7 +147,8 @@ class TicketsController extends AppController
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
-        $this->set(compact('tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets','branches'));
+        $ticketnotestypes = $ticketnotestypesTable->find('list',['limit' => 200]);
+        $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets','branches'));
 
         /*$tickets = $this->Ticketnotes->Tickets->find('list', ['limit' => 200]);
         $users = $this->Ticketnotes->Users->find('list', ['limit' => 200]);
