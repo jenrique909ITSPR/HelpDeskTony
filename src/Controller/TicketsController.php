@@ -451,15 +451,10 @@ class TicketsController extends AppController
      );
 
 
-
-     //debug($data[0]['Titulo: ']);
-     debug($sender);
-     debug($recipient);
      foreach ($data[0] as $key => $value) {
        echo ($key.' '.$value."\n");
      }
-     //implode(' ',array_keys($data[0]))
-     //debug($datamail);
+
      $cadena= '';
      foreach ($data[0] as $key => $value) {
      $cadena = $cadena.$key.' '.$value."\n";
