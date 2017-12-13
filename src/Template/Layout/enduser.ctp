@@ -28,16 +28,16 @@ $cakeDescription = 'Portal TI';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
-	<?= $this->Html->css('font-awesome.css') ?>
-	<?= $this->Html->css('themes/gray/easyui.css') ?>
-	<?= $this->Html->css('themes/icon.css') ?>
+  <?= $this->Html->css('font-awesome.css') ?>
+  <?= $this->Html->css('themes/gray/easyui.css') ?>
+  <?= $this->Html->css('themes/icon.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
-	<?= $this->Html->script('jquery.min.js'); ?>
-	<?= $this->Html->script('jquery.easyui.min.js'); ?>
+  <?= $this->Html->script('jquery.min.js'); ?>
+  <?= $this->Html->script('jquery.easyui.min.js'); ?>
 </head>
 <body class="enduser">
 
@@ -67,7 +67,7 @@ $cakeDescription = 'Portal TI';
         </ul>
       </div>
     </div>
-
+    <br>
     <div id="contentAjax">
       <?php foreach ($messages as $key):?>
       <div class="messageEndUser">

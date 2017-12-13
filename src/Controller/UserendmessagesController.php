@@ -57,10 +57,10 @@ class UserendmessagesController extends AppController
         $userendmessage = $this->Userendmessages->newEntity();
         if ($this->request->is('post')) {
             $userendmessage = $this->Userendmessages->patchEntity($userendmessage, $this->request->getData());
-            $startdateF = new Time($userendmessage->startdate);
-            $endingdateF = new Time($userendmessage->endingdate);
-            $userendmessage->startdate = $startdateF->format('Y-m-d h:i:s');
-            $userendmessage->endingdate = $endingdateF->format('Y-m-d h:i:s');
+            $startdateF = new Time($this->request->getData('startdate'));
+            $endingdateF = new Time($this->request->getData('endingdate'));
+            $userendmessage->startdate = $startdateF->format('Y-m-d G:ia');
+            $userendmessage->endingdate = $endingdateF->format('Y-m-d G:ia');
             if ($this->Userendmessages->save($userendmessage)) {
                 $this->Flash->success(__('The userendmessage has been saved.'));
 
@@ -87,6 +87,12 @@ class UserendmessagesController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $userendmessage = $this->Userendmessages->patchEntity($userendmessage, $this->request->getData());
+            $startdateF = new Time($this->request->getData('startdate'));
+            $endingdateF = new Time($this->request->getData('endingdate'));
+            $userendmessage->startdate = $startdateF->format('Y-m-d G:ia');
+            $userendmessage->endingdate = $endingdateF->format('Y-m-d G:ia');
+            debug($userendmessage->endingdate);
+            
             if ($this->Userendmessages->save($userendmessage)) {
                 $this->Flash->success(__('The userendmessage has been saved.'));
 
@@ -95,6 +101,9 @@ class UserendmessagesController extends AppController
             $this->Flash->error(__('The userendmessage could not be saved. Please, try again.'));
         }
         $users = $this->Userendmessages->Users->find('list', ['limit' => 200]);
+        
+        $userendmessage->startdate = $userendmessage->startdate->format('Y-m-d-Y G:ia');
+        $userendmessage->endingdate = $userendmessage->endingdate->format('m-d-Y G:ia');
         $this->set(compact('userendmessage', 'users'));
         $this->set('_serialize', ['userendmessage']);
     }
