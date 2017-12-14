@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2017-12-12 16:34+0000\n"
-"PO-Revision-Date: 2017-12-12 12:21-0600\n"
+"PO-Revision-Date: 2017-12-13 14:51-0600\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr "Agregar Archivo Articulo"
 #: Template/Articlefiles/add.ctp:11;31 Template/Articlefiles/edit.ctp:11;37
 #: Template/Articlefiles/view.ctp:13;47 Template/Articles/view.ctp:125
 msgid "List Articlefiles"
-msgstr ""
+msgstr "Lista De Archivos De Articulos"
 
 #: Template/Articlefiles/add.ctp:22 Template/Articlefiles/edit.ctp:22
 #: Template/Articles/add.ctp:26 Template/Articles/edit.ctp:33
@@ -347,7 +347,7 @@ msgstr "Borrar"
 #: Template/Warehouses/edit.ctp:34 Template/Warehouses/index.ctp:33
 #: Template/Warehouses/view.ctp:12;76;107
 msgid "Are you sure you want to delete # {0}?"
-msgstr ""
+msgstr "Seguro que desea eliminar #{0}?"
 
 #: Template/Articlefiles/index.ctp:8 Template/Articles/view.ctp:54
 #: Template/Pages/admin.ctp:84
@@ -572,6 +572,8 @@ msgid ""
 "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} "
 "total"
 msgstr ""
+"Pagina {{pagina}} de {{paginas}}, mostrando {{actual}} registros(s) de "
+"{{conteo}} en total"
 
 #: Template/Articlefiles/view.ctp:11;46
 msgid "Delete Articlefile"
@@ -841,11 +843,11 @@ msgstr ""
 
 #: Template/ArticlesRoles/view.ctp:25 Template/Users/view.ctp:48
 msgid "Role"
-msgstr ""
+msgstr "Roles"
 
 #: Template/Branches/add.ctp:8
 msgid "Add Branch"
-msgstr ""
+msgstr "Agregar Sucursal"
 
 #: Template/Branches/add.ctp:11;31 Template/Branches/edit.ctp:11;37
 #: Template/Branches/view.ctp:13;199 Template/Branchgroups/add.ctp:34
@@ -857,20 +859,20 @@ msgstr ""
 #: Template/Positionbranches/view.ctp:130 Template/Warehouses/add.ctp:32
 #: Template/Warehouses/edit.ctp:38
 msgid "List Branches"
-msgstr ""
+msgstr "Lista Sucursales"
 
 #: Template/Branches/add.ctp:32 Template/Branches/edit.ctp:38
 #: Template/Branches/index.ctp:54 Template/Branches/view.ctp:201
 #: Template/Branchgroups/add.ctp:11;31 Template/Branchgroups/edit.ctp:11;37
 #: Template/Branchgroups/view.ctp:13;72
 msgid "List Branchgroups"
-msgstr ""
+msgstr "Lista Regiones"
 
 #: Template/Branches/add.ctp:33 Template/Branches/edit.ctp:39
 #: Template/Branches/index.ctp:55 Template/Branches/view.ctp:202
 #: Template/Branchgroups/index.ctp:11;53 Template/Branchgroups/view.ctp:12;73
 msgid "New Branchgroup"
-msgstr ""
+msgstr "Nueva Region"
 
 #: Template/Branches/add.ctp:34 Template/Branches/edit.ctp:40
 #: Template/Branches/index.ctp:56 Template/Branches/view.ctp:203
@@ -881,7 +883,7 @@ msgstr ""
 #: Template/Positions/edit.ctp:37 Template/Positions/index.ctp:53
 #: Template/Positions/view.ctp:104
 msgid "List Layouts"
-msgstr ""
+msgstr "Lista Layouts"
 
 #: Template/Branches/add.ctp:35 Template/Branches/edit.ctp:41
 #: Template/Branches/index.ctp:57 Template/Branches/view.ctp:204
@@ -891,7 +893,7 @@ msgstr ""
 #: Template/Positions/add.ctp:32 Template/Positions/edit.ctp:38
 #: Template/Positions/index.ctp:54 Template/Positions/view.ctp:105
 msgid "New Layout"
-msgstr ""
+msgstr "Nuevo Layout"
 
 #: Template/Branches/add.ctp:36 Template/Branches/edit.ctp:42
 #: Template/Branches/index.ctp:58 Template/Branches/view.ctp:205
@@ -947,7 +949,7 @@ msgstr ""
 #: Template/Ticketurgencies/view.ctp:105 Template/Users/add.ctp:58
 #: Template/Users/edit.ctp:64
 msgid "List Tickets"
-msgstr ""
+msgstr "Lista De Tickets"
 
 #: Template/Branches/add.ctp:39 Template/Branches/edit.ctp:45
 #: Template/Branches/index.ctp:61 Template/Branches/view.ctp:208
@@ -988,7 +990,7 @@ msgstr "Nuevo Ticket"
 #: Template/Warehouses/add.ctp:11;31 Template/Warehouses/edit.ctp:11;37
 #: Template/Warehouses/view.ctp:14
 msgid "List Warehouses"
-msgstr ""
+msgstr "Lista Almacenes"
 
 #: Template/Branches/add.ctp:41 Template/Branches/edit.ctp:47
 #: Template/Branches/index.ctp:63 Template/Branches/view.ctp:210
@@ -998,17 +1000,17 @@ msgstr ""
 #: Template/Stocks/index.ctp:58 Template/Stocks/view.ctp:51
 #: Template/Warehouses/index.ctp:12 Template/Warehouses/view.ctp:13
 msgid "New Warehouse"
-msgstr ""
+msgstr "Nuevo Almacen"
 
 #: Template/Branches/edit.ctp:8 Template/Branches/view.ctp:14;197
 msgid "Edit Branch"
-msgstr ""
+msgstr "Editar Sucursal"
 
 #: Template/Branches/index.ctp:8 Template/Branchgroups/view.ctp:34
 #: Template/Element/header.ctp:88;90 Template/Pages/admin.ctp:64;66;108
 #: Template/Tickets/team.ctp:81 Template/Tickets/view.ctp:287
 msgid "Branches"
-msgstr ""
+msgstr "Sucursales"
 
 #: Template/Branches/index.ctp:11;53 Template/Branches/view.ctp:12;200
 #: Template/Branchgroups/add.ctp:35 Template/Branchgroups/edit.ctp:41
@@ -1020,38 +1022,38 @@ msgstr ""
 #: Template/Positionbranches/view.ctp:131 Template/Warehouses/add.ctp:33
 #: Template/Warehouses/edit.ctp:39
 msgid "New Branch"
-msgstr ""
+msgstr "Nueva Sucursal"
 
 #: Template/Branches/view.ctp:11;198
 msgid "Delete Branch"
-msgstr ""
+msgstr "Borrar Sucursal"
 
 #: Template/Branches/view.ctp:24 Template/Tickets/view.ctp:295
 msgid "Branchgroup"
-msgstr ""
+msgstr "Region"
 
 #: Template/Branches/view.ctp:34 Template/Element/header.ctp:92
 #: Template/Layouts/index.ctp:9 Template/Pages/admin.ctp:72
 #: Template/Positions/view.ctp:31
 msgid "Layouts"
-msgstr ""
+msgstr "Layouts"
 
 #: Template/Branches/view.ctp:35 Template/Positions/view.ctp:32
 msgid "Related Layouts"
-msgstr ""
+msgstr "Layouts Relacionados"
 
 #: Template/Branches/view.ctp:41;72;122;169 Template/Positions/view.ctp:38;69
 msgid "Branch Id"
-msgstr ""
+msgstr "ID Sucursal"
 
 #: Template/Branches/view.ctp:42;73 Template/Positions/view.ctp:39;70
 msgid "Position Id"
-msgstr ""
+msgstr "ID Posicion"
 
 #: Template/Branches/view.ctp:43 Template/Layoutcategories/view.ctp:25
 #: Template/Layouts/view.ctp:33 Template/Positions/view.ctp:40
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #: Template/Branches/view.ctp:65 Template/Pages/admin.ctp:75
 #: Template/Positionbranches/index.ctp:9 Template/Positions/view.ctp:62
@@ -1070,7 +1072,7 @@ msgstr ""
 #: Template/Tickets/view.ctp:222 Template/Tickettypes/view.ctp:43
 #: Template/Ticketurgencies/view.ctp:31 Template/Users/view.ctp:258
 msgid "Tickets"
-msgstr ""
+msgstr "Tickets"
 
 #: Template/Branches/view.ctp:97 Template/Groups/view.ctp:77
 #: Template/Hdcategories/view.ctp:150 Template/Itemcodes/view.ctp:95
@@ -1079,7 +1081,7 @@ msgstr ""
 #: Template/Tickettypes/view.ctp:44 Template/Ticketurgencies/view.ctp:32
 #: Template/Users/view.ctp:259
 msgid "Related Tickets"
-msgstr ""
+msgstr "Tickets Relacionados"
 
 #: Template/Branches/view.ctp:103 Template/Groups/view.ctp:83
 #: Template/Hdcategories/view.ctp:156 Template/Itemcodes/view.ctp:101
@@ -1088,7 +1090,7 @@ msgstr ""
 #: Template/Tickettypes/view.ctp:50 Template/Ticketurgencies/view.ctp:38
 #: Template/Users/view.ctp:265
 msgid "Tickettype Id"
-msgstr ""
+msgstr "ID Tipo De Ticket"
 
 #: Template/Branches/view.ctp:104 Template/Groups/view.ctp:84
 #: Template/Hdcategories/view.ctp:157 Template/Itemcodes/view.ctp:102
@@ -1106,7 +1108,7 @@ msgstr "ID Estado De Ticket"
 #: Template/Tickettypes/view.ctp:52 Template/Ticketurgencies/view.ctp:40
 #: Template/Users/view.ctp:267
 msgid "Source Id"
-msgstr ""
+msgstr "ID Fuente"
 
 #: Template/Branches/view.ctp:107 Template/Groups/view.ctp:88
 #: Template/Hdcategories/view.ctp:161 Template/Itemcodes/view.ctp:106
@@ -1115,7 +1117,7 @@ msgstr ""
 #: Template/Tickets/view.ctp:38;234 Template/Tickettypes/view.ctp:55
 #: Template/Ticketurgencies/view.ctp:43 Template/Users/view.ctp:270
 msgid "Solution"
-msgstr ""
+msgstr "Solucion"
 
 #: Template/Branches/view.ctp:108 Template/Groups/view.ctp:89
 #: Template/Hdcategories/view.ctp:162 Template/Itemcodes/view.ctp:107
@@ -1124,7 +1126,7 @@ msgstr ""
 #: Template/Tickets/view.ctp:105;235 Template/Tickettypes/view.ctp:56
 #: Template/Ticketurgencies/view.ctp:44 Template/Users/view.ctp:271
 msgid "Resolution"
-msgstr ""
+msgstr "Resolucion"
 
 #: Template/Branches/view.ctp:109 Template/Groups/view.ctp:90
 #: Template/Hdcategories/view.ctp:163 Template/Itemcodes/view.ctp:68;108
@@ -1134,7 +1136,7 @@ msgstr ""
 #: Template/Tickettypes/view.ctp:57 Template/Ticketurgencies/view.ctp:45
 #: Template/Users/view.ctp:272
 msgid "Itemcode Id"
-msgstr ""
+msgstr "ID Itemcode"
 
 #: Template/Branches/view.ctp:110 Template/Groups/view.ctp:43;91
 #: Template/Hdcategories/view.ctp:57;164 Template/Itemcodes/view.ctp:109
@@ -1147,7 +1149,7 @@ msgstr ""
 #: Template/Users/view.ctp:69;106;142;183;225;273
 #: Template/Warehouses/view.ctp:50
 msgid "User Id"
-msgstr ""
+msgstr "ID Usuario"
 
 #: Template/Branches/view.ctp:111 Template/Groups/view.ctp:44;92;151
 #: Template/Hdcategories/view.ctp:165 Template/Itemcodes/view.ctp:110
@@ -1157,7 +1159,7 @@ msgstr ""
 #: Template/Tickets/view.ctp:161;238 Template/Tickettypes/view.ctp:59
 #: Template/Ticketurgencies/view.ctp:47 Template/Users/view.ctp:226;274
 msgid "Group Id"
-msgstr ""
+msgstr "ID Grupo "
 
 #: Template/Branches/view.ctp:112 Template/Groups/view.ctp:93
 #: Template/Hdcategories/view.ctp:166 Template/Itemcodes/view.ctp:111
@@ -1184,7 +1186,7 @@ msgstr "Requerido Por"
 #: Template/Tickettypes/view.ctp:63 Template/Ticketurgencies/view.ctp:51
 #: Template/Users/view.ctp:278
 msgid "Ticketimpact Id"
-msgstr ""
+msgstr "ID Impacto"
 
 #: Template/Branches/view.ctp:116 Template/Groups/view.ctp:97
 #: Template/Hdcategories/view.ctp:170 Template/Itemcodes/view.ctp:115
@@ -1193,7 +1195,7 @@ msgstr ""
 #: Template/Tickettypes/view.ctp:64 Template/Ticketurgencies/view.ctp:52
 #: Template/Users/view.ctp:279
 msgid "Ticketurgency Id"
-msgstr ""
+msgstr "ID Urgencia"
 
 #: Template/Branches/view.ctp:117 Template/Groups/view.ctp:98
 #: Template/Hdcategories/view.ctp:171 Template/Itemcodes/view.ctp:116
@@ -1202,7 +1204,7 @@ msgstr ""
 #: Template/Tickettypes/view.ctp:65 Template/Ticketurgencies/view.ctp:53
 #: Template/Users/view.ctp:280
 msgid "Ticketpriority Id"
-msgstr ""
+msgstr "ID Prioridad"
 
 #: Template/Branches/view.ctp:118 Template/Groups/view.ctp:99
 #: Template/Hdcategories/view.ctp:93;172 Template/Itemcategories/view.ctp:43
@@ -1222,57 +1224,57 @@ msgstr ""
 #: Template/Tickets/view.ctp:246 Template/Tickettypes/view.ctp:67
 #: Template/Ticketurgencies/view.ctp:55 Template/Users/view.ctp:67;282
 msgid "Hdcategory Id"
-msgstr ""
+msgstr "ID Categoria HD"
 
 #: Template/Branches/view.ctp:121 Template/Hdcategories/view.ctp:175
 #: Template/Tickets/enduserview.ctp:74 Template/Tickets/view.ctp:74;248
 msgid "Ip"
-msgstr ""
+msgstr "IP"
 
 #: Template/Branches/view.ctp:161 Template/Element/header.ctp:77
 #: Template/Pages/admin.ctp:68 Template/Warehouses/index.ctp:9
 msgid "Warehouses"
-msgstr ""
+msgstr "Almacenes"
 
 #: Template/Branches/view.ctp:162
 msgid "Related Warehouses"
-msgstr ""
+msgstr "Almacenes Relacionados"
 
 #: Template/Branchgroups/add.ctp:8
 msgid "Add Branchgroup"
-msgstr ""
+msgstr "Agregar Region"
 
 #: Template/Branchgroups/edit.ctp:8 Template/Branchgroups/view.ctp:14;70
 msgid "Edit Branchgroup"
-msgstr ""
+msgstr "Editar Region"
 
 #: Template/Branchgroups/index.ctp:8 Template/Element/header.ctp:91
 #: Template/Pages/admin.ctp:67
 msgid "Branchgroups"
-msgstr ""
+msgstr "Regiones"
 
 #: Template/Branchgroups/view.ctp:11;71
 msgid "Delete Branchgroup"
-msgstr ""
+msgstr "Borrar Region"
 
 #: Template/Branchgroups/view.ctp:35 Template/Tickets/view.ctp:288
 msgid "Related Branches"
-msgstr ""
+msgstr "Regiones Relacionadas"
 
 #: Template/Branchgroups/view.ctp:42
 msgid "Branchgroup Id"
-msgstr ""
+msgstr "ID Region"
 
 #: Template/Brands/add.ctp:8
 msgid "Add Brand"
-msgstr ""
+msgstr "Agregar Marca"
 
 #: Template/Brands/add.ctp:11;30 Template/Brands/edit.ctp:11;36
 #: Template/Brands/view.ctp:14;79 Template/Items/add.ctp:41
 #: Template/Items/edit.ctp:47 Template/Items/index.ctp:69
 #: Template/Items/view.ctp:177
 msgid "List Brands"
-msgstr ""
+msgstr "Lista De Marcas"
 
 #: Template/Brands/add.ctp:31 Template/Brands/edit.ctp:37
 #: Template/Brands/index.ctp:53 Template/Brands/view.ctp:81
@@ -1290,7 +1292,7 @@ msgstr ""
 #: Template/Stocks/edit.ctp:41 Template/Stocks/index.ctp:59
 #: Template/Stocks/view.ctp:52
 msgid "List Items"
-msgstr ""
+msgstr "Lista De Items"
 
 #: Template/Brands/add.ctp:32 Template/Brands/edit.ctp:38
 #: Template/Brands/index.ctp:54 Template/Brands/view.ctp:82
@@ -1307,136 +1309,136 @@ msgstr ""
 #: Template/Stocks/edit.ctp:42 Template/Stocks/index.ctp:60
 #: Template/Stocks/view.ctp:53
 msgid "New Item"
-msgstr ""
+msgstr "Nuevo Item"
 
 #: Template/Brands/edit.ctp:8 Template/Brands/view.ctp:15;77
 msgid "Edit Brand"
-msgstr ""
+msgstr "Editar Marca"
 
 #: Template/Brands/index.ctp:9 Template/Element/header.ctp:76
 #: Template/Pages/admin.ctp:50
 msgid "Brands"
-msgstr ""
+msgstr "Marcas"
 
 #: Template/Brands/index.ctp:12;52 Template/Brands/view.ctp:13;80
 #: Template/Items/add.ctp:42 Template/Items/edit.ctp:48
 #: Template/Items/index.ctp:70 Template/Items/view.ctp:178
 msgid "New Brand"
-msgstr ""
+msgstr "Nueva Marca"
 
 #: Template/Brands/view.ctp:12;78
 msgid "Delete Brand"
-msgstr ""
+msgstr "Borrar Marca"
 
 #: Template/Brands/view.ctp:31 Template/Currencies/view.ctp:31
 #: Template/Element/header.ctp:74 Template/Itemcategories/view.ctp:64
 #: Template/Items/index.ctp:9 Template/Layout/items.ctp:9
 #: Template/Pages/admin.ctp:45;47
 msgid "Items"
-msgstr ""
+msgstr "Items"
 
 #: Template/Brands/view.ctp:32 Template/Currencies/view.ctp:32
 #: Template/Itemcategories/view.ctp:65
 msgid "Related Items"
-msgstr ""
+msgstr "Items Relacionados"
 
 #: Template/Brands/view.ctp:39 Template/Currencies/view.ctp:39
 #: Template/Itemcategories/view.ctp:72;110 Template/Layouts/view.ctp:46
 msgid "Itemcategory Id"
-msgstr ""
+msgstr "ID Categoria De Item"
 
 #: Template/Brands/view.ctp:40 Template/Currencies/view.ctp:40
 #: Template/Itemcategories/view.ctp:73
 msgid "Currency Id"
-msgstr ""
+msgstr "ID Moneda"
 
 #: Template/Brands/view.ctp:41 Template/Currencies/view.ctp:41
 #: Template/Itemcategories/view.ctp:74 Template/Items/view.ctp:33
 msgid "Model"
-msgstr ""
+msgstr "Modelo"
 
 #: Template/Brands/view.ctp:42 Template/Currencies/view.ctp:42
 #: Template/Groups/view.ctp:25 Template/Itemcategories/view.ctp:75
 #: Template/Items/view.ctp:37 Template/Tickettypes/view.ctp:29
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
 #: Template/Brands/view.ctp:43 Template/Currencies/view.ctp:43
 #: Template/Itemcategories/view.ctp:76 Template/Items/view.ctp:49
 msgid "Unit Cost"
-msgstr ""
+msgstr "Costo Unitario"
 
 #: Template/Brands/view.ctp:44 Template/Currencies/view.ctp:44
 #: Template/Itemcategories/view.ctp:77
 msgid "Brand Id"
-msgstr ""
+msgstr "ID Marca"
 
 #: Template/Currencies/add.ctp:8
 msgid "Add Currency"
-msgstr ""
+msgstr "Agregar Moneda"
 
 #: Template/Currencies/add.ctp:11;30 Template/Currencies/edit.ctp:11;36
 #: Template/Currencies/view.ctp:14;79 Template/Items/add.ctp:39
 #: Template/Items/edit.ctp:45 Template/Items/index.ctp:67
 #: Template/Items/view.ctp:175
 msgid "List Currencies"
-msgstr ""
+msgstr "Lista De Monedas"
 
 #: Template/Currencies/edit.ctp:8 Template/Currencies/view.ctp:15;77
 msgid "Edit Currency"
-msgstr ""
+msgstr "Editar Moneda"
 
 #: Template/Currencies/index.ctp:9 Template/Element/header.ctp:85
 #: Template/Pages/admin.ctp:51
 msgid "Currencies"
-msgstr ""
+msgstr "Monedas"
 
 #: Template/Currencies/index.ctp:12;52 Template/Currencies/view.ctp:13;80
 #: Template/Items/add.ctp:40 Template/Items/edit.ctp:46
 #: Template/Items/index.ctp:68 Template/Items/view.ctp:176
 msgid "New Currency"
-msgstr ""
+msgstr "Nueva Moneda"
 
 #: Template/Currencies/view.ctp:12;78
 msgid "Delete Currency"
-msgstr ""
+msgstr "Borrar Moneda"
 
 #: Template/Element/header.ctp:61 Template/Pages/admin.ctp:105
 msgid "HelpDesk"
-msgstr ""
+msgstr "HelpDesk"
 
 #: Template/Element/header.ctp:66;110 Template/Layout/articles.ctp:9
 #: Template/Layout/enduser.ctp:66 Template/Pages/admin.ctp:106
 msgid "Knowledge"
-msgstr ""
+msgstr "B.D. De Conocimiento"
 
 #: Template/Element/header.ctp:69 Template/Hdcategories/index.ctp:8
 #: Template/Hdcategories/view.ctp:85 Template/Pages/admin.ctp:36
 msgid "Hdcategories"
-msgstr ""
+msgstr "Categorias HD"
 
 #: Template/Element/header.ctp:72 Template/Pages/admin.ctp:107
 msgid "Inventory"
-msgstr ""
+msgstr "Inventario"
 
 #: Template/Element/header.ctp:75 Template/Itemcategories/index.ctp:9
 #: Template/Itemcategories/view.ctp:35 Template/Pages/admin.ctp:48
 msgid "Itemcategories"
-msgstr ""
+msgstr "Categorias De Items"
 
 #: Template/Element/header.ctp:78 Template/Pages/admin.ctp:54
 #: Template/Shippers/index.ctp:9
 msgid "Shippers"
-msgstr ""
+msgstr "Medios De Envio"
 
 #: Template/Element/header.ctp:81
 msgid "Purchases"
-msgstr ""
+msgstr "Compras"
 
 #: Template/Element/header.ctp:83 Template/Pages/admin.ctp:53
 #: Template/Suppliers/index.ctp:9
 msgid "Suppliers"
-msgstr ""
+msgstr "Proveedores"
 
 #: Template/Element/header.ctp:84 Template/Invoices/index.ctp:9
 #: Template/Pages/admin.ctp:52 Template/Suppliers/view.ctp:31
@@ -1481,7 +1483,7 @@ msgstr "Lista De Grupos"
 #: Template/Ticketlogs/view.ctp:14;68 Template/Tickets/clonar.ctp:80
 #: Template/Users/add.ctp:56 Template/Users/edit.ctp:62
 msgid "List Ticketlogs"
-msgstr ""
+msgstr "Lista De Registros De Tickets"
 
 #: Template/Groups/add.ctp:33 Template/Groups/edit.ctp:39
 #: Template/Groups/index.ctp:56 Template/Groups/view.ctp:190
@@ -1489,7 +1491,7 @@ msgstr ""
 #: Template/Tickets/clonar.ctp:81 Template/Users/add.ctp:57
 #: Template/Users/edit.ctp:63
 msgid "New Ticketlog"
-msgstr ""
+msgstr "Nuevo Registro De Ticket"
 
 #: Template/Groups/edit.ctp:8 Template/Groups/view.ctp:15;185
 msgid "Edit Group"
@@ -1509,7 +1511,7 @@ msgstr "Nuevo Grupo"
 
 #: Template/Groups/view.ctp:12;186
 msgid "Delete Group"
-msgstr ""
+msgstr "Borrar Grupo"
 
 #: Template/Groups/view.ctp:35 Template/Pages/admin.ctp:40
 #: Template/Ticketlogs/index.ctp:9 Template/Tickets/view.ctp:148
@@ -1525,7 +1527,7 @@ msgstr ""
 #: Template/Tickets/enduserview.ctp:118;156
 #: Template/Tickets/view.ctp:123;159;201 Template/Users/view.ctp:105;224
 msgid "Ticket Id"
-msgstr ""
+msgstr "ID Ticket"
 
 #: Template/Groups/view.ctp:45 Template/Ticketlogs/view.ctp:41
 #: Template/Tickets/view.ctp:162 Template/Users/view.ctp:227
@@ -1540,12 +1542,12 @@ msgstr ""
 #: Template/Groups/view.ctp:47 Template/Ticketlogs/view.ctp:33
 #: Template/Tickets/view.ctp:164 Template/Users/view.ctp:229
 msgid "New Status"
-msgstr ""
+msgstr "Nuevo Estado"
 
 #: Template/Groups/view.ctp:49 Template/Ticketlogs/view.ctp:55
 #: Template/Tickets/view.ctp:166 Template/Users/view.ctp:231
 msgid "Coments"
-msgstr ""
+msgstr "Comentarios"
 
 #: Template/Groups/view.ctp:87 Template/Hdcategories/view.ctp:28;96;160
 #: Template/Itemcodes/view.ctp:105 Template/Sources/view.ctp:42
@@ -1554,25 +1556,25 @@ msgstr ""
 #: Template/Tickets/view.ctp:233 Template/Tickettypes/view.ctp:54
 #: Template/Ticketurgencies/view.ctp:42 Template/Users/view.ctp:269
 msgid "Description"
-msgstr ""
+msgstr "Descripcion"
 
 #: Template/Groups/view.ctp:139 Template/Pages/admin.ctp:57;59;109
 #: Template/Positionbranches/view.ctp:80 Template/Roles/view.ctp:31
 #: Template/Statususers/view.ctp:31 Template/Tickets/team.ctp:70
 #: Template/Users/index.ctp:8
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 #: Template/Groups/view.ctp:140 Template/Positionbranches/view.ctp:81
 #: Template/Roles/view.ctp:32 Template/Statususers/view.ctp:32
 msgid "Related Users"
-msgstr ""
+msgstr "Usuarios Relacionados"
 
 #: Template/Groups/view.ctp:147 Template/Positionbranches/view.ctp:88
 #: Template/Roles/view.ctp:39 Template/Statususers/view.ctp:39
 #: Template/Users/view.ctp:28
 msgid "Last Name"
-msgstr ""
+msgstr "Apellido"
 
 #: Template/Groups/view.ctp:148 Template/Invoices/view.ctp:60
 #: Template/Items/view.ctp:68 Template/Positionbranches/view.ctp:52;89
@@ -1585,7 +1587,7 @@ msgstr ""
 #: Template/Roles/view.ctp:41 Template/Statususers/view.ctp:41
 #: Template/Users/view.ctp:36
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: Template/Groups/view.ctp:150 Template/Positionbranches/view.ctp:91
 #: Template/Roles/view.ctp:42 Template/Statususers/view.ctp:42
@@ -1595,11 +1597,11 @@ msgstr ""
 #: Template/Groups/view.ctp:152 Template/Positionbranches/view.ctp:93
 #: Template/Roles/view.ctp:44 Template/Statususers/view.ctp:44
 msgid "Role Id"
-msgstr ""
+msgstr "ID Rol"
 
 #: Template/Hdcategories/add.ctp:8
 msgid "Add Hdcategory"
-msgstr ""
+msgstr "Agregar Categoria HD"
 
 #: Template/Hdcategories/add.ctp:34 Template/Hdcategories/edit.ctp:39
 #: Template/Hdcategories/view.ctp:225
@@ -1626,11 +1628,11 @@ msgstr ""
 
 #: Template/Hdcategories/edit.ctp:8 Template/Hdcategories/view.ctp:14;221
 msgid "Edit Hdcategory"
-msgstr ""
+msgstr "Editar Categoria HD"
 
 #: Template/Hdcategories/view.ctp:11;222
 msgid "Delete Hdcategory"
-msgstr ""
+msgstr "Borrar Categoria HD"
 
 #: Template/Hdcategories/view.ctp:24
 msgid "Parent Hdcategory"
@@ -1647,16 +1649,16 @@ msgstr ""
 #: Template/Hdcategories/view.ctp:47 Template/Roles/view.ctp:71
 #: Template/Users/view.ctp:59
 msgid "Related Articles"
-msgstr ""
+msgstr "Articulos Relacionados"
 
 #: Template/Hdcategories/view.ctp:54 Template/Roles/view.ctp:78
 #: Template/Users/view.ctp:66
 msgid "Answer"
-msgstr ""
+msgstr "Respuesta"
 
 #: Template/Hdcategories/view.ctp:86
 msgid "Related Hdcategories"
-msgstr ""
+msgstr "Categorias HD Relacionadas"
 
 #: Template/Hdcategories/view.ctp:120 Template/Hdtemplate/index.ctp:9
 #: Template/Pages/admin.ctp:37
@@ -1681,7 +1683,7 @@ msgstr ""
 
 #: Template/Invoices/add.ctp:8
 msgid "Add Invoice"
-msgstr ""
+msgstr "Agregar Factura"
 
 #: Template/Invoices/add.ctp:11;34 Template/Invoices/edit.ctp:11;40
 #: Template/Invoices/view.ctp:14;97 Template/Itemcodes/add.ctp:39
@@ -1690,20 +1692,20 @@ msgstr ""
 #: Template/Suppliers/edit.ctp:37 Template/Suppliers/index.ctp:53
 #: Template/Suppliers/view.ctp:77
 msgid "List Invoices"
-msgstr ""
+msgstr "Lista Factura"
 
 #: Template/Invoices/add.ctp:35 Template/Invoices/edit.ctp:41
 #: Template/Invoices/index.ctp:61 Template/Invoices/view.ctp:99
 #: Template/Suppliers/add.ctp:11;30 Template/Suppliers/edit.ctp:11;36
 #: Template/Suppliers/view.ctp:14;75
 msgid "List Suppliers"
-msgstr ""
+msgstr "Lista Proveedores"
 
 #: Template/Invoices/add.ctp:36 Template/Invoices/edit.ctp:42
 #: Template/Invoices/index.ctp:62 Template/Invoices/view.ctp:100
 #: Template/Suppliers/index.ctp:12;52 Template/Suppliers/view.ctp:13;76
 msgid "New Supplier"
-msgstr ""
+msgstr "Nuevo Proveedor"
 
 #: Template/Invoices/add.ctp:37 Template/Invoices/edit.ctp:43
 #: Template/Invoices/index.ctp:63 Template/Invoices/view.ctp:101
@@ -1719,7 +1721,7 @@ msgstr ""
 #: Template/StockmovesDetails/index.ctp:65
 #: Template/StockmovesDetails/view.ctp:62 Template/Tickets/clonar.ctp:60
 msgid "List Itemcodes"
-msgstr ""
+msgstr "Lista Itemcodes"
 
 #: Template/Invoices/add.ctp:38 Template/Invoices/edit.ctp:44
 #: Template/Invoices/index.ctp:64 Template/Invoices/view.ctp:102
@@ -1735,11 +1737,11 @@ msgstr ""
 #: Template/StockmovesDetails/index.ctp:66
 #: Template/StockmovesDetails/view.ctp:63 Template/Tickets/clonar.ctp:61
 msgid "New Itemcode"
-msgstr ""
+msgstr "Nuevo Itemcode"
 
 #: Template/Invoices/edit.ctp:8 Template/Invoices/view.ctp:15;95
 msgid "Edit Invoice"
-msgstr ""
+msgstr "Editar Factura"
 
 #: Template/Invoices/index.ctp:12;60 Template/Invoices/view.ctp:13;98
 #: Template/Itemcodes/add.ctp:40 Template/Itemcodes/edit.ctp:46
@@ -1747,60 +1749,60 @@ msgstr ""
 #: Template/Suppliers/add.ctp:32 Template/Suppliers/edit.ctp:38
 #: Template/Suppliers/index.ctp:54 Template/Suppliers/view.ctp:78
 msgid "New Invoice"
-msgstr ""
+msgstr "Nueva Factura"
 
 #: Template/Invoices/view.ctp:12;96
 msgid "Delete Invoice"
-msgstr ""
+msgstr "Borrar Factura"
 
 #: Template/Invoices/view.ctp:21 Template/Suppliers/view.ctp:38
 msgid "Number"
-msgstr ""
+msgstr "Numero"
 
 #: Template/Invoices/view.ctp:25
 msgid "Supplier"
-msgstr ""
+msgstr "Proveedor"
 
 #: Template/Invoices/view.ctp:29 Template/Suppliers/view.ctp:40
 msgid "Pdf"
-msgstr ""
+msgstr "PDF"
 
 #: Template/Invoices/view.ctp:33 Template/Suppliers/view.ctp:41
 msgid "Xml"
-msgstr ""
+msgstr "XML"
 
 #: Template/Invoices/view.ctp:37 Template/Suppliers/view.ctp:42
 msgid "Purchase Order"
-msgstr ""
+msgstr "Orden De Compra"
 
 #: Template/Invoices/view.ctp:47 Template/Itemcodes/index.ctp:9
 #: Template/Items/view.ctp:55 Template/Pages/admin.ctp:49
 #: Template/Positionbranches/view.ctp:39 Template/Statusitems/view.ctp:31
 msgid "Itemcodes"
-msgstr ""
+msgstr "Itemcodes"
 
 #: Template/Invoices/view.ctp:48 Template/Items/view.ctp:56
 #: Template/Positionbranches/view.ctp:40 Template/Statusitems/view.ctp:32
 msgid "Related Itemcodes"
-msgstr ""
+msgstr "Itemcodes Relacionados"
 
 #: Template/Invoices/view.ctp:54 Template/Itemcodes/view.ctp:67
 #: Template/Items/view.ctp:62;104;139 Template/Positionbranches/view.ctp:46
 #: Template/Statusitems/view.ctp:38 Template/Stockmoves/view.ctp:83
 #: Template/Warehouses/view.ctp:92
 msgid "Item Id"
-msgstr ""
+msgstr "ID Item"
 
 #: Template/Invoices/view.ctp:55 Template/Itemcodes/view.ctp:25
 #: Template/Items/view.ctp:63 Template/Positionbranches/view.ctp:47
 #: Template/Statusitems/view.ctp:39
 msgid "Serial"
-msgstr ""
+msgstr "Serial"
 
 #: Template/Invoices/view.ctp:56 Template/Items/view.ctp:64
 #: Template/Positionbranches/view.ctp:48 Template/Statusitems/view.ctp:40
 msgid "Invoice Id"
-msgstr ""
+msgstr "ID Factura"
 
 #: Template/Invoices/view.ctp:57 Template/Items/view.ctp:65
 #: Template/Positionbranches/view.ctp:49 Template/Statusitems/view.ctp:41
@@ -1811,7 +1813,7 @@ msgstr ""
 #: Template/Items/view.ctp:67 Template/Positionbranches/view.ctp:51
 #: Template/Statusitems/view.ctp:43
 msgid "Warranty"
-msgstr ""
+msgstr "Garantia"
 
 #: Template/Invoices/view.ctp:61 Template/Itemcodes/view.ctp:41
 #: Template/Items/view.ctp:69 Template/Positionbranches/view.ctp:53
@@ -1821,7 +1823,7 @@ msgstr ""
 
 #: Template/Itemcategories/add.ctp:8
 msgid "Add Itemcategory"
-msgstr ""
+msgstr "Agregar Categoria De Item"
 
 #: Template/Itemcategories/add.ctp:11;31 Template/Itemcategories/edit.ctp:11;37
 #: Template/Itemcategories/view.ctp:14;145 Template/Items/add.ctp:37
@@ -1909,11 +1911,11 @@ msgstr ""
 #: Template/Itemcategories/view.ctp:113 Template/Layoutcategories/view.ctp:37
 #: Template/Layouts/view.ctp:49
 msgid "Compare"
-msgstr ""
+msgstr "Comparar"
 
 #: Template/Itemcodes/add.ctp:8
 msgid "Add Itemcode"
-msgstr ""
+msgstr "Agregar Itemcode"
 
 #: Template/Itemcodes/add.ctp:41 Template/Itemcodes/edit.ctp:47
 #: Template/Itemcodes/index.ctp:71 Template/Itemcodes/view.ctp:172
@@ -1957,7 +1959,7 @@ msgstr ""
 
 #: Template/Itemcodes/view.ctp:12;165
 msgid "Delete Itemcode"
-msgstr ""
+msgstr "Borrar Itemcode"
 
 #: Template/Itemcodes/view.ctp:21 Template/StockmovesDetails/view.ctp:25
 #: Template/Stocks/view.ctp:25
@@ -1994,11 +1996,11 @@ msgstr ""
 #: Template/Itemcodes/view.ctp:70 Template/Items/view.ctp:107
 #: Template/Stockmoves/view.ctp:86 Template/StockmovesDetails/view.ctp:41
 msgid "Deliverydate"
-msgstr ""
+msgstr "Fecha De Entrega"
 
 #: Template/Items/add.ctp:8
 msgid "Add Item"
-msgstr ""
+msgstr "Agregar Item"
 
 #: Template/Items/add.ctp:47 Template/Items/edit.ctp:53
 #: Template/Items/index.ctp:75 Template/Items/view.ctp:183
@@ -2029,11 +2031,11 @@ msgstr ""
 
 #: Template/Items/view.ctp:29
 msgid "Currency"
-msgstr ""
+msgstr "Moneda"
 
 #: Template/Items/view.ctp:41
 msgid "Brand"
-msgstr ""
+msgstr "Marca"
 
 #: Template/Items/view.ctp:131 Template/Pages/admin.ctp:70
 #: Template/Stocks/index.ctp:9 Template/Warehouses/view.ctp:84
@@ -2048,7 +2050,7 @@ msgstr ""
 #: Template/Shippers/view.ctp:38 Template/Users/view.ctp:175
 #: Template/Warehouses/view.ctp:42;91
 msgid "Warehouse Id"
-msgstr ""
+msgstr "ID Almacen"
 
 #: Template/Items/view.ctp:140 Template/Stocks/view.ctp:33
 #: Template/Warehouses/view.ctp:93
@@ -2071,11 +2073,11 @@ msgstr ""
 #: Template/Layout/error.ctp:35 Template/Error/error400.ctp:36
 #: Template/Error/error500.ctp:41
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: Template/Layout/error.ctp:43
 msgid "Back"
-msgstr ""
+msgstr "Retroceder"
 
 #: Template/Layout/tickets.ctp:24 Template/Tickets/index.ctp:13
 #: Template/Tickets/team.ctp:40
@@ -2084,15 +2086,15 @@ msgstr "Mi Grupo"
 
 #: Template/Layout/tickets.ctp:25
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 #: Template/Layout/tickets.ctp:40
 msgid "Search ticket #"
-msgstr ""
+msgstr "Buscar Ticket #"
 
 #: Template/Layoutcategories/add.ctp:8
 msgid "Add Layoutcategory"
-msgstr ""
+msgstr "Agregar Categoria Layout"
 
 #: Template/Layoutcategories/edit.ctp:8
 #: Template/Layoutcategories/view.ctp:15;50
@@ -2105,7 +2107,7 @@ msgstr ""
 
 #: Template/Layouts/add.ctp:8
 msgid "Add Layout"
-msgstr ""
+msgstr "Agregar Layout"
 
 #: Template/Layouts/add.ctp:35 Template/Layouts/edit.ctp:41
 #: Template/Layouts/index.ctp:59 Template/Layouts/view.ctp:85
@@ -2136,7 +2138,7 @@ msgstr ""
 #: Template/Layouts/view.ctp:21 Template/Positionbranches/view.ctp:21
 #: Template/Tickets/view.ctp:99 Template/Warehouses/view.ctp:25
 msgid "Branch"
-msgstr ""
+msgstr "Sucursal"
 
 #: Template/Layouts/view.ctp:25 Template/Positionbranches/view.ctp:25
 msgid "Position"
@@ -2277,7 +2279,7 @@ msgstr ""
 #: Template/Movereasons/view.ctp:82 Template/Shippers/view.ctp:43
 #: Template/Users/view.ctp:180 Template/Warehouses/view.ctp:47
 msgid "Shipper Id"
-msgstr ""
+msgstr "ID Medio De Envio"
 
 #: Template/Movereasons/view.ctp:83 Template/Shippers/view.ctp:44
 #: Template/Stockmoves/view.ctp:37 Template/Users/view.ctp:181
@@ -2322,7 +2324,7 @@ msgstr ""
 
 #: Template/Pages/admin.ctp:30 Template/Tickettypes/index.ctp:8
 msgid "Tickettypes"
-msgstr "Tipos De Ticket"
+msgstr "Tipo De Tickets"
 
 #: Template/Pages/admin.ctp:31 Template/Ticketstatuses/index.ctp:9
 msgid "Ticketstatuses"
@@ -2330,32 +2332,32 @@ msgstr "Estados De Tickets"
 
 #: Template/Pages/admin.ctp:32 Template/Sources/index.ctp:9
 msgid "Sources"
-msgstr ""
+msgstr "Fuentes"
 
 #: Template/Pages/admin.ctp:33 Template/Ticketimpacts/index.ctp:9
 msgid "Ticketimpacts"
-msgstr ""
+msgstr "Impacto De Ticket"
 
 #: Template/Pages/admin.ctp:34 Template/Ticketurgencies/index.ctp:9
 msgid "Ticketurgencies"
-msgstr ""
+msgstr "Urgencia De Ticket"
 
 #: Template/Pages/admin.ctp:35 Template/Ticketpriorities/index.ctp:9
 msgid "Ticketpriorities"
-msgstr ""
+msgstr "Prioridad De Ticket"
 
 #: Template/Pages/admin.ctp:38
 msgid "Internalnotes"
-msgstr ""
+msgstr "Notas Internas"
 
 #: Template/Pages/admin.ctp:39 Template/Tickets/enduserview.ctp:106
 msgid "Publicnotes"
-msgstr ""
+msgstr "Notas Publicas"
 
 #: Template/Pages/admin.ctp:41 Template/Tickets/enduserview.ctp:144
 #: Template/Ticketsfiles/index.ctp:8
 msgid "Ticketsfiles"
-msgstr ""
+msgstr "Archivos De Ticket"
 
 #: Template/Pages/admin.ctp:42 Template/Ticketmarkeds/index.ctp:8
 #: Template/Tickets/view.ctp:193
@@ -2397,56 +2399,56 @@ msgstr ""
 
 #: Template/Positions/add.ctp:8
 msgid "Add Position"
-msgstr ""
+msgstr "Agregar Posicion"
 
 #: Template/Positions/edit.ctp:8 Template/Positions/view.ctp:15;100
 msgid "Edit Position"
-msgstr ""
+msgstr "Editar Posicion"
 
 #: Template/Positions/view.ctp:12;101
 msgid "Delete Position"
-msgstr ""
+msgstr "Borrar Posicion"
 
 #: Template/Roles/add.ctp:8
 msgid "Add Role"
-msgstr ""
+msgstr "Agregar Rol"
 
 #: Template/Roles/edit.ctp:8 Template/Roles/view.ctp:15;116
 msgid "Edit Role"
-msgstr ""
+msgstr "Editar Rol"
 
 #: Template/Roles/view.ctp:12;117
 msgid "Delete Role"
-msgstr ""
+msgstr "Borrar Rol"
 
 #: Template/Shippers/add.ctp:8
 msgid "Add Shipper"
-msgstr ""
+msgstr "Agregar Proveedor"
 
 #: Template/Shippers/add.ctp:11;30 Template/Shippers/edit.ctp:11;36
 #: Template/Shippers/view.ctp:14;89 Template/Stockmoves/add.ctp:46
 #: Template/Stockmoves/edit.ctp:52 Template/Stockmoves/index.ctp:77
 #: Template/Stockmoves/view.ctp:125
 msgid "List Shippers"
-msgstr ""
+msgstr "Lista Proveedor"
 
 #: Template/Shippers/edit.ctp:8 Template/Shippers/view.ctp:15;87
 msgid "Edit Shipper"
-msgstr ""
+msgstr "Editar Proveedor"
 
 #: Template/Shippers/index.ctp:12;52 Template/Shippers/view.ctp:13;90
 #: Template/Stockmoves/add.ctp:47 Template/Stockmoves/edit.ctp:53
 #: Template/Stockmoves/index.ctp:78 Template/Stockmoves/view.ctp:126
 msgid "New Shipper"
-msgstr ""
+msgstr "Nuevo Proveedor"
 
 #: Template/Shippers/view.ctp:12;88
 msgid "Delete Shipper"
-msgstr ""
+msgstr "Borrar Proveedor"
 
 #: Template/Sources/add.ctp:8
 msgid "Add Source"
-msgstr ""
+msgstr "Agregar Fuente"
 
 #: Template/Sources/add.ctp:11;30 Template/Sources/edit.ctp:11;36
 #: Template/Sources/view.ctp:14;103 Template/Tickets/clonar.ctp:58
@@ -2515,11 +2517,11 @@ msgstr ""
 
 #: Template/Stockmoves/view.ctp:21 Template/Stocks/view.ctp:21
 msgid "Warehouse"
-msgstr ""
+msgstr "Almacen"
 
 #: Template/Stockmoves/view.ctp:33
 msgid "Shipper"
-msgstr ""
+msgstr "Proveedor"
 
 #: Template/StockmovesDetails/add.ctp:8
 msgid "Add Stockmoves Detail"
@@ -2745,7 +2747,7 @@ msgstr ""
 
 #: Template/Tickets/add.ctp:8 Template/Tickets/enduseradd.ctp:8
 msgid "Add Ticket"
-msgstr ""
+msgstr "Agregar Ticket"
 
 #: Template/Tickets/clonar.ctp:8
 msgid "Clone Ticket"
@@ -2841,11 +2843,11 @@ msgstr ""
 
 #: Template/Tickets/enduserview.ctp:22
 msgid "Tickettype"
-msgstr "Tipos De Tickets"
+msgstr "Tipo"
 
 #: Template/Tickets/enduserview.ctp:26 Template/Tickets/view.ctp:26
 msgid "Ticket Status"
-msgstr "Estado De Ticket"
+msgstr "Estado"
 
 #: Template/Tickets/enduserview.ctp:30 Template/Tickets/view.ctp:30
 msgid "Source"
@@ -3017,15 +3019,15 @@ msgstr ""
 
 #: Template/Userendmessages/view.ctp:36
 msgid "Startdate"
-msgstr ""
+msgstr "Fecha Inicial"
 
 #: Template/Userendmessages/view.ctp:40
 msgid "Endingdate"
-msgstr ""
+msgstr "Fecha Final"
 
 #: Template/Userendmessages/view.ctp:46
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 #: Template/Users/add.ctp:8
 msgid "Add User"
@@ -3041,7 +3043,7 @@ msgstr "Mi Cuenta"
 
 #: Template/Users/view.ctp:11
 msgid "Delete User"
-msgstr ""
+msgstr "Borar Usuario"
 
 #: Template/Users/view.ctp:20
 msgid "Username"
@@ -3049,19 +3051,19 @@ msgstr "Nombre De Usuario"
 
 #: Template/Users/view.ctp:40
 msgid "Statususer"
-msgstr ""
+msgstr "Estado De Usuario"
 
 #: Template/Warehouses/add.ctp:8
 msgid "Add Warehouse"
-msgstr ""
+msgstr "Agregar Almacen"
 
 #: Template/Warehouses/edit.ctp:8 Template/Warehouses/view.ctp:15
 msgid "Edit Warehouse"
-msgstr ""
+msgstr "Editar Almacen"
 
 #: Template/Warehouses/view.ctp:12
 msgid "Delete Warehouse"
-msgstr ""
+msgstr "Borrar Almacen"
 
 #: Template/Error/error400.ctp:37
 msgid "The requested address {0} was not found on this server."
@@ -3069,4 +3071,4 @@ msgstr ""
 
 #: Template/Error/error500.ctp:39
 msgid "An Internal Error Has Occurred"
-msgstr ""
+msgstr "Un Error Interno Ha Ocurrido"
