@@ -75,6 +75,14 @@
             <td><?= h($ticket->ip) ?></td>
         </tr>
         <tr>
+<<<<<<< HEAD
+=======
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($ticket->id) ?></td>
+        </tr>
+         <tr>
+
+>>>>>>> d5c0d6bb38c3b6d53bc992fb26109edf5ca82d8f
             <th scope="row"><?= __('User Autor') ?></th>
             <td><?= h($ticket->userautor->name) ?></td>
         </tr>
@@ -349,7 +357,7 @@
 
     <h4><?= __('Add information') ?></h4>
     <div class="editdata">
-      <?= $this->Form->create($ticketnote, ['url' => ['controller' => 'Ticketnotes', 'action' => 'login']]) ?>
+      <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'login']]) ?>
           <?php
               echo $this->Form->control('description');
               //echo $this->Form->control('ticket_id', ['options' => $tickets, 'empty' => true]);
@@ -370,7 +378,7 @@
               <div class="left">
                 <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->created) ?>
               </div>
-              <? if ($ticketnotes->ticketnotestype_id == 2): ?>
+              <?php if ($ticketnotes->ticketnotestype_id == 2): ?>
               <div class="noteinternal right">
                 <?= __('Internal Note') ?>
               </div>

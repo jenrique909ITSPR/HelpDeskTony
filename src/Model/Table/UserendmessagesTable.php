@@ -34,7 +34,7 @@ use Cake\Validation\Validator;
         parent::initialize($config);
 
         $this->setTable('userendmessages');
-        $this->setDisplayField('id');
+        $this->setDisplayField('message');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

@@ -5,7 +5,20 @@
 ?>
 
 <div class="tickets form">
-	<h3><?= __('Add Ticket') ?></h3>
+    <?php 
+        switch ($ticket->tickettype_id) {
+          case 1:
+           echo '<h3>Add Incident</h3>';
+           break;
+          case 4:
+            echo '<h3>Add Request</h3>';
+            break;
+          default:
+              echo '<h3><?= __("Add Ticket") ?></h3>';
+            break;
+        }
+     ?>
+	
 	<div class="actions">
 		<ul>
 			<li><?= $this->Html->link(__('Cancel'), ['controller' => 'tickets', 'action' => 'enduserindex']) ?></li>

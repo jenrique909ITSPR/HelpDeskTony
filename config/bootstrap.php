@@ -45,6 +45,7 @@ use Cake\Mailer\Email;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 
+
 /**
  * Read .env file if APP_NAME is not set.
  *
@@ -95,7 +96,7 @@ if (Configure::read('debug')) {
  * choice but using UTC makes time calculations / conversions easier.
  * Check http://php.net/manual/en/timezones.php for list of valid timezone strings.
  */
-date_default_timezone_set('UTC');
+date_default_timezone_set('America/Mexico_City');
 
 /*
  * Configure the mbstring extension to use the correct encoding.
@@ -106,7 +107,7 @@ mb_internal_encoding(Configure::read('App.encoding'));
  * Set the default locale. This controls how dates, number and currency is
  * formatted and sets the default language to use for translations.
  */
-ini_set('intl.default_locale', Configure::read('App.defaultLocale'));
+ini_set('intl.default_locale', Configure::read('es_MX'));
 
 /*
  * Register application error and exception handlers.

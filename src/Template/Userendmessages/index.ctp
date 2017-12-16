@@ -6,11 +6,11 @@
 
 <div class="userendmessages index">
     <h3><?= __('Userendmessages') ?></h3>
-	<div class="actions">
-		<ul>
-			<li><?= $this->Html->link(__('New Userendmessage'), ['action' => 'add']) ?></li>
-		</ul>
-	</div>
+    <div class="actions">
+        <ul>
+            <li><?= $this->Html->link(__('New Userendmessage'), ['action' => 'add']) ?></li>
+        </ul>
+    </div>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -41,6 +41,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+   
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>

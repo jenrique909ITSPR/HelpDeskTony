@@ -17,6 +17,7 @@
         <?php
             echo $this->Form->control('title');
             echo $this->Form->control('parent_id', ['options' => $parentHdcategories, 'empty' => true]);
+            echo $this->Form->control('tree',['options' => $children]);
             echo $this->Form->control('description');
         ?>
 	
