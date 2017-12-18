@@ -164,7 +164,6 @@ class TicketsController extends AppController
      */
     public function add()
     {
-
         $ticket = $this->Tickets->newEntity();
          $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
 
@@ -193,7 +192,17 @@ class TicketsController extends AppController
         $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
-        $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
+        $hdcategories = $this->Tickets->Hdcategories->find('treeList', [
+            'keyPath' => 'id',
+            'valuePath' => 'title',
+            'spacer' => '_',
+            'limit' => 200]);
+        
+        foreach ($hdcategories as $key => $value) {
+            echo $value;
+        }
+        //$hdcategories = json_encode($hdcategories);
+        
         $ticket->ip = $this->request->clientIp();
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip','branches'));

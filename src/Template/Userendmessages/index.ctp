@@ -15,6 +15,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('message') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
@@ -27,6 +28,7 @@
             <?php foreach ($userendmessages as $userendmessage): ?>
             <tr>
                 <td><?= $this->Number->format($userendmessage->id) ?></td>
+                <td><?= h($userendmessage->message) ?></td>
                 <td><?= $userendmessage->has('user') ? $this->Html->link($userendmessage->user->name, ['controller' => 'Users', 'action' => 'view', $userendmessage->user->id]) : '' ?></td>
                 <td><?= h($userendmessage->created) ?></td>
                 <td><?= h($userendmessage->modified) ?></td>
