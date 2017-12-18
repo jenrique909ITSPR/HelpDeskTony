@@ -145,10 +145,15 @@ class TicketsController extends AppController
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
-        $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
+         $hdcategories = $this->Tickets->Hdcategories->find('all');
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $ticketnotestypes = $ticketnotestypesTable->find('list',['limit' => 200]);
-        $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets','branches'));
+         $dataTree = array();
+        foreach ($hdcategories as $key => $value) {
+            array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
+        }
+         $dataTreeJson = json_encode($dataTree);
+        $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets','branches'));
 
         /*$tickets = $this->Ticketnotes->Tickets->find('list', ['limit' => 200]);
         $users = $this->Ticketnotes->Users->find('list', ['limit' => 200]);
@@ -192,20 +197,15 @@ class TicketsController extends AppController
         $ticketimpacts = $this->Tickets->Ticketimpacts->find('list', ['limit' => 200]);
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
-        $hdcategories = $this->Tickets->Hdcategories->find('treeList', [
-            'keyPath' => 'id',
-            'valuePath' => 'title',
-            'spacer' => '_',
-            'limit' => 200]);
-        
-        foreach ($hdcategories as $key => $value) {
-            echo $value;
-        }
-        //$hdcategories = json_encode($hdcategories);
-        
+        $hdcategories = $this->Tickets->Hdcategories->find('all');
         $ticket->ip = $this->request->clientIp();
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets', 'ip','branches'));
+        $dataTree = array();
+        foreach ($hdcategories as $key => $value) {
+            array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
+        }
+         $dataTreeJson = json_encode($dataTree);
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
 
     }
@@ -241,9 +241,14 @@ class TicketsController extends AppController
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
-        $hdcategories = $this->Tickets->Hdcategories->find('list', ['limit' => 200]);
+        $hdcategories = $this->Tickets->Hdcategories->find('all');
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
-        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'hdcategories','parentTickets','branches'));
+        $dataTree = array();
+        foreach ($hdcategories as $key => $value) {
+            array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
+        }
+         $dataTreeJson = json_encode($dataTree);
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets','branches'));
         $this->set('_serialize', ['ticket']);
     }
 
