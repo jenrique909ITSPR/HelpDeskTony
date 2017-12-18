@@ -227,7 +227,7 @@ return [
 
 
             'host' => '10.105.160.50',
-			     // 'host' => 'localhost',
+			     //'host' => 'localhost',
 
             /**
              * CakePHP will use the default DB port based on the driver selected
