@@ -1,4 +1,3 @@
-<<<<<<< current
 <?php
 return [
     /**
@@ -359,7 +358,7 @@ return [
 
 
 ];
-=======
+?>
 <?php
 return [
     /**
@@ -720,4 +719,3 @@ return [
 
 
 ];
->>>>>>> before discard

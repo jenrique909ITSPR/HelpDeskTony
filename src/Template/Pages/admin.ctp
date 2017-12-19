@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!--<script type="text/javascript">
 $(document).ready(function(){
 
   $('ul.side-nav li a').click(function(){
@@ -17,7 +17,7 @@ $(document).ready(function(){
   });
 
 });
-</script>
+</script>-->
 
 <?php $this->assign('title', 'Administration'); ?>
 
