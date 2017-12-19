@@ -44,12 +44,3 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Ticketnotestype'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Ticketnotes'), ['controller' => 'Ticketnotes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ticketnote'), ['controller' => 'Ticketnotes', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
