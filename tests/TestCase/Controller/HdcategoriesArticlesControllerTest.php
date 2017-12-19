@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\TicketstatusesController;
+use App\Controller\HdcategoriesArticlesController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\TicketstatusesController Test Case
+ * App\Controller\HdcategoriesArticlesController Test Case
  */
-class TicketstatusesControllerTest extends IntegrationTestCase
+class HdcategoriesArticlesControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,53 +16,51 @@ class TicketstatusesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.ticketstatuses',
-        'app.tickettypes',
-        'app.tickets',
-        'app.ticket_statuses',
-        'app.ticketstatuses_tickettypes',
-        'app.sources',
-        'app.itemcodes',
-        'app.items',
-        'app.itemcategories',
-        'app.layoutcategories',
-        'app.layouts',
-        'app.branches',
-        'app.branchgroups',
+        'app.hdcategories_articles',
+        'app.hdcategories',
+        'app.articles',
         'app.users',
         'app.positionbranches',
+        'app.branches',
+        'app.branchgroups',
+        'app.layouts',
         'app.positions',
+        'app.layoutcategories',
+        'app.itemcategories',
+        'app.items',
+        'app.currencies',
+        'app.brands',
+        'app.itemcodes',
+        'app.invoices',
+        'app.suppliers',
+        'app.statusitems',
+        'app.stockmoves_details',
+        'app.stockmoves',
+        'app.warehouses',
+        'app.stocks',
+        'app.movereasons',
+        'app.movereasontemplates',
+        'app.shippers',
+        'app.tickets',
+        'app.tickettypes',
+        'app.ticket_statuses',
+        'app.sources',
+        'app.userautors',
         'app.statususers',
         'app.groups',
         'app.ticketlogs',
         'app.roles',
-        'app.articles',
-        'app.articlefiles',
         'app.articles_roles',
-        'app.hdcategories',
-        'app.hdtemplate',
-        'app.hdcategories_articles',
-        'app.movereasontemplates',
-        'app.movereasons',
-        'app.stockmoves',
-        'app.warehouses',
-        'app.stocks',
-        'app.shippers',
-        'app.stockmoves_details',
         'app.ticketmarkeds',
         'app.ticketnotes',
         'app.ticketnotestypes',
         'app.userendmessages',
-        'app.currencies',
-        'app.brands',
-        'app.invoices',
-        'app.suppliers',
-        'app.statusitems',
-        'app.userautors',
         'app.userrequerieds',
         'app.ticketimpacts',
         'app.ticketurgencies',
-        'app.ticketpriorities'
+        'app.ticketpriorities',
+        'app.articlefiles',
+        'app.hdtemplate'
     ];
 
     /**

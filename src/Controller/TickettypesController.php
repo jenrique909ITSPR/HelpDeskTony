@@ -3,7 +3,6 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-
 /**
  * Tickettypes Controller
  *
@@ -20,13 +19,10 @@ class TickettypesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'limit' => $this->limit_data ];
         $tickettypes = $this->paginate($this->Tickettypes);
 
         $this->set(compact('tickettypes'));
         $this->set('_serialize', ['tickettypes']);
-
     }
 
     /**
@@ -39,14 +35,11 @@ class TickettypesController extends AppController
     public function view($id = null)
     {
         $tickettype = $this->Tickettypes->get($id, [
-            'contain' => ['Tickets']
+            'contain' => ['Ticketstatuses', 'Tickets']
         ]);
-
-
 
         $this->set('tickettype', $tickettype);
         $this->set('_serialize', ['tickettype']);
-
     }
 
     /**
@@ -66,7 +59,8 @@ class TickettypesController extends AppController
             }
             $this->Flash->error(__('The tickettype could not be saved. Please, try again.'));
         }
-        $this->set(compact('tickettype'));
+        $ticketstatuses = $this->Tickettypes->Ticketstatuses->find('list', ['limit' => 200]);
+        $this->set(compact('tickettype', 'ticketstatuses'));
         $this->set('_serialize', ['tickettype']);
     }
 
@@ -80,7 +74,7 @@ class TickettypesController extends AppController
     public function edit($id = null)
     {
         $tickettype = $this->Tickettypes->get($id, [
-            'contain' => []
+            'contain' => ['Ticketstatuses']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $tickettype = $this->Tickettypes->patchEntity($tickettype, $this->request->getData());
@@ -91,7 +85,8 @@ class TickettypesController extends AppController
             }
             $this->Flash->error(__('The tickettype could not be saved. Please, try again.'));
         }
-        $this->set(compact('tickettype'));
+        $ticketstatuses = $this->Tickettypes->Ticketstatuses->find('list', ['limit' => 200]);
+        $this->set(compact('tickettype', 'ticketstatuses'));
         $this->set('_serialize', ['tickettype']);
     }
 
@@ -115,7 +110,8 @@ class TickettypesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function beforeFilter(Event $event) {
+    
+public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('administration');
     }

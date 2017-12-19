@@ -9,8 +9,9 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property int $value_order
- */
-class Ticketstatus extends Entity
+ *
+ * @property \App\Model\Entity\Tickettype[] $tickettypes
+ */class Ticketstatus extends Entity
 {
 
     /**

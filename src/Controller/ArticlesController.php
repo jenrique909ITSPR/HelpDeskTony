@@ -2,13 +2,11 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\Event\Event;
 
 /**
  * Articles Controller
  *
- * @property \App\Model\Table\ArticlesTable $Articles
- *
+ * @property \App\Model\Table\ArticlesTable $Articles *
  * @method \App\Model\Entity\Article[] paginate($object = null, array $settings = [])
  */
 class ArticlesController extends AppController
@@ -23,7 +21,6 @@ class ArticlesController extends AppController
     {
         $this->paginate = [
             'contain' => ['Hdcategories', 'Users']
-            ,'limit' => $this->limit_data
         ];
         $articles = $this->paginate($this->Articles);
 
@@ -41,7 +38,7 @@ class ArticlesController extends AppController
     public function view($id = null)
     {
         $article = $this->Articles->get($id, [
-            'contain' => ['Hdcategories', 'Users', 'Roles', 'Articlefiles']
+            'contain' => ['Hdcategories', 'Users', 'Roles', 'Articlefiles', 'HdcategoriesArticles']
         ]);
 
         $this->set('article', $article);
@@ -118,10 +115,5 @@ class ArticlesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function beforeFilter(Event $event) {
-        parent::beforeFilter($event);
-        $this->viewBuilder()->layout('articles'); 
     }
 }

@@ -9,7 +9,6 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $title
  * @property string $answer
- * @property int $hdcategory_id
  * @property \Cake\I18n\FrozenTime $modified
  * @property int $user_id
  * @property \Cake\I18n\FrozenTime $created
@@ -19,9 +18,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Articlefile[] $articlefiles
  * @property \App\Model\Entity\Role[] $roles
- * @property \App\Model\Entity\ArticlesRole[] $articles_roles
- */
-class Article extends Entity
+ */class Article extends Entity
 {
 
     /**

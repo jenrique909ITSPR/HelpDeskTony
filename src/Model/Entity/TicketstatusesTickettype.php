@@ -4,17 +4,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Tickettype Entity
+ * TicketstatusesTickettype Entity
  *
  * @property int $id
- * @property string $name
- * @property string $tag
- * @property int $rank
- * @property string $color
+ * @property int $ticket_status_id
+ * @property int $tickettype_id
  *
- * @property \App\Model\Entity\Ticket[] $tickets
- * @property \App\Model\Entity\Ticketstatus[] $ticketstatuses
- */class Tickettype extends Entity
+ * @property \App\Model\Entity\Ticketstatus $ticket_status
+ * @property \App\Model\Entity\Tickettype $tickettype
+ */class TicketstatusesTickettype extends Entity
 {
 
     /**

@@ -1,14 +1,20 @@
 <?php
-namespace App\Test\TestCase\Controller;
+namespace App\Test\TestCase\Model\Table;
 
-use App\Controller\TicketstatusesController;
-use Cake\TestSuite\IntegrationTestCase;
+use App\Model\Table\TicketstatusesTickettypesTable;
+use Cake\ORM\TableRegistry;
+use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\TicketstatusesController Test Case
+ * App\Model\Table\TicketstatusesTickettypesTable Test Case
  */
-class TicketstatusesControllerTest extends IntegrationTestCase
+class TicketstatusesTickettypesTableTest extends TestCase
 {
+
+    /**
+     * Test subject     *
+     * @var \App\Model\Table\TicketstatusesTickettypesTable     */
+    public $TicketstatusesTickettypes;
 
     /**
      * Fixtures
@@ -16,11 +22,10 @@ class TicketstatusesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.ticketstatuses',
+        'app.ticketstatuses_tickettypes',
+        'app.ticket_statuses',
         'app.tickettypes',
         'app.tickets',
-        'app.ticket_statuses',
-        'app.ticketstatuses_tickettypes',
         'app.sources',
         'app.itemcodes',
         'app.items',
@@ -37,11 +42,10 @@ class TicketstatusesControllerTest extends IntegrationTestCase
         'app.ticketlogs',
         'app.roles',
         'app.articles',
-        'app.articlefiles',
-        'app.articles_roles',
         'app.hdcategories',
         'app.hdtemplate',
-        'app.hdcategories_articles',
+        'app.articlefiles',
+        'app.articles_roles',
         'app.movereasontemplates',
         'app.movereasons',
         'app.stockmoves',
@@ -66,51 +70,53 @@ class TicketstatusesControllerTest extends IntegrationTestCase
     ];
 
     /**
-     * Test index method
+     * setUp method
      *
      * @return void
      */
-    public function testIndex()
+    public function setUp()
+    {
+        parent::setUp();
+        $config = TableRegistry::exists('TicketstatusesTickettypes') ? [] : ['className' => TicketstatusesTickettypesTable::class];        $this->TicketstatusesTickettypes = TableRegistry::get('TicketstatusesTickettypes', $config);    }
+
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        unset($this->TicketstatusesTickettypes);
+
+        parent::tearDown();
+    }
+
+    /**
+     * Test initialize method
+     *
+     * @return void
+     */
+    public function testInitialize()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
     /**
-     * Test view method
+     * Test validationDefault method
      *
      * @return void
      */
-    public function testView()
+    public function testValidationDefault()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
     /**
-     * Test add method
+     * Test buildRules method
      *
      * @return void
      */
-    public function testAdd()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test edit method
-     *
-     * @return void
-     */
-    public function testEdit()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test delete method
-     *
-     * @return void
-     */
-    public function testDelete()
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

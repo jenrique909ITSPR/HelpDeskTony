@@ -10,10 +10,10 @@ use Cake\Validation\Validator;
  * Hdcategories Model
  *
  * @property \App\Model\Table\HdcategoriesTable|\Cake\ORM\Association\BelongsTo $ParentHdcategories
- * @property \App\Model\Table\ArticlesTable|\Cake\ORM\Association\HasMany $Articles
  * @property \App\Model\Table\HdcategoriesTable|\Cake\ORM\Association\HasMany $ChildHdcategories
  * @property \App\Model\Table\HdtemplateTable|\Cake\ORM\Association\HasMany $Hdtemplate
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\HasMany $Tickets
+ * @property \App\Model\Table\ArticlesTable|\Cake\ORM\Association\BelongsToMany $Articles
  *
  * @method \App\Model\Entity\Hdcategory get($primaryKey, $options = [])
  * @method \App\Model\Entity\Hdcategory newEntity($data = null, array $options = [])
@@ -47,9 +47,6 @@ use Cake\Validation\Validator;
             'className' => 'Hdcategories',
             'foreignKey' => 'parent_id'
         ]);
-        $this->hasMany('Articles', [
-            'foreignKey' => 'hdcategory_id'
-        ]);
         $this->hasMany('ChildHdcategories', [
             'className' => 'Hdcategories',
             'foreignKey' => 'parent_id'
@@ -59,6 +56,11 @@ use Cake\Validation\Validator;
         ]);
         $this->hasMany('Tickets', [
             'foreignKey' => 'hdcategory_id'
+        ]);
+        $this->belongsToMany('Articles', [
+            'foreignKey' => 'hdcategory_id',
+            'targetForeignKey' => 'article_id',
+            'joinTable' => 'hdcategories_articles'
         ]);
     }
 

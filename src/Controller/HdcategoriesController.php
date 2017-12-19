@@ -51,7 +51,7 @@ class HdcategoriesController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
     public function add()
-    {   
+    {
         $hdcategory = $this->Hdcategories->newEntity();
         if ($this->request->is('post')) {
             $hdcategory = $this->Hdcategories->patchEntity($hdcategory, $this->request->getData());
@@ -63,15 +63,8 @@ class HdcategoriesController extends AppController
             $this->Flash->error(__('The hdcategory could not be saved. Please, try again.'));
         }
         $parentHdcategories = $this->Hdcategories->ParentHdcategories->find('list', ['limit' => 200]);
-        $children = $this->Hdcategories->find('treeList', [
-            'keyPath' => 'id',
-            'valuePath' => 'title',
-            'spacer' => '#'
-            
-        ]);
-       
-        
-        $this->set(compact('hdcategory', 'parentHdcategories','children'));
+        $articles = $this->Hdcategories->Articles->find('list', ['limit' => 200]);
+        $this->set(compact('hdcategory', 'parentHdcategories', 'articles'));
         $this->set('_serialize', ['hdcategory']);
     }
 
@@ -85,7 +78,7 @@ class HdcategoriesController extends AppController
     public function edit($id = null)
     {
         $hdcategory = $this->Hdcategories->get($id, [
-            'contain' => []
+            'contain' => ['Articles']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $hdcategory = $this->Hdcategories->patchEntity($hdcategory, $this->request->getData());
@@ -97,7 +90,8 @@ class HdcategoriesController extends AppController
             $this->Flash->error(__('The hdcategory could not be saved. Please, try again.'));
         }
         $parentHdcategories = $this->Hdcategories->ParentHdcategories->find('list', ['limit' => 200]);
-        $this->set(compact('hdcategory', 'parentHdcategories'));
+        $articles = $this->Hdcategories->Articles->find('list', ['limit' => 200]);
+        $this->set(compact('hdcategory', 'parentHdcategories', 'articles'));
         $this->set('_serialize', ['hdcategory']);
     }
 

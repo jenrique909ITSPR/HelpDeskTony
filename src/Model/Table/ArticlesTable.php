@@ -9,10 +9,10 @@ use Cake\Validation\Validator;
 /**
  * Articles Model
  *
- * @property \App\Model\Table\HdcategoriesTable|\Cake\ORM\Association\BelongsTo $Hdcategories
  * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\ArticlefilesTable|\Cake\ORM\Association\HasMany $Articlefiles
  * @property \App\Model\Table\RolesTable|\Cake\ORM\Association\BelongsToMany $Roles
+ * @property \App\Model\Table\HdcategoriesTable|\Cake\ORM\Association\BelongsToMany $Hdcategories
  *
  * @method \App\Model\Entity\Article get($primaryKey, $options = [])
  * @method \App\Model\Entity\Article newEntity($data = null, array $options = [])
@@ -23,8 +23,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Article findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
- */
-class ArticlesTable extends Table
+ */class ArticlesTable extends Table
 {
 
     /**
@@ -43,9 +42,6 @@ class ArticlesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Hdcategories', [
-            'foreignKey' => 'hdcategory_id'
-        ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id'
         ]);
@@ -56,6 +52,11 @@ class ArticlesTable extends Table
             'foreignKey' => 'article_id',
             'targetForeignKey' => 'role_id',
             'joinTable' => 'articles_roles'
+        ]);
+        $this->belongsToMany('Hdcategories', [
+            'foreignKey' => 'article_id',
+            'targetForeignKey' => 'hdcategory_id',
+            'joinTable' => 'hdcategories_articles'
         ]);
     }
 
@@ -68,20 +69,13 @@ class ArticlesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('title')
-            ->allowEmpty('title');
-
+            ->scalar('title')            ->allowEmpty('title');
         $validator
-            ->scalar('answer')
-            ->allowEmpty('answer');
-
+            ->scalar('answer')            ->allowEmpty('answer');
         $validator
             ->allowEmpty('selected');
-
         return $validator;
     }
 
@@ -94,7 +88,6 @@ class ArticlesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['hdcategory_id'], 'Hdcategories'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;

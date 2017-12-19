@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\TicketstatusesController;
+use App\Controller\TicketstatusesTickettypesController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\TicketstatusesController Test Case
+ * App\Controller\TicketstatusesTickettypesController Test Case
  */
-class TicketstatusesControllerTest extends IntegrationTestCase
+class TicketstatusesTickettypesControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,11 +16,10 @@ class TicketstatusesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.ticketstatuses',
+        'app.ticketstatuses_tickettypes',
+        'app.ticket_statuses',
         'app.tickettypes',
         'app.tickets',
-        'app.ticket_statuses',
-        'app.ticketstatuses_tickettypes',
         'app.sources',
         'app.itemcodes',
         'app.items',
@@ -37,11 +36,10 @@ class TicketstatusesControllerTest extends IntegrationTestCase
         'app.ticketlogs',
         'app.roles',
         'app.articles',
-        'app.articlefiles',
-        'app.articles_roles',
         'app.hdcategories',
         'app.hdtemplate',
-        'app.hdcategories_articles',
+        'app.articlefiles',
+        'app.articles_roles',
         'app.movereasontemplates',
         'app.movereasons',
         'app.stockmoves',

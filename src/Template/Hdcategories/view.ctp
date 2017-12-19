@@ -43,45 +43,6 @@
     </table>
 	</div>
 <div class="easyui-tabs">
-    <div class="related" title="<?= __('Articles') ?>">
-        <h4><?= __('Related Articles') ?></h4>
-        <?php if (!empty($hdcategory->articles)): ?>
-        <table cellpadding="0" cellspacing="0">
-          <thead>
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Title') ?></th>
-                <th scope="col"><?= __('Answer') ?></th>
-                <th scope="col"><?= __('Hdcategory Id') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Selected') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-		  </thead>
-		  <tbody>
-            <?php foreach ($hdcategory->articles as $articles): ?>
-            <tr>
-                <td><?= h($articles->id) ?></td>
-                <td><?= h($articles->title) ?></td>
-                <td><?= h($articles->answer) ?></td>
-                <td><?= h($articles->hdcategory_id) ?></td>
-                <td><?= h($articles->modified) ?></td>
-                <td><?= h($articles->user_id) ?></td>
-                <td><?= h($articles->created) ?></td>
-                <td><?= h($articles->selected) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Articles', 'action' => 'view', $articles->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Articles', 'action' => 'edit', $articles->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Articles', 'action' => 'delete', $articles->id], ['confirm' => __('Are you sure you want to delete # {0}?', $articles->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-		  </tbody>
-        </table>
-        <?php endif; ?>
-    </div>
     <div class="related" title="<?= __('Hdcategories') ?>">
         <h4><?= __('Related Hdcategories') ?></h4>
         <?php if (!empty($hdcategory->child_hdcategories)): ?>
@@ -157,7 +118,6 @@
                 <th scope="col"><?= __('Ticket Status Id') ?></th>
                 <th scope="col"><?= __('Source Id') ?></th>
                 <th scope="col"><?= __('Title') ?></th>
-                <th scope="col"><?= __('Description') ?></th>
                 <th scope="col"><?= __('Solution') ?></th>
                 <th scope="col"><?= __('Resolution') ?></th>
                 <th scope="col"><?= __('Itemcode Id') ?></th>
@@ -173,6 +133,7 @@
                 <th scope="col"><?= __('Hdcategory Id') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col"><?= __('Ip') ?></th>
+                <th scope="col"><?= __('Branch Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
 		  </thead>
@@ -184,7 +145,6 @@
                 <td><?= h($tickets->ticket_status_id) ?></td>
                 <td><?= h($tickets->source_id) ?></td>
                 <td><?= h($tickets->title) ?></td>
-                <td><?= h($tickets->description) ?></td>
                 <td><?= h($tickets->solution) ?></td>
                 <td><?= h($tickets->resolution) ?></td>
                 <td><?= h($tickets->itemcode_id) ?></td>
@@ -200,10 +160,48 @@
                 <td><?= h($tickets->hdcategory_id) ?></td>
                 <td><?= h($tickets->modified) ?></td>
                 <td><?= h($tickets->ip) ?></td>
+                <td><?= h($tickets->branch_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Tickets', 'action' => 'view', $tickets->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Tickets', 'action' => 'edit', $tickets->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Tickets', 'action' => 'delete', $tickets->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tickets->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+		  </tbody>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related" title="<?= __('Articles') ?>">
+        <h4><?= __('Related Articles') ?></h4>
+        <?php if (!empty($hdcategory->articles)): ?>
+        <table cellpadding="0" cellspacing="0">
+          <thead>
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Title') ?></th>
+                <th scope="col"><?= __('Answer') ?></th>
+                <th scope="col"><?= __('Modified') ?></th>
+                <th scope="col"><?= __('User Id') ?></th>
+                <th scope="col"><?= __('Created') ?></th>
+                <th scope="col"><?= __('Selected') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+		  </thead>
+		  <tbody>
+            <?php foreach ($hdcategory->articles as $articles): ?>
+            <tr>
+                <td><?= h($articles->id) ?></td>
+                <td><?= h($articles->title) ?></td>
+                <td><?= h($articles->answer) ?></td>
+                <td><?= h($articles->modified) ?></td>
+                <td><?= h($articles->user_id) ?></td>
+                <td><?= h($articles->created) ?></td>
+                <td><?= h($articles->selected) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Articles', 'action' => 'view', $articles->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Articles', 'action' => 'edit', $articles->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Articles', 'action' => 'delete', $articles->id], ['confirm' => __('Are you sure you want to delete # {0}?', $articles->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -224,11 +222,11 @@
         <li><?= $this->Html->link(__('New Hdcategory'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Parent Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Parent Hdcategory'), ['controller' => 'Hdcategories', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Articles'), ['controller' => 'Articles', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Article'), ['controller' => 'Articles', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Hdtemplate'), ['controller' => 'Hdtemplate', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Hdtemplate'), ['controller' => 'Hdtemplate', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Articles'), ['controller' => 'Articles', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Article'), ['controller' => 'Articles', 'action' => 'add']) ?> </li>
     </ul>
 </nav>

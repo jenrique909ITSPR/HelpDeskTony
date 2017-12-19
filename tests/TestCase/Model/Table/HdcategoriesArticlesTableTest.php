@@ -1,20 +1,20 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ArticlesTable;
+use App\Model\Table\HdcategoriesArticlesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ArticlesTable Test Case
+ * App\Model\Table\HdcategoriesArticlesTable Test Case
  */
-class ArticlesTableTest extends TestCase
+class HdcategoriesArticlesTableTest extends TestCase
 {
 
     /**
      * Test subject     *
-     * @var \App\Model\Table\ArticlesTable     */
-    public $Articles;
+     * @var \App\Model\Table\HdcategoriesArticlesTable     */
+    public $HdcategoriesArticles;
 
     /**
      * Fixtures
@@ -22,51 +22,51 @@ class ArticlesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.articles',
+        'app.hdcategories_articles',
         'app.hdcategories',
-        'app.hdtemplate',
+        'app.articles',
+        'app.users',
+        'app.positionbranches',
+        'app.branches',
+        'app.branchgroups',
+        'app.layouts',
+        'app.positions',
+        'app.layoutcategories',
+        'app.itemcategories',
+        'app.items',
+        'app.currencies',
+        'app.brands',
+        'app.itemcodes',
+        'app.invoices',
+        'app.suppliers',
+        'app.statusitems',
+        'app.stockmoves_details',
+        'app.stockmoves',
+        'app.warehouses',
+        'app.stocks',
+        'app.movereasons',
+        'app.movereasontemplates',
+        'app.shippers',
         'app.tickets',
         'app.tickettypes',
         'app.ticket_statuses',
         'app.sources',
-        'app.itemcodes',
-        'app.items',
-        'app.itemcategories',
-        'app.layoutcategories',
-        'app.layouts',
-        'app.branches',
-        'app.branchgroups',
-        'app.users',
-        'app.positionbranches',
-        'app.positions',
+        'app.userautors',
         'app.statususers',
         'app.groups',
         'app.ticketlogs',
         'app.roles',
         'app.articles_roles',
-        'app.movereasontemplates',
-        'app.movereasons',
-        'app.stockmoves',
-        'app.warehouses',
-        'app.stocks',
-        'app.shippers',
-        'app.stockmoves_details',
         'app.ticketmarkeds',
         'app.ticketnotes',
         'app.ticketnotestypes',
         'app.userendmessages',
-        'app.currencies',
-        'app.brands',
-        'app.invoices',
-        'app.suppliers',
-        'app.statusitems',
-        'app.userautors',
         'app.userrequerieds',
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
-        'app.hdcategories_articles',
-        'app.articlefiles'
+        'app.articlefiles',
+        'app.hdtemplate'
     ];
 
     /**
@@ -77,7 +77,7 @@ class ArticlesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Articles') ? [] : ['className' => ArticlesTable::class];        $this->Articles = TableRegistry::get('Articles', $config);    }
+        $config = TableRegistry::exists('HdcategoriesArticles') ? [] : ['className' => HdcategoriesArticlesTable::class];        $this->HdcategoriesArticles = TableRegistry::get('HdcategoriesArticles', $config);    }
 
     /**
      * tearDown method
@@ -86,7 +86,7 @@ class ArticlesTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Articles);
+        unset($this->HdcategoriesArticles);
 
         parent::tearDown();
     }

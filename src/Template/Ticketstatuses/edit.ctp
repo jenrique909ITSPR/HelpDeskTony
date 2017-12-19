@@ -17,6 +17,7 @@
         <?php
             echo $this->Form->control('name');
             echo $this->Form->control('value_order');
+            echo $this->Form->control('tickettypes._ids', ['options' => $tickettypes]);
         ?>
 	
     <?= $this->Form->button(__('Submit')) ?>
@@ -35,5 +36,7 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Ticketstatuses'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Tickettypes'), ['controller' => 'Tickettypes', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Tickettype'), ['controller' => 'Tickettypes', 'action' => 'add']) ?></li>
     </ul>
 </nav>

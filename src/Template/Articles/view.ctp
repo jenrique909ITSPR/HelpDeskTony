@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Article $article
-  */
+  * @var \App\Model\Entity\Article $article  */
 ?>
 
 <div class="articles view">
@@ -20,10 +19,6 @@
         <tr>
             <th scope="row"><?= __('Title') ?></th>
             <td><?= h($article->title) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Hdcategory') ?></th>
-            <td><?= $article->has('hdcategory') ? $this->Html->link($article->hdcategory->title, ['controller' => 'Hdcategories', 'action' => 'view', $article->hdcategory->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
@@ -48,7 +43,8 @@
     </table>
 	</div>
     <div class="row">
-        <?php echo $this->Form->input('answer', ['class' => 'txtAreaPreview', 'value' => $article->answer]); ?>
+        <h4><?= __('Answer') ?></h4>
+        <?= $this->Text->autoParagraph(h($article->answer)); ?>
     </div>
 <div class="easyui-tabs">
     <div class="related" title="<?= __('Articlefiles') ?>">
@@ -60,6 +56,7 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Article Id') ?></th>
+                <th scope="col"><?= __('Created') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
 		  </thead>
@@ -69,10 +66,40 @@
                 <td><?= h($articlefiles->id) ?></td>
                 <td><?= h($articlefiles->name) ?></td>
                 <td><?= h($articlefiles->article_id) ?></td>
+                <td><?= h($articlefiles->created) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Articlefiles', 'action' => 'view', $articlefiles->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Articlefiles', 'action' => 'edit', $articlefiles->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Articlefiles', 'action' => 'delete', $articlefiles->id], ['confirm' => __('Are you sure you want to delete # {0}?', $articlefiles->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+		  </tbody>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related" title="<?= __('Hdcategories Articles') ?>">
+        <h4><?= __('Related Hdcategories Articles') ?></h4>
+        <?php if (!empty($article->hdcategories_articles)): ?>
+        <table cellpadding="0" cellspacing="0">
+          <thead>
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Hdcategory Id') ?></th>
+                <th scope="col"><?= __('Article Id') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+		  </thead>
+		  <tbody>
+            <?php foreach ($article->hdcategories_articles as $hdcategoriesArticles): ?>
+            <tr>
+                <td><?= h($hdcategoriesArticles->id) ?></td>
+                <td><?= h($hdcategoriesArticles->hdcategory_id) ?></td>
+                <td><?= h($hdcategoriesArticles->article_id) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'HdcategoriesArticles', 'action' => 'view', $hdcategoriesArticles->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'HdcategoriesArticles', 'action' => 'edit', $hdcategoriesArticles->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'HdcategoriesArticles', 'action' => 'delete', $hdcategoriesArticles->id], ['confirm' => __('Are you sure you want to delete # {0}?', $hdcategoriesArticles->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -124,6 +151,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Articlefiles'), ['controller' => 'Articlefiles', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Articlefile'), ['controller' => 'Articlefiles', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Hdcategories Articles'), ['controller' => 'HdcategoriesArticles', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Hdcategories Article'), ['controller' => 'HdcategoriesArticles', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?> </li>
     </ul>

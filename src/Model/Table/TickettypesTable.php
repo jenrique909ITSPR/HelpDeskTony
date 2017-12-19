@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Tickettypes Model
  *
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\HasMany $Tickets
+ * @property \App\Model\Table\TicketstatusesTable|\Cake\ORM\Association\BelongsToMany $Ticketstatuses
  *
  * @method \App\Model\Entity\Tickettype get($primaryKey, $options = [])
  * @method \App\Model\Entity\Tickettype newEntity($data = null, array $options = [])
@@ -38,6 +39,11 @@ use Cake\Validation\Validator;
         $this->hasMany('Tickets', [
             'foreignKey' => 'tickettype_id'
         ]);
+        $this->belongsToMany('Ticketstatuses', [
+            'foreignKey' => 'tickettype_id',
+            'targetForeignKey' => 'ticketstatus_id',
+            'joinTable' => 'ticketstatuses_tickettypes'
+        ]);
     }
 
     /**
@@ -52,6 +58,8 @@ use Cake\Validation\Validator;
             ->integer('id')            ->allowEmpty('id', 'create');
         $validator
             ->scalar('name')            ->allowEmpty('name');
+        $validator
+            ->scalar('tag')            ->allowEmpty('tag');
         $validator
             ->integer('rank')            ->requirePresence('rank', 'create')            ->notEmpty('rank');
         $validator

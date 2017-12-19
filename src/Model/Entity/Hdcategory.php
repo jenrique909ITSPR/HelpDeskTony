@@ -14,10 +14,10 @@ use Cake\ORM\Entity;
  * @property string $description
  *
  * @property \App\Model\Entity\Hdcategory $parent_hdcategory
- * @property \App\Model\Entity\Article[] $articles
  * @property \App\Model\Entity\Hdcategory[] $child_hdcategories
  * @property \App\Model\Entity\Hdtemplate[] $hdtemplate
  * @property \App\Model\Entity\Ticket[] $tickets
+ * @property \App\Model\Entity\Article[] $articles
  */class Hdcategory extends Entity
 {
 
