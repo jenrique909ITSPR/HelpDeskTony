@@ -75,6 +75,16 @@
             <td><?= h($ticket->ip) ?></td>
         </tr>
         <tr>
+<<<<<<< HEAD
+=======
+
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($ticket->id) ?></td>
+        </tr>
+         <tr>
+
+
+>>>>>>> 682f4fb2b7a5cf770dcd17ad88069a6cf169d060
             <th scope="row"><?= __('User Autor') ?></th>
             <td><?= h($ticket->userautor->name) ?></td>
         </tr>
@@ -337,7 +347,7 @@
               echo $this->Form->control('user_autor');
               echo $this->Form->control('user_requeried');
               echo $this->Form->control('parent_id', ['options' => $parentTickets, 'empty' => true]);
-              echo $this->Form->control('hdcategory_id', ['options' => $hdcategories, 'empty' => true]);
+              echo $this->Form->control('hdcategory_id', ['type' => 'text','class' => 'easyui-combotree' ,'style' => 'width:100%;', 'id' => "cc" , 'empty' => true]);
               echo $this->Form->control('ip');
 
           ?>
@@ -393,3 +403,57 @@
 
 </div>
 </div>
+<script type="text/javascript">
+
+    $('#cc').combotree({
+    });
+    $('#cc').combotree({
+    loadFilter: function(rows){
+        return convert(rows);
+    }
+    });
+    $('#cc').combotree('loadData', <?= $dataTreeJson  ?> );
+
+        function convert(rows){
+        function exists(rows, parentId){
+            for(var i=0; i<rows.length; i++){
+                if (rows[i].id == parentId) return true;
+            }
+            return false;
+        }
+        
+        var nodes = [];
+        // get the top level nodes
+        for(var i=0; i<rows.length; i++){
+            var row = rows[i];
+            if (!exists(rows, row.parentId)){
+                nodes.push({
+                    id:row.id,
+                    text:row.name
+                });
+            }
+        }
+        
+        var toDo = [];
+        for(var i=0; i<nodes.length; i++){
+            toDo.push(nodes[i]);
+        }
+        while(toDo.length){
+            var node = toDo.shift();    // the parent node
+            // get the children nodes
+            for(var i=0; i<rows.length; i++){
+                var row = rows[i];
+                if (row.parentId == node.id){
+                    var child = {id:row.id,text:row.name};
+                    if (node.children){
+                        node.children.push(child);
+                    } else {
+                        node.children = [child];
+                    }
+                    toDo.push(child);
+                }
+            }
+        }
+        return nodes;
+    }
+</script>

@@ -66,14 +66,11 @@ class HdcategoriesController extends AppController
         $children = $this->Hdcategories->find('treeList', [
             'keyPath' => 'id',
             'valuePath' => 'title',
-            'spacer' => '_'
+            'spacer' => '#'
+            
         ]);
-        $string1 = null;
-        foreach ($children as $key) {
-            $string1 = $string1 . $key;
-        }
-        $result = preg_split("[_]", $string1);
-        debug($result);
+       
+        
         $this->set(compact('hdcategory', 'parentHdcategories','children'));
         $this->set('_serialize', ['hdcategory']);
     }
