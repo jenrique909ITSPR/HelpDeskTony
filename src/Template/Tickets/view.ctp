@@ -21,7 +21,6 @@
 	<div class="easyui-tabs">
 	<div class="viewdata" title="<?= __('View Details') ?>">
     <table class="vertical-table">
-
         <tr>
             <th scope="row"><?= __('Ticket Status') ?></th>
             <td><?= $ticket->has('ticket_status') ? $this->Html->link($ticket->ticket_status->name, ['controller' => 'Ticketstatuses', 'action' => 'view', $ticket->ticket_status->id]) : '' ?></td>
@@ -75,16 +74,6 @@
             <td><?= h($ticket->ip) ?></td>
         </tr>
         <tr>
-<<<<<<< HEAD
-=======
-
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($ticket->id) ?></td>
-        </tr>
-         <tr>
-
-
->>>>>>> 682f4fb2b7a5cf770dcd17ad88069a6cf169d060
             <th scope="row"><?= __('User Autor') ?></th>
             <td><?= h($ticket->userautor->name) ?></td>
         </tr>
@@ -421,7 +410,7 @@
             }
             return false;
         }
-        
+
         var nodes = [];
         // get the top level nodes
         for(var i=0; i<rows.length; i++){
@@ -433,7 +422,7 @@
                 });
             }
         }
-        
+
         var toDo = [];
         for(var i=0; i<nodes.length; i++){
             toDo.push(nodes[i]);
