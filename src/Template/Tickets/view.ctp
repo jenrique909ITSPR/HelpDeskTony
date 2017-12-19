@@ -75,14 +75,6 @@
             <td><?= h($ticket->ip) ?></td>
         </tr>
         <tr>
-<<<<<<< HEAD
-=======
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($ticket->id) ?></td>
-        </tr>
-         <tr>
-
->>>>>>> d5c0d6bb38c3b6d53bc992fb26109edf5ca82d8f
             <th scope="row"><?= __('User Autor') ?></th>
             <td><?= h($ticket->userautor->name) ?></td>
         </tr>
