@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\I18n\Time;
+use Cake\Event\Event;
 
 /**
  * Userendmessages Controller
@@ -92,7 +93,7 @@ class UserendmessagesController extends AppController
             $userendmessage->startdate = $startdateF->format('Y-m-d G:ia');
             $userendmessage->endingdate = $endingdateF->format('Y-m-d G:ia');
             debug($userendmessage->endingdate);
-            
+
             if ($this->Userendmessages->save($userendmessage)) {
                 $this->Flash->success(__('The userendmessage has been saved.'));
 
@@ -101,7 +102,7 @@ class UserendmessagesController extends AppController
             $this->Flash->error(__('The userendmessage could not be saved. Please, try again.'));
         }
         $users = $this->Userendmessages->Users->find('list', ['limit' => 200]);
-        
+
         $userendmessage->startdate = $userendmessage->startdate->format('Y-m-d-Y G:ia');
         $userendmessage->endingdate = $userendmessage->endingdate->format('m-d-Y G:ia');
         $this->set(compact('userendmessage', 'users'));
@@ -126,5 +127,10 @@ class UserendmessagesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('administration');
     }
 }
