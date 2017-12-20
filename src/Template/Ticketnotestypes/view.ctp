@@ -64,16 +64,3 @@
     </div>
 </div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Ticketnotestype'), ['action' => 'edit', $ticketnotestype->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Ticketnotestype'), ['action' => 'delete', $ticketnotestype->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticketnotestype->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Ticketnotestypes'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ticketnotestype'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Ticketnotes'), ['controller' => 'Ticketnotes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ticketnote'), ['controller' => 'Ticketnotes', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>

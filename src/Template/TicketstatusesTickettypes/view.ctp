@@ -33,18 +33,3 @@
 <div class="easyui-tabs">
 </div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Ticketstatuses Tickettype'), ['action' => 'edit', $ticketstatusesTickettype->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Ticketstatuses Tickettype'), ['action' => 'delete', $ticketstatusesTickettype->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticketstatusesTickettype->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Ticketstatuses Tickettypes'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ticketstatuses Tickettype'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Ticket Statuses'), ['controller' => 'Ticketstatuses', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ticket Status'), ['controller' => 'Ticketstatuses', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Tickettypes'), ['controller' => 'Tickettypes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Tickettype'), ['controller' => 'Tickettypes', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>

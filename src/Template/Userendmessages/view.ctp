@@ -49,16 +49,3 @@
 <div class="easyui-tabs">
 </div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Userendmessage'), ['action' => 'edit', $userendmessage->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Userendmessage'), ['action' => 'delete', $userendmessage->id], ['confirm' => __('Are you sure you want to delete # {0}?', $userendmessage->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Userendmessages'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Userendmessage'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>

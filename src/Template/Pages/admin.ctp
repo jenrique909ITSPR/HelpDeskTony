@@ -59,6 +59,7 @@ $(document).ready(function(){
         <li><?= $this->Html->link(__('Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Groups'), ['controller' => 'Groups', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Mensajes'), ['controller' => 'Userendmessages', 'action' => 'index']) ?></li>
       </ul>
     </div>
     <div title="<i class='fa fa-home' aria-hidden='true'></i> <?= __('Branches') ?>" >

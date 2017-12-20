@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Roles Controller
@@ -111,5 +112,10 @@ class RolesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    
+ public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('administration');
     }
 }

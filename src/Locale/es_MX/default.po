@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2017-12-12 16:34+0000\n"
-"PO-Revision-Date: 2017-12-13 14:51-0600\n"
+"PO-Revision-Date: 2017-12-20 11:31-0600\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -732,7 +732,7 @@ msgstr "Roles Relacionados"
 #: Template/Hdtemplate/index.ctp:55 Template/Hdtemplate/view.ctp:46
 #: Template/Tickets/clonar.ctp:74
 msgid "List Hdcategories"
-msgstr "Lista Categorias HD"
+msgstr "Lista Categorias"
 
 #: Template/Articles/view.ctp:122 Template/Hdcategories/index.ctp:11;55
 #: Template/Hdcategories/view.ctp:12;224 Template/Hdtemplate/add.ctp:33
@@ -1292,7 +1292,7 @@ msgstr "Lista De Marcas"
 #: Template/Stocks/edit.ctp:41 Template/Stocks/index.ctp:59
 #: Template/Stocks/view.ctp:52
 msgid "List Items"
-msgstr "Lista De Items"
+msgstr "Lista De Activos"
 
 #: Template/Brands/add.ctp:32 Template/Brands/edit.ctp:38
 #: Template/Brands/index.ctp:54 Template/Brands/view.ctp:82
@@ -1309,7 +1309,7 @@ msgstr "Lista De Items"
 #: Template/Stocks/edit.ctp:42 Template/Stocks/index.ctp:60
 #: Template/Stocks/view.ctp:53
 msgid "New Item"
-msgstr "Nuevo Item"
+msgstr "Nuevo Activo"
 
 #: Template/Brands/edit.ctp:8 Template/Brands/view.ctp:15;77
 msgid "Edit Brand"
@@ -1335,17 +1335,17 @@ msgstr "Borrar Marca"
 #: Template/Items/index.ctp:9 Template/Layout/items.ctp:9
 #: Template/Pages/admin.ctp:45;47
 msgid "Items"
-msgstr "Items"
+msgstr "Activos"
 
 #: Template/Brands/view.ctp:32 Template/Currencies/view.ctp:32
 #: Template/Itemcategories/view.ctp:65
 msgid "Related Items"
-msgstr "Items Relacionados"
+msgstr "Activos Relacionados"
 
 #: Template/Brands/view.ctp:39 Template/Currencies/view.ctp:39
 #: Template/Itemcategories/view.ctp:72;110 Template/Layouts/view.ctp:46
 msgid "Itemcategory Id"
-msgstr "ID Categoria De Item"
+msgstr "ID Categoria De Activo"
 
 #: Template/Brands/view.ctp:40 Template/Currencies/view.ctp:40
 #: Template/Itemcategories/view.ctp:73
@@ -1415,7 +1415,7 @@ msgstr "B.D. De Conocimiento"
 #: Template/Element/header.ctp:69 Template/Hdcategories/index.ctp:8
 #: Template/Hdcategories/view.ctp:85 Template/Pages/admin.ctp:36
 msgid "Hdcategories"
-msgstr "Categorias HD"
+msgstr "Categorias"
 
 #: Template/Element/header.ctp:72 Template/Pages/admin.ctp:107
 msgid "Inventory"
@@ -1424,7 +1424,7 @@ msgstr "Inventario"
 #: Template/Element/header.ctp:75 Template/Itemcategories/index.ctp:9
 #: Template/Itemcategories/view.ctp:35 Template/Pages/admin.ctp:48
 msgid "Itemcategories"
-msgstr "Categorias De Items"
+msgstr "Categorias De Activos"
 
 #: Template/Element/header.ctp:78 Template/Pages/admin.ctp:54
 #: Template/Shippers/index.ctp:9
@@ -1658,7 +1658,7 @@ msgstr "Respuesta"
 
 #: Template/Hdcategories/view.ctp:86
 msgid "Related Hdcategories"
-msgstr "Categorias HD Relacionadas"
+msgstr "Categorias Relacionadas"
 
 #: Template/Hdcategories/view.ctp:120 Template/Hdtemplate/index.ctp:9
 #: Template/Pages/admin.ctp:37
@@ -1791,7 +1791,7 @@ msgstr "Itemcodes Relacionados"
 #: Template/Statusitems/view.ctp:38 Template/Stockmoves/view.ctp:83
 #: Template/Warehouses/view.ctp:92
 msgid "Item Id"
-msgstr "ID Item"
+msgstr "ID De Activo"
 
 #: Template/Invoices/view.ctp:55 Template/Itemcodes/view.ctp:25
 #: Template/Items/view.ctp:63 Template/Positionbranches/view.ctp:47
@@ -1807,7 +1807,7 @@ msgstr "ID Factura"
 #: Template/Invoices/view.ctp:57 Template/Items/view.ctp:65
 #: Template/Positionbranches/view.ctp:49 Template/Statusitems/view.ctp:41
 msgid "Statusitem Id"
-msgstr ""
+msgstr "ID De Estado Del Activo"
 
 #: Template/Invoices/view.ctp:59 Template/Itemcodes/view.ctp:53
 #: Template/Items/view.ctp:67 Template/Positionbranches/view.ctp:51
@@ -1823,7 +1823,7 @@ msgstr ""
 
 #: Template/Itemcategories/add.ctp:8
 msgid "Add Itemcategory"
-msgstr "Agregar Categoria De Item"
+msgstr "Agregar Categoria De Activo"
 
 #: Template/Itemcategories/add.ctp:11;31 Template/Itemcategories/edit.ctp:11;37
 #: Template/Itemcategories/view.ctp:14;145 Template/Items/add.ctp:37
@@ -1832,7 +1832,7 @@ msgstr "Agregar Categoria De Item"
 #: Template/Layoutcategories/edit.ctp:40 Template/Layoutcategories/index.ctp:59
 #: Template/Layoutcategories/view.ctp:54
 msgid "List Itemcategories"
-msgstr ""
+msgstr "Lista De Categorias De Activos"
 
 #: Template/Itemcategories/add.ctp:32 Template/Itemcategories/edit.ctp:38
 #: Template/Itemcategories/view.ctp:147
@@ -1865,7 +1865,7 @@ msgstr ""
 
 #: Template/Itemcategories/edit.ctp:8 Template/Itemcategories/view.ctp:15;143
 msgid "Edit Itemcategory"
-msgstr ""
+msgstr "Editar Categoria De Activo"
 
 #: Template/Itemcategories/index.ctp:12;54
 #: Template/Itemcategories/view.ctp:13;146 Template/Items/add.ctp:38
@@ -1874,11 +1874,11 @@ msgstr ""
 #: Template/Layoutcategories/edit.ctp:41 Template/Layoutcategories/index.ctp:60
 #: Template/Layoutcategories/view.ctp:55
 msgid "New Itemcategory"
-msgstr ""
+msgstr "Nueva Categoria de Activo"
 
 #: Template/Itemcategories/view.ctp:12;144
 msgid "Delete Itemcategory"
-msgstr ""
+msgstr "Borrar Categoria De Activo"
 
 #: Template/Itemcategories/view.ctp:25
 msgid "Parent Itemcategory"
@@ -1886,7 +1886,7 @@ msgstr ""
 
 #: Template/Itemcategories/view.ctp:36
 msgid "Related Itemcategories"
-msgstr ""
+msgstr "Categorias De Activos Relacionadas"
 
 #: Template/Itemcategories/view.ctp:103 Template/Layoutcategories/index.ctp:9
 #: Template/Layouts/view.ctp:39
@@ -2998,7 +2998,7 @@ msgstr ""
 #: Template/Userendmessages/edit.ctp:11;39
 #: Template/Userendmessages/view.ctp:13;59
 msgid "List Userendmessages"
-msgstr ""
+msgstr "Lista De Mensajes De Usuario"
 
 #: Template/Userendmessages/edit.ctp:8 Template/Userendmessages/view.ctp:14;57
 msgid "Edit Userendmessage"
@@ -3006,7 +3006,7 @@ msgstr ""
 
 #: Template/Userendmessages/index.ctp:8
 msgid "Userendmessages"
-msgstr ""
+msgstr "Mensajes De Usuario"
 
 #: Template/Userendmessages/index.ctp:11;59
 #: Template/Userendmessages/view.ctp:12;60
