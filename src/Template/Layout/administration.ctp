@@ -21,8 +21,8 @@
           <li><?= $this->Html->link(__('Ticketpriorities'), ['controller' => 'Ticketpriorities', 'action' => 'index']) ?></li>
           <!--<li><?= $this->Html->link(__('Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index']) ?></li>-->
           <li><?= $this->Html->link(__('Hdtemplate'), ['controller' => 'Hdtemplate', 'action' => 'index']) ?></li>
-          <li><?= $this->Html->link(__('Internalnotes'), ['controller' => 'Internalnotes', 'action' => 'index']) ?></li>
-          <li><?= $this->Html->link(__('Publicnotes'), ['controller' => 'Publicnotes', 'action' => 'index']) ?></li>
+          <li><?= $this->Html->link(__('Ticketnotes'), ['controller' => 'Ticketnotes', 'action' => 'index']) ?></li>
+          <li><?= $this->Html->link(__('Ticketnotestypes'), ['controller' => 'Ticketnotestypes', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Ticketlogs'), ['controller' => 'Ticketlogs', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Ticketsfiles'), ['controller' => 'Ticketsfiles', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Ticketmarkeds'), ['controller' => 'Ticketmarkeds', 'action' => 'index']) ?></li>

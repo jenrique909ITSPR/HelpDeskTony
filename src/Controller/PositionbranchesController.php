@@ -2,7 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
+ 
 /**
  * Positionbranches Controller
  *
@@ -115,5 +116,10 @@ class PositionbranchesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    
+ public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('administration');
     }
 }

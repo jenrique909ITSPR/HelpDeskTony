@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * Ticketstatuses Controller
  *
@@ -108,5 +108,9 @@ class TicketstatusesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('administration');
     }
 }
