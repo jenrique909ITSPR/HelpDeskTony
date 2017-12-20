@@ -37,16 +37,3 @@
 <div class="easyui-tabs">
 </div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Ticketsfile'), ['action' => 'edit', $ticketsfile->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Ticketsfile'), ['action' => 'delete', $ticketsfile->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticketsfile->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Ticketsfiles'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ticketsfile'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Ticketnotes'), ['controller' => 'Ticketnotes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Ticketnote'), ['controller' => 'Ticketnotes', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>

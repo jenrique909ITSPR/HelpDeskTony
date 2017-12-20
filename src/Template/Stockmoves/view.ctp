@@ -109,24 +109,3 @@
     </div>
 </div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Stockmove'), ['action' => 'edit', $stockmove->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Stockmove'), ['action' => 'delete', $stockmove->id], ['confirm' => __('Are you sure you want to delete # {0}?', $stockmove->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Stockmoves'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Stockmove'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Warehouses'), ['controller' => 'Warehouses', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Warehouse'), ['controller' => 'Warehouses', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Movereasons'), ['controller' => 'Movereasons', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Movereason'), ['controller' => 'Movereasons', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Shippers'), ['controller' => 'Shippers', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Shipper'), ['controller' => 'Shippers', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Stockmoves Details'), ['controller' => 'StockmovesDetails', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Stockmoves Detail'), ['controller' => 'StockmovesDetails', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
