@@ -203,6 +203,7 @@ img {
     padding-right: 30px;
 }
 
+
 .footer {
     text-align: center;
     border-top: 1px solid #DDD;
@@ -1427,4 +1428,18 @@ body.enduser {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+}
+
+/* searchform */
+fieldset.searchform {
+  margin: 0 0 10px 0;
+  padding: 10px 10px;
+  background: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+fieldset.searchform legend {
+  padding-left: 5px;
+  padding-right: 5px;
 }

@@ -6,6 +6,21 @@
 ?>
 
 <div class="itemcodes index">
+  <fieldset class="searchform">
+    <legend>Filtros</legend>
+    <?= $this->Form->create('search') ?>
+      <?= $this->Form->control('serial'); ?>
+      <?= $this->Form->control('invoice_id'); ?>
+      <?= $this->Form->control('item'); ?>
+      <?= $this->Form->control('branch_id'); ?>
+          <!--<?= $this->Form->control('itemcategory_id', ['options' => $itemcategories, 'empty' => true]); ?>
+          <?= $this->Form->control('brand_id', ['options' => $brands, 'empty' => true]); ?>-->
+      <?= $this->Form->control('statusitem_id'); ?>
+      <!--<?= $this->Form->control('DatePurcharse'); ?>-->
+    <?= $this->Form->button(__('Search')) ?>
+    <?= $this->Form->end() ?>
+  </fieldset>
+
     <h3><?= __('Itemcodes') ?></h3>
 	<div class="actions">
 		<ul>

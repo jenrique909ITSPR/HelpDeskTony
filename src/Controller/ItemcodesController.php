@@ -20,14 +20,28 @@ class ItemcodesController extends AppController
      */
     public function index()
     {
+        if ($this->request->is(['patch', 'post', 'put'])) {
+          pr($this->request->getData());
+        }
+
         $this->paginate = [
             'contain' => ['Items', 'Invoices', 'Statusitems', 'Positionbranches']
             ,'limit' => $this->limit_data
         ];
-        $itemcodes = $this->paginate($this->Itemcodes);
+        $query = $this->Itemcodes->find('All');
+        $query->where(['invoice_id' => 1]);
+        $query->where(['serial' => '3213143513213']);
 
-        $this->set(compact('itemcodes'));
+        $itemcodes = $this->paginate($query);
+        $statusitems = $this->Itemcodes->Statusitems->find('list');
+
+        $this->set(compact('itemcodes', 'statusitems'));
         $this->set('_serialize', ['itemcodes']);
+
+        /*
+        $query = $this->Articles->find('popular')->where(['author_id' => 1]);
+        $this->set('articles', $this->paginate($query));
+        */
     }
 
     /**

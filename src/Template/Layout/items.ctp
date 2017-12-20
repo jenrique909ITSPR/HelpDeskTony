@@ -9,23 +9,21 @@
           <?= $this->HTML->link(__('Items'),['controller'=>'Items','action'=>'index']);?>
     </div>
 
-    <div class="left">
+    <!--<div class="left">
      <ul class="topnavMenuL">
-    <?php foreach ($ticketrows as $row): ?>
       <li>
-        <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), ['controller' => 'Tickets', 'action' => 'index', $row['tickettype_id']]); ?>
+        <?= $this->Html->link(__("Warehouses"), ['controller' => 'Warehouses', 'action' => 'index']); ?>
       </li>
-    <?php endforeach; ?>
-    </ul>
-    </div>
+		 </ul>
+	 </div>-->
 
-    <div class="right">
+    <!--<div class="right">
     	<ul class="topnavMenuR">
           <li><a href="" title="Dashboard">Layout</a></li>
           <li><a href="" title="Reportes">Indicadores</a></li>
           <li><a href=""  title="Ajustes">Ajustes</a></li>
       </ul>
-    </div>
+    </div>-->
 
     <div class="searchbox right">
       <?= $this->Form->create('search', ['type' => 'get','url' => ['controller' => 'Items', 'action' => 'view']]) ?>
