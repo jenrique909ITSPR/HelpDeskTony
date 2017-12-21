@@ -24,7 +24,7 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('branch_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('position_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('layout') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('layout', 'Qty in Layout') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
