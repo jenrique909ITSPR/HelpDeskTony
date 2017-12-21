@@ -9,18 +9,18 @@
   <fieldset class="searchform">
     <legend>Filtros</legend>
     <?= $this->Form->create('search') ?>
-    <table>
+    <table class="tableTransparent">
       <tr>
+        <td><?= $this->Form->control('item_id', ['empty' => true]); ?></td>
         <td><?= $this->Form->control('serial'); ?></td>
-        <td><?= $this->Form->control('invoice_id'); ?></td>
-        <td><?= $this->Form->control('item'); ?></td>
-        <td><?= $this->Form->control('branch_id'); ?></td>
-        <td><?= $this->Form->control('statusitem_id'); ?></td>
+        <td><?= $this->Form->control('invoice_id', ['empty' => true]); ?></td>
+        <td><?= $this->Form->control('statusitem_id', ['empty' => true]); ?></td>
+        <td><?= $this->Form->control('branch_id', ['empty' => true]); ?></td>
       </tr>
     </table>
-          <!--<?= $this->Form->control('itemcategory_id', ['options' => $itemcategories, 'empty' => true]); ?>
-          <?= $this->Form->control('brand_id', ['options' => $brands, 'empty' => true]); ?>-->
-      <!--<?= $this->Form->control('DatePurcharse'); ?>-->
+      <!--<?= $this->Form->control('itemcategory_id', ['options' => $itemcategories, 'empty' => true]); ?>
+          <?= $this->Form->control('brand_id', ['options' => $brands, 'empty' => true]); ?>
+          <?= $this->Form->control('DatePurcharse'); ?>-->
     <?= $this->Form->button(__('Search')) ?>
     <?= $this->Form->end() ?>
   </fieldset>

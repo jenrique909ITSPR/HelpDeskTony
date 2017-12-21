@@ -1432,15 +1432,29 @@ body.enduser {
 }
 
 /* searchform */
-fieldset.searchform {
+.searchform {
   margin: 0 0 10px 0;
   padding: 10px 10px;
   background: none;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  border: 1px solid #CCC;
 }
-fieldset.searchform legend {
+.searchform legend {
   padding-left: 5px;
   padding-right: 5px;
+}
+.tableTransparent  {
+  background: none !important;
+  border: none !important;
+  padding: 0 0 !important;
+}
+.tableTransparent td  {
+  background: none !important;
+  border: none !important;
+  padding: 0 10px 0 0 !important;
+}
+.tableTransparent td:last-child   {
+  padding: 0 0 0 0 !important;
 }

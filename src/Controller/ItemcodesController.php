@@ -21,22 +21,27 @@ class ItemcodesController extends AppController
      */
     public function index()
     {
-        if ($this->request->is(['patch', 'post', 'put'])) {
-          pr($this->request->getData());
-        }
+
 
         $this->paginate = [
             'contain' => ['Items', 'Invoices', 'Statusitems', 'Positionbranches']
             ,'limit' => $this->limit_data
         ];
         $query = $this->Itemcodes->find('All');
-        $query->where(['invoice_id' => 1]);
-        $query->where(['serial' => '3213143513213']);
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $this->loadComponent('Filters');
+            $query = $this->Filters->Filtrado($this->request->getData(), $query);
+        }
+
 
         $itemcodes = $this->paginate($query);
+        $items = $this->Itemcodes->Items->find('list');
         $statusitems = $this->Itemcodes->Statusitems->find('list');
+        $invoices = $this->Itemcodes->Invoices->find('list');
+        $branches = $this->Itemcodes->Positionbranches->Branches->find('list');
 
-        $this->set(compact('itemcodes', 'statusitems'));
+        $this->set(compact('itemcodes', 'statusitems','items','invoices','branches'));
         $this->set('_serialize', ['itemcodes']);
 
         /*
