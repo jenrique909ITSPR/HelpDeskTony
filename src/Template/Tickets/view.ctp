@@ -15,10 +15,9 @@
 			<li><?= $this->Html->link(__('Edit Ticket'), ['action' => 'edit', $ticket->id]) ?> </li>
 		</ul>
 	</div>
-  <div class="clearfix">
-    <?= __('Created') . ' ' . h($ticket->created) . ' by ' . $this->Number->format($ticket->user_autor); ?>
-  </div>
-	<div class="easyui-tabs">
+
+  <!--Modificar -->
+   <!--<div class="easyui-tabs">
 	<div class="viewdata" title="<?= __('View Details') ?>">
     <table class="vertical-table">
         <tr>
@@ -101,8 +100,7 @@
     </div>
 </div>
 
-   <!--Modificar -->
-    <div class="related" title="<?= __('Ticketnotes') ?>">
+   <div class="related" title="<?= __('Ticketnotes') ?>">
       <div class="actions">
         <ul>
           <li><?= $this->Html->link(__('New Ticketnotes'), ['controller' => 'Ticketnotes', 'action' => 'add']) ?> </li>
@@ -308,37 +306,33 @@
         <?php endif; ?>
     </div>
 
-    </div>
+    </div>-->
 
-
-
-      <table width="100%" style="background: <?= $ticket->tickettype->color; ?>" >
-        <tr>
-          <td><?= $this->Form->control('branche_id', ['options' => $branches, 'empty' => true]); ?></td>
-          <td><?=  $this->Form->control('ticket_status_id', ['options' => $ticketStatuses, 'empty' => true]); ?></td>
-          <td><?= $this->Form->control('ticketimpact_id', ['options' => $ticketimpacts, 'empty' => true]); ?></td>
-          <td><?= $this->Form->control('ticketurgency_id', ['options' => $ticketurgencies, 'empty' => true]); ?></td>
-          <td><?= $this->Form->control('ticketpriority_id', ['options' => $ticketpriorities, 'empty' => true]); ?></td>
-        </tr>
-      </table>
-
+    <!--<div >
+      <?= __('Created') . ' ' . h($ticket->created) . ' by ' . $this->Number->format($ticket->user_autor); ?>
+      <br  /><?= __('Modified') . ": " . h($ticket->modified) ?>
+    </div>-->
 
     <div class="editdata">
       <?= $this->Form->create($ticket) ?>
           <?php
               //echo $this->Form->control('tickettype_id', ['options' => $tickettypes, 'empty' => true]);
               echo $this->Form->control('source_id', ['options' => $sources, 'empty' => true]);
-              echo $this->Form->control('solution');
-              echo $this->Form->control('resolution');
-              echo $this->Form->control('itemcode_id', ['options' => $itemcodes, 'empty' => true]);
-              echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
-              echo $this->Form->control('group_id', ['options' => $groups, 'empty' => true]);
+              echo $this->Form->control('hdcategory_id', ['type' => 'text','class' => 'easyui-combotree' ,'style' => 'width:100%;', 'id' => "cc" , 'empty' => true]);
+              echo $this->Form->control('branche_id', ['options' => $branches, 'empty' => true]);
+              echo  $this->Form->control('ticket_status_id', ['options' => $ticketStatuses, 'empty' => true]);
+              echo $this->Form->control('ticketimpact_id', ['options' => $ticketimpacts, 'empty' => true]);
+              echo $this->Form->control('ticketurgency_id', ['options' => $ticketurgencies, 'empty' => true]);
+              echo $this->Form->control('ticketpriority_id', ['options' => $ticketpriorities, 'empty' => true]);
               echo $this->Form->control('user_autor');
               echo $this->Form->control('user_requeried');
+              echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
+              echo $this->Form->control('group_id', ['options' => $groups, 'empty' => true]);
               echo $this->Form->control('parent_id', ['options' => $parentTickets, 'empty' => true]);
-              echo $this->Form->control('hdcategory_id', ['type' => 'text','class' => 'easyui-combotree' ,'style' => 'width:100%;', 'id' => "cc" , 'empty' => true]);
               echo $this->Form->control('ip');
-
+              echo $this->Form->control('itemcode_id', ['options' => $itemcodes, 'empty' => true]);
+              echo $this->Form->control('resolution');
+              echo $this->Form->control('solution');
           ?>
 
       <?= $this->Form->button(__('Submit')) ?>
@@ -348,12 +342,13 @@
 
     <h4><?= __('Add information') ?></h4>
     <div class="editdata">
-      <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'login']]) ?>
+      <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'add']]) ?>
           <?php
-              echo $this->Form->control('description');
+              echo $this->Form->control('ticketnotestype_id', ['options' => $ticketnotestypes]);
+              echo $this->Form->textarea('description');
               //echo $this->Form->control('ticket_id', ['options' => $tickets, 'empty' => true]);
               //echo $this->Form->control('user_id', ['options' => $users]);
-              echo $this->Form->control('ticketnotestype_id', ['options' => $ticketnotestypes]);
+
           ?>
 
       <?= $this->Form->button(__('Submit')) ?>
@@ -364,7 +359,7 @@
     <div class="related clearfix" title="<?= __('Ticketnotes') ?>">
       <?php if (!empty($ticket->ticketnotes)): ?>
         <?php foreach ($ticket->ticketnotes as $ticketnotes): ?>
-          <div class="ticketnotes <?= ($this->request->session()->read('Auth.User.id') == $ticketnotes->user_id) ? '' : 'tech'?> ">
+          <div class="viewticketnotes <?= ($this->request->session()->read('Auth.User.id') == $ticketnotes->user_id) ? '' : 'tech'?> ">
             <div class="clearfix">
               <div class="left">
                 <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->created) ?>

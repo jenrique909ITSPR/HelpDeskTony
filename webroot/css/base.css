@@ -1400,7 +1400,7 @@ body.enduser {
 }
 
 /* Ticket notes */
-.viewticketnotesticketnotes {
+.viewticketnotes {
   border: 1px solid #CCC;
   background: #FFFFFF url('../img/bguser.png') 15px 10px no-repeat;
   /*-webkit-border-radius: 4px;
