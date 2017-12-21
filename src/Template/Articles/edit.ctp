@@ -5,14 +5,14 @@
 ?>
 
 <div class="articles form">
-	<h3><?= __('Edit Article') ?></h3>
-	<div class="actions">
-		<ul>
-			<li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
-		</ul>
-	</div>
-	
-	<div class="editdata">
+    <h3><?= __('Edit Article') ?></h3>
+    <div class="actions">
+        <ul>
+            <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
+        </ul>
+    </div>
+    
+    <div class="editdata">
     <?= $this->Form->create($article) ?>
         <?php
             echo $this->Form->control('title');
@@ -20,11 +20,12 @@
             echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
             echo $this->Form->control('selected');
             echo $this->Form->control('roles._ids', ['options' => $roles]);
+            echo $this->Form->control('hdcategories._ids', ['options' => $hdcategories]);
         ?>
-	
+    
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
-	</div>
+    </div>
 </div>
 
 
@@ -38,15 +39,13 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Hdcategory'), ['controller' => 'Hdcategories', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Articlefiles'), ['controller' => 'Articlefiles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Articlefile'), ['controller' => 'Articlefiles', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Hdcategories Articles'), ['controller' => 'HdcategoriesArticles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Hdcategories Article'), ['controller' => 'HdcategoriesArticles', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Hdcategory'), ['controller' => 'Hdcategories', 'action' => 'add']) ?></li>
     </ul>
 </nav>

@@ -7,7 +7,7 @@ use Cake\ORM\TableRegistry;
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
 use Cake\Mailer\Email;
-use Cake\I18n\Time;
+
 
 /**
  * Tickets Controller
@@ -29,7 +29,8 @@ class TicketsController extends AppController
          parent::initialize();
 
         $this->loadComponent('Tickettype');
-        $this->loadUserEndMessages();
+        $this->loadComponent('Messages');
+
     }
 
      public function favorite($id = null){
@@ -373,6 +374,7 @@ class TicketsController extends AppController
     public function enduserindex() {
         $this->viewBuilder()->layout('enduser');
 
+        $this->set('messages',$this->Messages->loadUserEndMessages());
         $query = $this->Tickets->find('all')->where(['Tickets.user_autor' => $this->request->session()->read('Auth.User.id')])
             ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories'])
             ->order(['Tickets.id' => 'DESC']);
@@ -389,7 +391,7 @@ class TicketsController extends AppController
 
     public function enduseradd($tickettype_created = null) {
         $this->viewBuilder()->layout('enduser');
-
+        $this->set('messages',$this->Messages->loadUserEndMessages());
         $ticket = $this->Tickets->newEntity();
         switch ($tickettype_created) {
           case 1:
@@ -436,6 +438,7 @@ class TicketsController extends AppController
 
     public function enduserview($id = null) {
         $this->viewBuilder()->layout('enduser');
+        $this->set('messages',$this->Messages->loadUserEndMessages());
         if ($this->request->is("get")){
             if(is_null($id)){
                 $this->Flash->error(__('El ticket ingresado no existe'));
@@ -513,17 +516,7 @@ class TicketsController extends AppController
         }
 
     }
-    public function loadUserEndMessages()
-    {
-      $Userendmessages = TableRegistry::get('Userendmessages');
-      $messages = $Userendmessages->find('all')
-      ->where(['startdate <=' => Time::now() , 'endingdate >=' => Time::now()]);
-      /*->where(function ($exp, $q) {
-        return $exp->between('endingdate','2017/12/01','2017/12/02' );
-    });*/
-      $this->set('messages',$messages );
 
-    }
 
 
 
