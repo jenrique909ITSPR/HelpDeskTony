@@ -322,26 +322,75 @@
         </div>
         <div data-options="region:'center'"  style="width:100%;"">
              <div class="editdata">
-
-            <?php
-              echo $this->Form->control('hdcategory_id',[  'id' => 'hdcategory_id' , 'disabled' => 'true']);
-              
-              echo $this->Form->control('source_id', ['options' => $sources, 'empty' => true]);
-              echo $this->Form->control('branche_id', ['options' => $branches, 'empty' => true]);
-              echo  $this->Form->control('ticket_status_id', ['options' => $ticketStatuses, 'empty' => true]);
-              echo $this->Form->control('ticketimpact_id', ['options' => $ticketimpacts, 'empty' => true]);
-              echo $this->Form->control('ticketurgency_id', ['options' => $ticketurgencies, 'empty' => true]);
-              echo $this->Form->control('ticketpriority_id', ['options' => $ticketpriorities, 'empty' => true]);
-              echo $this->Form->control('user_autor');
-              echo $this->Form->control('user_requeried');
-              echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
-              echo $this->Form->control('group_id', ['options' => $groups, 'empty' => true]);
-              echo $this->Form->control('parent_id', ['options' => $parentTickets, 'empty' => true]);
-              echo $this->Form->control('ip');
-              echo $this->Form->control('itemcode_id', ['options' => $itemcodes, 'empty' => true]);
-              echo $this->Form->control('resolution');
-              echo $this->Form->control('solution');
-            ?>
+            <table style="width: 100%;">
+                <tbody>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Hdcategory')) ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('hdcategory_id',[ 'label' => false ,'id' => 'hdcategory_id' , 'disabled' => 'true']); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Source')) ?></td>
+                        <td style="width: 88%;"><?php  echo $this->Form->control('source_id', ['label' => false ,'options' => $sources, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Branch')) ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('branche_id', ['label' => false ,'options' => $branches, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Ticket Status')) ?></td>
+                        <td style="width: 88%;"><?php echo  $this->Form->control('ticket_status_id', ['label' => false ,'options' => $ticketStatuses, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Ticket Impact')) ?></td>
+                        <td style="width: 88%;"><?php  echo $this->Form->control('ticketimpact_id', ['label' => false ,'options' => $ticketimpacts, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Ticket Urgency')) ?></td>
+                        <td style="width: 88%;"><?php  echo $this->Form->control('ticketurgency_id', ['label' => false ,'options' => $ticketurgencies, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Ticket Priority')) ?></td>
+                        <td style="width: 88%;"><?php  echo $this->Form->control('ticketpriority_id', ['label' => false ,'options' => $ticketpriorities, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('User Autor')) ?></td>
+                        <td style="width: 88%;"><?php   echo $this->Form->control('user_autor',['label' => false ]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('User Requiered')) ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('user_requeried',['label' => false ]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('User')) ?></td>
+                        <td style="width: 88%;"><?php  echo $this->Form->control('user_id', ['label' => false ,'options' => $users, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Group')) ?></td>
+                        <td style="width: 88%;"><?php   echo $this->Form->control('group_id', ['label' => false ,'options' => $groups, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Parent')) ?></td>
+                        <td style="width: 88%;"><?php  echo $this->Form->control('parent_id', ['label' => false ,'options' => $parentTickets, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Ip')) ?></td>
+                        <td style="width: 88%;"><?php   echo $this->Form->control('ip',['label' => false ]);  ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Itemcode')) ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('itemcode_id', ['label' => false ,'options' => $itemcodes, 'empty' => true]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Resolution')) ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('resolution',['label' => false ]); ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12%;"><?= $this->form->label(__('Solution')) ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('solution',['label' => false ]); ?></td>
+                    </tr>
+                </tbody>
+            </table>
+            
             <?= $this->Form->button(__('Submit')) ?>
             </div>
         </div>
