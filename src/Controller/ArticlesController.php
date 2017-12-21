@@ -17,7 +17,7 @@ class ArticlesController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-<<<<<<< HEAD
+
 
      public function initialize()
     {
@@ -28,10 +28,9 @@ class ArticlesController extends AppController
 
     }
 
-    public function index()
-=======
+
      public function index()
->>>>>>> 1b7bdd8cbf7297d5ed947c807467ce50b5ee11e2
+
     {
         $this->paginate = [
             'contain' => ['Hdcategories', 'Users']

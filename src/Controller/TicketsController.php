@@ -518,10 +518,7 @@ class TicketsController extends AppController
     }
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 1b7bdd8cbf7297d5ed947c807467ce50b5ee11e2
 
 
 }
