@@ -6,15 +6,15 @@
 
 <div class="articles view">
     <h3><?= h($article->title) ?></h3>
-	<div class="actions">
-		<ul>
-			<li><?= $this->Form->postLink(__('Delete Article'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?> </li>
-			<li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?> </li>
-			<li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?> </li>
-			<li><?= $this->Html->link(__('Edit Article'), ['action' => 'edit', $article->id]) ?> </li>
-		</ul>
-	</div>
-	<div class="viewdata">
+    <div class="actions">
+        <ul>
+            <li><?= $this->Form->postLink(__('Delete Article'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?> </li>
+            <li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?> </li>
+            <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?> </li>
+            <li><?= $this->Html->link(__('Edit Article'), ['action' => 'edit', $article->id]) ?> </li>
+        </ul>
+    </div>
+    <div class="viewdata">
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Title') ?></th>
@@ -41,7 +41,7 @@
             <td><?= h($article->created) ?></td>
         </tr>
     </table>
-	</div>
+    </div>
     <div class="row">
         <h4><?= __('Answer') ?></h4>
         <?= $this->Text->autoParagraph(h($article->answer)); ?>
@@ -59,8 +59,8 @@
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-		  </thead>
-		  <tbody>
+          </thead>
+          <tbody>
             <?php foreach ($article->articlefiles as $articlefiles): ?>
             <tr>
                 <td><?= h($articlefiles->id) ?></td>
@@ -74,36 +74,7 @@
                 </td>
             </tr>
             <?php endforeach; ?>
-		  </tbody>
-        </table>
-        <?php endif; ?>
-    </div>
-    <div class="related" title="<?= __('Hdcategories Articles') ?>">
-        <h4><?= __('Related Hdcategories Articles') ?></h4>
-        <?php if (!empty($article->hdcategories_articles)): ?>
-        <table cellpadding="0" cellspacing="0">
-          <thead>
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Hdcategory Id') ?></th>
-                <th scope="col"><?= __('Article Id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-		  </thead>
-		  <tbody>
-            <?php foreach ($article->hdcategories_articles as $hdcategoriesArticles): ?>
-            <tr>
-                <td><?= h($hdcategoriesArticles->id) ?></td>
-                <td><?= h($hdcategoriesArticles->hdcategory_id) ?></td>
-                <td><?= h($hdcategoriesArticles->article_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'HdcategoriesArticles', 'action' => 'view', $hdcategoriesArticles->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'HdcategoriesArticles', 'action' => 'edit', $hdcategoriesArticles->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'HdcategoriesArticles', 'action' => 'delete', $hdcategoriesArticles->id], ['confirm' => __('Are you sure you want to delete # {0}?', $hdcategoriesArticles->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-		  </tbody>
+          </tbody>
         </table>
         <?php endif; ?>
     </div>
@@ -117,8 +88,8 @@
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-		  </thead>
-		  <tbody>
+          </thead>
+          <tbody>
             <?php foreach ($article->roles as $roles): ?>
             <tr>
                 <td><?= h($roles->id) ?></td>
@@ -130,9 +101,63 @@
                 </td>
             </tr>
             <?php endforeach; ?>
-		  </tbody>
+          </tbody>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related" title="<?= __('Hdcategories') ?>">
+        <h4><?= __('Related Hdcategories') ?></h4>
+        <?php if (!empty($article->hdcategories)): ?>
+        <table cellpadding="0" cellspacing="0">
+          <thead>
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Title') ?></th>
+                <th scope="col"><?= __('Parent Id') ?></th>
+                <th scope="col"><?= __('Lft') ?></th>
+                <th scope="col"><?= __('Rght') ?></th>
+                <th scope="col"><?= __('Description') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($article->hdcategories as $hdcategories): ?>
+            <tr>
+                <td><?= h($hdcategories->id) ?></td>
+                <td><?= h($hdcategories->title) ?></td>
+                <td><?= h($hdcategories->parent_id) ?></td>
+                <td><?= h($hdcategories->lft) ?></td>
+                <td><?= h($hdcategories->rght) ?></td>
+                <td><?= h($hdcategories->description) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Hdcategories', 'action' => 'view', $hdcategories->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Hdcategories', 'action' => 'edit', $hdcategories->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Hdcategories', 'action' => 'delete', $hdcategories->id], ['confirm' => __('Are you sure you want to delete # {0}?', $hdcategories->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
         </table>
         <?php endif; ?>
     </div>
 </div>
 </div>
+
+
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('Edit Article'), ['action' => 'edit', $article->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Article'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Articlefiles'), ['controller' => 'Articlefiles', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Articlefile'), ['controller' => 'Articlefiles', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Hdcategory'), ['controller' => 'Hdcategories', 'action' => 'add']) ?> </li>
+    </ul>
+</nav>

@@ -17,10 +17,11 @@ class ArticlesController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
+     public function index()
     {
         $this->paginate = [
             'contain' => ['Hdcategories', 'Users']
+            ,'limit' => $this->limit_data
         ];
         $articles = $this->paginate($this->Articles);
 
@@ -38,7 +39,7 @@ class ArticlesController extends AppController
     public function view($id = null)
     {
         $article = $this->Articles->get($id, [
-            'contain' => ['Hdcategories', 'Users', 'Roles', 'Articlefiles', 'HdcategoriesArticles']
+            'contain' => ['Users', 'Roles', 'Hdcategories', 'Articlefiles']
         ]);
 
         $this->set('article', $article);
@@ -62,10 +63,10 @@ class ArticlesController extends AppController
             }
             $this->Flash->error(__('The article could not be saved. Please, try again.'));
         }
-        $hdcategories = $this->Articles->Hdcategories->find('list', ['limit' => 200]);
         $users = $this->Articles->Users->find('list', ['limit' => 200]);
         $roles = $this->Articles->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('article', 'hdcategories', 'users', 'roles'));
+        $hdcategories = $this->Articles->Hdcategories->find('list', ['limit' => 200]);
+        $this->set(compact('article', 'users', 'roles', 'hdcategories'));
         $this->set('_serialize', ['article']);
     }
 
@@ -79,7 +80,7 @@ class ArticlesController extends AppController
     public function edit($id = null)
     {
         $article = $this->Articles->get($id, [
-            'contain' => ['Roles']
+            'contain' => ['Roles', 'Hdcategories']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->Articles->patchEntity($article, $this->request->getData());
@@ -90,10 +91,10 @@ class ArticlesController extends AppController
             }
             $this->Flash->error(__('The article could not be saved. Please, try again.'));
         }
-        $hdcategories = $this->Articles->Hdcategories->find('list', ['limit' => 200]);
         $users = $this->Articles->Users->find('list', ['limit' => 200]);
         $roles = $this->Articles->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('article', 'hdcategories', 'users', 'roles'));
+        $hdcategories = $this->Articles->Hdcategories->find('list', ['limit' => 200]);
+        $this->set(compact('article', 'users', 'roles', 'hdcategories'));
         $this->set('_serialize', ['article']);
     }
 
