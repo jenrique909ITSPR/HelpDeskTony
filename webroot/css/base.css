@@ -1400,7 +1400,7 @@ body.enduser {
 }
 
 /* Ticket notes */
-.ticketnotes {
+.viewticketnotesticketnotes {
   border: 1px solid #CCC;
   background: #FFFFFF url('../img/bguser.png') 15px 10px no-repeat;
   /*-webkit-border-radius: 4px;
@@ -1417,6 +1417,13 @@ body.enduser {
 }
 .notes {
   padding: 10px 0;
+  font-style: italic;
+}
+.notes::before {
+   content: '"';
+}
+.notes::after {
+   content: '"';
 }
 .tech {
   /*margin: 5px  0 5px 0;*/
