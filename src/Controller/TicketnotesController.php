@@ -87,7 +87,7 @@ class TicketnotesController extends AppController
             if ($this->Ticketnotes->save($ticketnote)) {
                 $this->Flash->success(__('The ticketnote has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Tickets', 'action' => 'view', $id]);
             }
             $this->Flash->error(__('The ticketnote could not be saved. Please, try again.'));
         }
@@ -117,7 +117,7 @@ class TicketnotesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
+
  public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('administration');

@@ -145,14 +145,14 @@ class TicketsController extends AppController
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
-         $hdcategories = $this->Tickets->Hdcategories->find('all');
+        $hdcategories = $this->Tickets->Hdcategories->find('all');
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $ticketnotestypes = $ticketnotestypesTable->find('list',['limit' => 200]);
-         $dataTree = array();
+        $dataTree = array();
         foreach ($hdcategories as $key => $value) {
             array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
         }
-         $dataTreeJson = json_encode($dataTree);
+        $dataTreeJson = json_encode($dataTree);
         $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets','branches'));
 
         /*$tickets = $this->Ticketnotes->Tickets->find('list', ['limit' => 200]);
@@ -525,7 +525,7 @@ class TicketsController extends AppController
 
     }
 
-    
+
 
 
 }
