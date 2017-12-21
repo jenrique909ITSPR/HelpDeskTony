@@ -60,8 +60,8 @@ class UserendmessagesController extends AppController
             $userendmessage = $this->Userendmessages->patchEntity($userendmessage, $this->request->getData());
             $startdateF = new Time($this->request->getData('startdate'));
             $endingdateF = new Time($this->request->getData('endingdate'));
-            $userendmessage->startdate = $startdateF->format('Y-m-d G:ia');
-            $userendmessage->endingdate = $endingdateF->format('Y-m-d G:ia');
+            $userendmessage->startdate = $startdateF->format('Y-m-d G:i:s');
+            $userendmessage->endingdate = $endingdateF->format('Y-m-d G:i:s');
             if ($this->Userendmessages->save($userendmessage)) {
                 $this->Flash->success(__('The userendmessage has been saved.'));
 
@@ -90,9 +90,9 @@ class UserendmessagesController extends AppController
             $userendmessage = $this->Userendmessages->patchEntity($userendmessage, $this->request->getData());
             $startdateF = new Time($this->request->getData('startdate'));
             $endingdateF = new Time($this->request->getData('endingdate'));
-            $userendmessage->startdate = $startdateF->format('Y-m-d G:ia');
-            $userendmessage->endingdate = $endingdateF->format('Y-m-d G:ia');
-            debug($userendmessage->endingdate);
+            $userendmessage->startdate = $startdateF->format('Y-m-d G:i:s');
+            $userendmessage->endingdate = $endingdateF->format('Y-m-d G:i:s');
+  //          debug($userendmessage->endingdate);
 
             if ($this->Userendmessages->save($userendmessage)) {
                 $this->Flash->success(__('The userendmessage has been saved.'));
