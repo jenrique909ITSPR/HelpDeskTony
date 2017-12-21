@@ -57,6 +57,7 @@
           <li><?= $this->Html->link(__('Stocks'), ['controller' => 'Stocks', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('StockmovesDetails'), ['controller' => 'StockmovesDetails', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Layouts'), ['controller' => 'Layouts', 'action' => 'index']) ?></li>
+          <li><?= $this->Html->link(__('Layoutcategories'), ['controller' => 'Layoutcategories', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Movereasons'), ['controller' => 'Movereasons', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Positions'), ['controller' => 'Positions', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Positionbranches'), ['controller' => 'Positionbranches', 'action' => 'index']) ?></li>
