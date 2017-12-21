@@ -313,12 +313,20 @@
       <br  /><?= __('Modified') . ": " . h($ticket->modified) ?>
     </div>-->
 
-    <div class="editdata">
-      <?= $this->Form->create($ticket) ?>
-          <?php
-              //echo $this->Form->control('tickettype_id', ['options' => $tickettypes, 'empty' => true]);
+
+ <?= $this->Form->create($ticket) ?>
+<div class="easyui-layout"  style="width:100%;height:1100px;">
+        <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
+            <!--<a class="easyui-linkbutton" onclick="colapsar()">CollapseAll</a>-->
+            <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/> 
+        </div>
+        <div data-options="region:'center'"  style="width:100%;"">
+             <div class="editdata">
+
+            <?php
+              echo $this->Form->control('hdcategory_id',[  'id' => 'hdcategory_id' , 'disabled' => 'true']);
+              
               echo $this->Form->control('source_id', ['options' => $sources, 'empty' => true]);
-              echo $this->Form->control('hdcategory_id', ['type' => 'text','class' => 'easyui-combotree' ,'style' => 'width:100%;', 'id' => "cc" , 'empty' => true]);
               echo $this->Form->control('branche_id', ['options' => $branches, 'empty' => true]);
               echo  $this->Form->control('ticket_status_id', ['options' => $ticketStatuses, 'empty' => true]);
               echo $this->Form->control('ticketimpact_id', ['options' => $ticketimpacts, 'empty' => true]);
@@ -333,11 +341,12 @@
               echo $this->Form->control('itemcode_id', ['options' => $itemcodes, 'empty' => true]);
               echo $this->Form->control('resolution');
               echo $this->Form->control('solution');
-          ?>
-
-      <?= $this->Form->button(__('Submit')) ?>
-      <?= $this->Form->end() ?>
-  	</div>
+            ?>
+            <?= $this->Form->button(__('Submit')) ?>
+            </div>
+        </div>
+    </div>
+<?= $this->Form->end() ?>
 
 
     <h4><?= __('Add information') ?></h4>
@@ -389,23 +398,24 @@
 </div>
 <script type="text/javascript">
 
-    $('#cc').combotree({
+    $('#tt').tree({
     });
-    $('#cc').combotree({
+    $('#tt').tree({
+    data: <?= $dataTreeJson  ?>
+    });
+    $('#tt').tree({
     loadFilter: function(rows){
         return convert(rows);
     }
     });
-    $('#cc').combotree('loadData', <?= $dataTreeJson  ?> );
-
-        function convert(rows){
+    function convert(rows){
         function exists(rows, parentId){
             for(var i=0; i<rows.length; i++){
                 if (rows[i].id == parentId) return true;
             }
             return false;
         }
-
+        
         var nodes = [];
         // get the top level nodes
         for(var i=0; i<rows.length; i++){
@@ -417,7 +427,7 @@
                 });
             }
         }
-
+        
         var toDo = [];
         for(var i=0; i<nodes.length; i++){
             toDo.push(nodes[i]);
@@ -440,4 +450,25 @@
         }
         return nodes;
     }
+
+
+    $('#tt').tree({
+        onDblClick: function(node){
+            var node = $('#tt').tree('getSelected');
+            if (node){
+                var s = node.text;
+                if (node.attributes){
+                    s += ","+node.attributes.p1+","+node.attributes.p2;
+                }
+                $("#hdcategory_id").empty();
+                $("#hdcategory_id").append("<option value='" + node.id+"'' >"+s+"</option>");
+
+            }
+        },
+        onLoadSuccess: function(node){
+                $('#tt').tree('collapseAll');
+            }
+        
+    });
+    
 </script>
