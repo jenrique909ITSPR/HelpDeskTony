@@ -12,6 +12,12 @@
 			<li><?= $this->Html->link(__('New Layout'), ['action' => 'add']) ?></li>
 		</ul>
 	</div>
+  <fieldset class="searchform">
+    <?= $this->Form->create('search') ?>
+    <?= $this->Form->control('branch_id', ['empty' => true]); ?>
+    <?= $this->Form->button(__('Search')) ?>
+    <?= $this->Form->end() ?>
+  </fieldset>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

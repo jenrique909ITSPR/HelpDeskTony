@@ -25,9 +25,17 @@ class LayoutsController extends AppController
             'contain' => ['Branches', 'Positions']
             ,'limit' => $this->limit_data
         ];
-        $layouts = $this->paginate($this->Layouts);
+        $query = $this->Layouts->find('All');
 
-        $this->set(compact('layouts'));
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $this->loadComponent('Filters');
+            $query = $this->Filters->Filtrado($this->request->getData(), $query);
+        }
+
+        $layouts = $this->paginate($query);
+
+        $branches = $this->Layouts->Branches->find('list')->order(['name' => 'ASC']);
+        $this->set(compact('layouts', 'branches'));
         $this->set('_serialize', ['layouts']);
     }
 
@@ -117,7 +125,7 @@ class LayoutsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
+
  public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('administration');
