@@ -17,8 +17,31 @@ class ArticlesController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+
+     public function initialize()
+    {
+         parent::initialize();
+
+
+        $this->loadComponent('Messages');
+
+    }
+
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Hdcategories', 'Users']
+        ];
+        $articles = $this->paginate($this->Articles);
+
+        $this->set(compact('articles'));
+        $this->set('_serialize', ['articles']);
+    }
+
+    public function enduserindex()
+    {
+      $this->viewBuilder()->layout('enduser');
+      $this->set('messages',$this->Messages->loadUserEndMessages());
         $this->paginate = [
             'contain' => ['Hdcategories', 'Users']
         ];
