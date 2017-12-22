@@ -56,10 +56,40 @@ class InvoicesController extends AppController
     {
         $invoice = $this->Invoices->newEntity();
         if ($this->request->is('post')) {
-            $invoice = $this->Invoices->patchEntity($invoice, $this->request->getData());
+
+            /* Subir archivos - Hay que hacer un complemento reutilizable */
+            $datos = $this->request->getData();
+            /* Upload PDF */
+            $file = $datos('pdf');
+            $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
+            $arr_ext = array('pdf');
+            if (in_array($ext, $arr_ext))
+            {
+                move_uploaded_file($file['tmp_name'], WWW_ROOT . 'files/invoices/' . $file['name']);
+            }
+            $datos['pdf'] = $file['name'];
+            /* Upload XML */
+            $file = $datos('xml');
+            $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
+            $arr_ext = array('xml');
+            if (in_array($ext, $arr_ext))
+            {
+                move_uploaded_file($file['tmp_name'], WWW_ROOT . 'files/invoices/' . $file['name']);
+            }
+            $datos['xml'] = $file['name'];
+            /* Upload PO */
+            $file = $datos('po');
+            $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
+            $arr_ext = array('pdf');
+            if (in_array($ext, $arr_ext))
+            {
+                move_uploaded_file($file['tmp_name'], WWW_ROOT . 'files/po/' . $file['name']);
+            }
+            $datos['po'] = $file['name'];
+
+            $invoice = $this->Invoices->patchEntity($invoice, $datos);
             if ($this->Invoices->save($invoice)) {
                 $this->Flash->success(__('The invoice has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));

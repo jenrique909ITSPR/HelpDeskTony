@@ -362,8 +362,8 @@ table thead tr th, table tfoot tr th, table tfoot tr td, table tbody tr th, tabl
 }
 
 .index table tr:hover td, .related table tr:hover {
-    background: #fcffba;
-    /*background: #C0CDDA */
+    /*background: #fcffba;*/
+    background: #C0CDDA
     /*background: #2080AC; */
     /*background: #E5F2FA;*/
 }

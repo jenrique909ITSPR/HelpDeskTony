@@ -131,11 +131,23 @@ class TicketsController extends AppController
             'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors']
             ]);
         }
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $ticket = $this->Tickets->get($id, [
+            'contain' => []
+            ]);
+            $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
+            if ($this->Tickets->save($ticket)) {
+                $this->Flash->success(__('Datos del ticket actualizados '));
+                return $this->redirect(['action' => 'view' , $ticket->id]);
+            }
+            $this->Flash->error(__('Error al actualizar datos'));
+        }
 
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
         $ticketnotestypesTable = TableRegistry::get('Ticketnotestypes');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
+        
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
         $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
@@ -146,7 +158,7 @@ class TicketsController extends AppController
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
         $hdcategories = $this->Tickets->Hdcategories->find('all');
-        $hdcategory = $this->Tickets->Hdcategories->find('all')->where(['id' => $ticket->hdcategory_id]);
+        $hdcategories2 = $this->Tickets->Hdcategories->find('list');
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $ticketnotestypes = $ticketnotestypesTable->find('list',['limit' => 200]);
         $dataTree = array();
@@ -154,7 +166,7 @@ class TicketsController extends AppController
             array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
         }
         $dataTreeJson = json_encode($dataTree);
-        $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities','hdcategory','dataTreeJson','parentTickets','branches'));
+        $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities','hdcategories2','dataTreeJson','parentTickets','branches'));
 
         /*$tickets = $this->Ticketnotes->Tickets->find('list', ['limit' => 200]);
         $users = $this->Ticketnotes->Users->find('list', ['limit' => 200]);
