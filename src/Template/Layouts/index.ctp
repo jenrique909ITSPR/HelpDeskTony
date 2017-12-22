@@ -12,13 +12,19 @@
 			<li><?= $this->Html->link(__('New Layout'), ['action' => 'add']) ?></li>
 		</ul>
 	</div>
+  <fieldset class="searchform">
+    <?= $this->Form->create('search') ?>
+    <?= $this->Form->control('branch_id', ['empty' => true]); ?>
+    <?= $this->Form->button(__('Search')) ?>
+    <?= $this->Form->end() ?>
+  </fieldset>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('branch_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('position_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('layout') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('layout', 'Qty in Layout') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>

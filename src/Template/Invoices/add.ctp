@@ -13,13 +13,14 @@
 	</div>
 
 	<div class="editdata">
-    <?= $this->Form->create($invoice) ?>
+    <?= $this->Form->create($invoice, ['type' => 'file']) ?>
         <?php
-            echo $this->Form->control('number');
             echo $this->Form->control('supplier_id', ['options' => $suppliers, 'empty' => true]);
-            echo $this->Form->control('pdf');
-            echo $this->Form->control('xml');
+						echo $this->Form->control('number');
+            echo $this->Form->file('pdf');
+            echo $this->Form->file('xml');
             echo $this->Form->control('purchase_order');
+						echo $this->Form->file('po');
         ?>
 
     <?= $this->Form->button(__('Submit')) ?>

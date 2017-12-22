@@ -16,11 +16,12 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('supplier_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('pdf') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('xml') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('purchase_order') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('po') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -28,11 +29,12 @@
             <?php foreach ($invoices as $invoice): ?>
             <tr>
                 <td><?= $this->Number->format($invoice->id) ?></td>
-                <td><?= h($invoice->number) ?></td>
                 <td><?= $invoice->has('supplier') ? $this->Html->link($invoice->supplier->name, ['controller' => 'Suppliers', 'action' => 'view', $invoice->supplier->id]) : '' ?></td>
-                <td><?= h($invoice->pdf) ?></td>
-                <td><?= h($invoice->xml) ?></td>
+                <td><?= h($invoice->number) ?></td>
+                <td><?= $invoice->has('pdf') ? $this->Html->link("<i class='fa fa-file-pdf-o' aria-hidden='true'></i> PDF", '/files/invoices/' . $invoice->pdf, ['escape' => false, 'target' => '_blank']) : '' ?></td>
+                <td><?= $invoice->has('xml') ? $this->Html->link("<i class='fa fa-file-code-o' aria-hidden='true'></i> XML", '/files/invoices/' . $invoice->po, ['escape' => false, 'target' => '_blank']) : '' ?></td>
                 <td><?= h($invoice->purchase_order) ?></td>
+                <td><?= $invoice->has('po') ? $this->Html->link("<i class='fa fa-file-pdf-o' aria-hidden='true'></i> PDF", '/files/po/' . $invoice->po, ['escape' => false, 'target' => '_blank']) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $invoice->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $invoice->id]) ?>

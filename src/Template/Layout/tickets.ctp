@@ -11,7 +11,7 @@
     <?php foreach ($ticketrows as $row): ?>
       <li>
 
-        <?= $this->Html->link(($row['name'].' (' . $row['total'] .')' ), [ 'controller' => 'Tickets', 'action' => 'index' , $this->request->session()->read('typeViewTickets') , $row['tickettype_id']]); ?>
+        <?= $this->Html->link(('<i class="fa fa-square" aria-hidden="true" style="color: '. $row['color'] .'"></i> ' . $row['name'].' (' . $row['total'] .')' ), [ 'controller' => 'Tickets', 'action' => 'index' , $this->request->session()->read('typeViewTickets') , $row['tickettype_id']], ['escape' => false]); ?>
       </li>
     <?php endforeach; ?>
 
