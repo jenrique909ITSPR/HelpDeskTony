@@ -19,7 +19,7 @@ var plot1 = jQuery.jqplot ('chart1', [data],
         showDataLabels: true
       }
     },
-    seriesColors: [ "#F39C12", "#CEC2D3", "#FF8210","#00C0EF"],
+    seriesColors: [ "#F39C12", "#DD4B39", "#00C0EF","#666699"],
 
     legend: { show:true,
       placement: 'outside',
@@ -42,7 +42,7 @@ var plot1 = jQuery.jqplot ('chart1', [data],
     </ul>
   </div>
 
-  <div class="boxContainer center">
+  <!--<div class="boxContainer center">
     <div class="ticketsBox" style="background: #F39C12;">
       <div class="ticketsBoxTitle">Incidentes</div>
 
@@ -60,7 +60,7 @@ var plot1 = jQuery.jqplot ('chart1', [data],
 
     </div>
   </div>
-
+-->
 
   <h3><?= __('My Team') ?></h3>
   <div class="boxContainer center">

@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
 /**
  * Articles Controller
  *
@@ -40,6 +40,18 @@ class ArticlesController extends AppController
 
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
+
+        $hdcategories = TableRegistry::get('Hdcategories')->find();
+
+
+
+        $dataTree = array();
+        foreach ($hdcategories as $key => $value) {
+            array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
+        }
+         $dataTreeJson = json_encode($dataTree);
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets', 'ip','branches'));
+        $this->set('_serialize', ['ticket']);
     }
 
     public function enduserindex()
@@ -53,6 +65,18 @@ class ArticlesController extends AppController
 
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
+
+        $hdcategories = TableRegistry::get('Hdcategories')->find();
+
+
+
+        $dataTree = array();
+        foreach ($hdcategories as $key => $value) {
+            array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
+        }
+         $dataTreeJson = json_encode($dataTree);
+        $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets', 'ip','branches'));
+        $this->set('_serialize', ['ticket']);
     }
 
     /**

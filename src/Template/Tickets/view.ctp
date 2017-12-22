@@ -318,15 +318,15 @@
 <div class="easyui-layout"  style="width:100%;height:1100px;">
         <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
             <!--<a class="easyui-linkbutton" onclick="colapsar()">CollapseAll</a>-->
-            <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/> 
+            <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>
         </div>
-        <div data-options="region:'center'"  style="width:100%;"">
+        <div data-options="region:'center'"  style="width:100%;">
              <div class="editdata">
             <table style="width: 100%;">
                 <tbody>
                     <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Hdcategory')) ?></td>
-                        <td style="width: 88%;"><?php echo $this->Form->control('hdcategory_id',[ 'label' => false ,'id' => 'hdcategory_id' , 'disabled' => 'true']); ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('hdcategory_id',[ 'label' => false ,'id' => 'hdcategory_id' , 'disabled' => 'true' , 'options' => $hdcategories2]); ?></td>
                     </tr>
                     <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Source')) ?></td>
@@ -390,7 +390,7 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <?= $this->Form->button(__('Submit')) ?>
             </div>
         </div>
@@ -402,13 +402,14 @@
     <div class="editdata">
       <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'add']]) ?>
           <?php
-              echo $this->Form->control('ticketnotestype_id', ['options' => $ticketnotestypes]);
+          /////Edit here
+          
+              echo $this->Form->radio('ticketnotestype_id',[['text' => 'Publico' , 'value' => '1'],
+                ['text' => 'Interno' , 'value' => '2']]);
               echo $this->Form->textarea('description');
               //echo $this->Form->control('ticket_id', ['options' => $tickets, 'empty' => true]);
               //echo $this->Form->control('user_id', ['options' => $users]);
-
           ?>
-
       <?= $this->Form->button(__('Submit')) ?>
       <?= $this->Form->end() ?>
     </div>
@@ -464,7 +465,7 @@
             }
             return false;
         }
-        
+
         var nodes = [];
         // get the top level nodes
         for(var i=0; i<rows.length; i++){
@@ -476,7 +477,7 @@
                 });
             }
         }
-        
+
         var toDo = [];
         for(var i=0; i<nodes.length; i++){
             toDo.push(nodes[i]);
@@ -517,7 +518,7 @@
         onLoadSuccess: function(node){
                 $('#tt').tree('collapseAll');
             }
-        
+
     });
-    
+
 </script>
