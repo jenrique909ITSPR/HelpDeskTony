@@ -11,6 +11,7 @@
 			<li><?= $this->Html->link(__('New Tickettype'), ['action' => 'add']) ?></li>
 		</ul>
 	</div>
+  
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

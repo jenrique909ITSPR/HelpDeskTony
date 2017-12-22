@@ -318,9 +318,9 @@
 <div class="easyui-layout"  style="width:100%;height:1100px;">
         <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
             <!--<a class="easyui-linkbutton" onclick="colapsar()">CollapseAll</a>-->
-            <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/> 
+            <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>
         </div>
-        <div data-options="region:'center'"  style="width:100%;"">
+        <div data-options="region:'center'"  style="width:100%;">
              <div class="editdata">
             <table style="width: 100%;">
                 <tbody>
@@ -390,7 +390,7 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <?= $this->Form->button(__('Submit')) ?>
             </div>
         </div>
@@ -465,7 +465,7 @@
             }
             return false;
         }
-        
+
         var nodes = [];
         // get the top level nodes
         for(var i=0; i<rows.length; i++){
@@ -477,7 +477,7 @@
                 });
             }
         }
-        
+
         var toDo = [];
         for(var i=0; i<nodes.length; i++){
             toDo.push(nodes[i]);
@@ -518,7 +518,7 @@
         onLoadSuccess: function(node){
                 $('#tt').tree('collapseAll');
             }
-        
+
     });
-    
+
 </script>
