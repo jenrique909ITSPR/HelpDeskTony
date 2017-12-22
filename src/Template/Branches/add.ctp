@@ -14,11 +14,20 @@
 
 	<div class="editdata">
     <?= $this->Form->create($branch) ?>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('branchgroup_id', ['options' => $branchgroups, 'empty' => true]);
-        ?>
+		<table>
+  <tr>
+			  
+						<table cellpadding="0" cellspacing="0" style="width:100%;">
+                <tbody>
+                        <tr><td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td><td><?=    $this->Form->control('name', ['label' => false]); ?></td></tr>
+                        <tr><td style="width:5%;"><?= $this->form->label(__('Region')) ?></td><td><?=  $this->Form->control('branchgroup_id', ['options' => $branchgroups, 'empty' => true, 'label' => false]); ?></td></tr>
+                </tbody>
+        </table>
+					</tr>
+					<tr>
 
+        </tr>
+</table>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
