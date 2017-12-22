@@ -326,7 +326,7 @@
                 <tbody>
                     <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Hdcategory')) ?></td>
-                        <td style="width: 88%;"><?php echo $this->Form->control('hdcategory_id',[ 'label' => false ,'id' => 'hdcategory_id' , 'disabled' => 'true']); ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('hdcategory_id',[ 'label' => false ,'id' => 'hdcategory_id' , 'disabled' => 'true' , 'options' => $hdcategories2]); ?></td>
                     </tr>
                     <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Source')) ?></td>
@@ -402,13 +402,14 @@
     <div class="editdata">
       <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'add']]) ?>
           <?php
-              echo $this->Form->control('ticketnotestype_id', ['options' => $ticketnotestypes]);
+          /////Edit here
+          
+              echo $this->Form->radio('ticketnotestype_id',[['text' => 'Publico' , 'value' => '1'],
+                ['text' => 'Interno' , 'value' => '2']]);
               echo $this->Form->textarea('description');
               //echo $this->Form->control('ticket_id', ['options' => $tickets, 'empty' => true]);
               //echo $this->Form->control('user_id', ['options' => $users]);
-
           ?>
-
       <?= $this->Form->button(__('Submit')) ?>
       <?= $this->Form->end() ?>
     </div>

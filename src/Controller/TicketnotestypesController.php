@@ -50,6 +50,7 @@ class TicketnotestypesController extends AppController
     public function add()
     {
         $ticketnotestype = $this->Ticketnotestypes->newEntity();
+        $ticketnotestype->user_id = $this->request->session()->read('Auth.User.id');
         if ($this->request->is('post')) {
             $ticketnotestype = $this->Ticketnotestypes->patchEntity($ticketnotestype, $this->request->getData());
             if ($this->Ticketnotestypes->save($ticketnotestype)) {
