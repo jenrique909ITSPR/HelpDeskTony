@@ -11,17 +11,19 @@
 			<li><?= $this->Html->link(__('List Tickettypes'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($tickettype) ?>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('tag');
-            echo $this->Form->control('rank');
-            echo $this->Form->control('color');
-            echo $this->Form->control('ticketstatuses._ids', ['options' => $ticketstatuses]);
-        ?>
-	
+		<table cellpadding="0" cellspacing="0" style="width:100%; margin:10px;">
+				<tbody>
+						<tr><td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td><td><?= $this->Form->control('name',['label' => false]); ?></td></tr>
+						<tr><td  style="width:5%;"><?= $this->form->label(__('Tag')) ?></td><td><?= $this->Form->control('tag',['label' => false]); ?></td></tr>
+						<tr><td  style="width:5%;"><?= $this->form->label(__('Rank')) ?></td><td><?= $this->Form->control('rank',['label' => false]); ?></td></tr>
+						<tr><td  style="width:5%;"><?= $this->form->label(__('Color')) ?></td><td><?= $this->Form->control('color',['label' => false]); ?></td></tr>
+						<tr><td  style="width:5%;"><?= $this->form->label(__('Ticketstatuses')) ?></td><td><?= $this->Form->control('ticketstatuses._ids', ['label' => false,'options' => $ticketstatuses]); ?></td></tr>
+				</tbody>
+		</table>
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>

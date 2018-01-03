@@ -14,12 +14,14 @@
 
 	<div class="editdata">
     <?= $this->Form->create($ticketstatus) ?>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('value_order');
-            echo $this->Form->control('tickettypes._ids', ['options' => $tickettypes]);
-        ?>
-
+        
+				<table cellpadding="0" cellspacing="0" style="width:100%; margin:10px;">
+						<tbody>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td><td><?=    $this->Form->control('name', ['label' => false]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('Value Order')) ?></td><td><?=  $this->Form->control('value_order',['label' => false]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('Tickettypes')) ?></td><td><?= $this->Form->control('tickettypes._ids', ['label' => false,'options' => $tickettypes]);  ?></td></tr>
+						</tbody>
+				</table>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>

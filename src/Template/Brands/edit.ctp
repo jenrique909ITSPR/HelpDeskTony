@@ -11,13 +11,15 @@
 			<li><?= $this->Html->link(__('List Brands'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($brand) ?>
-        <?php
-            echo $this->Form->control('name');
-        ?>
-	
+		<table cellpadding="0" cellspacing="0" style="width:100%; margin:10px;">
+				<tbody>
+						<tr><td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td><td><?=    $this->Form->control('name', ['label' => false]); ?></td></tr>
+				</tbody>
+		</table>
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>

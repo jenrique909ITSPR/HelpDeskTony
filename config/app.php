@@ -226,7 +226,7 @@ return [
             'persistent' => false,
 
 
-            'host' => '192.168.100.71',
+            'host' => 'localhost',
 			     //'host' => 'localhost',
 
             /**
@@ -235,8 +235,8 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'pruebas',
-		        'password' => 'TonyJcPP',
+            'username' => 'root',
+		        'password' => '',
             'database' => 'portalti',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
