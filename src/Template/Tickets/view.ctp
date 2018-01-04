@@ -322,7 +322,7 @@
         </div>
         <div data-options="region:'center'"  style="width:100%;">
              <div class="editdata">
-            <table style="width: 100%;">
+            <table  cellpadding="0" cellspacing="0" style="width:100%; border:none;">
                 <tbody>
                     <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Hdcategory')) ?></td>

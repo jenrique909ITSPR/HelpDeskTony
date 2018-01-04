@@ -14,7 +14,7 @@
 
 	<div class="editdata">
     <?= $this->Form->create($hdcategory) ?>
-		<table cellpadding="0" cellspacing="0" style="width:100%;">
+		<table  cellpadding="0" cellspacing="0" style="width:100%; border:none;">
 							<tbody>
 											<tr><td  style="width:5%;"><?= $this->form->label(__('title')) ?></td><td><?=   $this->Form->control('title',['label' => false]); ?></td></tr>
 											<tr><td  style="width:5%;"><?= $this->form->label(__('parent_id')) ?></td><td><?=   $this->Form->control('parent_id', ['options' => $parentHdcategories, 'empty' => true , 'label' => false]); ?></td></tr>
