@@ -12,7 +12,10 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\ItemcategoriesTable|\Cake\ORM\Association\BelongsTo $Itemcategories
  * @property \App\Model\Table\CurrenciesTable|\Cake\ORM\Association\BelongsTo $Currencies
  * @property \App\Model\Table\BrandsTable|\Cake\ORM\Association\BelongsTo $Brands
+ * @property \App\Model\Table\ItemtypesTable|\Cake\ORM\Association\BelongsTo $Itemtypes
+ * @property \App\Model\Table\ItemsTable|\Cake\ORM\Association\BelongsTo $ParentItems
  * @property \App\Model\Table\ItemcodesTable|\Cake\ORM\Association\HasMany $Itemcodes
+ * @property \App\Model\Table\ItemsTable|\Cake\ORM\Association\HasMany $ChildItems
  * @property \App\Model\Table\StockmovesDetailsTable|\Cake\ORM\Association\HasMany $StockmovesDetails
  * @property \App\Model\Table\StocksTable|\Cake\ORM\Association\HasMany $Stocks
  *
@@ -23,8 +26,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Item patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Item[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Item findOrCreate($search, callable $callback = null, $options = [])
- */
-class ItemsTable extends Table
+ */class ItemsTable extends Table
 {
 
     /**
@@ -50,8 +52,20 @@ class ItemsTable extends Table
         $this->belongsTo('Brands', [
             'foreignKey' => 'brand_id'
         ]);
+        $this->belongsTo('Itemtypes', [
+            'foreignKey' => 'itemtype_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('ParentItems', [
+            'className' => 'Items',
+            'foreignKey' => 'parent_id'
+        ]);
         $this->hasMany('Itemcodes', [
             'foreignKey' => 'item_id'
+        ]);
+        $this->hasMany('ChildItems', [
+            'className' => 'Items',
+            'foreignKey' => 'parent_id'
         ]);
         $this->hasMany('StockmovesDetails', [
             'foreignKey' => 'item_id'
@@ -70,25 +84,15 @@ class ItemsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('name')
-            ->allowEmpty('name');
-
+            ->scalar('name')            ->allowEmpty('name');
         $validator
-            ->scalar('model')
-            ->allowEmpty('model');
-
+            ->scalar('model')            ->allowEmpty('model');
         $validator
-            ->scalar('color')
-            ->allowEmpty('color');
-
+            ->scalar('color')            ->allowEmpty('color');
         $validator
-            ->decimal('unit_cost')
-            ->allowEmpty('unit_cost');
-
+            ->decimal('unit_cost')            ->allowEmpty('unit_cost');
         return $validator;
     }
 
@@ -104,6 +108,8 @@ class ItemsTable extends Table
         $rules->add($rules->existsIn(['itemcategory_id'], 'Itemcategories'));
         $rules->add($rules->existsIn(['currency_id'], 'Currencies'));
         $rules->add($rules->existsIn(['brand_id'], 'Brands'));
+        $rules->add($rules->existsIn(['itemtype_id'], 'Itemtypes'));
+        $rules->add($rules->existsIn(['parent_id'], 'ParentItems'));
 
         return $rules;
     }

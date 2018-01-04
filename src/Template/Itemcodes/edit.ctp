@@ -14,43 +14,24 @@
 	
 	<div class="editdata">
     <?= $this->Form->create($itemcode) ?>
-        <?php
-            echo $this->Form->control('item_id', ['options' => $items, 'empty' => true]);
-            echo $this->Form->control('serial');
-            echo $this->Form->control('invoice_id', ['options' => $invoices, 'empty' => true]);
-            echo $this->Form->control('statusitem_id', ['options' => $statusitems, 'empty' => true]);
-            echo $this->Form->control('warranty', ['empty' => true]);
-            echo $this->Form->control('positionbranch_id', ['options' => $positionbranches, 'empty' => true]);
-            echo $this->Form->control('service_tag');
-        ?>
+       
+        <table cellpadding="0" cellspacing="0" style="width:100%; margin:10px;">
+            <tbody>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Item')) ?></td><td><?= $this->Form->control('item_id', ['label' => false,'options' => $items, 'empty' => true]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Serial')) ?></td><td><?= $this->Form->control('serial',['label' => false]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Invoices')) ?></td><td><?= $this->Form->control('invoice_id', ['label' => false,'options' => $invoices, 'empty' => true]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Statusitems')) ?></td><td><?= $this->Form->control('statusitem_id', ['label' => false,'options' => $statusitems, 'empty' => true]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Warranty')) ?></td><td><?=  $this->Form->control('warranty', ['label' => false,'empty' => true]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Positionbranches')) ?></td><td><?=  $this->Form->control('positionbranch_id', ['label' => false,'options' => $positionbranches, 'empty' => true]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Service tag')) ?></td><td><?= $this->Form->control('service_tag',['label' => false]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Cost')) ?></td><td><?= $this->Form->control('cost',['label' => false]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Currencies')) ?></td><td><?= $this->Form->control('currency_id', ['label' => false,'options' => $currencies, 'empty' => true]); ?></td></tr>
+                <tr><td  style="width:5%;"><?= $this->form->label(__('Insured')) ?></td><td><?= $this->Form->control('insured',['label' => false]); ?></td></tr>
+            </tbody>
+        </table>
 	
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>
 
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $itemcode->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $itemcode->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Itemcodes'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Items'), ['controller' => 'Items', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Item'), ['controller' => 'Items', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Invoices'), ['controller' => 'Invoices', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Invoice'), ['controller' => 'Invoices', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Statusitems'), ['controller' => 'Statusitems', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Statusitem'), ['controller' => 'Statusitems', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Positionbranches'), ['controller' => 'Positionbranches', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Positionbranch'), ['controller' => 'Positionbranches', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Stockmoves Details'), ['controller' => 'StockmovesDetails', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Stockmoves Detail'), ['controller' => 'StockmovesDetails', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

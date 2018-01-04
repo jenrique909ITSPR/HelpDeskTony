@@ -2,13 +2,11 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\Event\Event;
 
 /**
  * Itemcodes Controller
  *
- * @property \App\Model\Table\ItemcodesTable $Itemcodes
- *
+ * @property \App\Model\Table\ItemcodesTable $Itemcodes *
  * @method \App\Model\Entity\Itemcode[] paginate($object = null, array $settings = [])
  */
 class ItemcodesController extends AppController
@@ -21,33 +19,13 @@ class ItemcodesController extends AppController
      */
     public function index()
     {
-
-
         $this->paginate = [
-            'contain' => ['Items', 'Invoices', 'Statusitems', 'Positionbranches']
-            ,'limit' => $this->limit_data
+            'contain' => ['Items', 'Invoices', 'Statusitems', 'Positionbranches', 'Currencies']
         ];
-        $query = $this->Itemcodes->find('All');
+        $itemcodes = $this->paginate($this->Itemcodes);
 
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $this->loadComponent('Filters');
-            $query = $this->Filters->Filtrado($this->request->getData(), $query);
-        }
-
-
-        $itemcodes = $this->paginate($query);
-        $items = $this->Itemcodes->Items->find('list');
-        $statusitems = $this->Itemcodes->Statusitems->find('list');
-        $invoices = $this->Itemcodes->Invoices->find('list');
-        $branches = $this->Itemcodes->Positionbranches->Branches->find('list');
-
-        $this->set(compact('itemcodes', 'statusitems','items','invoices','branches'));
+        $this->set(compact('itemcodes'));
         $this->set('_serialize', ['itemcodes']);
-
-        /*
-        $query = $this->Articles->find('popular')->where(['author_id' => 1]);
-        $this->set('articles', $this->paginate($query));
-        */
     }
 
     /**
@@ -60,7 +38,7 @@ class ItemcodesController extends AppController
     public function view($id = null)
     {
         $itemcode = $this->Itemcodes->get($id, [
-            'contain' => ['Items', 'Invoices', 'Statusitems', 'Positionbranches', 'StockmovesDetails', 'Tickets']
+            'contain' => ['Items', 'Invoices', 'Statusitems', 'Positionbranches', 'Currencies', 'StockmovesDetails', 'Tickets']
         ]);
 
         $this->set('itemcode', $itemcode);
@@ -88,7 +66,8 @@ class ItemcodesController extends AppController
         $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
         $statusitems = $this->Itemcodes->Statusitems->find('list', ['limit' => 200]);
         $positionbranches = $this->Itemcodes->Positionbranches->find('list', ['limit' => 200]);
-        $this->set(compact('itemcode', 'items', 'invoices', 'statusitems', 'positionbranches'));
+        $currencies = $this->Itemcodes->Currencies->find('list', ['limit' => 200]);
+        $this->set(compact('itemcode', 'items', 'invoices', 'statusitems', 'positionbranches', 'currencies'));
         $this->set('_serialize', ['itemcode']);
     }
 
@@ -117,7 +96,8 @@ class ItemcodesController extends AppController
         $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
         $statusitems = $this->Itemcodes->Statusitems->find('list', ['limit' => 200]);
         $positionbranches = $this->Itemcodes->Positionbranches->find('list', ['limit' => 200]);
-        $this->set(compact('itemcode', 'items', 'invoices', 'statusitems', 'positionbranches'));
+        $currencies = $this->Itemcodes->Currencies->find('list', ['limit' => 200]);
+        $this->set(compact('itemcode', 'items', 'invoices', 'statusitems', 'positionbranches', 'currencies'));
         $this->set('_serialize', ['itemcode']);
     }
 
@@ -140,6 +120,4 @@ class ItemcodesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-
 }

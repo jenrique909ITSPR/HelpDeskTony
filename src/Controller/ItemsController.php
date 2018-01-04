@@ -2,13 +2,11 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\Event\Event;
 
 /**
  * Items Controller
  *
- * @property \App\Model\Table\ItemsTable $Items
- *
+ * @property \App\Model\Table\ItemsTable $Items *
  * @method \App\Model\Entity\Item[] paginate($object = null, array $settings = [])
  */
 class ItemsController extends AppController
@@ -22,8 +20,7 @@ class ItemsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Itemcategories', 'Currencies', 'Brands']
-            ,'limit' => $this->limit_data
+            'contain' => ['Itemcategories', 'Currencies', 'Brands', 'Itemtypes', 'ParentItems']
         ];
         $items = $this->paginate($this->Items);
 
@@ -41,7 +38,7 @@ class ItemsController extends AppController
     public function view($id = null)
     {
         $item = $this->Items->get($id, [
-            'contain' => ['Itemcategories', 'Currencies', 'Brands', 'Itemcodes', 'StockmovesDetails', 'Stocks']
+            'contain' => ['Itemcategories', 'Currencies', 'Brands', 'Itemtypes', 'ParentItems', 'Itemcodes', 'ChildItems', 'StockmovesDetails', 'Stocks']
         ]);
 
         $this->set('item', $item);
@@ -68,7 +65,9 @@ class ItemsController extends AppController
         $itemcategories = $this->Items->Itemcategories->find('list', ['limit' => 200]);
         $currencies = $this->Items->Currencies->find('list', ['limit' => 200]);
         $brands = $this->Items->Brands->find('list', ['limit' => 200]);
-        $this->set(compact('item', 'itemcategories', 'currencies', 'brands'));
+        $itemtypes = $this->Items->Itemtypes->find('list', ['limit' => 200]);
+        $parentItems = $this->Items->ParentItems->find('list', ['limit' => 200]);
+        $this->set(compact('item', 'itemcategories', 'currencies', 'brands', 'itemtypes', 'parentItems'));
         $this->set('_serialize', ['item']);
     }
 
@@ -96,7 +95,9 @@ class ItemsController extends AppController
         $itemcategories = $this->Items->Itemcategories->find('list', ['limit' => 200]);
         $currencies = $this->Items->Currencies->find('list', ['limit' => 200]);
         $brands = $this->Items->Brands->find('list', ['limit' => 200]);
-        $this->set(compact('item', 'itemcategories', 'currencies', 'brands'));
+        $itemtypes = $this->Items->Itemtypes->find('list', ['limit' => 200]);
+        $parentItems = $this->Items->ParentItems->find('list', ['limit' => 200]);
+        $this->set(compact('item', 'itemcategories', 'currencies', 'brands', 'itemtypes', 'parentItems'));
         $this->set('_serialize', ['item']);
     }
 
@@ -118,10 +119,5 @@ class ItemsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function beforeFilter(Event $event) {
-        parent::beforeFilter($event);
-        $this->viewBuilder()->layout('items'); 
     }
 }
