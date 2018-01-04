@@ -14,15 +14,7 @@
 
 	<div class="editdata">
     <?= $this->Form->create($ticketlog) ?>
-        <?php
-
-
-
-
-
-
-
-        ?>
+  
 				<table cellpadding="0" cellspacing="0" style="width:100%; margin:10px;">
 						<tbody>
 								<tr><td  style="width:5%;"><?= $this->form->label(__('Ticket')) ?></td><td><?= $this->Form->control('ticket_id', ['label' => false,'options' => $tickets, 'empty' => true]); ?></td></tr>

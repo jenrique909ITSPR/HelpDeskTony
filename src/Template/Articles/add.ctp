@@ -26,16 +26,6 @@
                       <tr><td  style="width:5%;"><?= $this->form->label(__('hdcategories._ids')) ?></td><td><?= $this->Form->control('hdcategories._ids', ['options' => $hdcategories , 'label' => false]);?></td></tr>
               </tbody>
       </table>
-        <?php
-
-
-
-
-
-
-          
-
-        ?>
 
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

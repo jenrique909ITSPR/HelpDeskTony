@@ -11,7 +11,7 @@
 			<li><?= $this->Html->link(__('List Itemcodes'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($itemcode) ?>
        
@@ -29,9 +29,8 @@
                 <tr><td  style="width:5%;"><?= $this->form->label(__('Insured')) ?></td><td><?= $this->Form->control('insured',['label' => false]); ?></td></tr>
             </tbody>
         </table>
-	
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
