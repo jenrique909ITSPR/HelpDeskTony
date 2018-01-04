@@ -38,7 +38,7 @@ class BranchesController extends AppController
     public function view($id = null)
     {
         $branch = $this->Branches->get($id, [
-            'contain' => ['Branchgroups', 'Layouts', 'Positionbranches', 'Tickets', 'Warehouses']
+            'contain' => ['Branchgroups', 'Tickets', 'Warehouses']
         ]);
 
         $this->set('branch', $branch);
