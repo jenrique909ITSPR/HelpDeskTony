@@ -4,19 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Positionbranch Entity
+ * Positiontypebranch Entity
  *
  * @property int $id
  * @property int $branch_id
- * @property int $position_id
- * @property string $name
+ * @property int $positiontype_id
+ * @property int $qty
  *
  * @property \App\Model\Entity\Branch $branch
- * @property \App\Model\Entity\Position $position
- * @property \App\Model\Entity\Itemcode[] $itemcodes
- * @property \App\Model\Entity\User[] $users
- */
-class Positionbranch extends Entity
+ * @property \App\Model\Entity\Positiontype $positiontype
+ * @property \App\Model\Entity\Position[] $positions
+ * @property \App\Model\Entity\Itemcategory[] $itemcategories
+ */class Positiontypebranch extends Entity
 {
 
     /**

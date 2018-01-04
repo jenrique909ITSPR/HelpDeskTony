@@ -69,11 +69,12 @@ $(document).ready(function(){
         <li><?= $this->Html->link(__('Stockmoves'), ['controller' => 'Stockmoves', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Stocks'), ['controller' => 'Stocks', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('StockmovesDetails'), ['controller' => 'StockmovesDetails', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Layouts'), ['controller' => 'Layouts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Layoutcategories'), ['controller' => 'Layoutcategories', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Layouts'), ['controller' => 'Positiontypebranches', 'action' => 'index']) ?></li>
+          <li><?= $this->Html->link(__('Layoutcategories'), ['controller' => 'Positiontypes', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Movereasons'), ['controller' => 'Movereasons', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Positions'), ['controller' => 'Positions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Positionbranches'), ['controller' => 'Positionbranches', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Positiontypebranches'), ['controller' => 'Positiontypebranches', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('PositiontypebranchesItemcategoties'), ['controller' => 'PositiontypebranchesItemcategories', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Statusitems'), ['controller' => 'Statusitems', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Statususers'), ['controller' => 'Statususers', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Movereasontemplates'), ['controller' => 'Movereasontemplates', 'action' => 'index']) ?></li>

@@ -1,20 +1,20 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PositionsTable;
+use App\Model\Table\PositiontypesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PositionsTable Test Case
+ * App\Model\Table\PositiontypesTable Test Case
  */
-class PositionsTableTest extends TestCase
+class PositiontypesTableTest extends TestCase
 {
 
     /**
      * Test subject     *
-     * @var \App\Model\Table\PositionsTable     */
-    public $Positions;
+     * @var \App\Model\Table\PositiontypesTable     */
+    public $Positiontypes;
 
     /**
      * Fixtures
@@ -22,12 +22,13 @@ class PositionsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.positions',
+        'app.positiontypes',
         'app.positiontypebranches',
         'app.branches',
         'app.branchgroups',
         'app.users',
         'app.positionbranches',
+        'app.positions',
         'app.itemcodes',
         'app.items',
         'app.itemcategories',
@@ -71,7 +72,6 @@ class PositionsTableTest extends TestCase
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
-        'app.positiontypes',
         'app.positiontypebranches_items'
     ];
 
@@ -83,7 +83,7 @@ class PositionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Positions') ? [] : ['className' => PositionsTable::class];        $this->Positions = TableRegistry::get('Positions', $config);    }
+        $config = TableRegistry::exists('Positiontypes') ? [] : ['className' => PositiontypesTable::class];        $this->Positiontypes = TableRegistry::get('Positiontypes', $config);    }
 
     /**
      * tearDown method
@@ -92,7 +92,7 @@ class PositionsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Positions);
+        unset($this->Positiontypes);
 
         parent::tearDown();
     }
@@ -113,16 +113,6 @@ class PositionsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

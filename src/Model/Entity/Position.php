@@ -7,12 +7,11 @@ use Cake\ORM\Entity;
  * Position Entity
  *
  * @property int $id
+ * @property int $positiontypebranch_id
  * @property string $name
  *
- * @property \App\Model\Entity\Layout[] $layouts
- * @property \App\Model\Entity\Positionbranch[] $positionbranches
- */
-class Position extends Entity
+ * @property \App\Model\Entity\Positiontypebranch $positiontypebranch
+ */class Position extends Entity
 {
 
     /**

@@ -1,20 +1,20 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PositionsTable;
+use App\Model\Table\PositiontypebranchesItemsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PositionsTable Test Case
+ * App\Model\Table\PositiontypebranchesItemsTable Test Case
  */
-class PositionsTableTest extends TestCase
+class PositiontypebranchesItemsTableTest extends TestCase
 {
 
     /**
      * Test subject     *
-     * @var \App\Model\Table\PositionsTable     */
-    public $Positions;
+     * @var \App\Model\Table\PositiontypebranchesItemsTable     */
+    public $PositiontypebranchesItems;
 
     /**
      * Fixtures
@@ -22,12 +22,13 @@ class PositionsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.positions',
+        'app.positiontypebranches_items',
         'app.positiontypebranches',
         'app.branches',
         'app.branchgroups',
         'app.users',
         'app.positionbranches',
+        'app.positions',
         'app.itemcodes',
         'app.items',
         'app.itemcategories',
@@ -71,8 +72,7 @@ class PositionsTableTest extends TestCase
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
-        'app.positiontypes',
-        'app.positiontypebranches_items'
+        'app.positiontypes'
     ];
 
     /**
@@ -83,7 +83,7 @@ class PositionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Positions') ? [] : ['className' => PositionsTable::class];        $this->Positions = TableRegistry::get('Positions', $config);    }
+        $config = TableRegistry::exists('PositiontypebranchesItems') ? [] : ['className' => PositiontypebranchesItemsTable::class];        $this->PositiontypebranchesItems = TableRegistry::get('PositiontypebranchesItems', $config);    }
 
     /**
      * tearDown method
@@ -92,7 +92,7 @@ class PositionsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Positions);
+        unset($this->PositiontypebranchesItems);
 
         parent::tearDown();
     }

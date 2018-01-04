@@ -1,35 +1,33 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Position[]|\Cake\Collection\CollectionInterface $positions  */
+  * @var \App\Model\Entity\Positiontype[]|\Cake\Collection\CollectionInterface $positiontypes  */
 ?>
 
-<div class="positions index">
-    <h3><?= __('Positions') ?></h3>
+<div class="positiontypes index">
+    <h3><?= __('Positiontypes') ?></h3>
 	<div class="actions">
 		<ul>
-			<li><?= $this->Html->link(__('New Position'), ['action' => 'add']) ?></li>
+			<li><?= $this->Html->link(__('New Positiontype'), ['action' => 'add']) ?></li>
 		</ul>
 	</div>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('positiontypebranch_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($positions as $position): ?>
+            <?php foreach ($positiontypes as $positiontype): ?>
             <tr>
-                <td><?= $this->Number->format($position->id) ?></td>
-                <td><?= $position->has('positiontypebranch') ? $this->Html->link($position->positiontypebranch->id, ['controller' => 'Positiontypebranches', 'action' => 'view', $position->positiontypebranch->id]) : '' ?></td>
-                <td><?= h($position->name) ?></td>
+                <td><?= $this->Number->format($positiontype->id) ?></td>
+                <td><?= h($positiontype->name) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $position->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $position->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $position->id], ['confirm' => __('Are you sure you want to delete # {0}?', $position->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $positiontype->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $positiontype->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $positiontype->id], ['confirm' => __('Are you sure you want to delete # {0}?', $positiontype->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

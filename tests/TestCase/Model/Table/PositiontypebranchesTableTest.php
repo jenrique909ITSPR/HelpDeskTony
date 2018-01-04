@@ -1,20 +1,20 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PositionsTable;
+use App\Model\Table\PositiontypebranchesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PositionsTable Test Case
+ * App\Model\Table\PositiontypebranchesTable Test Case
  */
-class PositionsTableTest extends TestCase
+class PositiontypebranchesTableTest extends TestCase
 {
 
     /**
      * Test subject     *
-     * @var \App\Model\Table\PositionsTable     */
-    public $Positions;
+     * @var \App\Model\Table\PositiontypebranchesTable     */
+    public $Positiontypebranches;
 
     /**
      * Fixtures
@@ -22,12 +22,12 @@ class PositionsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.positions',
         'app.positiontypebranches',
         'app.branches',
         'app.branchgroups',
         'app.users',
         'app.positionbranches',
+        'app.positions',
         'app.itemcodes',
         'app.items',
         'app.itemcategories',
@@ -72,7 +72,7 @@ class PositionsTableTest extends TestCase
         'app.ticketurgencies',
         'app.ticketpriorities',
         'app.positiontypes',
-        'app.positiontypebranches_items'
+        'app.positiontypebranches_itemcategories'
     ];
 
     /**
@@ -83,7 +83,7 @@ class PositionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Positions') ? [] : ['className' => PositionsTable::class];        $this->Positions = TableRegistry::get('Positions', $config);    }
+        $config = TableRegistry::exists('Positiontypebranches') ? [] : ['className' => PositiontypebranchesTable::class];        $this->Positiontypebranches = TableRegistry::get('Positiontypebranches', $config);    }
 
     /**
      * tearDown method
@@ -92,7 +92,7 @@ class PositionsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Positions);
+        unset($this->Positiontypebranches);
 
         parent::tearDown();
     }
