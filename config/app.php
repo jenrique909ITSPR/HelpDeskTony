@@ -226,8 +226,8 @@ return [
             'persistent' => false,
 
 
-            'host' => 'localhost',
-			     //'host' => 'localhost',
+            'host' => '192.168.100.71',
+
 
             /**
              * CakePHP will use the default DB port based on the driver selected
@@ -235,8 +235,8 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'root',
-		        'password' => '',
+            'username' => 'pruebas',
+		        'password' => 'TonyJcPP',
             'database' => 'portalti',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
