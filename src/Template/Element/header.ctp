@@ -44,8 +44,8 @@ $cakeDescription = 'Portal TI';
   <?= $this->Html->script('/src/plugins/jqplot.categoryAxisRenderer.js'); ?>
   <?= $this->Html->script('/src/plugins/jqplot.pointLabels.js'); ?>
 	<?= $this->Html->script('jquery.easyui.min.js'); ?>
-  <?= $this->Html->script('tinymce/jquery.tinymce.min.js'); ?>
-  <?= $this->Html->script('tinymce/tinymce.min.js'); ?>
+  <?= $this->Html->script('js/tinymce/jquery.tinymce.min.js'); ?>
+  <?= $this->Html->script('js/tinymce/tinymce.min.js'); ?>
 
 
 

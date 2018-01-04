@@ -391,7 +391,7 @@
                 </tbody>
             </table>
 
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Submit'),['style'=> 'margin-top:10px']) ?>
             </div>
         </div>
     </div>
@@ -403,7 +403,7 @@
       <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'add']]) ?>
           <?php
           /////Edit here
-          
+
               echo $this->Form->radio('ticketnotestype_id',[['text' => 'Publico' , 'value' => '1'],
                 ['text' => 'Interno' , 'value' => '2']]);
               echo $this->Form->textarea('description');

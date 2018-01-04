@@ -12,22 +12,22 @@
 		</ul>
 	</div>
 
-	
+
 
 
  <?= $this->Form->create($ticket) ?>
 <div class="easyui-layout"  style="width:100%;height:1200px;">
         <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
             <!--<a class="easyui-linkbutton" onclick="colapsar()">CollapseAll</a>-->
-            <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/> 
+            <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>
         </div>
-        <div data-options="region:'center'"  style="width:100%;"">
+        <div data-options="region:'center'"  style="width:100%;">
              <div class="editdata">
             <table style="width: 100%;">
                 <tbody>
                      <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Title')) ?></td>
-                        <td style="width: 88%;"><?php echo $this->Form->control('title'); ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('title',['label'=> false]); ?></td>
                     </tr>
                     <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Hdcategory')) ?></td>
@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Ticket Type')) ?></td>
-                        <td style="width: 88%;"><?php echo $this->Form->control('tickettype_id', ['options' => $tickettypes, 'empty' => true]); ?></td>
+                        <td style="width: 88%;"><?php echo $this->Form->control('tickettype_id', ['options' => $tickettypes, 'empty' => true, 'label'=> false]); ?></td>
                     </tr>
                     <tr>
                         <td style="width: 12%;"><?= $this->form->label(__('Ticket Impact')) ?></td>
@@ -99,8 +99,8 @@
                     </tr>
                 </tbody>
             </table>
-            
-            <?= $this->Form->button(__('Submit')) ?>
+
+            <?= $this->Form->button(__('Submit'),['style'=>'margin-top:10px;']) ?>
             </div>
         </div>
     </div>
@@ -126,7 +126,7 @@
             }
             return false;
         }
-        
+
         var nodes = [];
         // get the top level nodes
         for(var i=0; i<rows.length; i++){
@@ -138,7 +138,7 @@
                 });
             }
         }
-        
+
         var toDo = [];
         for(var i=0; i<nodes.length; i++){
             toDo.push(nodes[i]);
@@ -179,7 +179,7 @@
         onLoadSuccess: function(node){
                 $('#tt').tree('collapseAll');
             }
-        
+
     });
-    
+
 </script>
