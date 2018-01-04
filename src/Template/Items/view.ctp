@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Item $item
-  */
+  * @var \App\Model\Entity\Item $item  */
 ?>
 
 <div class="items view">
@@ -42,6 +41,14 @@
             <td><?= $item->has('brand') ? $this->Html->link($item->brand->name, ['controller' => 'Brands', 'action' => 'view', $item->brand->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Itemtype') ?></th>
+            <td><?= $item->has('itemtype') ? $this->Html->link($item->itemtype->name, ['controller' => 'Itemtypes', 'action' => 'view', $item->itemtype->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Parent Item') ?></th>
+            <td><?= $item->has('parent_item') ? $this->Html->link($item->parent_item->name, ['controller' => 'Items', 'action' => 'view', $item->parent_item->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($item->id) ?></td>
         </tr>
@@ -67,6 +74,9 @@
                 <th scope="col"><?= __('Warranty') ?></th>
                 <th scope="col"><?= __('Positionbranch Id') ?></th>
                 <th scope="col"><?= __('Service Tag') ?></th>
+                <th scope="col"><?= __('Cost') ?></th>
+                <th scope="col"><?= __('Currency Id') ?></th>
+                <th scope="col"><?= __('Insured') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
 		  </thead>
@@ -82,10 +92,56 @@
                 <td><?= h($itemcodes->warranty) ?></td>
                 <td><?= h($itemcodes->positionbranch_id) ?></td>
                 <td><?= h($itemcodes->service_tag) ?></td>
+                <td><?= h($itemcodes->cost) ?></td>
+                <td><?= h($itemcodes->currency_id) ?></td>
+                <td><?= h($itemcodes->insured) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Itemcodes', 'action' => 'view', $itemcodes->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Itemcodes', 'action' => 'edit', $itemcodes->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Itemcodes', 'action' => 'delete', $itemcodes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $itemcodes->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+		  </tbody>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related" title="<?= __('Items') ?>">
+        <h4><?= __('Related Items') ?></h4>
+        <?php if (!empty($item->child_items)): ?>
+        <table cellpadding="0" cellspacing="0">
+          <thead>
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Name') ?></th>
+                <th scope="col"><?= __('Itemcategory Id') ?></th>
+                <th scope="col"><?= __('Currency Id') ?></th>
+                <th scope="col"><?= __('Model') ?></th>
+                <th scope="col"><?= __('Color') ?></th>
+                <th scope="col"><?= __('Unit Cost') ?></th>
+                <th scope="col"><?= __('Brand Id') ?></th>
+                <th scope="col"><?= __('Itemtype Id') ?></th>
+                <th scope="col"><?= __('Parent Id') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+		  </thead>
+		  <tbody>
+            <?php foreach ($item->child_items as $childItems): ?>
+            <tr>
+                <td><?= h($childItems->id) ?></td>
+                <td><?= h($childItems->name) ?></td>
+                <td><?= h($childItems->itemcategory_id) ?></td>
+                <td><?= h($childItems->currency_id) ?></td>
+                <td><?= h($childItems->model) ?></td>
+                <td><?= h($childItems->color) ?></td>
+                <td><?= h($childItems->unit_cost) ?></td>
+                <td><?= h($childItems->brand_id) ?></td>
+                <td><?= h($childItems->itemtype_id) ?></td>
+                <td><?= h($childItems->parent_id) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Items', 'action' => 'view', $childItems->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Items', 'action' => 'edit', $childItems->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Items', 'action' => 'delete', $childItems->id], ['confirm' => __('Are you sure you want to delete # {0}?', $childItems->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

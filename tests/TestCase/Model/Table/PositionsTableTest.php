@@ -12,10 +12,8 @@ class PositionsTableTest extends TestCase
 {
 
     /**
-     * Test subject
-     *
-     * @var \App\Model\Table\PositionsTable
-     */
+     * Test subject     *
+     * @var \App\Model\Table\PositionsTable     */
     public $Positions;
 
     /**
@@ -25,45 +23,56 @@ class PositionsTableTest extends TestCase
      */
     public $fixtures = [
         'app.positions',
-        'app.layouts',
+        'app.positiontypebranches',
         'app.branches',
         'app.branchgroups',
+        'app.users',
         'app.positionbranches',
         'app.itemcodes',
         'app.items',
         'app.itemcategories',
         'app.layoutcategories',
+        'app.layouts',
         'app.currencies',
         'app.brands',
+        'app.itemtypes',
         'app.stockmoves_details',
         'app.stockmoves',
         'app.warehouses',
         'app.stocks',
         'app.movereasons',
         'app.movereasontemplates',
-        'app.users',
-        'app.statususers',
-        'app.groups',
-        'app.ticketlogs',
-        'app.tickets',
-        'app.tickettypes',
-        'app.ticket_statuses',
-        'app.sources',
-        'app.ticketimpacts',
-        'app.ticketurgencies',
-        'app.ticketpriorities',
-        'app.hdcategories',
-        'app.articles',
-        'app.articlefiles',
-        'app.roles',
-        'app.articles_roles',
-        'app.internalnotes',
-        'app.publicnotes',
-        'app.ticketsfiles',
         'app.shippers',
         'app.invoices',
         'app.suppliers',
-        'app.statusitems'
+        'app.statusitems',
+        'app.tickets',
+        'app.tickettypes',
+        'app.ticketstatuses',
+        'app.ticketstatuses_tickettypes',
+        'app.ticket_statuses',
+        'app.sources',
+        'app.userautors',
+        'app.statususers',
+        'app.groups',
+        'app.ticketlogs',
+        'app.roles',
+        'app.articles',
+        'app.articlefiles',
+        'app.articles_roles',
+        'app.hdcategories',
+        'app.hdtemplate',
+        'app.hdcategories_articles',
+        'app.ticketmarkeds',
+        'app.ticketnotes',
+        'app.ticketnotestypes',
+        'app.userendmessages',
+        'app.userrequerieds',
+        'app.ticketimpacts',
+        'app.ticketurgencies',
+        'app.ticketpriorities',
+        'app.positiontypes',
+        'app.positiontypebranches_items'
     ];
 
     /**
@@ -74,9 +83,7 @@ class PositionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Positions') ? [] : ['className' => PositionsTable::class];
-        $this->Positions = TableRegistry::get('Positions', $config);
-    }
+        $config = TableRegistry::exists('Positions') ? [] : ['className' => PositionsTable::class];        $this->Positions = TableRegistry::get('Positions', $config);    }
 
     /**
      * tearDown method
@@ -106,6 +113,16 @@ class PositionsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

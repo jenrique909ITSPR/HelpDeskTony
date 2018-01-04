@@ -22,6 +22,8 @@
             echo $this->Form->control('color');
             echo $this->Form->control('unit_cost');
             echo $this->Form->control('brand_id', ['options' => $brands, 'empty' => true]);
+            echo $this->Form->control('itemtype_id', ['options' => $itemtypes]);
+            echo $this->Form->control('parent_id', ['options' => $parentItems, 'empty' => true]);
         ?>
 
     <?= $this->Form->button(__('Submit')) ?>

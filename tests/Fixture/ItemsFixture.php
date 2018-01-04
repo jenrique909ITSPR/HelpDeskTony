@@ -25,6 +25,8 @@ class ItemsFixture extends TestFixture
         'color' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'unit_cost' => ['type' => 'decimal', 'length' => 10, 'precision' => 2, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         'brand_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'itemtype_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'parent_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -49,7 +51,9 @@ class ItemsFixture extends TestFixture
             'model' => 'Lorem ipsum dolor sit amet',
             'color' => 'Lorem ipsum dolor sit amet',
             'unit_cost' => 1.5,
-            'brand_id' => 1
+            'brand_id' => 1,
+            'itemtype_id' => 1,
+            'parent_id' => 1
         ],
     ];
 }

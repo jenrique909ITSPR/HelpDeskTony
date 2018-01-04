@@ -15,15 +15,18 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate $warranty
  * @property int $positionbranch_id
  * @property string $service_tag
+ * @property float $cost
+ * @property int $currency_id
+ * @property string $insured
  *
  * @property \App\Model\Entity\Item $item
  * @property \App\Model\Entity\Invoice $invoice
  * @property \App\Model\Entity\Statusitem $statusitem
  * @property \App\Model\Entity\Positionbranch $positionbranch
+ * @property \App\Model\Entity\Currency $currency
  * @property \App\Model\Entity\StockmovesDetail[] $stockmoves_details
  * @property \App\Model\Entity\Ticket[] $tickets
- */
-class Itemcode extends Entity
+ */class Itemcode extends Entity
 {
 
     /**

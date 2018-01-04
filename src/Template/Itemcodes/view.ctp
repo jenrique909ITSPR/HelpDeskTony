@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Itemcode $itemcode
-  */
+  * @var \App\Model\Entity\Itemcode $itemcode  */
 ?>
 
 <div class="itemcodes view">
@@ -42,8 +41,20 @@
             <td><?= h($itemcode->service_tag) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Currency') ?></th>
+            <td><?= $itemcode->has('currency') ? $this->Html->link($itemcode->currency->name, ['controller' => 'Currencies', 'action' => 'view', $itemcode->currency->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Insured') ?></th>
+            <td><?= h($itemcode->insured) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($itemcode->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Cost') ?></th>
+            <td><?= $this->Number->format($itemcode->cost) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
@@ -102,7 +113,6 @@
                 <th scope="col"><?= __('Ticket Status Id') ?></th>
                 <th scope="col"><?= __('Source Id') ?></th>
                 <th scope="col"><?= __('Title') ?></th>
-                <th scope="col"><?= __('Description') ?></th>
                 <th scope="col"><?= __('Solution') ?></th>
                 <th scope="col"><?= __('Resolution') ?></th>
                 <th scope="col"><?= __('Itemcode Id') ?></th>
@@ -117,6 +127,8 @@
                 <th scope="col"><?= __('Parent Id') ?></th>
                 <th scope="col"><?= __('Hdcategory Id') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
+                <th scope="col"><?= __('Ip') ?></th>
+                <th scope="col"><?= __('Branch Id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
 		  </thead>
@@ -128,7 +140,6 @@
                 <td><?= h($tickets->ticket_status_id) ?></td>
                 <td><?= h($tickets->source_id) ?></td>
                 <td><?= h($tickets->title) ?></td>
-                <td><?= h($tickets->description) ?></td>
                 <td><?= h($tickets->solution) ?></td>
                 <td><?= h($tickets->resolution) ?></td>
                 <td><?= h($tickets->itemcode_id) ?></td>
@@ -143,6 +154,8 @@
                 <td><?= h($tickets->parent_id) ?></td>
                 <td><?= h($tickets->hdcategory_id) ?></td>
                 <td><?= h($tickets->modified) ?></td>
+                <td><?= h($tickets->ip) ?></td>
+                <td><?= h($tickets->branch_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Tickets', 'action' => 'view', $tickets->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Tickets', 'action' => 'edit', $tickets->id]) ?>
@@ -156,3 +169,4 @@
     </div>
 </div>
 </div>
+

@@ -12,10 +12,8 @@ class ItemcodesTableTest extends TestCase
 {
 
     /**
-     * Test subject
-     *
-     * @var \App\Model\Table\ItemcodesTable
-     */
+     * Test subject     *
+     * @var \App\Model\Table\ItemcodesTable     */
     public $Itemcodes;
 
     /**
@@ -31,27 +29,26 @@ class ItemcodesTableTest extends TestCase
         'app.layouts',
         'app.branches',
         'app.branchgroups',
+        'app.users',
         'app.positionbranches',
         'app.positions',
-        'app.users',
         'app.statususers',
         'app.groups',
         'app.ticketlogs',
         'app.tickets',
         'app.tickettypes',
+        'app.ticketstatuses',
+        'app.ticketstatuses_tickettypes',
         'app.ticket_statuses',
         'app.sources',
-        'app.ticketimpacts',
-        'app.ticketurgencies',
-        'app.ticketpriorities',
-        'app.hdcategories',
+        'app.userautors',
+        'app.roles',
         'app.articles',
         'app.articlefiles',
-        'app.roles',
         'app.articles_roles',
-        'app.internalnotes',
-        'app.publicnotes',
-        'app.ticketsfiles',
+        'app.hdcategories',
+        'app.hdtemplate',
+        'app.hdcategories_articles',
         'app.movereasontemplates',
         'app.movereasons',
         'app.stockmoves',
@@ -59,8 +56,17 @@ class ItemcodesTableTest extends TestCase
         'app.stocks',
         'app.shippers',
         'app.stockmoves_details',
+        'app.ticketmarkeds',
+        'app.ticketnotes',
+        'app.ticketnotestypes',
+        'app.userendmessages',
+        'app.userrequerieds',
+        'app.ticketimpacts',
+        'app.ticketurgencies',
+        'app.ticketpriorities',
         'app.currencies',
         'app.brands',
+        'app.itemtypes',
         'app.invoices',
         'app.suppliers',
         'app.statusitems'
@@ -74,9 +80,7 @@ class ItemcodesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Itemcodes') ? [] : ['className' => ItemcodesTable::class];
-        $this->Itemcodes = TableRegistry::get('Itemcodes', $config);
-    }
+        $config = TableRegistry::exists('Itemcodes') ? [] : ['className' => ItemcodesTable::class];        $this->Itemcodes = TableRegistry::get('Itemcodes', $config);    }
 
     /**
      * tearDown method

@@ -14,15 +14,19 @@ use Cake\ORM\Entity;
  * @property string $color
  * @property float $unit_cost
  * @property int $brand_id
+ * @property int $itemtype_id
+ * @property int $parent_id
  *
  * @property \App\Model\Entity\Itemcategory $itemcategory
  * @property \App\Model\Entity\Currency $currency
  * @property \App\Model\Entity\Brand $brand
+ * @property \App\Model\Entity\Itemtype $itemtype
+ * @property \App\Model\Entity\Item $parent_item
  * @property \App\Model\Entity\Itemcode[] $itemcodes
+ * @property \App\Model\Entity\Item[] $child_items
  * @property \App\Model\Entity\StockmovesDetail[] $stockmoves_details
  * @property \App\Model\Entity\Stock[] $stocks
- */
-class Item extends Entity
+ */class Item extends Entity
 {
 
     /**
