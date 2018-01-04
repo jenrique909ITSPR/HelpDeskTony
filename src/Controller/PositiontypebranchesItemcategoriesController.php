@@ -19,11 +19,12 @@ class PositiontypebranchesItemcategoriesController extends AppController
      */
     public function index()
     {
+        
+        
         $this->paginate = [
             'contain' => ['Positiontypebranches', 'Itemcategories']
         ];
         $positiontypebranchesItemcategories = $this->paginate($this->PositiontypebranchesItemcategories);
-
         $this->set(compact('positiontypebranchesItemcategories'));
         $this->set('_serialize', ['positiontypebranchesItemcategories']);
     }
@@ -62,7 +63,17 @@ class PositiontypebranchesItemcategoriesController extends AppController
             }
             $this->Flash->error(__('The positiontypebranches itemcategory could not be saved. Please, try again.'));
         }
-        $positiontypebranches = $this->PositiontypebranchesItemcategories->Positiontypebranches->find('list', ['limit' => 200]);
+        $positiontypebranches = $this->PositiontypebranchesItemcategories->Positiontypebranches->find('list',[ 'keyField' => 'id',
+                'valueField' => 'cadena'])
+        ->contain(['Branches','Positiontypes']);
+        $concat = $positiontypebranches->func()->concat([
+            'Branches.name' => 'identifier',
+            ' - ',
+            'Positiontypes.name' => 'identifier'
+        ]);
+        $positiontypebranches->select(['id','cadena' => $concat]);
+
+
         $itemcategories = $this->PositiontypebranchesItemcategories->Itemcategories->find('list', ['limit' => 200]);
         $this->set(compact('positiontypebranchesItemcategory', 'positiontypebranches', 'itemcategories'));
         $this->set('_serialize', ['positiontypebranchesItemcategory']);
