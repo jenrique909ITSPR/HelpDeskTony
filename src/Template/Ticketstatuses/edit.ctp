@@ -25,19 +25,3 @@
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $ticketstatus->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $ticketstatus->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Ticketstatuses'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Tickettypes'), ['controller' => 'Tickettypes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Tickettype'), ['controller' => 'Tickettypes', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

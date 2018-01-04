@@ -24,19 +24,3 @@
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $shipper->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $shipper->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Shippers'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Stockmoves'), ['controller' => 'Stockmoves', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Stockmove'), ['controller' => 'Stockmoves', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

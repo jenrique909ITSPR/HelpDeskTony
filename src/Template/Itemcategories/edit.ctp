@@ -25,23 +25,3 @@
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $itemcategory->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $itemcategory->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Itemcategories'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Parent Itemcategories'), ['controller' => 'Itemcategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Parent Itemcategory'), ['controller' => 'Itemcategories', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Items'), ['controller' => 'Items', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Item'), ['controller' => 'Items', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Layoutcategories'), ['controller' => 'Layoutcategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Layoutcategory'), ['controller' => 'Layoutcategories', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
