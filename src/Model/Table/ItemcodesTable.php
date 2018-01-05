@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\ItemsTable|\Cake\ORM\Association\BelongsTo $Items
  * @property \App\Model\Table\InvoicesTable|\Cake\ORM\Association\BelongsTo $Invoices
  * @property \App\Model\Table\StatusitemsTable|\Cake\ORM\Association\BelongsTo $Statusitems
- * @property \App\Model\Table\PositionbranchesTable|\Cake\ORM\Association\BelongsTo $Positionbranches
+ * @property |\Cake\ORM\Association\BelongsTo $Positions
  * @property \App\Model\Table\CurrenciesTable|\Cake\ORM\Association\BelongsTo $Currencies
  * @property \App\Model\Table\StockmovesDetailsTable|\Cake\ORM\Association\HasMany $StockmovesDetails
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\HasMany $Tickets
@@ -54,8 +54,8 @@ use Cake\Validation\Validator;
         $this->belongsTo('Statusitems', [
             'foreignKey' => 'statusitem_id'
         ]);
-        $this->belongsTo('Positionbranches', [
-            'foreignKey' => 'positionbranch_id'
+        $this->belongsTo('Positions', [
+            'foreignKey' => 'position_id'
         ]);
         $this->belongsTo('Currencies', [
             'foreignKey' => 'currency_id'
@@ -103,7 +103,7 @@ use Cake\Validation\Validator;
         $rules->add($rules->existsIn(['item_id'], 'Items'));
         $rules->add($rules->existsIn(['invoice_id'], 'Invoices'));
         $rules->add($rules->existsIn(['statusitem_id'], 'Statusitems'));
-        $rules->add($rules->existsIn(['positionbranch_id'], 'Positionbranches'));
+        $rules->add($rules->existsIn(['position_id'], 'Positions'));
         $rules->add($rules->existsIn(['currency_id'], 'Currencies'));
 
         return $rules;

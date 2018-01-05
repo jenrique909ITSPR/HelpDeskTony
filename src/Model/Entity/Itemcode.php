@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property int $statusitem_id
  * @property \Cake\I18n\FrozenDate $created
  * @property \Cake\I18n\FrozenDate $warranty
- * @property int $positionbranch_id
+ * @property int $position_id
  * @property string $service_tag
  * @property float $cost
  * @property int $currency_id
