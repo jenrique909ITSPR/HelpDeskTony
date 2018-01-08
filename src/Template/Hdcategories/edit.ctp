@@ -45,7 +45,7 @@
 					<?= $this->form->label(__('articles')) ?>
 				</td>
 				<td>
-						<?php echo $this->Form->control('articles._ids', ['options' => $articles, 'label'=> false]);?>
+						<?php echo $this->Form->control('articles._ids', ['options' => $articles, 'label'=> false, 'size'=> '5']);?>
 				</td>
 				</tr>
 			</tbody>
