@@ -174,6 +174,10 @@ class TicketsController extends AppController
         $this->set(compact('ticketnote', 'tickets', 'users', 'ticketnotestypes'));*/
 
     }
+    public function searchCategory()
+    {
+        echo 'phpm';
+    }
 
     /**
      * Add method
@@ -182,21 +186,26 @@ class TicketsController extends AppController
      */
     public function add()
     {
-        $ticket = $this->Tickets->newEntity();
-         $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
+        if($this->request->is('ajax')){
+            echo($this->request->getData('categorySearch'));
 
-       if ($this->request->is('post')) {
-
+        }else{
+            $ticket = $this->Tickets->newEntity();
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
-            $mail= $this->request->session()->read('System.mail.sender');
-            if ($this->Tickets->save($ticket)) {
 
-                $this->Flash->success(__('Ticket creado correctamente'));
-                $this->_mailsender('Creado',$ticket->id, $mail,$ticket->user_requeried);
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
-        }
+           if ($this->request->is('post')) {
+
+                $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
+                $mail= $this->request->session()->read('System.mail.sender');
+                if ($this->Tickets->save($ticket)) {
+
+                    $this->Flash->success(__('Ticket creado correctamente'));
+                    $this->_mailsender('Creado',$ticket->id, $mail,$ticket->user_requeried);
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+            } 
+        
         $ticket->group_id = $this->request->session()->read('Auth.User.group_id');
         $ticket->user_id = $this->request->session()->read('Auth.User.id');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
@@ -220,6 +229,7 @@ class TicketsController extends AppController
          $dataTreeJson = json_encode($dataTree);
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
+        }
 
     }
 

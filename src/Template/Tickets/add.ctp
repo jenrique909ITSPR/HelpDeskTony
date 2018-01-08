@@ -17,9 +17,12 @@
 
  <?= $this->Form->create($ticket) ?>
 <div class="easyui-layout"  style="width:100%;height:1200px;">
-        <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
+        <div  id="p" data-options="region:'west',collapsible:false" style="width:20%;padding:10px">
             <!--<a class="easyui-linkbutton" onclick="colapsar()">CollapseAll</a>-->
-            <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>
+
+            <?= $this->Form->control(__('categorySearch'),['type' => 'text','id' => 'categorySearch' , 'rel' =>  $this->Url->build(['controller' => 'Hdcategories', 'action' => 'categoriesview'])]);  ?>
+           <!-- <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>-->
+           <div style="margin-left: 0px;" id='contentAjax'></div>
         </div>
         <div data-options="region:'center'"  style="width:100%;">
              <div class="editdata">
@@ -108,78 +111,23 @@
 </div>
 
 <script type="text/javascript">
+    $("#categorySearch").on("input", function(e) {
+        if(($('#categorySearch').val()).length > 2 ){
+            var cargando = $("#contentAjax").html("<div class='loading'></div>");
+            $.ajax({
+                type: 'POST',
+                url:$(this).attr('rel'),
+                data: $('#categorySearch').serialize(),
+                beforeSend: function() {
+                                cargando.show();
+                },
+                success: function(data) {
+                        $('#contentAjax').html(data);
 
-    $('#tt').tree({
-    });
-    $('#tt').tree({
-    data: <?= $dataTreeJson  ?>
-    });
-    $('#tt').tree({
-    loadFilter: function(rows){
-        return convert(rows);
-    }
-    });
-    function convert(rows){
-        function exists(rows, parentId){
-            for(var i=0; i<rows.length; i++){
-                if (rows[i].id == parentId) return true;
-            }
-            return false;
-        }
-
-        var nodes = [];
-        // get the top level nodes
-        for(var i=0; i<rows.length; i++){
-            var row = rows[i];
-            if (!exists(rows, row.parentId)){
-                nodes.push({
-                    id:row.id,
-                    text:row.name
-                });
-            }
-        }
-
-        var toDo = [];
-        for(var i=0; i<nodes.length; i++){
-            toDo.push(nodes[i]);
-        }
-        while(toDo.length){
-            var node = toDo.shift();    // the parent node
-            // get the children nodes
-            for(var i=0; i<rows.length; i++){
-                var row = rows[i];
-                if (row.parentId == node.id){
-                    var child = {id:row.id,text:row.name};
-                    if (node.children){
-                        node.children.push(child);
-                    } else {
-                        node.children = [child];
-                    }
-                    toDo.push(child);
                 }
-            }
+            });
         }
-        return nodes;
-    }
-
-
-    $('#tt').tree({
-        onDblClick: function(node){
-            var node = $('#tt').tree('getSelected');
-            if (node){
-                var s = node.text;
-                if (node.attributes){
-                    s += ","+node.attributes.p1+","+node.attributes.p2;
-                }
-                $("#hdcategory_id").empty();
-                $("#hdcategory_id").append("<option value='" + node.id+"'' >"+s+"</option>");
-
-            }
-        },
-        onLoadSuccess: function(node){
-                $('#tt').tree('collapseAll');
-            }
-
-    });
+        return false;
+    });    
 
 </script>

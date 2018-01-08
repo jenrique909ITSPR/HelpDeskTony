@@ -2,7 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
+use Cake\Datasource\ConnectionManager;
 /**
  * Suppliers Controller
  *
@@ -20,6 +21,13 @@ class SuppliersController extends AppController
      */
     public function index()
     {
+        $connectionObject = ConnectionManager::get('modelSQL');
+        $this->paginate = TableRegistry::get('Suppliers', [
+            
+            'table' => 'suppliers',
+            'connection' => $connectionObject,
+        ]);
+
         $this->paginate = [
             'limit' => $this->limit_data ];
         $suppliers = $this->paginate($this->Suppliers);

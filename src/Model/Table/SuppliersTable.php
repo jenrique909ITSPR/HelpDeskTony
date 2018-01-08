@@ -31,6 +31,7 @@ class SuppliersTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
+        
 
         $this->setTable('suppliers');
         $this->setDisplayField('name');
