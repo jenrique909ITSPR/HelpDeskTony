@@ -22,8 +22,8 @@
                       <tr><td style="width:5%;"><?= $this->form->label(__('answer')) ?></td><td colspan="4"><?=  $this->Form->control('answer',['label' => false]);  ?></td></tr>
                       <tr><td style="width:5%;"><?= $this->form->label(__('user_id')) ?></td><td style="width:40%;"><?=  $this->Form->control('user_id', ['options' => $users, 'empty' => true , 'label' => false]);  ?></td>
                       <td style="width:5%;"><?= $this->form->label(__('selected')) ?></td><td><?=  $this->Form->control('selected',['label' => false]);  ?></td></tr>
-                      <tr><td  style="width:5%;"><?= $this->form->label(__('roles._ids')) ?></td><td><?= $this->Form->control('roles._ids', ['options' => $roles , 'label' => false]);?></td>
-                      <td  style="width:5%;"><?= $this->form->label(__('hdcategories._ids')) ?></td><td><?= $this->Form->control('hdcategories._ids', ['options' => $hdcategories , 'label' => false]);?></td></tr>
+                      <tr><td  style="width:5%;"><?= $this->form->label(__('roles._ids')) ?></td><td><?= $this->Form->control('roles._ids', ['options' => $roles , 'label' => false, 'size'=> '5']);?></td>
+                      <td  style="width:5%;"><?= $this->form->label(__('hdcategories._ids')) ?></td><td><?= $this->Form->control('hdcategories._ids', ['options' => $hdcategories , 'label' => false, 'size'=> '5']);?></td></tr>
               </tbody>
       </table>
 
