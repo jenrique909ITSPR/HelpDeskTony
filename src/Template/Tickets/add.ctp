@@ -16,13 +16,11 @@
 
 
  <?= $this->Form->create($ticket) ?>
-<<<<<<< HEAD
+
 <div class="easyui-layout"  style="width:100%;height:1200px;">
         <div  id="p" data-options="region:'west',collapsible:false" style="width:20%;padding:10px">
-=======
-<div class="easyui-layout"  style="width:100%;height:644px;">
-        <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
->>>>>>> 8c93b4c9ed36f767b206b9237b9d21375c86795f
+
+
             <!--<a class="easyui-linkbutton" onclick="colapsar()">CollapseAll</a>-->
 
             <?= $this->Form->control(__('categorySearch'),['type' => 'text','id' => 'categorySearch' , 'rel' =>  $this->Url->build(['controller' => 'Hdcategories', 'action' => 'categoriesview'])]);  ?>
