@@ -222,11 +222,7 @@ class TicketsController extends AppController
         $hdcategories = $this->Tickets->Hdcategories->find('all');
         $ticket->ip = $this->request->clientIp();
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
-        $dataTree = array();
-        foreach ($hdcategories as $key => $value) {
-            array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
-        }
-         $dataTreeJson = json_encode($dataTree);
+        
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
         }

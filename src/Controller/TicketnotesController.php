@@ -51,15 +51,17 @@ class TicketnotesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($ticket_id = null)
     {
         $ticketnote = $this->Ticketnotes->newEntity();
         if ($this->request->is('post')) {
+            $ticketnote->user_id = $this->request->session()->read('Auth.User.id');
+            $ticketnote->ticket_id = $ticket_id;
             $ticketnote = $this->Ticketnotes->patchEntity($ticketnote, $this->request->getData());
             if ($this->Ticketnotes->save($ticketnote)) {
                 $this->Flash->success(__('The ticketnote has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Tickets' ,'action' => 'view' , $ticket_id]);
             }
             $this->Flash->error(__('The ticketnote could not be saved. Please, try again.'));
         }
