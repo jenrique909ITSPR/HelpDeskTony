@@ -14,7 +14,7 @@
 
 	<div class="editdata">
     <?= $this->Form->create($source) ?>
-			<table cellpadding="0" cellspacing="0" style="width:100%; margin:10px;">
+			<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
 					<tbody>
 							<tr><td  style="width:5%;"><?= $this->form->label(__('Title')) ?></td><td><?=    $this->Form->control('title', ['label' => false]); ?></td></tr>
 					</tbody>

@@ -14,11 +14,14 @@
 
 	<div class="editdata">
     <?= $this->Form->create($currency) ?>
-        <?php
-            echo $this->Form->control('name');
-        ?>
 
-    <?= $this->Form->button(__('Submit')) ?>
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+						<tr><td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td><td><?php echo $this->Form->control('name',['label'=> false]);?></td></tr>
+				</tbody>
+		</table>
+
+    <?= $this->Form->button(__('Submit'),['style'=> 'margin-top:10px']) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>

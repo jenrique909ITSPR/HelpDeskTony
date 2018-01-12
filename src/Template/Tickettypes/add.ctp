@@ -15,7 +15,7 @@
 	<div class="editdata">
     <?= $this->Form->create($tickettype) ?>
 
-				<table cellpadding="0" cellspacing="0" style="width:100%; margin:10px;">
+				<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
 						<tbody>
 								<tr><td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td><td><?= $this->Form->control('name',['label' => false]); ?></td></tr>
 								<tr><td  style="width:5%;"><?= $this->form->label(__('Tag')) ?></td><td><?= $this->Form->control('tag',['label' => false]); ?></td></tr>
