@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
- 
+
 /**
  * Ticketmarkeds Controller
  *
@@ -20,12 +20,10 @@ class TicketmarkedsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Users', 'Tickets']
-            ,'limit' => $this->limit_data
-        ];
-        $ticketmarkeds = $this->paginate($this->Ticketmarkeds);
-
+        $query = $this->Ticketmarkeds->find('all')
+        ->where(['Ticketmarkeds.user_id' => $this->request->session()->read('Auth.User.id') ])
+        ->contain(['Users' , 'Tickets']);
+        $ticketmarkeds = $this->paginate($query);
         $this->set(compact('ticketmarkeds'));
         $this->set('_serialize', ['ticketmarkeds']);
     }
@@ -116,7 +114,7 @@ class TicketmarkedsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
+
  public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('administration');

@@ -69,9 +69,9 @@
 										</tr>
                     <tr>
                         <td><?= $this->form->label(__('User Autor')) ?></td>
-                        <td><?php   echo $this->Form->control('user_autor',['label' => false ]); ?></td>
+                        <td><?php   echo $this->Form->control('user_autor',['label' => false,'options' => $users, 'empty' => true ]); ?></td>
                         <td><?= $this->form->label(__('User Requiered')) ?></td>
-                        <td><?php echo $this->Form->control('user_requeried',['label' => false ]); ?></td>
+                        <td><?php echo $this->Form->control('user_requeried',['label' => false ,'options' => $users, 'empty' => true]); ?></td>
                         <td><?= $this->form->label(__('User')) ?></td>
                         <td><?php  echo $this->Form->control('user_id', ['label' => false ,'options' => $users, 'empty' => true]); ?></td>
                     </tr>
@@ -123,6 +123,6 @@
             });
         }
         return false;
-    });    
+    });
 
 </script>
