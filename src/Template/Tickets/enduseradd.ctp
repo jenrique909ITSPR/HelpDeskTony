@@ -25,7 +25,7 @@
 		</ul>
 	</div>
 
-<<<<<<< HEAD
+
 	<div class="editdata">
     <?= $this->Form->create($ticket) ?>
 
@@ -100,51 +100,7 @@
 
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
-=======
 
- <?= $this->Form->create($ticket) ?>
-
-<div class="easyui-layout"  style="width:100%;height:550px;">
-        <div  id="p" data-options="region:'west',collapsible:false" style="width:20%;padding:10px">
-            <?= $this->Form->control(__('categorySearch'),['type' => 'text','id' => 'categorySearch' , 'rel' =>  $this->Url->build(['controller' => 'Hdcategories', 'action' => 'categoriesview'])]);  ?>
-           <!-- <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>-->
-           <div>
-            <div style="margin-left: 0px;" id='contentAjax2'></div>  
-           </div>
-           
-        </div>
-        <div data-options="region:'center'"  style="width:100%;">
-            <div class="editdata">
-                <?= $this->Form->create($ticket) ?>
-                    <?php
-                        /*echo $this->Form->control('tickettype_id', ['options' => $tickettypes, 'empty' => true]);
-                        echo $this->Form->control('ticket_status_id', ['options' => $ticketStatuses, 'empty' => true]);
-                        echo $this->Form->control('source_id', ['options' => $sources, 'empty' => true]);*/
-                        echo $this->Form->control('hdcategory_id',[ 'id' => 'hdcategory_id' , 'disabled' => 'true', 'empty' => true]);
-                        echo $this->Form->control('title');
-                        echo $this->Form->control('description');
-                        /*echo $this->Form->control('solution');
-                        echo $this->Form->control('resolution');
-                        echo $this->Form->control('itemcode_id', ['options' => $itemcodes, 'empty' => true]);
-                        echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
-                        echo $this->Form->control('group_id', ['options' => $groups, 'empty' => true]);*/
-                        echo $this->Form->control('user_autor',['options' => $users , 'empty' => true   ]);
-                        echo $this->Form->control('user_requeried',['options' => $users , 'empty' => true]);
-                        echo $this->Form->control('ticketimpact_id', ['options' => $ticketimpacts, 'empty' => true]);
-                        echo $this->Form->control('ticketurgency_id', ['options' => $ticketurgencies, 'empty' => true]);
-                        echo $this->Form->control('ticketpriority_id', ['options' => $ticketpriorities, 'empty' => true]);
-                        /*echo $this->Form->control('parent_id', ['options' => $parentTickets, 'empty' => true]);*/
-
-                        echo $this->Form->control('ip');
-                    ?>
-
-                <?= $this->Form->button(__('Submit')) ?>
-                <?= $this->Form->end() ?>
-            </div>
-        </div>
-
-
->>>>>>> 48c503e80e1a583848499bb642b8fcb5b585d3c2
 	</div>
 </div>
 <script type="text/javascript">
@@ -165,6 +121,6 @@
             });
         }
         return false;
-    });    
+    });
 
 </script>
