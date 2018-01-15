@@ -314,7 +314,7 @@
     </div>-->
 
 
- <?= $this->Form->create($ticket) ?>
+
 <div class="easyui-layout"  style="width:100%;height:597px;">
         <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
             <?= $this->Form->control(__('categorySearch'),['type' => 'text','id' => 'categorySearch' , 'rel' =>  $this->Url->build(['controller' => 'Hdcategories', 'action' => 'categoriesview'])]);  ?>
@@ -322,14 +322,15 @@
            <div style="margin-left: 0px;" id='contentAjax'></div>
         </div>
         <div data-options="region:'center'"  style="width:100%;">
+          <?= $this->Form->create($ticket,['url' => ['controller' => 'Tickets', 'action' => 'edit']]) ?>
              <div class="editdata">
             <table  cellpadding="0" cellspacing="0" style="width:100%; border:none;">
                 <tbody>
                     <tr>
                         <td style="width: 10%;"><?= $this->form->label(__('Hdcategory')) ?></td>
-                        <td style="width: 40%;"><?php echo $this->Form->control('hdcategory_id',[ 'label' => false ,'id' => 'hdcategory_id' , 'disabled' => 'true' , 'options' => $hdcategories2]); ?></td>
+                        <td style="width: 40%;"><?php echo $this->Form->control('hdcategory_id',[ 'label' => false ,'id' => 'hdcategory_id' , 'onmouseover'=>'this.disabled=true;' ,'onmouseout'=>"this.disabled=false;" ,'onfocus'=>'this.disabled=true;','onblur'=>'this.disabled=false;','options' => $hdcategories]); ?></td>
                         <td><?= $this->form->label(__('Branch')) ?></td>
-                        <td colspan="3" style="width: 33%;"><?php echo $this->Form->control('branche_id', ['label' => false ,'options' => $branches, 'empty' => true]); ?></td>
+                        <td colspan="3" style="width: 33%;"><?php echo $this->Form->control('branch_id', ['label' => false ,'options' => $branches, 'empty' => true]); ?></td>
                     </tr>
                     <tr>
                         <td><?= $this->form->label(__('Ticket Status')) ?></td>
@@ -347,9 +348,9 @@
                     </tr>
                     <tr>
                         <td><?= $this->form->label(__('User Autor')) ?></td>
-                        <td><?php   echo $this->Form->control('user_autor',['label' => false ]); ?></td>
+                        <td><?php   echo $this->Form->control('user_autor',['label' => false ,'options' => $users, 'empty' => true ]); ?></td>
                         <td><?= $this->form->label(__('User Requiered')) ?></td>
-                        <td style="width: 33%;"><?php echo $this->Form->control('user_requeried',['label' => false ]); ?></td>
+                        <td style="width: 33%;"><?php echo $this->Form->control('user_requeried',['label' => false ,'options' => $users, 'empty' => true  ]); ?></td>
                         <td><?= $this->form->label(__('User')) ?></td>
                         <td colspan="3" style="width: 33%;"><?php  echo $this->Form->control('user_id', ['label' => false ,'options' => $users, 'empty' => true]); ?></td>
                     </tr>
@@ -449,6 +450,6 @@
             });
         }
         return false;
-    });    
+    });
 
 </script>

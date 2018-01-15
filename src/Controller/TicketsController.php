@@ -147,7 +147,7 @@ class TicketsController extends AppController
         $this->set('_serialize', ['ticket']);
         $ticketnotestypesTable = TableRegistry::get('Ticketnotestypes');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
-        
+
         $ticketStatuses = $this->Tickets->TicketStatuses->find('list', ['limit' => 200]);
         $sources = $this->Tickets->Sources->find('list', ['limit' => 200]);
         $itemcodes = $this->Tickets->Itemcodes->find('list', ['limit' => 200]);
@@ -157,16 +157,12 @@ class TicketsController extends AppController
         $ticketurgencies = $this->Tickets->Ticketurgencies->find('list', ['limit' => 200]);
         $ticketpriorities = $this->Tickets->Ticketpriorities->find('list', ['limit' => 200]);
         $parentTickets = $this->Tickets->ParentTickets->find('list', ['limit' => 200]);
-        $hdcategories = $this->Tickets->Hdcategories->find('all');
-        $hdcategories2 = $this->Tickets->Hdcategories->find('list');
+        $hdcategories = $this->Tickets->Hdcategories->find('list');
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
         $ticketnotestypes = $ticketnotestypesTable->find('list',['limit' => 200]);
         $dataTree = array();
-        foreach ($hdcategories as $key => $value) {
-            array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
-        }
-        $dataTreeJson = json_encode($dataTree);
-        $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities','hdcategories2','dataTreeJson','parentTickets','branches'));
+
+        $this->set(compact('tickettypes', 'ticketnotestypes','ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities','hdcategories','parentTickets','branches'));
 
         /*$tickets = $this->Ticketnotes->Tickets->find('list', ['limit' => 200]);
         $users = $this->Ticketnotes->Users->find('list', ['limit' => 200]);
@@ -174,11 +170,6 @@ class TicketsController extends AppController
         $this->set(compact('ticketnote', 'tickets', 'users', 'ticketnotestypes'));*/
 
     }
-    public function searchCategory()
-    {
-        echo 'phpm';
-    }
-
     /**
      * Add method
      *
@@ -204,8 +195,8 @@ class TicketsController extends AppController
                     return $this->redirect(['action' => 'index']);
                 }
                 $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
-            } 
-        
+            }
+
         $ticket->group_id = $this->request->session()->read('Auth.User.group_id');
         $ticket->user_id = $this->request->session()->read('Auth.User.id');
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);
@@ -222,7 +213,7 @@ class TicketsController extends AppController
         $hdcategories = $this->Tickets->Hdcategories->find('all');
         $ticket->ip = $this->request->clientIp();
         $branches = $this->Tickets->Branches->find('list',['limit' => 200]);
-        
+
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets', 'ip','branches'));
         $this->set('_serialize', ['ticket']);
         }
@@ -242,10 +233,11 @@ class TicketsController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+          debug($this->request->getData());
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Datos del ticket actualizados '));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view' , $ticket->id]);
             }
             $this->Flash->error(__('Error al actualizar datos'));
         }
