@@ -122,21 +122,38 @@ class HdcategoriesController extends AppController
         $ticketsTable = TableRegistry::get('Tickets');
         
         if($this->request->is('post')){
-            $palabra = $this->request->getData('categorySearch');
-            if($palabra != ''){
-            $hdcategories = $ticketsTable->Hdcategories->find('all');
-            
-            $hdcategories->where(['Hdcategories.title LIKE' => '%'.$palabra.'%']);
-            $dataTree = array();
+        $palabra = $this->request->getData('categorySearch');
+        if($palabra != ''){
+                
+            $hdcategories = $ticketsTable->Hdcategories->find()
+            ->select(['id'])
+             ->enableAutoFields(false)
+            ->where(['parent_id is null' , 'title LIKE' => '%'.$palabra.'%']);
 
-            foreach ($hdcategories as $key => $value) {
+            $hdcategories2 = $ticketsTable->Hdcategories->find()
+            ->select(['id'])
+            ->enableAutoFields(false)
+            ->where(['parent_id IN' => $hdcategories]);
+
+            $hdcategories3 = $ticketsTable->Hdcategories->find()
+            ->select(['title' , 'id' , 'parent_id'])
+            ->enableAutoFields(false)
+            ->where(['parent_id IN' => $hdcategories2])
+            ->orWhere(['id IN' => $hdcategories])
+            ->orWhere(['id In' => $hdcategories2]);
+            
+            $dataTree = array();
+            
+            //debug($hdcategories3->toArray());
+            foreach ($hdcategories3 as $key => $value) {
                 array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
             }
              $dataTreeJson = json_encode($dataTree);
             $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets', 'ip','branches'));
             $this->set('_serialize', ['ticket']);
             }
-        }
+        } 
+        
         
         
     }

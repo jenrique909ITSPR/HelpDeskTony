@@ -17,12 +17,8 @@
 
  <?= $this->Form->create($ticket) ?>
 
-<div class="easyui-layout"  style="width:100%;height:1200px;">
+<div class="easyui-layout"  style="width:100%;height:650px;">
         <div  id="p" data-options="region:'west',collapsible:false" style="width:20%;padding:10px">
-
-
-            <!--<a class="easyui-linkbutton" onclick="colapsar()">CollapseAll</a>-->
-
             <?= $this->Form->control(__('categorySearch'),['type' => 'text','id' => 'categorySearch' , 'rel' =>  $this->Url->build(['controller' => 'Hdcategories', 'action' => 'categoriesview'])]);  ?>
            <!-- <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>-->
            <div style="margin-left: 0px;" id='contentAjax'></div>
