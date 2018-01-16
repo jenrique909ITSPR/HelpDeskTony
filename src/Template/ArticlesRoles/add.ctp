@@ -14,10 +14,26 @@
 
 	<div class="editdata">
     <?= $this->Form->create($articlesRole) ?>
-        <?php
-            echo $this->Form->control('article_id', ['options' => $articles, 'empty' => true]);
-            echo $this->Form->control('role_id', ['options' => $roles, 'empty' => true]);
-        ?>
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+				<tr>
+					<td width="7%">
+						<?= $this->form->label(__('article')) ?>
+					</td>
+					<td>
+							<?php  echo $this->Form->control('article_id', ['options' => $articles, 'empty' => true,'label'=> false]);?>
+					</td>
+			</tr>
+			<tr>
+				<td width="7%">
+					<?= $this->form->label(__('name')) ?>
+				</td>
+				<td>
+						<?php  echo $this->Form->control('role_id', ['options' => $roles, 'empty' => true,'label'=> false]);?>
+				</td>
+		</tr>
+				</tbody>
+		</table>
 
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

@@ -14,9 +14,18 @@
 
 	<div class="editdata">
     <?= $this->Form->create($statusitem) ?>
-        <?php
-            echo $this->Form->control('name');
-        ?>
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+					<tr>
+						<td width="7%">
+							<?= $this->form->label(__('name')) ?>
+						</td>
+						<td>
+								<?php  echo $this->Form->control('name', ['label'=> false]);?>
+						</td>
+				</tr>
+				</tbody>
+		</table>
 
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

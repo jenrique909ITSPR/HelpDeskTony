@@ -11,16 +11,31 @@
 			<li><?= $this->Html->link(__('List Positions'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($position) ?>
-        <?php
-            echo $this->Form->control('positiontypebranch_id', ['options' => $positiontypebranches, 'empty' => true]);
-            echo $this->Form->control('name');
-        ?>
-	
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+					<tr>
+						<td>
+							<?= $this->form->label(__('positiontypebranch')) ?>
+						</td>
+						<td>
+								<?php  echo $this->Form->control('positiontypebranch_id', ['options' => $positiontypebranches, 'empty' => true,'label'=> false]);?>
+						</td>
+				</tr>
+						<tr>
+							<td style="width:7%;">
+								<?= $this->form->label(__('name')) ?>
+							</td>
+							<td>
+								<?php  echo $this->Form->control('name',['label'=> false]);?>
+							</td>
+						</tr>
+					</tbody>
+		</table>
+        
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>
-

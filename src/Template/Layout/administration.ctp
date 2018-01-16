@@ -60,7 +60,6 @@
           <li><?= $this->Html->link(__('Layoutcategories'), ['controller' => 'Positiontypes', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Movereasons'), ['controller' => 'Movereasons', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Positions'), ['controller' => 'Positions', 'action' => 'index']) ?></li>
-          <li><?= $this->Html->link(__('Positiontypebranches'), ['controller' => 'Positiontypebranches', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('PositionItemcategories'), ['controller' => 'PositiontypebranchesItemcategories', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Statusitems'), ['controller' => 'Statusitems', 'action' => 'index']) ?></li>
           <li><?= $this->Html->link(__('Statususers'), ['controller' => 'Statususers', 'action' => 'index']) ?></li>
