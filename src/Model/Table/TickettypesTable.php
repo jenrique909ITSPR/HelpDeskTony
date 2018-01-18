@@ -41,7 +41,7 @@ use Cake\Validation\Validator;
         ]);
         $this->belongsToMany('Ticketstatuses', [
             'foreignKey' => 'tickettype_id',
-            'targetForeignKey' => 'ticketstatus_id',
+            'targetForeignKey' => 'ticket_status_id',
             'joinTable' => 'ticketstatuses_tickettypes'
         ]);
     }

@@ -12,10 +12,8 @@ class ItemcodesTableTest extends TestCase
 {
 
     /**
-     * Test subject
-     *
-     * @var \App\Model\Table\ItemcodesTable
-     */
+     * Test subject     *
+     * @var \App\Model\Table\ItemcodesTable     */
     public $Itemcodes;
 
     /**
@@ -28,39 +26,46 @@ class ItemcodesTableTest extends TestCase
         'app.items',
         'app.itemcategories',
         'app.layoutcategories',
-        'app.layouts',
+        'app.currencies',
+        'app.brands',
+        'app.itemtypes',
+        'app.stockmoves_details',
+        'app.stockmoves',
+        'app.warehouses',
         'app.branches',
         'app.branchgroups',
-        'app.positionbranches',
-        'app.positions',
         'app.users',
+        'app.positionbranches',
         'app.statususers',
         'app.groups',
         'app.ticketlogs',
         'app.tickets',
         'app.tickettypes',
+        'app.ticketstatuses',
+        'app.ticketstatuses_tickettypes',
         'app.ticket_statuses',
         'app.sources',
+        'app.userautors',
+        'app.roles',
+        'app.articles',
+        'app.articlefiles',
+        'app.articles_roles',
+        'app.hdcategories',
+        'app.hdtemplate',
+        'app.hdcategories_articles',
+        'app.movereasontemplates',
+        'app.movereasons',
+        'app.ticketmarkeds',
+        'app.ticketnotes',
+        'app.ticketnotestypes',
+        'app.userendmessages',
+        'app.userrequerieds',
         'app.ticketimpacts',
         'app.ticketurgencies',
         'app.ticketpriorities',
-        'app.hdcategories',
-        'app.articles',
-        'app.articlefiles',
-        'app.roles',
-        'app.articles_roles',
-        'app.internalnotes',
-        'app.publicnotes',
-        'app.ticketsfiles',
-        'app.movereasontemplates',
-        'app.movereasons',
-        'app.stockmoves',
-        'app.warehouses',
+        'app.layouts',
         'app.stocks',
         'app.shippers',
-        'app.stockmoves_details',
-        'app.currencies',
-        'app.brands',
         'app.invoices',
         'app.suppliers',
         'app.statusitems'
@@ -74,9 +79,7 @@ class ItemcodesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Itemcodes') ? [] : ['className' => ItemcodesTable::class];
-        $this->Itemcodes = TableRegistry::get('Itemcodes', $config);
-    }
+        $config = TableRegistry::exists('Itemcodes') ? [] : ['className' => ItemcodesTable::class];        $this->Itemcodes = TableRegistry::get('Itemcodes', $config);    }
 
     /**
      * tearDown method

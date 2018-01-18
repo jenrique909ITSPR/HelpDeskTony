@@ -1,12 +1,11 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Itemcode[]|\Cake\Collection\CollectionInterface $itemcodes
-  */
+  * @var \App\Model\Entity\Itemcode[]|\Cake\Collection\CollectionInterface $itemcodes  */
 ?>
 
 <div class="itemcodes index">
-  <fieldset class="searchform">
+    <fieldset class="searchform">
     <legend>Filtros</legend>
     <?= $this->Form->create('search') ?>
     <table class="tableTransparent">
@@ -24,7 +23,6 @@
     <?= $this->Form->button(__('Search')) ?>
     <?= $this->Form->end() ?>
   </fieldset>
-
     <h3><?= __('Itemcodes') ?></h3>
 	<div class="actions">
 		<ul>
@@ -43,6 +41,9 @@
                 <th scope="col"><?= $this->Paginator->sort('warranty') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('positionbranch_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('service_tag') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cost') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('currency_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('insured') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -58,6 +59,9 @@
                 <td><?= h($itemcode->warranty) ?></td>
                 <td><?= $itemcode->has('positionbranch') ? $this->Html->link($itemcode->positionbranch->name, ['controller' => 'Positionbranches', 'action' => 'view', $itemcode->positionbranch->id]) : '' ?></td>
                 <td><?= h($itemcode->service_tag) ?></td>
+                <td><?= $this->Number->format($itemcode->cost) ?></td>
+                <td><?= $itemcode->has('currency') ? $this->Html->link($itemcode->currency->name, ['controller' => 'Currencies', 'action' => 'view', $itemcode->currency->id]) : '' ?></td>
+                <td><?= h($itemcode->insured) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $itemcode->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $itemcode->id]) ?>

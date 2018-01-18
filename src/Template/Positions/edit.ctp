@@ -11,32 +11,31 @@
 			<li><?= $this->Html->link(__('List Positions'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($position) ?>
-        <?php
-            echo $this->Form->control('name');
-        ?>
-	
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+					<tr>
+						<td>
+							<?= $this->form->label(__('positiontypebranch')) ?>
+						</td>
+						<td>
+								<?php  echo $this->Form->control('positiontypebranch_id', ['options' => $positiontypebranches, 'empty' => true,'label'=> false]);?>
+						</td>
+				</tr>
+						<tr>
+							<td style="width:7%;">
+								<?= $this->form->label(__('name')) ?>
+							</td>
+							<td>
+								<?php  echo $this->Form->control('name',['label'=> false]);?>
+							</td>
+						</tr>
+					</tbody>
+		</table>
+        
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $position->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $position->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Positions'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Layouts'), ['controller' => 'Layouts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Layout'), ['controller' => 'Layouts', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Positionbranches'), ['controller' => 'Positionbranches', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Positionbranch'), ['controller' => 'Positionbranches', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

@@ -24,8 +24,11 @@ class ItemcodesFixture extends TestFixture
         'statusitem_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'created' => ['type' => 'date', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'warranty' => ['type' => 'date', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-        'positionbranch_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'position_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'service_tag' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'cost' => ['type' => 'decimal', 'length' => 9, 'precision' => 0, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
+        'currency_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'insured' => ['type' => 'string', 'length' => 20, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -48,10 +51,13 @@ class ItemcodesFixture extends TestFixture
             'serial' => 'Lorem ipsum dolor sit amet',
             'invoice_id' => 1,
             'statusitem_id' => 1,
-            'created' => '2017-10-16',
-            'warranty' => '2017-10-16',
-            'positionbranch_id' => 1,
-            'service_tag' => 'Lorem ipsum dolor sit amet'
+            'created' => '2018-01-05',
+            'warranty' => '2018-01-05',
+            'position_id' => 1,
+            'service_tag' => 'Lorem ipsum dolor sit amet',
+            'cost' => 1.5,
+            'currency_id' => 1,
+            'insured' => 'Lorem ipsum dolor '
         ],
     ];
 }

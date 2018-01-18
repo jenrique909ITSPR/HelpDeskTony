@@ -11,35 +11,45 @@
             <li><?= $this->Html->link(__('List Userendmessages'), ['action' => 'index']) ?></li>
         </ul>
     </div>
-    
+
     <div class="editdata">
     <?= $this->Form->create($userendmessage) ?>
-        <?php
-            echo $this->Form->control('message');
-            echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('startdate', ['type' => 'text' , 'class' => 'easyui-datetimebox', 'style' => 'width:100%;'] );
-                        //echo '<input class="easyui-datetimebox" label="Select DateTime:" labelPosition="top" style="width:100%;"/>';
-            echo $this->Form->control('endingdate',['type' => 'text' , 'class' => 'easyui-datetimebox', 'style' => 'width:100%;']   );
-        ?>
-
+    <table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+        <tbody>
+            <tr>
+              <td style="width:10%;">
+                <?= $this->form->label(__('message')) ?>
+              </td>
+              <td colspan="3">
+                <?php  echo $this->Form->control('message',['label'=> false]);?>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <?= $this->form->label(__('user')) ?>
+              </td>
+              <td colspan="3">
+                  <?php  echo $this->Form->control('user_id', ['options' => $users,'label'=> false]);?>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <?= $this->form->label(__('startdate')) ?>
+              </td>
+              <td width="40%">
+                  <?php  echo $this->Form->control('startdate', ['type' => 'text' , 'class' => 'easyui-datetimebox', 'style' => 'width:100%;','label'=> false]);?>
+              </td>
+              <td>
+                <?= $this->form->label(__('endingdate')) ?>
+              </td>
+              <td width="40%">
+                  <?php echo $this->Form->control('endingdate',['type' => 'text' , 'class' => 'easyui-datetimebox', 'style' => 'width:100%;', 'label'=>false]   );?>
+              </td>
+            </tr>
+        </tbody>
+    </table>
 
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
     </div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $userendmessage->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $userendmessage->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Userendmessages'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

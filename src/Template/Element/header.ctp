@@ -44,8 +44,8 @@ $cakeDescription = 'Portal TI';
   <?= $this->Html->script('/src/plugins/jqplot.categoryAxisRenderer.js'); ?>
   <?= $this->Html->script('/src/plugins/jqplot.pointLabels.js'); ?>
 	<?= $this->Html->script('jquery.easyui.min.js'); ?>
-  <?= $this->Html->script('tinymce/jquery.tinymce.min.js'); ?>
-  <?= $this->Html->script('tinymce/tinymce.min.js'); ?>
+  <?= $this->Html->script('js/tinymce/jquery.tinymce.min.js'); ?>
+  <?= $this->Html->script('js/tinymce/tinymce.min.js'); ?>
 
 
 
@@ -107,6 +107,7 @@ $cakeDescription = 'Portal TI';
   <div class="right">
     <ul class="headernav">
       <!--<li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i>(13)</a></li>-->
+      <li><?= $this->Html->link('<i class="fa fa-thumb-tack" aria-hidden="true"></i>' . __('Markeds'), ['controller' => 'Ticketmarkeds', 'action' => 'index'], ['escape' => false]) ?></li>
       <li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i>' . __('Knowledge'), ['controller' => 'Articles', 'action' => 'index'], ['escape' => false]) ?></li>
       <li><?= $this->Html->link("<i class='fa fa-user-circle' aria-hidden='true'></i>" . $this->request->session()->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')], ['escape' => false]) ?></li>
       <li><?= $this->Html->link("<i class='fa fa-power-off' aria-hidden='true'></i>" . __('Logout'), ['controller' => 'Users', 'action' => 'logout'], ['escape' => false]) ?></li>

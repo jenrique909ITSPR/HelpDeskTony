@@ -11,35 +11,31 @@
 			<li><?= $this->Html->link(__('List Groups'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($group) ?>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('color');
-        ?>
-	
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+						<tr>
+							<td style="width:5%;">
+								<?= $this->form->label(__('name')) ?>
+							</td>
+							<td>
+								<?php  echo $this->Form->control('name',['label'=> false]);?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<?= $this->form->label(__('color')) ?>
+							</td>
+							<td>
+								  <?php  echo $this->Form->control('color', ['label'=> false]);?>
+							</td>
+						</tr>
+				</tbody>
+		</table>
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $group->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $group->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Groups'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Ticketlogs'), ['controller' => 'Ticketlogs', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ticketlog'), ['controller' => 'Ticketlogs', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

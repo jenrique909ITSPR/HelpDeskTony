@@ -14,15 +14,60 @@
 
 	<div class="editdata">
     <?= $this->Form->create($ticketlog) ?>
-        <?php
-            echo $this->Form->control('ticket_id', ['options' => $tickets, 'empty' => true]);
-            echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
-            echo $this->Form->control('group_id', ['options' => $groups, 'empty' => true]);
-            echo $this->Form->control('user_transfer');
-            echo $this->Form->control('group_transfer');
-            echo $this->Form->control('new_status');
-            echo $this->Form->control('coments');
-        ?>
+
+				<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+						<tbody>
+								<tr>
+									<td  style="width:5%;">
+										<?= $this->form->label(__('Ticket')) ?>
+									</td>
+									<td colspan="5">
+										<?= $this->Form->control('ticket_id', ['label' => false,'options' => $tickets, 'empty' => true]); ?>
+									</td>
+								</tr>
+								<tr>
+									<td  style="width:5%;">
+										<?= $this->form->label(__('User')) ?>
+									</td>
+									<td>
+										<?= $this->Form->control('user_id', ['label' => false,'options' => $users, 'empty' => true]); ?>
+									</td>
+									<td  style="width:5%;"><?= $this->form->label(__('Group')) ?>
+									</td>
+									<td>
+										<?= $this->Form->control('group_id', ['label' => false,'options' => $groups, 'empty' => true]); ?>
+									</td>
+								</tr>
+								<tr>
+									<td  style="width:5%;">
+										<?= $this->form->label(__('User Transfer')) ?>
+									</td>
+									<td><?=  $this->Form->control('user_transfer',['label' => false]); ?>
+									</td>
+									<td  style="width:5%;">
+										<?= $this->form->label(__('Group Transfer')) ?>
+									</td>
+									<td>
+										<?=$this->Form->control('group_transfer',['label' => false]);  ?>
+									</td>
+								</tr>
+								<tr>
+									<td  style="width:5%;">
+										<?= $this->form->label(__('New Status')) ?>
+									</td>
+									<td colspan="5"><?= $this->Form->control('new_status',['label' => false]); ?>
+									</td>
+								</tr>
+								<tr>
+									<td  style="width:5%;">
+										<?= $this->form->label(__('Comments')) ?>
+									</td>
+									<td colspan="5">
+										<?= $this->Form->control('coments',['label' => false]); ?>
+									</td>
+								</tr>
+						</tbody>
+				</table>
 
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

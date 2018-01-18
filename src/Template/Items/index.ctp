@@ -1,8 +1,7 @@
 <?php
 /**
   * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Item[]|\Cake\Collection\CollectionInterface $items
-  */
+  * @var \App\Model\Entity\Item[]|\Cake\Collection\CollectionInterface $items  */
 ?>
 
 <div class="items index">
@@ -23,6 +22,8 @@
                 <th scope="col"><?= $this->Paginator->sort('color') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('unit_cost') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('brand_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('itemtype_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -37,6 +38,8 @@
                 <td><?= h($item->color) ?></td>
                 <td><?= $this->Number->format($item->unit_cost) ?></td>
                 <td><?= $item->has('brand') ? $this->Html->link($item->brand->name, ['controller' => 'Brands', 'action' => 'view', $item->brand->id]) : '' ?></td>
+                <td><?= $item->has('itemtype') ? $this->Html->link($item->itemtype->name, ['controller' => 'Itemtypes', 'action' => 'view', $item->itemtype->id]) : '' ?></td>
+                <td><?= $item->has('parent_item') ? $this->Html->link($item->parent_item->name, ['controller' => 'Items', 'action' => 'view', $item->parent_item->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>
@@ -57,3 +60,4 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+

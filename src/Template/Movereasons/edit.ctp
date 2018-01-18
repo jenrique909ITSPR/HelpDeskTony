@@ -11,33 +11,31 @@
 			<li><?= $this->Html->link(__('List Movereasons'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($movereason) ?>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('factor');
-        ?>
-	
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+						<tr>
+							<td style="width:7%;">
+								<?= $this->form->label(__('name')) ?>
+							</td>
+							<td>
+								<?php  echo $this->Form->control('name',['label'=> false]);?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<?= $this->form->label(__('factor')) ?>
+							</td>
+							<td>
+									<?php  echo $this->Form->control('factor', ['type'=>'number','label'=> false]);?>
+							</td>
+					</tr>
+				</tbody>
+		</table>
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $movereason->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $movereason->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Movereasons'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Movereasontemplates'), ['controller' => 'Movereasontemplates', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Movereasontemplate'), ['controller' => 'Movereasontemplates', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Stockmoves'), ['controller' => 'Stockmoves', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Stockmove'), ['controller' => 'Stockmoves', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

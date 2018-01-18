@@ -11,31 +11,24 @@
 			<li><?= $this->Html->link(__('List Ticketsfiles'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($ticketsfile) ?>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('ticketnote_id', ['options' => $ticketnotes, 'empty' => true]);
-        ?>
-	
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+						<tr>
+							<td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td>
+							<td><?php echo $this->Form->control('name',['label'=> false]); ?></td>
+						</tr>
+						<tr>
+							<td  style="width:5%;"><?= $this->form->label(__('ticketnote')) ?></td>
+							<td><?php echo $this->Form->control('ticketnote_id', ['options' => $ticketnotes, 'empty' => true,'label'=> false]); ?></td>
+						</tr>
+
+			</tbody>
+
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $ticketsfile->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $ticketsfile->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Ticketsfiles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Ticketnotes'), ['controller' => 'Ticketnotes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ticketnote'), ['controller' => 'Ticketnotes', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

@@ -12,7 +12,8 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\ItemsTable|\Cake\ORM\Association\BelongsTo $Items
  * @property \App\Model\Table\InvoicesTable|\Cake\ORM\Association\BelongsTo $Invoices
  * @property \App\Model\Table\StatusitemsTable|\Cake\ORM\Association\BelongsTo $Statusitems
- * @property \App\Model\Table\PositionbranchesTable|\Cake\ORM\Association\BelongsTo $Positionbranches
+ * @property |\Cake\ORM\Association\BelongsTo $Positions
+ * @property \App\Model\Table\CurrenciesTable|\Cake\ORM\Association\BelongsTo $Currencies
  * @property \App\Model\Table\StockmovesDetailsTable|\Cake\ORM\Association\HasMany $StockmovesDetails
  * @property \App\Model\Table\TicketsTable|\Cake\ORM\Association\HasMany $Tickets
  *
@@ -25,8 +26,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Itemcode findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
- */
-class ItemcodesTable extends Table
+ */class ItemcodesTable extends Table
 {
 
     /**
@@ -54,8 +54,11 @@ class ItemcodesTable extends Table
         $this->belongsTo('Statusitems', [
             'foreignKey' => 'statusitem_id'
         ]);
-        $this->belongsTo('Positionbranches', [
-            'foreignKey' => 'positionbranch_id'
+        $this->belongsTo('Positions', [
+            'foreignKey' => 'position_id'
+        ]);
+        $this->belongsTo('Currencies', [
+            'foreignKey' => 'currency_id'
         ]);
         $this->hasMany('StockmovesDetails', [
             'foreignKey' => 'itemcode_id'
@@ -74,21 +77,17 @@ class ItemcodesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('serial')
-            ->allowEmpty('serial');
-
+            ->scalar('serial')            ->allowEmpty('serial');
         $validator
-            ->date('warranty')
-            ->allowEmpty('warranty');
-
+            ->date('warranty')            ->allowEmpty('warranty');
         $validator
-            ->scalar('service_tag')
-            ->allowEmpty('service_tag');
-
+            ->scalar('service_tag')            ->allowEmpty('service_tag');
+        $validator
+            ->decimal('cost')            ->requirePresence('cost', 'create')            ->notEmpty('cost');
+        $validator
+            ->scalar('insured')            ->allowEmpty('insured');
         return $validator;
     }
 
@@ -104,7 +103,8 @@ class ItemcodesTable extends Table
         $rules->add($rules->existsIn(['item_id'], 'Items'));
         $rules->add($rules->existsIn(['invoice_id'], 'Invoices'));
         $rules->add($rules->existsIn(['statusitem_id'], 'Statusitems'));
-        $rules->add($rules->existsIn(['positionbranch_id'], 'Positionbranches'));
+        $rules->add($rules->existsIn(['position_id'], 'Positions'));
+        $rules->add($rules->existsIn(['currency_id'], 'Currencies'));
 
         return $rules;
     }

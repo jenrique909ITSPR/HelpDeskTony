@@ -11,41 +11,34 @@
             <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
         </ul>
     </div>
-    
+
     <div class="editdata">
     <?= $this->Form->create($article) ?>
-        <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('answer');
-            echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
-            echo $this->Form->control('selected');
-            echo $this->Form->control('roles._ids', ['options' => $roles]);
-            echo $this->Form->control('hdcategories._ids', ['options' => $hdcategories]);
-        ?>
-    
+    <table  cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+      <tbody>
+        <tr>
+          <td width="7%"><?= $this->form->label(__('title')) ?></td>
+          <td colspan="5"><?php echo $this->Form->control('title',['label'=> false]);?></td>
+        </tr>
+        <tr>
+          <td><?= $this->form->label(__('answer')) ?></td>
+          <td colspan="4"><?php echo $this->Form->control('answer',['label'=> false]);?></td>
+        </tr>
+        <tr>
+          <td><?= $this->form->label(__('user')) ?></td>
+          <td  style="width:50%;"><?php echo $this->Form->control('user_id', ['options' => $users, 'empty' => true, 'label'=> false]);  ?></td>
+          <td width="10%"><?= $this->form->label(__('selected')) ?></td>
+          <td>  <?php echo $this->Form->control('selected',['label'=> false]); ?></td>
+        </tr>
+        <tr>
+          <td><?= $this->form->label(__('rol')) ?></td>
+          <td> <?php   echo $this->Form->control('roles._ids', ['options' => $roles, 'label'=> false, 'size'=> '5']);  ?></td>
+          <td><?= $this->form->label(__('hdcategory')) ?></td>
+          <td><?php   echo $this->Form->control('hdcategories._ids', ['options' => $hdcategories, 'label'=> false, 'size'=> '5']);?></td>
+        </tr>
+      </tbody>
+    </table>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
     </div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $article->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Articlefiles'), ['controller' => 'Articlefiles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Articlefile'), ['controller' => 'Articlefiles', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Hdcategories'), ['controller' => 'Hdcategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Hdcategory'), ['controller' => 'Hdcategories', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

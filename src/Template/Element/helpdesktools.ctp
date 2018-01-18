@@ -15,7 +15,7 @@
             "action" => "favorite",
             $ticket->id
 
-          ]) ."'><i class='fa fa-star-o' aria-hidden='true'></a></i>" ?>
+          ]) ."'><i class='fa fa-thumb-tack' aria-hidden='true'></a></i>" ?>
         </li>
         <li>
           <!--<?php echo "<a href='". $this->Url->build([

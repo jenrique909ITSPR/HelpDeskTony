@@ -11,49 +11,101 @@
 			<li><?= $this->Html->link(__('List Stockmoves'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-	
+
 	<div class="editdata">
     <?= $this->Form->create($stockmove) ?>
-        <?php
-            echo $this->Form->control('warehouse_id', ['options' => $warehouses, 'empty' => true]);
-            echo $this->Form->control('warehouse_2');
-            echo $this->Form->control('receiver');
-            echo $this->Form->control('receiver_sign');
-            echo $this->Form->control('movereason_id', ['options' => $movereasons, 'empty' => true]);
-            echo $this->Form->control('shipper_id', ['options' => $shippers, 'empty' => true]);
-            echo $this->Form->control('guide_number');
-            echo $this->Form->control('packages');
-            echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
-            echo $this->Form->control('notes');
-            echo $this->Form->control('confirmed');
-            echo $this->Form->control('parent_id');
-        ?>
-	
+		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
+				<tbody>
+						<tr>
+							<td style="width:7%;">
+								<?= $this->form->label(__('warehouse')) ?>
+							</td>
+							<td width="40%">
+								<?php  echo $this->Form->control('warehouse_id',['options' => $warehouses, 'empty' => true,'label'=> false]);?>
+							</td>
+							<td width="9%">
+								<?= $this->form->label(__('warehouse_2')) ?>
+							</td>
+							<td colspan="3">
+									<?php  echo $this->Form->control('warehouse_2', ['options' => $warehouses, 'empty' => true,'label'=> false]);?>
+							</td>
+						</tr>
+							<tr>
+							<td>
+								<?= $this->form->label(__('receiver')) ?>
+							</td>
+							<td>
+									<?php echo $this->Form->control('receiver',['type'=> 'text','label'=> false]);?>
+							</td>
+							<td>
+								<?= $this->form->label(__('receiver_sign')) ?>
+							</td>
+							<td colspan="3">
+									<?php echo $this->Form->control('receiver_sign',['label'=> false]);?>
+							</td>
+						</tr>
+							<tr>
+							<td width="7%">
+								<?= $this->form->label(__('movereason')) ?>
+							</td>
+							<td colspan="5">
+								<?php echo $this->Form->control('movereason_id', ['options' => $movereasons, 'empty' => true,'label'=> false]);?>
+							</td>
+						</tr>
+						<tr>
+						<td>
+							<?= $this->form->label(__('shipper')) ?>
+						</td>
+						<td>
+								<?php   echo $this->Form->control('shipper_id', ['options' => $shippers, 'empty' => true,'label'=> false]);?>
+						</td>
+						<td>
+							<?= $this->form->label(__('guide_number')) ?>
+						</td>
+						<td>
+								<?php echo $this->Form->control('guide_number',['label'=> false]);?>
+						</td>
+						<td>
+							<?= $this->form->label(__('packages')) ?>
+						</td>
+						<td>
+								<?php echo $this->Form->control('packages',['label'=> false]);?>
+						</td>
+					</tr>
+					<tr>
+					<td>
+						<?= $this->form->label(__('user')) ?>
+					</td>
+					<td colspan="5">
+							<?php   echo $this->Form->control('user_id', ['options' => $users, 'empty' => true,'label'=> false]);?>
+					</td>
+				</tr>
+				<tr>
+				<td>
+					<?= $this->form->label(__('parent')) ?>
+				</td>
+				<td colspan="3">
+						<?php   echo $this->Form->control('parent_id',['label'=> false]);?>
+				</td>
+				<td>
+					<?= $this->form->label(__('confirmed')) ?>
+				</td>
+				<td>
+						<?php   echo $this->Form->control('confirmed',['label'=> false]);?>
+				</td>
+			</tr>
+			<tr>
+			<td>
+				<?= $this->form->label(__('notes')) ?>
+			</td>
+			<td colspan="5">
+					<?php   echo $this->Form->control('notes',['label'=> false]);?>
+			</td>
+		</tr>
+				</tbody>
+		</table>
+      
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	</div>
 </div>
-
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $stockmove->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $stockmove->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Stockmoves'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Warehouses'), ['controller' => 'Warehouses', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Warehouse'), ['controller' => 'Warehouses', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Movereasons'), ['controller' => 'Movereasons', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Movereason'), ['controller' => 'Movereasons', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Shippers'), ['controller' => 'Shippers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Shipper'), ['controller' => 'Shippers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Stockmoves Details'), ['controller' => 'StockmovesDetails', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Stockmoves Detail'), ['controller' => 'StockmovesDetails', 'action' => 'add']) ?></li>
-    </ul>
-</nav>

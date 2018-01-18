@@ -3,12 +3,10 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
- 
 /**
  * Positions Controller
  *
- * @property \App\Model\Table\PositionsTable $Positions
- *
+ * @property \App\Model\Table\PositionsTable $Positions *
  * @method \App\Model\Entity\Position[] paginate($object = null, array $settings = [])
  */
 class PositionsController extends AppController
@@ -22,7 +20,8 @@ class PositionsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'limit' => $this->limit_data ];
+            'contain' => ['Positiontypebranches']
+        ];
         $positions = $this->paginate($this->Positions);
 
         $this->set(compact('positions'));
@@ -39,7 +38,7 @@ class PositionsController extends AppController
     public function view($id = null)
     {
         $position = $this->Positions->get($id, [
-            'contain' => ['Layouts', 'Positionbranches']
+            'contain' => ['Positiontypebranches']
         ]);
 
         $this->set('position', $position);
@@ -63,7 +62,8 @@ class PositionsController extends AppController
             }
             $this->Flash->error(__('The position could not be saved. Please, try again.'));
         }
-        $this->set(compact('position'));
+        $positiontypebranches = $this->Positions->Positiontypebranches->find('list', ['limit' => 200]);
+        $this->set(compact('position', 'positiontypebranches'));
         $this->set('_serialize', ['position']);
     }
 
@@ -88,7 +88,8 @@ class PositionsController extends AppController
             }
             $this->Flash->error(__('The position could not be saved. Please, try again.'));
         }
-        $this->set(compact('position'));
+        $positiontypebranches = $this->Positions->Positiontypebranches->find('list', ['limit' => 200]);
+        $this->set(compact('position', 'positiontypebranches'));
         $this->set('_serialize', ['position']);
     }
 
@@ -111,8 +112,7 @@ class PositionsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
- public function beforeFilter(Event $event) {
+    public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('administration');
     }

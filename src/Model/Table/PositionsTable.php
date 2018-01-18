@@ -9,8 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Positions Model
  *
- * @property \App\Model\Table\LayoutsTable|\Cake\ORM\Association\HasMany $Layouts
- * @property \App\Model\Table\PositionbranchesTable|\Cake\ORM\Association\HasMany $Positionbranches
+ * @property \App\Model\Table\PositiontypebranchesTable|\Cake\ORM\Association\BelongsTo $Positiontypebranches
  *
  * @method \App\Model\Entity\Position get($primaryKey, $options = [])
  * @method \App\Model\Entity\Position newEntity($data = null, array $options = [])
@@ -19,8 +18,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Position patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Position[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Position findOrCreate($search, callable $callback = null, $options = [])
- */
-class PositionsTable extends Table
+ */class PositionsTable extends Table
 {
 
     /**
@@ -37,11 +35,8 @@ class PositionsTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Layouts', [
-            'foreignKey' => 'position_id'
-        ]);
-        $this->hasMany('Positionbranches', [
-            'foreignKey' => 'position_id'
+        $this->belongsTo('Positiontypebranches', [
+            'foreignKey' => 'positiontypebranch_id'
         ]);
     }
 
@@ -54,13 +49,23 @@ class PositionsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
-
+            ->integer('id')            ->allowEmpty('id', 'create');
         $validator
-            ->scalar('name')
-            ->allowEmpty('name');
-
+            ->scalar('name')            ->allowEmpty('name');
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['positiontypebranch_id'], 'Positiontypebranches'));
+
+        return $rules;
     }
 }
