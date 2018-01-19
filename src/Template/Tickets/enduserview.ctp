@@ -80,11 +80,11 @@
         </tr>
         <tr>
             <th scope="row"><?= __('User Autor') ?></th>
-            <td><?= $this->Number->format($ticket->user_autor) ?></td>
+            <td><?= h($ticket->userautor->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User Requeried') ?></th>
-            <td><?= $this->Number->format($ticket->user_requeried) ?></td>
+            <td><?= h($ticket->userrequeried->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
@@ -102,51 +102,33 @@
     </div>
 </div>
 
+    
+    <div class="related clearfix" title="<?= __('Tracking Text') ?>">
+      <?php if (!empty($ticket->ticketnotes)): ?>
+        <?php foreach ($ticket->ticketnotes as $ticketnotes): ?>
+        <?php if ($ticketnotes->ticketnotestype_id == 1): ?>
+          <div class="viewticketnotes <?= ($this->request->session()->read('Auth.User.id') == $ticketnotes->user_id) ? '' : 'tech'?> ">
+            <div class="clearfix">
+              <div class="left">
+                <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->created) ?>
+              </div>
+            </div>
+            <div class="notes">
+              <?= h($ticketnotes->description) ?>
+            </div>
+            <div class="$ticketfiles">
 
-    <div class="related" title="<?= __('Publicnotes') ?>">
-      <div class="actions">
-        <ul>
-          <li><?= $this->Html->link(__('New publicnotes'), ['action' => 'add']) ?> </li>
-        </ul>
-      </div>
-        <?php if (!empty($ticket->publicnotes)): ?>
-        <table cellpadding="0" cellspacing="0">
-          <thead>
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Ticket Id') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-		  </thead>
-		  <tbody>
-            <?php foreach ($ticket->Ticketnote as $publicnotes): ?>
-            <tr>
-                <td><?= h($publicnotes->id) ?></td>
-                <td><?= h($publicnotes->name) ?></td>
-                <td><?= h($publicnotes->ticket_id) ?></td>
-                <td><?= h($publicnotes->user_id) ?></td>
-                <td><?= h($publicnotes->created) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Ticketnote', 'action' => 'view', $publicnotes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Ticketnote', 'action' => 'edit', $publicnotes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Ticketnote', 'action' => 'delete', $publicnotes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $publicnotes->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-		  </tbody>
-        </table>
-        <?php endif; ?>
-    </div>
+            </div>
+          </div>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
+
+
+
+</div>
 
     <div class="related" title="<?= __('Ticketsfiles') ?>">
-      <div class="actions">
-        <ul>
-          <li><?= $this->Html->link(__('New ticketsfiles'), ['action' => 'add']) ?> </li>
-        </ul>
-      </div>
         <?php if (!empty($ticket->ticketsfiles)): ?>
         <table cellpadding="0" cellspacing="0">
           <thead>

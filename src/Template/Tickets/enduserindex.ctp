@@ -27,7 +27,7 @@
               <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>
               <td><?= h($ticket->title) ?></td>
               <td><?= h($ticket->solution) ?></td>
-              <td><?= $this->Number->format($ticket->user_requeried) ?></td>
+              <td><?= h($ticket->userrequeried->name) ?></td>
               <td><?= $ticket->has('hdcategory') ? ($ticket->hdcategory->title) : '' ?></td>
               <td><?= h($ticket->created) ?></td>
               <td class="actions">

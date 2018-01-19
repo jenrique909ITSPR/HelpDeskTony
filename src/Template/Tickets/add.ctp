@@ -19,8 +19,7 @@
 
 <div class="easyui-layout"  style="width:100%;height:650px;">
         <div  id="p" data-options="region:'west',collapsible:false" style="width:20%;padding:10px">
-            <?= $this->Form->control(__('categorySearch'),['type' => 'text','id' => 'categorySearch' , 'rel' =>  $this->Url->build(['controller' => 'Hdcategories', 'action' => 'categoriesview'])]);  ?>
-           <!-- <ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>-->
+            
            <div style="margin-left: 0px;" id='contentAjax'></div>
         </div>
         <div data-options="region:'center'"  style="width:100%;">
@@ -106,23 +105,17 @@
 </div>
 
 <script type="text/javascript">
-    $("#categorySearch").on("input", function(e) {
-        if(($('#categorySearch').val()).length > 2 ){
-            var cargando = $("#contentAjax").html("<div class='loading'></div>");
+    var cargando = $("#contentAjax").html("<div class='loading'></div>");
             $.ajax({
                 type: 'POST',
-                url:$(this).attr('rel'),
-                data: $('#categorySearch').serialize(),
+                url:'<?= $this->Url->build(['controller' => 'Hdcategories', 'action' => 'categoriesview']) ?>',
+                data: "",
                 beforeSend: function() {
                                 cargando.show();
                 },
                 success: function(data) {
                         $('#contentAjax').html(data);
-
                 }
             });
-        }
-        return false;
-    });
 
 </script>

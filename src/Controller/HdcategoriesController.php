@@ -117,44 +117,46 @@ class HdcategoriesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function categoriesview()
+     public function categoriesview()
     {   
         $ticketsTable = TableRegistry::get('Tickets');
         
-        if($this->request->is('post')){
-        $palabra = $this->request->getData('categorySearch');
-        if($palabra != ''){
-                
-            $hdcategories = $ticketsTable->Hdcategories->find()
-            ->select(['id'])
-             ->enableAutoFields(false)
-            ->where(['parent_id is null' , 'title LIKE' => '%'.$palabra.'%']);
-
-            $hdcategories2 = $ticketsTable->Hdcategories->find()
-            ->select(['id'])
-            ->enableAutoFields(false)
-            ->where(['parent_id IN' => $hdcategories]);
-
-            $hdcategories3 = $ticketsTable->Hdcategories->find()
-            ->select(['title' , 'id' , 'parent_id'])
-            ->enableAutoFields(false)
-            ->where(['parent_id IN' => $hdcategories2])
-            ->orWhere(['id IN' => $hdcategories])
-            ->orWhere(['id In' => $hdcategories2]);
-            
-            $dataTree = array();
-            
-            //debug($hdcategories3->toArray());
-            foreach ($hdcategories3 as $key => $value) {
-                array_push($dataTree, ['id' => $value->id , 'name' => $value->title , 'parentId' => $value->parent_id]);
-            }
-             $dataTreeJson = json_encode($dataTree);
-            $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets', 'ip','branches'));
-            $this->set('_serialize', ['ticket']);
-            }
-        } 
-        
-        
         
     }
+
+
+    public function loadcategories($id=null)
+    {
+        
+       $this->autoRender = false;
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $result = array();
+        //$rs = mysql_query("select * from nodes where parentId=$id");
+        $rs = $this->Hdcategories->find()
+        ->where(['parent_id' => $id]);
+        
+        foreach ($rs as $key => $value) {
+            $node = array();
+            $node['id'] = $value['id'];
+            $node['text'] = $value['title'];
+            $node['state'] = $this->has_childs($value['id']) ? 'closed' : 'open';
+            array_push($result,$node);  
+        }
+        echo json_encode($result,JSON_UNESCAPED_UNICODE);
+        die(); 
+    }
+
+
+    public function has_childs($id=null)
+    {
+        //$rs = mysql_query("select count(*) from nodes where parentId=$id");
+        $rs = $this->Hdcategories->find()
+        ->where(['parent_id' => $id]);
+        $rs->select(['count' => $rs->func()->count('*')]);
+        $rs = $rs->toArray();
+        
+        return $rs[0]['count'] > 0 ? true : false;
+    }
+
+    
 }
