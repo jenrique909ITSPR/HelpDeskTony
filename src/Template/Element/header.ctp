@@ -89,7 +89,7 @@ $cakeDescription = 'Portal TI';
             <ul class="submenu2">
               <li><?= $this->Html->link("<i class='fa fa-home' aria-hidden='true'></i>" . __('Branches'), ['controller' => 'Branches', 'action' => 'index'], ['escape' => false]) ?></li>
               <li><?= $this->Html->link("<i class='fa fa-object-group' aria-hidden='true'></i>" . __('Branchgroups'), ['controller' => 'Branchgroups', 'action' => 'index'], ['escape' => false]) ?></li>
-              <li><?= $this->Html->link("<i class='fa fa-map' aria-hidden='true'></i>" . __('Layouts'), ['controller' => 'Layouts', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-map' aria-hidden='true'></i>" . __('Layouts'), ['controller' => 'Positiontypebranches', 'action' => 'index'], ['escape' => false]) ?></li>
             </ul>
           </li>
           <li><a href="#"><i class='fa fa-cogs' aria-hidden='true'></i><?= __('System') ?></a>

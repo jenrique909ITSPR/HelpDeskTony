@@ -10,10 +10,10 @@
     <?= $this->Form->create('search') ?>
     <table class="tableTransparent">
       <tr>
-        <td><?= $this->Form->control('item_id', ['empty' => true]); ?></td>
-        <td><?= $this->Form->control('serial'); ?></td>
-        <td><?= $this->Form->control('invoice_id', ['empty' => true]); ?></td>
-        <td><?= $this->Form->control('statusitem_id', ['empty' => true]); ?></td>
+        <td><?= $this->Form->control('item_id', ['options' => $items , 'empty' => true]); ?></td>
+        <td><?= $this->Form->control('%serial',['label' => 'Serial']); ?></td>
+        <td><?= $this->Form->control('invoice_id', ['options' => $invoices , 'empty' => true]); ?></td>
+        <td><?= $this->Form->control('statusitem_id', ['options' => $statusitems , 'empty' => true]); ?></td>
         <td><?= $this->Form->control('branch_id', ['empty' => true]); ?></td>
       </tr>
     </table>

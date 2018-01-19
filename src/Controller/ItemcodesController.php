@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+
 /**
  * Itemcodes Controller
  *
@@ -11,6 +12,11 @@ use App\Controller\AppController;
  */
 class ItemcodesController extends AppController
 {
+     public function initialize()
+    {
+         parent::initialize();
+        $this->loadComponent('Filters');
+    }
 
     /**
      * Index method
@@ -18,13 +24,19 @@ class ItemcodesController extends AppController
      * @return \Cake\Http\Response|void
      */
     public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Items', 'Invoices','Positions', 'Statusitems', 'Currencies']
-        ];
-        $itemcodes = $this->paginate($this->Itemcodes);
-
-        $this->set(compact('itemcodes'));
+    {   
+        $query = $this->Itemcodes->find()
+        ->contain(['Items', 'Invoices','Positions', 'Statusitems', 'Currencies']);
+        if($this->request->is('post')){
+            $query = $this->Filters->Filtrado($this->request->getData(),$query);
+            
+        }
+        $items = $this->Itemcodes->Items->find('list', ['limit' => 200]);
+        $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
+        $statusitems = $this->Itemcodes->Statusitems->find('list', ['limit' => 200]);
+        
+        $itemcodes = $this->paginate($query);
+        $this->set(compact(['itemcodes','items','invoices','statusitems']));
         $this->set('_serialize', ['itemcodes']);
     }
 
