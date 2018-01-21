@@ -317,7 +317,7 @@
 
 <div class="easyui-layout"  style="width:100%;height:597px;">
         <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
-            
+
            <div style="margin-left: 0px;" id='contentAjax'></div>
         </div>
         <div data-options="region:'center'"  style="width:100%;">
@@ -406,7 +406,7 @@
           <div class="viewticketnotes <?= ($this->request->session()->read('Auth.User.id') == $ticketnotes->user_id) ? '' : 'tech'?> ">
             <div class="clearfix">
               <div class="left">
-                <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->created) ?>
+                <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->user->name).' '.h($ticketnotes->user->last_name).' ' ?>|<?= ' '.h($ticketnotes->created) ?>
               </div>
               <?php if ($ticketnotes->ticketnotestype_id == 2): ?>
               <div class="noteinternal right">

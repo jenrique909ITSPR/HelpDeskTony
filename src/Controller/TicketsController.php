@@ -129,7 +129,7 @@ class TicketsController extends AppController
                 return $this->redirect(['action' => 'index']);
             }
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes' => ['Users'], 'Ticketlogs','Branches','Userrequerieds','Userautors']
             ]);
         }
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -387,11 +387,9 @@ class TicketsController extends AppController
 
         $this->set('messages',$this->Messages->loadUserEndMessages());
         $query = $this->Tickets->find('all')->where(['Tickets.user_autor' => $this->request->session()->read('Auth.User.id')])
-            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Userrequerieds','Userautors','Ticketpriorities', 'Hdcategories'])
+            ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Userrequerieds','Userautors' ,'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Userrequerieds','Userautors','Ticketpriorities', 'Hdcategories'])
             ->order(['Tickets.id' => 'DESC']);
-            $this->paginate = ['limit' => $this->limit_data];
-
-
+        $this->paginate = ['limit' => $this->limit_data];
          $this->paginate = [
         'limit' => $this->limit_data ];
         $this->set('tickets', $this->paginate($query));
@@ -458,7 +456,7 @@ class TicketsController extends AppController
             }
 
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses','Ticketnotes' ,'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Userrequerieds','Userautors','Ticketpriorities', 'Hdcategories',  'Ticketlogs']
+            'contain' => ['Tickettypes', 'TicketStatuses','Ticketnotes' => ['Users'] ,'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Userrequerieds','Userautors','Ticketpriorities', 'Hdcategories',  'Ticketlogs']
             ]);
 
         }
@@ -470,7 +468,7 @@ class TicketsController extends AppController
     function _mailsender($subject =null, $dataid = null, $sender = null, $receiver = null){
 
      $datamail = $this->Tickets->get($dataid, [
-         'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories','Userautors','Userrequerieds']
+         'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes','Userrequerieds','Userautors', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories','Userautors','Userrequerieds']
      ]);
 
      $users = TableRegistry::get('Users');

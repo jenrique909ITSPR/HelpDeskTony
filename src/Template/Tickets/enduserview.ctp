@@ -102,7 +102,7 @@
     </div>
 </div>
 
-    
+
     <div class="related clearfix" title="<?= __('Tracking Text') ?>">
       <?php if (!empty($ticket->ticketnotes)): ?>
         <?php foreach ($ticket->ticketnotes as $ticketnotes): ?>
@@ -110,7 +110,7 @@
           <div class="viewticketnotes <?= ($this->request->session()->read('Auth.User.id') == $ticketnotes->user_id) ? '' : 'tech'?> ">
             <div class="clearfix">
               <div class="left">
-                <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->created) ?>
+                <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->user->name).' '.h($ticketnotes->user->last_name).' ' ?>|<?= ' '.h($ticketnotes->created) ?>
               </div>
             </div>
             <div class="notes">
