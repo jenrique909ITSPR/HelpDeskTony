@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-12-2017 a las 12:06:56
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 7.1.7
+-- Servidor: localhost
+-- Tiempo de generación: 20-01-2018 a las 22:11:03
+-- Versión del servidor: 5.7.20-0ubuntu0.16.04.1
+-- Versión de PHP: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `activos_tickets`
+-- Base de datos: `portalti`
 --
 
 -- --------------------------------------------------------
@@ -56,32 +54,11 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `answer`, `modified`, `user_id`, `created`, `selected`) VALUES
-(2, 'as', 'as', '2017-11-29 19:10:43', 21, '2017-11-29 19:10:43', 1),
-(3, 'as', 'as', '2017-11-29 19:17:55', 20, '2017-11-29 19:17:55', 2),
-(4, 'asdsdasdf', 'sdffd', '2017-11-29 19:18:46', 19, '2017-11-29 19:18:46', 2),
-(5, 'as', 'asd', '2017-11-29 19:19:33', 20, '2017-11-29 19:19:33', 2),
-(6, 'asdsdasdf', 'ass', '2017-11-29 19:22:30', 19, '2017-11-29 19:22:30', -4),
-(7, 'asdsdasdf', 'ass', '2017-11-29 19:23:06', 19, '2017-11-29 19:23:06', -4),
-(8, 'asdsdasdf', 'ass', '2017-11-29 19:23:30', 19, '2017-11-29 19:23:30', -4),
-(9, 'asdsdasdf', 'ass', '2017-11-29 19:23:55', 19, '2017-11-29 19:23:55', -4),
-(10, 'asdsdasdf', 'ass', '2017-11-29 19:24:03', 19, '2017-11-29 19:24:03', -4),
-(11, 'asdsdasdf', 'ass', '2017-11-29 19:24:19', 19, '2017-11-29 19:24:19', -4),
-(12, 'a', 'a', '2017-11-29 19:29:29', 18, '2017-11-29 19:29:29', 2),
-(14, 'a', 'ax', '2017-11-29 20:27:34', 18, '2017-11-29 20:27:34', -1),
-(15, '12345', 'asd12', '2017-11-30 15:09:21', 18, '2017-11-30 15:09:21', 1),
-(16, '12345', 'asd12', '2017-11-30 15:15:34', 18, '2017-11-30 15:15:34', 1),
-(17, '12345', 'asd12', '2017-11-30 15:15:58', 18, '2017-11-30 15:15:58', 1),
-(18, '12345', 'asd12', '2017-11-30 15:17:18', 18, '2017-11-30 15:17:18', 1),
-(19, '12345', 'asd12', '2017-11-30 15:17:33', 18, '2017-11-30 15:17:33', 1),
-(20, '12345', 'asd12', '2017-11-30 15:17:59', 18, '2017-11-30 15:17:59', 1),
-(21, '12345', 'asd12', '2017-11-30 15:18:14', 18, '2017-11-30 15:18:14', 1),
-(22, '12345', 'asd12', '2017-11-30 15:20:08', 18, '2017-11-30 15:20:08', 1),
-(23, '12345', 'asd12', '2017-11-30 15:21:11', 18, '2017-11-30 15:21:11', 1),
-(24, '12345', 'asd12', '2017-11-30 15:21:45', 18, '2017-11-30 15:21:45', 1),
-(25, '12345', 'asd12', '2017-11-30 15:23:26', 18, '2017-11-30 15:23:26', 1),
-(26, '12345', 'asd12', '2017-11-30 15:38:35', 18, '2017-11-30 15:38:35', 1),
-(27, '1', '1', '2017-11-30 15:39:28', 3, '2017-11-30 15:39:28', 2),
-(28, 'asdsdasdf', 'as', '2017-11-30 15:42:20', 17, '2017-11-30 15:42:20', 1);
+(28, 'asdsdasdf', 'as', '2017-11-30 15:42:20', 17, '2017-11-30 15:42:20', 1),
+(29, 'REPARACION DE ERRORES CAMARA CCTV', 'RECONECTAR CAMARAS', '2017-12-22 11:31:21', 1, '2017-12-22 11:31:21', 1),
+(30, 'SOLUCION ACTUALIZACIONES WINDOWS', 'DESHABILITAR LA ACTUALIZACION DE WINDOWS DESDE LAS TAREAS INICIALES', '2017-12-22 11:32:41', 2, '2017-12-22 11:32:41', 2),
+(31, 'FALLA DE WIFI', 'REINSTALACION DEL CONTROLADOR DEL DISPOSITIVO', '2017-12-22 11:33:39', 4, '2017-12-22 11:33:39', 2),
+(32, 'MENSAJE DE ERROR EN PAGO DE AGUINALDOS', 'REINICIAR EL EQUIPO', '2017-12-22 11:35:09', 12, '2017-12-22 11:35:09', 1);
 
 -- --------------------------------------------------------
 
@@ -136,7 +113,10 @@ INSERT INTO `articles_roles` (`id`, `article_id`, `role_id`) VALUES
 (34, 26, 2),
 (35, 26, 3),
 (36, 26, 4),
-(37, 28, 4);
+(37, 28, 4),
+(38, 29, 3),
+(39, 30, 1),
+(40, 32, 1);
 
 -- --------------------------------------------------------
 
@@ -394,7 +374,7 @@ CREATE TABLE `hdcategories` (
   `parent_id` int(11) DEFAULT NULL,
   `lft` int(11) NOT NULL,
   `rght` int(11) NOT NULL,
-  `description` varchar(200) NOT NULL
+  `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -402,90 +382,90 @@ CREATE TABLE `hdcategories` (
 --
 
 INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `description`) VALUES
-(1, 'Administración', NULL, 0, 0, ''),
-(2, 'Aduana', NULL, 0, 0, ''),
-(3, 'Almacenamiento/Storage', NULL, 0, 0, ''),
-(4, 'Apoyo a eventos', NULL, 0, 0, ''),
-(5, 'BaseDatos', NULL, 0, 0, ''),
-(6, 'Bóveda', NULL, 0, 0, ''),
-(7, 'BPO', NULL, 0, 0, ''),
-(8, 'Caja', NULL, 0, 0, ''),
-(9, 'Caja chica- gastos GX', NULL, 0, 0, ''),
-(10, 'Cambio', NULL, 0, 0, ''),
-(11, 'Centro de Capacitacion Tony LMS', NULL, 0, 0, ''),
-(12, 'Centros de Computo y Sites', NULL, 0, 0, ''),
-(13, 'Checkout', NULL, 0, 0, ''),
-(14, 'Compras', NULL, 0, 0, ''),
-(15, 'Comunicaciones', NULL, 0, 0, ''),
-(16, 'Consulta diaria de fichas smart', NULL, 0, 0, ''),
-(17, 'Contabilidad GX', NULL, 0, 0, ''),
-(18, 'Contabilidad smart', NULL, 0, 0, ''),
-(19, 'Control de gastos', NULL, 0, 0, ''),
-(20, 'Correo Electrónico', NULL, 0, 0, ''),
-(21, 'Costos smart', NULL, 0, 0, ''),
-(22, 'Crédito', NULL, 0, 0, ''),
-(23, 'Crédito Smartnetcorpo', NULL, 0, 0, ''),
-(24, 'Equipo Usuario Final', NULL, 0, 0, ''),
-(25, 'Finanzas GX', NULL, 0, 0, ''),
-(26, 'Finanzas smart', NULL, 0, 0, ''),
-(27, 'GX', NULL, 0, 0, ''),
-(28, 'Intranet', NULL, 0, 0, ''),
-(29, 'Inventarios', NULL, 0, 0, ''),
-(30, 'Inventarios smart', NULL, 0, 0, ''),
-(31, 'KAYAKO', NULL, 0, 0, ''),
-(32, 'LaserFiche', NULL, 0, 0, ''),
-(33, 'Macros GX', NULL, 0, 0, ''),
-(34, 'Mercadotecnia Smartnetcorpo', NULL, 0, 0, ''),
-(35, 'Mesa de control', NULL, 0, 0, ''),
-(36, 'Monitoreo de Servidor y BD', NULL, 0, 0, ''),
-(37, 'Mostrador', NULL, 0, 0, ''),
-(38, 'Nómina GX', NULL, 0, 0, ''),
-(39, 'Nómina Smartec', NULL, 0, 0, ''),
-(40, 'Nomina Smartnetcorpo', NULL, 0, 0, ''),
-(41, 'Portal KDSU', NULL, 0, 0, ''),
-(42, 'Presupuestos GX', NULL, 0, 0, ''),
-(43, 'Presupuestos Smartnetcorpo', NULL, 0, 0, ''),
-(44, 'Procesos programados', NULL, 0, 0, ''),
-(45, 'Radio Tony', NULL, 0, 0, ''),
-(46, 'Redes', NULL, 0, 0, ''),
-(47, 'Reemplazo', NULL, 0, 0, ''),
-(48, 'Reimpresiones GX', NULL, 0, 0, ''),
-(49, 'Reportes con Query', NULL, 0, 0, ''),
-(50, 'Seguridad Corporativo', NULL, 0, 0, ''),
-(51, 'Seguridad Patrimonial', NULL, 0, 0, ''),
-(52, 'Servicio a clientes', NULL, 0, 0, ''),
-(53, 'Servidores', NULL, 0, 0, ''),
-(54, 'Sistema de tickets KAYAKO', NULL, 0, 0, ''),
-(55, 'Sistema de tickets TI', NULL, 0, 0, ''),
-(56, 'Sistema General GX', NULL, 0, 0, ''),
-(57, 'Sistema Operativo', NULL, 0, 0, ''),
-(58, 'Sistemas', NULL, 0, 0, ''),
-(59, 'Smart', NULL, 0, 0, ''),
-(60, 'SmartMovil', NULL, 0, 0, ''),
-(61, 'Smartnet', NULL, 0, 0, ''),
-(62, 'SmartNet TCI', NULL, 0, 0, ''),
-(63, 'SmartNetCorpo', NULL, 0, 0, ''),
-(64, 'SmartTCI Corpo', NULL, 0, 0, ''),
-(65, 'Software', NULL, 0, 0, ''),
-(66, 'Software Adicional', NULL, 0, 0, ''),
-(67, 'Software Básico', NULL, 0, 0, ''),
-(68, 'Solicitud de compras', NULL, 0, 0, ''),
-(69, 'Soporte a usuarios', NULL, 0, 0, ''),
-(70, 'Sucursal KDSU', NULL, 0, 0, ''),
-(71, 'Sysaid', NULL, 0, 0, ''),
-(72, 'TCI KDSU', NULL, 0, 0, ''),
-(73, 'TCICorporativo', NULL, 0, 0, ''),
-(74, 'Telefonía', NULL, 0, 0, ''),
-(75, 'Telemarketing', NULL, 0, 0, ''),
-(76, 'Valorización smart', NULL, 0, 0, ''),
-(77, 'Vehículos Smartnetcorpo', NULL, 0, 0, ''),
-(78, 'Ventas', NULL, 0, 0, ''),
-(79, 'Ventas e Inventarios', NULL, 0, 0, ''),
-(80, 'Ventas smart', NULL, 0, 0, ''),
-(81, 'Ventas Smartnetcorpo', NULL, 0, 0, ''),
-(82, 'Verificador', NULL, 0, 0, ''),
-(83, 'Videoconferencia', NULL, 0, 0, ''),
-(84, 'Videovigilancia', NULL, 0, 0, ''),
+(1, 'Administración', 0, 0, 0, ''),
+(2, 'Aduana', 0, 0, 0, ''),
+(3, 'Almacenamiento/Storage', 0, 0, 0, ''),
+(4, 'Apoyo a eventos', 0, 0, 0, ''),
+(5, 'BaseDatos', 0, 0, 0, ''),
+(6, 'Bóveda', 0, 0, 0, ''),
+(7, 'BPO', 0, 0, 0, ''),
+(8, 'Caja', 0, 0, 0, ''),
+(9, 'Caja chica- gastos GX', 0, 0, 0, ''),
+(10, 'Cambio', 0, 0, 0, ''),
+(11, 'Centro de Capacitacion Tony LMS', 0, 0, 0, ''),
+(12, 'Centros de Computo y Sites', 0, 0, 0, ''),
+(13, 'Checkout', 0, 0, 0, ''),
+(14, 'Compras', 0, 0, 0, ''),
+(15, 'Comunicaciones', 0, 0, 0, ''),
+(16, 'Consulta diaria de fichas smart', 0, 0, 0, ''),
+(17, 'Contabilidad GX', 0, 0, 0, ''),
+(18, 'Contabilidad smart', 0, 0, 0, ''),
+(19, 'Control de gastos', 0, 0, 0, ''),
+(20, 'Correo Electrónico', 0, 0, 0, ''),
+(21, 'Costos smart', 0, 0, 0, ''),
+(22, 'Crédito', 0, 0, 0, ''),
+(23, 'Crédito Smartnetcorpo', 0, 0, 0, ''),
+(24, 'Equipo Usuario Final', 0, 0, 0, ''),
+(25, 'Finanzas GX', 0, 0, 0, ''),
+(26, 'Finanzas smart', 0, 0, 0, ''),
+(27, 'GX', 0, 0, 0, ''),
+(28, 'Intranet', 0, 0, 0, ''),
+(29, 'Inventarios', 0, 0, 0, ''),
+(30, 'Inventarios smart', 0, 0, 0, ''),
+(31, 'KAYAKO', 0, 0, 0, ''),
+(32, 'LaserFiche', 0, 0, 0, ''),
+(33, 'Macros GX', 0, 0, 0, ''),
+(34, 'Mercadotecnia Smartnetcorpo', 0, 0, 0, ''),
+(35, 'Mesa de control', 0, 0, 0, ''),
+(36, 'Monitoreo de Servidor y BD', 0, 0, 0, ''),
+(37, 'Mostrador', 0, 0, 0, ''),
+(38, 'Nómina GX', 0, 0, 0, ''),
+(39, 'Nómina Smartec', 0, 0, 0, ''),
+(40, 'Nomina Smartnetcorpo', 0, 0, 0, ''),
+(41, 'Portal KDSU', 0, 0, 0, ''),
+(42, 'Presupuestos GX', 0, 0, 0, ''),
+(43, 'Presupuestos Smartnetcorpo', 0, 0, 0, ''),
+(44, 'Procesos programados', 0, 0, 0, ''),
+(45, 'Radio Tony', 0, 0, 0, ''),
+(46, 'Redes', 0, 0, 0, ''),
+(47, 'Reemplazo', 0, 0, 0, ''),
+(48, 'Reimpresiones GX', 0, 0, 0, ''),
+(49, 'Reportes con Query', 0, 0, 0, ''),
+(50, 'Seguridad Corporativo', 0, 0, 0, ''),
+(51, 'Seguridad Patrimonial', 0, 0, 0, ''),
+(52, 'Servicio a clientes', 0, 0, 0, ''),
+(53, 'Servidores', 0, 0, 0, ''),
+(54, 'Sistema de tickets KAYAKO', 0, 0, 0, ''),
+(55, 'Sistema de tickets TI', 0, 0, 0, ''),
+(56, 'Sistema General GX', 0, 0, 0, ''),
+(57, 'Sistema Operativo', 0, 0, 0, ''),
+(58, 'Sistemas', 0, 0, 0, ''),
+(59, 'Smart', 0, 0, 0, ''),
+(60, 'SmartMovil', 0, 0, 0, ''),
+(61, 'Smartnet', 0, 0, 0, ''),
+(62, 'SmartNet TCI', 0, 0, 0, ''),
+(63, 'SmartNetCorpo', 0, 0, 0, ''),
+(64, 'SmartTCI Corpo', 0, 0, 0, ''),
+(65, 'Software', 0, 0, 0, ''),
+(66, 'Software Adicional', 0, 0, 0, ''),
+(67, 'Software Básico', 0, 0, 0, ''),
+(68, 'Solicitud de compras', 0, 0, 0, ''),
+(69, 'Soporte a usuarios', 0, 0, 0, ''),
+(70, 'Sucursal KDSU', 0, 0, 0, ''),
+(71, 'Sysaid', 0, 0, 0, ''),
+(72, 'TCI KDSU', 0, 0, 0, ''),
+(73, 'TCICorporativo', 0, 0, 0, ''),
+(74, 'Telefonía', 0, 0, 0, ''),
+(75, 'Telemarketing', 0, 0, 0, ''),
+(76, 'Valorización smart', 0, 0, 0, ''),
+(77, 'Vehículos Smartnetcorpo', 0, 0, 0, ''),
+(78, 'Ventas', 0, 0, 0, ''),
+(79, 'Ventas e Inventarios', 0, 0, 0, ''),
+(80, 'Ventas smart', 0, 0, 0, ''),
+(81, 'Ventas Smartnetcorpo', 0, 0, 0, ''),
+(82, 'Verificador', 0, 0, 0, ''),
+(83, 'Videoconferencia', 0, 0, 0, ''),
+(84, 'Videovigilancia', 0, 0, 0, ''),
 (129, '% Costo de ventas', 56, 0, 0, ''),
 (130, '% de aumento de presupuesto', 42, 0, 0, ''),
 (131, '% de costo de venta presup.', 42, 0, 0, ''),
@@ -1087,7 +1067,7 @@ INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `descript
 (727, 'Modulos de Control', 28, 0, 0, ''),
 (728, 'Monitor', 24, 0, 0, ''),
 (729, 'Monitoreo de memoria de los servidores', 36, 0, 0, ''),
-(730, 'Monitoreo de procesos dormidos o \"atorados\"', 36, 0, 0, ''),
+(730, 'Monitoreo de procesos dormidos o "atorados"', 36, 0, 0, ''),
 (731, 'Mostrador mayoreo', 37, 0, 0, ''),
 (732, 'Mostrador menudeo', 37, 0, 0, ''),
 (733, 'Motivos de baja', 38, 0, 0, ''),
@@ -1524,14 +1504,14 @@ INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `descript
 (1179, 'Mensaje de error', 582, 0, 0, ''),
 (1180, 'Mensaje de error', 681, 0, 0, ''),
 (1181, 'Mensaje de error', 712, 0, 0, ''),
-(1182, 'Mensaje de error', 713, 0, 0, '');
-INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `description`) VALUES
+(1182, 'Mensaje de error', 713, 0, 0, ''),
 (1183, 'Mensaje de error', 788, 0, 0, ''),
 (1184, 'Mensaje de error', 817, 0, 0, ''),
 (1185, 'Mensaje de error', 820, 0, 0, ''),
 (1186, 'Mensaje de error', 821, 0, 0, ''),
 (1187, 'Mensaje de error', 823, 0, 0, ''),
-(1188, 'Mensaje de error', 833, 0, 0, ''),
+(1188, 'Mensaje de error', 833, 0, 0, '');
+INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `description`) VALUES
 (1189, 'Mensaje de error', 832, 0, 0, ''),
 (1190, 'Mensaje de error', 930, 0, 0, ''),
 (1191, 'Mensaje de error', 980, 0, 0, ''),
@@ -2699,14 +2679,14 @@ INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `descript
 (2384, 'accesorio dañado', 1051, 0, 0, ''),
 (2385, 'no lo reconoce el equipo', 1051, 0, 0, ''),
 (2386, 'falla en conmutador analogico', 1052, 0, 0, ''),
-(2387, 'falla en telefono ip', 1053, 0, 0, '');
-INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `description`) VALUES
+(2387, 'falla en telefono ip', 1053, 0, 0, ''),
 (2388, 'desconfigurada', 1054, 0, 0, ''),
 (2389, 'no carga', 1054, 0, 0, ''),
 (2390, 'no lee codigos', 1054, 0, 0, ''),
 (2394, 'Asesoría', 622, 0, 0, ''),
 (2395, 'No refleja información', 426, 0, 0, ''),
-(2396, 'Usuario Nuevo', 140, 0, 0, ''),
+(2396, 'Usuario Nuevo', 140, 0, 0, '');
+INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `description`) VALUES
 (2397, 'Recuperar Contraseña', 140, 0, 0, ''),
 (2398, 'Consulta', 815, 0, 0, ''),
 (2399, 'Consulta', 606, 0, 0, ''),
@@ -3088,8 +3068,7 @@ INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `descript
 (2810, 'Factura erronea', 1056, 0, 0, ''),
 (2811, 'Acceso', 1107, 0, 0, ''),
 (2812, 'Nuevo ingreso/Cambio', 622, 0, 0, ''),
-(2813, 'Habilitar Exportar', 431, 0, 0, ''),
-(2814, 'default', NULL, 1, 2, 'xd');
+(2813, 'Habilitar Exportar', 431, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -3102,6 +3081,20 @@ CREATE TABLE `hdcategories_articles` (
   `hdcategory_id` int(11) NOT NULL,
   `article_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `hdcategories_articles`
+--
+
+INSERT INTO `hdcategories_articles` (`id`, `hdcategory_id`, `article_id`) VALUES
+(3, 1, 5),
+(4, 2, 5),
+(5, 1, 2),
+(6, 3, 2),
+(7, 1, 29),
+(8, 14, 30),
+(9, 1, 32),
+(10, 2, 32);
 
 -- --------------------------------------------------------
 
@@ -3130,30 +3123,40 @@ INSERT INTO `hdtemplate` (`id`, `title`, `hdcategory_id`) VALUES
 
 CREATE TABLE `invoices` (
   `id` int(11) NOT NULL,
-  `number` varchar(100) DEFAULT NULL,
-  `supplier_id` int(11) DEFAULT NULL,
+  `reference` varchar(100) NOT NULL,
+  `invoicedate` date NOT NULL,
+  `supplier_id` int(11) NOT NULL,
   `pdf` varchar(100) DEFAULT NULL,
   `xml` varchar(100) DEFAULT NULL,
-  `purchase_order` varchar(100) DEFAULT NULL
+  `purchase_order` varchar(100) DEFAULT NULL,
+  `po` varchar(100) DEFAULT NULL,
+  `amount` decimal(9,0) NOT NULL,
+  `currency_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `invoices`
 --
 
-INSERT INTO `invoices` (`id`, `number`, `supplier_id`, `pdf`, `xml`, `purchase_order`) VALUES
-(1, '10', 1, '2', '6', 'SADASD32423423'),
-(2, '11', 2, '1', '1', 'ASGHSDD45'),
-(3, '12', 3, '3', '3', 'QWRT23'),
-(4, '13', 4, '7', '8', 'ETYRP45'),
-(5, '14', 5, '3', '4', 'GHSA4'),
-(6, '15', 6, '5', '6', 'HKLF5'),
-(7, '16', 7, '7', '8', 'XBNDF5'),
-(8, '17', 8, '9', '5', 'ÑKOE5'),
-(9, '18', 9, '5', '1', 'DKLS7'),
-(10, '19', 10, '4', '4', 'NDHEI1'),
-(11, '20', 11, '5', '5', 'EDVL532'),
-(12, '21', 12, '9', '9', 'DGJ54');
+INSERT INTO `invoices` (`id`, `reference`, `invoicedate`, `supplier_id`, `pdf`, `xml`, `purchase_order`, `po`, `amount`, `currency_id`) VALUES
+(1, '10', '0000-00-00', 1, 'fc1484J.pdf', '6', 'SADASD32423423', NULL, '0', 0),
+(2, '11', '0000-00-00', 2, 'fc1484J.pdf', '1', 'ASGHSDD45', NULL, '0', 0),
+(3, '12', '0000-00-00', 3, 'fc1484J.pdf', '3', 'QWRT23', NULL, '0', 0),
+(4, '13', '0000-00-00', 4, 'fc1484J.pdf', '8', 'ETYRP45', NULL, '0', 0),
+(5, '14', '0000-00-00', 5, '3', '4', 'GHSA4', NULL, '0', 0),
+(6, '15', '0000-00-00', 6, '5', '6', 'HKLF5', NULL, '0', 0),
+(7, '16', '0000-00-00', 7, 'fc1484J.pdf', '8', 'XBNDF5', NULL, '0', 0),
+(8, '17', '0000-00-00', 8, '9', '5', 'ÑKOE5', NULL, '0', 0),
+(9, '18', '0000-00-00', 9, '5', '1', 'DKLS7', NULL, '0', 0),
+(10, '19', '0000-00-00', 10, '4', '4', 'NDHEI1', NULL, '0', 0),
+(11, '20', '0000-00-00', 11, '5', '5', 'EDVL532', NULL, '0', 0),
+(12, '21', '0000-00-00', 12, '9', '9', 'DGJ54', NULL, '0', 0),
+(13, 'T-45353', '0000-00-00', 1, NULL, NULL, '', NULL, '0', 0),
+(14, 'JCPP-3432', '0000-00-00', 1, NULL, NULL, '', NULL, '0', 0),
+(15, 'JCPP-23423', '0000-00-00', 1, '', NULL, '', NULL, '0', 0),
+(16, 'JCPP-2', '0000-00-00', 6, 'fc1484J.pdf', '', '', '', '0', 0),
+(17, 'JCPP-3', '0000-00-00', 2, 'fc1476J.pdf', '', '', '', '0', 0),
+(18, 'JCPP-4', '0000-00-00', 2, 'fc1484J.pdf', '', '', '', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -3226,29 +3229,32 @@ CREATE TABLE `itemcodes` (
   `statusitem_id` int(11) DEFAULT NULL,
   `created` date DEFAULT NULL,
   `warranty` date DEFAULT NULL,
-  `positionbranch_id` int(11) DEFAULT NULL,
-  `service_tag` varchar(100) DEFAULT NULL
+  `position_id` int(11) DEFAULT NULL,
+  `service_tag` varchar(100) DEFAULT NULL,
+  `cost` decimal(9,0) NOT NULL,
+  `currency_id` int(11) DEFAULT NULL,
+  `insured` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `itemcodes`
 --
 
-INSERT INTO `itemcodes` (`id`, `item_id`, `serial`, `invoice_id`, `statusitem_id`, `created`, `warranty`, `positionbranch_id`, `service_tag`) VALUES
-(1, 1, '3213143513213', 1, 1, '2017-09-22', '2020-08-14', 1, '2132131435132'),
-(2, 3, '24FQL02', 2, 1, '2017-09-22', '2020-11-18', NULL, '31'),
-(3, 3, '2W0NYD1', 3, 1, '2017-09-22', '2016-10-23', NULL, '12341353457'),
-(4, 3, '736TT12', 4, 1, '2017-09-22', '2019-07-27', 1, '354685461'),
-(5, 5, '16HZRL1', 5, 1, '2017-09-22', '2019-08-26', 3, '3214654165'),
-(6, 6, 'ETELE50C0060053D114001', 6, 1, '2017-09-22', '2020-03-16', NULL, '3'),
-(7, 6, 'ETELE50C006005CFF4001', 7, 1, '2017-09-22', '2021-03-17', 2, '316514'),
-(8, 6, 'ETELE50C00600602B754001', 8, 1, '2017-09-22', '2015-08-15', 1, '123123123'),
-(9, 6, 'ETELE50C0060053D194001', 9, 1, '2017-09-22', '2022-01-01', 3, '12341353457'),
-(10, 6, 'ETELE50C00600602B744001', 10, 1, '2017-09-22', '2013-09-15', 4, '14654968514'),
-(11, 7, 'AK25041270A0', 11, 1, '2017-09-22', '2016-08-13', 6, '.'),
-(12, 7, 'AK6A012315A0', 12, 1, '2017-09-22', '2022-01-01', 5, '1231423'),
-(13, 6, 'ETELE50C00600600C614001', 1, 1, '2017-09-22', '2019-04-13', 7, '12312312524534'),
-(14, 29, 'USA5EKA16090167', 1, 1, '2017-11-14', '2020-05-10', 11, '651654jgiyfv');
+INSERT INTO `itemcodes` (`id`, `item_id`, `serial`, `invoice_id`, `statusitem_id`, `created`, `warranty`, `position_id`, `service_tag`, `cost`, `currency_id`, `insured`) VALUES
+(1, 3, '3213143513213', 1, 1, '2017-09-22', '2020-08-14', NULL, '2132131435132', '0', NULL, 'asegurado'),
+(2, 3, '24FQL02', 2, 1, '2017-09-22', '2020-11-18', NULL, '31', '0', NULL, 'asegurado'),
+(3, 3, '2W0NYD1', 3, 1, '2017-09-22', '2016-10-23', NULL, '12341353457', '0', NULL, 'sin seguro'),
+(4, 3, '736TT12', 4, 1, '2017-09-22', '2019-07-27', 1, '354685461', '0', NULL, 'asegurado'),
+(5, 5, '16HZRL1', 5, 1, '2017-09-22', '2019-08-26', 3, '3214654165', '0', NULL, ''),
+(6, 6, 'ETELE50C0060053D114001', 6, 1, '2017-09-22', '2020-03-16', NULL, '3', '0', NULL, ''),
+(7, 6, 'ETELE50C006005CFF4001', 7, 1, '2017-09-22', '2021-03-17', 2, '316514', '0', NULL, ''),
+(8, 6, 'ETELE50C00600602B754001', 8, 1, '2017-09-22', '2015-08-15', 1, '123123123', '0', NULL, ''),
+(9, 6, 'ETELE50C0060053D194001', 9, 1, '2017-09-22', '2022-01-01', 3, '12341353457', '0', NULL, ''),
+(10, 6, 'ETELE50C00600602B744001', 10, 1, '2017-09-22', '2013-09-15', 4, '14654968514', '0', NULL, ''),
+(11, 7, 'AK25041270A0', 11, 1, '2017-09-22', '2016-08-13', 6, '.', '0', NULL, ''),
+(12, 7, 'AK6A012315A0', 12, 1, '2017-09-22', '2022-01-01', 5, '1231423', '0', NULL, ''),
+(13, 6, 'ETELE50C00600600C614001', 1, 1, '2017-09-22', '2019-04-13', 7, '12312312524534', '0', NULL, ''),
+(14, 29, 'USA5EKA16090167', 1, 1, '2017-11-14', '2020-05-10', 11, '651654jgiyfv', '0', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -3264,129 +3270,43 @@ CREATE TABLE `items` (
   `model` varchar(100) DEFAULT NULL,
   `color` varchar(100) DEFAULT NULL,
   `unit_cost` decimal(10,2) DEFAULT NULL,
-  `brand_id` int(11) DEFAULT NULL
+  `brand_id` int(11) DEFAULT NULL,
+  `itemtype_id` int(11) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `items`
 --
 
-INSERT INTO `items` (`id`, `name`, `itemcategory_id`, `currency_id`, `model`, `color`, `unit_cost`, `brand_id`) VALUES
-(3, 'CPU DELL OPTIPLEX 3020', 2, 2, 'OPTIPLEX 3020', 'NEGRO', '102.00', 3),
-(4, 'IMPRESORA ZEBRA GC420', 11, 2, 'GC420', 'BLANCO', '202.00', 2),
-(5, 'CPU DELL OPTIPLEX 380', 2, 2, 'OPTIPLEX 380', 'NEGRO', '102.00', 3),
-(6, 'PANTALLA LCD ACER X163WB', 4, 2, 'X163WB', 'NEGRO', '90.00', 4),
-(7, 'IMPRESORA DE MATRIZ DE PUNTO OKI ML-621', 11, 2, 'ML-621', 'BLANCO', '205.00', 11),
-(8, 'CABLE HDMI STEREN', 39, 1, 'C12', 'NEGRO', '100.00', 14),
-(29, 'IMPRESORA DE TICKET TERMICA BIXOLON SRP-350 PLUS', 8, 2, 'SRP-350 PLUS', 'negro', '12.00', 7);
+INSERT INTO `items` (`id`, `name`, `itemcategory_id`, `currency_id`, `model`, `color`, `unit_cost`, `brand_id`, `itemtype_id`, `parent_id`) VALUES
+(3, 'CPU DELL OPTIPLEX 3020', 2, 2, 'OPTIPLEX 3020', 'NEGRO', '102.00', 3, 1, NULL),
+(4, 'IMPRESORA ZEBRA GC420', 11, 2, 'GC420', 'BLANCO', '202.00', 2, 1, NULL),
+(5, 'CPU DELL OPTIPLEX 380', 2, 2, 'OPTIPLEX 380', 'NEGRO', '102.00', 3, 1, NULL),
+(6, 'PANTALLA LCD ACER X163WB', 4, 2, 'X163WB', 'NEGRO', '90.00', 4, 1, NULL),
+(7, 'IMPRESORA DE MATRIZ DE PUNTO OKI ML-621', 11, 2, 'ML-621', 'BLANCO', '205.00', 11, 1, NULL),
+(8, 'CABLE HDMI STEREN', 39, 1, 'C12', 'NEGRO', '100.00', 14, 1, NULL),
+(29, 'IMPRESORA DE TICKET TERMICA BIXOLON SRP-350 PLUS', 8, 2, 'SRP-350 PLUS', 'negro', '12.00', 7, 1, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `layoutcategories`
+-- Estructura de tabla para la tabla `itemtypes`
 --
 
-CREATE TABLE `layoutcategories` (
+CREATE TABLE `itemtypes` (
   `id` int(11) NOT NULL,
-  `itemcategory_id` int(11) DEFAULT NULL,
-  `layout_id` int(11) DEFAULT NULL,
-  `qty` int(11) DEFAULT NULL,
-  `compare` int(11) DEFAULT NULL
+  `name` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `layoutcategories`
+-- Volcado de datos para la tabla `itemtypes`
 --
 
-INSERT INTO `layoutcategories` (`id`, `itemcategory_id`, `layout_id`, `qty`, `compare`) VALUES
-(1, 1, 2, 5, 4),
-(2, 4, 5, 4, NULL),
-(3, 3, 7, 1, NULL),
-(4, 5, 5, 4, NULL),
-(5, 8, 5, 4, NULL),
-(6, 11, 5, 1, NULL),
-(7, 13, 5, 4, NULL),
-(8, 16, 5, 4, NULL),
-(9, 20, 5, 4, NULL),
-(10, 32, 5, 1, NULL),
-(20, 1, 6, 1, NULL),
-(21, 4, 6, 1, NULL),
-(22, 5, 6, 1, NULL),
-(23, 6, 6, 1, NULL),
-(24, 8, 6, 1, NULL),
-(25, 14, 6, 1, NULL),
-(26, 18, 6, 1, NULL),
-(27, 32, 6, 1, NULL),
-(28, 3, 7, 1, NULL),
-(29, 19, 7, 2, NULL),
-(30, 1, 8, 2, NULL),
-(31, 4, 8, 2, NULL),
-(32, 5, 8, 2, NULL),
-(33, 6, 8, 2, NULL),
-(34, 11, 8, 1, NULL),
-(35, 14, 8, 2, NULL),
-(36, 20, 8, 2, NULL),
-(37, 32, 8, 1, NULL),
-(38, 1, 9, 1, NULL),
-(39, 4, 9, 1, NULL),
-(40, 5, 10, 1, NULL),
-(41, 6, 9, 1, NULL),
-(42, 11, 9, 1, NULL),
-(43, 14, 9, 1, NULL),
-(44, 18, 9, 1, NULL),
-(46, 24, 9, 1, NULL),
-(47, 25, 9, 1, NULL),
-(48, 26, 9, 1, NULL),
-(49, 32, 9, 1, NULL),
-(50, 38, 9, 1, NULL),
-(51, 1, 11, 1, NULL),
-(52, 4, 11, 1, NULL),
-(53, 5, 11, 1, NULL),
-(54, 6, 11, 1, NULL),
-(55, 11, 11, 1, NULL),
-(56, 18, 11, 1, NULL),
-(57, 32, 11, 1, NULL),
-(58, 37, 12, 1, NULL),
-(59, 4, 13, 1, NULL),
-(60, 5, 13, 1, NULL),
-(61, 6, 13, 2, NULL),
-(62, 21, 13, 2, NULL),
-(63, 22, 13, 1, NULL),
-(64, 27, 13, 3, NULL),
-(65, 28, 13, 2, NULL),
-(66, 29, 13, 1, NULL),
-(67, 36, 13, 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `layouts`
---
-
-CREATE TABLE `layouts` (
-  `id` int(11) NOT NULL,
-  `branch_id` int(11) DEFAULT NULL,
-  `position_id` int(11) DEFAULT NULL,
-  `layout` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `layouts`
---
-
-INSERT INTO `layouts` (`id`, `branch_id`, `position_id`, `layout`) VALUES
-(1, 66, 1, 3),
-(2, 66, 2, 1),
-(3, 66, 7, 2),
-(4, 66, 25, 1),
-(5, 66, 8, 1),
-(6, 66, 9, 2),
-(7, 66, 10, 1),
-(8, 66, 11, 3),
-(9, 66, 26, 1),
-(10, 66, 15, 1),
-(11, 66, 22, 2),
-(12, 66, 23, 1);
+INSERT INTO `itemtypes` (`id`, `name`) VALUES
+(1, 'Activo'),
+(2, 'Refaccion'),
+(3, 'Consumible');
 
 -- --------------------------------------------------------
 
@@ -3432,25 +3352,24 @@ CREATE TABLE `movereasontemplates` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `positionbranches`
+-- Estructura de tabla para la tabla `nodes`
 --
 
-CREATE TABLE `positionbranches` (
+CREATE TABLE `nodes` (
   `id` int(11) NOT NULL,
-  `branch_id` int(11) DEFAULT NULL,
-  `position_id` int(11) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL
+  `name` varchar(100) NOT NULL,
+  `parentId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `positionbranches`
+-- Volcado de datos para la tabla `nodes`
 --
 
-INSERT INTO `positionbranches` (`id`, `branch_id`, `position_id`, `name`) VALUES
-(11, 66, 1, 'CAJA1'),
-(12, 66, 1, 'CAJA 2'),
-(13, 66, 1, 'CAJA 3'),
-(14, 66, 2, 'ATENCION A CLIENTES 1');
+INSERT INTO `nodes` (`id`, `name`, `parentId`) VALUES
+(1, 'Nodo1', 0),
+(2, 'Nodo1.1', 1),
+(3, 'Nodo1.2', 1),
+(4, 'Nodo2', 0);
 
 -- --------------------------------------------------------
 
@@ -3460,6 +3379,7 @@ INSERT INTO `positionbranches` (`id`, `branch_id`, `position_id`, `name`) VALUES
 
 CREATE TABLE `positions` (
   `id` int(11) NOT NULL,
+  `positiontypebranch_id` int(11) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -3467,7 +3387,97 @@ CREATE TABLE `positions` (
 -- Volcado de datos para la tabla `positions`
 --
 
-INSERT INTO `positions` (`id`, `name`) VALUES
+INSERT INTO `positions` (`id`, `positiontypebranch_id`, `name`) VALUES
+(13, 15, 'CAJA1'),
+(14, 15, 'CAJA2'),
+(15, 15, 'CAJA3');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `positiontypebranches`
+--
+
+CREATE TABLE `positiontypebranches` (
+  `id` int(11) NOT NULL,
+  `branch_id` int(11) DEFAULT NULL,
+  `positiontype_id` int(11) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `positiontypebranches`
+--
+
+INSERT INTO `positiontypebranches` (`id`, `branch_id`, `positiontype_id`, `qty`) VALUES
+(15, 124, 1, 3),
+(16, 124, 2, 1),
+(17, 124, 7, 2),
+(18, 124, 25, 1),
+(19, 124, 8, 1),
+(20, 124, 9, 2),
+(21, 124, 10, 1),
+(22, 124, 11, 2),
+(23, 124, 26, 1),
+(24, 124, 15, 1),
+(25, 124, 23, 1),
+(26, 124, 22, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `positiontypebranches_itemcategories`
+--
+
+CREATE TABLE `positiontypebranches_itemcategories` (
+  `id` int(11) NOT NULL,
+  `positiontypebranch_id` int(11) NOT NULL,
+  `itemcategory_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `positiontypebranches_itemcategories`
+--
+
+INSERT INTO `positiontypebranches_itemcategories` (`id`, `positiontypebranch_id`, `itemcategory_id`, `qty`) VALUES
+(1, 15, 1, 3),
+(2, 15, 4, 3),
+(3, 15, 5, 3),
+(4, 15, 8, 3),
+(5, 15, 11, 1),
+(6, 15, 13, 3),
+(7, 15, 16, 3),
+(8, 15, 17, 2),
+(9, 15, 20, 3),
+(10, 16, 1, 1),
+(11, 16, 4, 1),
+(12, 16, 5, 1),
+(13, 16, 6, 1),
+(14, 16, 8, 1),
+(15, 15, 14, 1),
+(16, 16, 16, 1),
+(17, 16, 20, 1),
+(18, 16, 23, 1),
+(19, 16, 32, 1),
+(20, 26, 4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `positiontypes`
+--
+
+CREATE TABLE `positiontypes` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `positiontypes`
+--
+
+INSERT INTO `positiontypes` (`id`, `name`) VALUES
 (1, 'CAJAS'),
 (2, 'ATENCION A CLIENTES'),
 (5, 'GERENTE REGIONAL'),
@@ -3880,7 +3890,12 @@ INSERT INTO `ticketnotes` (`id`, `description`, `ticket_id`, `user_id`, `created
 (5, 'Mi extension es la 6442', 10, 2, '2017-12-01 04:49:11', 1),
 (6, 'Se contacta al usuario para realizar las siguientes pruebas con resultados negativos:\r\n\r\n- Revisar que el cable de allimentacion esta bien conectado\r\n- Revisar si enciende el ventilador del CPU\r\n\r\nSe le indica al usuario que se enviara al TI Regional para que revise el equipo en sucursal', 10, 13, '2017-12-01 04:51:40', 1),
 (7, 'Se revisa equipo de sucursal, enciende sin problemas ... el usuario presionaba por mucho tiempo el boton de encendido y el equipo encendia y se apagaba rapidamente .... se le enseño al usuario como debe encender la computadora', 10, 12, '2017-12-01 17:31:15', 2),
-(8, 's', 5, 1, '2017-12-01 18:17:49', 1);
+(8, 's', 5, 1, '2017-12-01 18:17:49', 1),
+(9, 'asdasd', 46, 1, '2018-01-12 15:01:16', 1),
+(10, 'El usuario no ha respondido la alerta', 46, 1, '2018-01-12 15:02:54', 2),
+(11, 'categorias jalando', 85, 1, '2018-01-17 14:21:55', 1),
+(12, 'Error al pagar', 86, 1, '2018-01-18 10:04:34', 1),
+(13, 'Al momento de querer extraer un folio me arco un error asi\r\n....', 88, 1, '2018-01-19 12:47:38', 1);
 
 -- --------------------------------------------------------
 
@@ -3962,20 +3977,28 @@ INSERT INTO `tickets` (`id`, `tickettype_id`, `ticket_status_id`, `source_id`, `
 (9, 4, 1, '3', 'COMPUTADORA DELL PROCESADOR INTEL I5', 'SOLICITUD', 'SOLICITUD', 6, 3, 3, 1, 3, '2017-10-31 18:12:01', 2, 2, 2, NULL, 11, '2017-11-28 15:40:22', '123.123.123.123|', 17),
 (10, 4, 1, '4', 'PC DE CAJA NO ENCIENDE', 'CONECTAR O CAMBIAR CABLE DE VIDEO', 'VERIFICAR SI EL MONITOR ESTA EN FUNCIONAMIENTO, REVISAR CABLE DE VIDEO Y REMPLAZARLO DE SER NECESARIO', 5, 2, 1, 3, 3, '2017-10-31 18:14:51', 1, 2, 1, NULL, 11, '2017-11-16 18:54:46', '2', 17),
 (11, 5, 1, '8', 'CAMBIO DE MONITOR', 'SE CAMBIARA POR UNO NUEVO ', 'NO PRENDIO EL MONITOR Y SE REEMPLAZARA POR OTRO', 8, 11, 1, 15, 17, '2017-10-31 18:49:14', 3, 3, 3, NULL, 12, '2017-10-31 18:49:14', '', 17),
-(12, 1, 3, '4', 'TICKET', 'SE REINSTALO DRIVER DE LA IMPRESORA', 'SE INSTALO EL DRIVER Y SE VOLVIO A IMPRIMIR', 4, 2, 1, 16, 16, '2017-10-31 19:01:04', 2, 2, 2, NULL, 25, '2017-12-07 17:50:05', '9', 17),
+(12, 1, 3, '4', 'TICKET', 'SE REINSTALO DRIVER DE LA IMPRESORA', 'SE INSTALO EL DRIVER Y SE VOLVIO A IMPRIMIR', 4, 2, 1, 16, 16, '2017-10-31 19:01:04', 2, 2, 2, NULL, 25, '2018-01-08 11:27:38', '9', 17),
 (13, 4, 5, '1', 'PC NO AGARRA INTERNET', 'SE LE PUSO UN ADAPTADOR WIFI', 'SE LE CONECTO UN ADAPTADOR WIFI', 8, 16, 2, 19, 19, '2017-10-31 19:08:00', 1, 1, 1, NULL, 18, '2017-12-07 17:50:48', '19849', 17),
 (14, 2, 1, '5', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'REINICAR LOS SERVICIOS DE SQL', 'SQL REINICIAR LOS SERVICIOS DE BD', 3, 2, 1, 3, 1, '2017-10-31 20:04:37', 1, 1, 1, NULL, 34, '2017-11-21 19:07:06', '1.1.1.1', 17),
 (16, 4, 3, '3', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'REVISAR SI EL MODEM ESTA ENCENDIDO', 'REINICIAR EL MODEM', 12, 11, 2, 2, 2, '2017-10-31 20:13:32', 2, 3, 2, NULL, 26, '2017-11-08 16:02:55', '', 17),
-(18, 5, 1, '2', 'ERROR 404', 'CONECTAR CABLE', 'CONECTAR CABLE', 2, 1, 1, 1, 1, '2017-11-01 15:20:21', 2, 2, 3, 13, 28, '2017-11-23 15:40:14', 'q11212aa', 17),
+(18, 5, 3, '2', 'ERROR 404', 'CONECTAR CABLE', 'CONECTAR CABLE', 2, 1, 1, 1, 1, '2017-11-01 15:20:21', 2, 2, 3, 13, 28, '2017-12-22 01:20:51', 'q11212aa', 17),
 (19, 4, 1, '2', 'CAJA DE COBRO NO FUNCIONA', 'CONECTAR PC POR MEDIO DE ESCRITORIO REMOTO ', 'CONECTAR PC POR MEDIO DE ESCRITORIO REMOTO ', 5, 1, 1, 1, 1, '2017-11-01 15:26:21', 1, 1, 2, NULL, 27, '2017-11-22 16:10:55', '123.123.123.123', 17),
 (20, 4, 1, '2', 'SISTEMAS OPERATIVOS', 'REVISAR LOS SERVICIOS', 'REINICIAR LOS SERVICIOS', 11, 3, 3, 20, 20, '2017-11-01 16:42:13', 2, 1, 1, NULL, 25, '2017-12-07 17:37:22', '123.123.123.123|', 17),
 (23, 1, 4, '2', 'ERROR 404', 'CONECTAR CABLE', 'CONECTAR CABLE', 2, 1, 1, 1, 1, '2017-11-08 15:52:52', 1, 1, 1, 18, 28, '2017-11-22 16:11:10', 'q11212a', 17),
 (24, 2, 3, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', '', '', 13, 2, 1, 3, 3, '2017-11-09 18:15:58', 1, 1, 1, 6, 16, '2017-11-24 15:51:36', '123.123.123.123', 17),
 (34, 2, 1, '1', 'CORREO FALLIDO', 'REINICIAR EL SERVIDOR', 'REINICIAR EL SERVIDOR', 3, 1, 1, 1, 1, '2017-11-28 16:21:08', 3, 1, 1, 20, 27, '2017-11-30 19:14:36', '::1', 17),
-(46, 2, 1, '1', 'MAIL ', 'TEST', 'TWSAT', 14, 1, 1, 1, 1, '2017-12-05 17:01:39', 1, 1, 1, 24, 159, '2017-12-18 12:41:43', '::1', 29),
-(72, 4, 2, '1', 'qasd2', '123', '123', 13, 1, 1, 1, 1, '2017-12-05 18:10:50', 1, 1, 1, 34, 29, '2017-12-05 18:10:50', '::1', 17),
-(73, 4, 2, '1', 'qasd2', '123', '123', 13, 1, 1, 16, 16, '2017-12-05 18:11:39', 1, 1, 1, 34, 2240, '2017-12-18 12:34:38', '::1', 17),
-(74, 1, 10, '1', 'Categoria', '', '', NULL, 1, 1, 22, 22, '2017-12-19 09:33:21', 2, 2, 1, NULL, 2767, '2017-12-19 09:33:21', '::1', 34);
+(46, 2, 1, '1', 'MAIL ', 'TEST', 'TWSAT', 14, 1, 1, 1, 1, '2017-12-05 17:01:39', 1, 1, 1, 24, 2689, '2018-01-19 10:43:19', '::1', 29),
+(77, 1, 1, NULL, 'sdfs', NULL, NULL, NULL, NULL, NULL, 1, 2, '2018-01-17 11:39:50', 1, 1, 1, NULL, 1, '2018-01-17 11:39:50', '334', NULL),
+(78, 1, 1, NULL, 'asas', NULL, NULL, NULL, NULL, NULL, 1, 3, '2018-01-17 11:43:50', 1, 1, 2, NULL, 1, '2018-01-17 11:43:50', 'asdasd', NULL),
+(79, 1, 1, NULL, 'uahsjdjasd123', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 11:47:50', 1, 1, 1, NULL, 2, '2018-01-17 11:47:50', '1458', NULL),
+(80, 1, 1, NULL, 'jesus', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 11:49:50', 2, 2, 2, NULL, 3, '2018-01-17 11:49:50', '123.123.123.123|', NULL),
+(81, 1, 1, NULL, 'uahsjdjasd123', NULL, NULL, NULL, NULL, NULL, 1, 2, '2018-01-17 14:03:13', 2, 1, 1, NULL, 3, '2018-01-17 14:03:13', '192.168.0.10', NULL),
+(82, 1, 1, NULL, 'uahsjdjasd123', NULL, NULL, NULL, NULL, NULL, 1, 4, '2018-01-17 14:05:27', 1, 2, 2, NULL, 3, '2018-01-17 14:05:27', '192.168.0.10', NULL),
+(83, 1, 1, NULL, 'asdsdasdf', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 14:05:57', 3, 2, 1, NULL, 12, '2018-01-17 14:05:57', '192.168.0.10', NULL),
+(84, 1, 1, NULL, 'uahsjdjasd123', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 14:11:29', 1, 1, 1, NULL, 2, '2018-01-17 14:11:29', '192.168.0.10', NULL),
+(85, 1, 1, NULL, 'Prueba Categorias 2', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 14:21:55', 1, 1, 1, NULL, 1, '2018-01-17 14:21:55', '192.168.0.10', NULL),
+(86, 1, 1, NULL, 'MENSAJE DE ERROR EN PAGO DE AGUINALDOS', NULL, NULL, NULL, NULL, NULL, 1, 2, '2018-01-18 10:04:34', 1, 1, 1, NULL, NULL, '2018-01-18 10:04:34', '192.168.0.10', NULL),
+(88, 1, 1, NULL, 'Problema con apertura de boveda', NULL, NULL, 1, NULL, NULL, 1, 2, '2018-01-19 12:47:37', 1, 1, 1, NULL, 2094, '2018-01-19 12:47:37', '192.168.0.10', NULL);
 
 -- --------------------------------------------------------
 
@@ -4108,8 +4131,10 @@ CREATE TABLE `userendmessages` (
 --
 
 INSERT INTO `userendmessages` (`id`, `message`, `user_id`, `created`, `modified`, `startdate`, `endingdate`) VALUES
-(8, 'Servidor de tiempo sincronizado correctamente', 1, '2017-12-12 11:05:22', '2017-12-12 13:05:25', '2017-12-12 12:16:00', '2017-12-12 01:16:00'),
-(9, 'Muchos tickets, calmados :D', 1, '2017-12-13 09:36:32', '2017-12-13 15:49:35', '2017-12-13 09:35:00', '2017-12-13 14:35:00');
+(8, 'Servidor de tiempo sincronizado correctamente', 1, '2017-12-12 11:05:22', '2017-12-21 10:23:51', '2017-12-21 10:16:00', '2017-12-21 23:40:00'),
+(9, 'Muchos tickets, calmados :D', 1, '2017-12-13 09:36:32', '2017-12-13 15:49:35', '2017-12-13 09:35:00', '2017-12-13 14:35:00'),
+(10, 'hola', 1, '2017-12-22 01:34:18', '2017-12-22 01:34:18', '2017-12-22 01:31:36', '2017-12-22 01:50:42'),
+(11, 'estamos en junta', 1, '2017-12-22 13:03:01', '2017-12-22 13:03:01', '2017-12-22 13:02:43', '2017-12-23 13:02:52');
 
 -- --------------------------------------------------------
 
@@ -4185,7 +4210,8 @@ INSERT INTO `warehouses` (`id`, `name`, `branch_id`) VALUES
 (13, 'ALMACEN SAN LUIS', 13),
 (14, 'ALMACEN MERIDA', 14),
 (15, 'ALMACEN CHALCO', 15),
-(16, 'ALMACEN ZAPOPAN', 16);
+(16, 'ALMACEN ZAPOPAN', 16),
+(17, '555 ALMACEN', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -4282,15 +4308,9 @@ ALTER TABLE `items`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `layoutcategories`
+-- Indices de la tabla `itemtypes`
 --
-ALTER TABLE `layoutcategories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `layouts`
---
-ALTER TABLE `layouts`
+ALTER TABLE `itemtypes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -4306,15 +4326,33 @@ ALTER TABLE `movereasontemplates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `positionbranches`
+-- Indices de la tabla `nodes`
 --
-ALTER TABLE `positionbranches`
+ALTER TABLE `nodes`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `positions`
 --
 ALTER TABLE `positions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `positiontypebranches`
+--
+ALTER TABLE `positiontypebranches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `positiontypebranches_itemcategories`
+--
+ALTER TABLE `positiontypebranches_itemcategories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `positiontypes`
+--
+ALTER TABLE `positiontypes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -4480,17 +4518,17 @@ ALTER TABLE `articlefiles`
 -- AUTO_INCREMENT de la tabla `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT de la tabla `articles_roles`
 --
 ALTER TABLE `articles_roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT de la tabla `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 --
 -- AUTO_INCREMENT de la tabla `branchgroups`
 --
@@ -4515,12 +4553,12 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de la tabla `hdcategories`
 --
 ALTER TABLE `hdcategories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2815;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2816;
 --
 -- AUTO_INCREMENT de la tabla `hdcategories_articles`
 --
 ALTER TABLE `hdcategories_articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `hdtemplate`
 --
@@ -4530,7 +4568,7 @@ ALTER TABLE `hdtemplate`
 -- AUTO_INCREMENT de la tabla `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `itemcategories`
 --
@@ -4547,15 +4585,10 @@ ALTER TABLE `itemcodes`
 ALTER TABLE `items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
--- AUTO_INCREMENT de la tabla `layoutcategories`
+-- AUTO_INCREMENT de la tabla `itemtypes`
 --
-ALTER TABLE `layoutcategories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
---
--- AUTO_INCREMENT de la tabla `layouts`
---
-ALTER TABLE `layouts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE `itemtypes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `movereasons`
 --
@@ -4567,14 +4600,29 @@ ALTER TABLE `movereasons`
 ALTER TABLE `movereasontemplates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `positionbranches`
+-- AUTO_INCREMENT de la tabla `nodes`
 --
-ALTER TABLE `positionbranches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `nodes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `positions`
 --
 ALTER TABLE `positions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT de la tabla `positiontypebranches`
+--
+ALTER TABLE `positiontypebranches`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT de la tabla `positiontypebranches_itemcategories`
+--
+ALTER TABLE `positiontypebranches_itemcategories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT de la tabla `positiontypes`
+--
+ALTER TABLE `positiontypes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -4640,7 +4688,7 @@ ALTER TABLE `ticketmarkeds`
 -- AUTO_INCREMENT de la tabla `ticketnotes`
 --
 ALTER TABLE `ticketnotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `ticketnotestypes`
 --
@@ -4655,7 +4703,7 @@ ALTER TABLE `ticketpriorities`
 -- AUTO_INCREMENT de la tabla `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 --
 -- AUTO_INCREMENT de la tabla `ticketsfiles`
 --
@@ -4675,7 +4723,7 @@ ALTER TABLE `ticketstatuses_tickettypes`
 -- AUTO_INCREMENT de la tabla `tickettypes`
 --
 ALTER TABLE `tickettypes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `ticketurgencies`
 --
@@ -4685,7 +4733,7 @@ ALTER TABLE `ticketurgencies`
 -- AUTO_INCREMENT de la tabla `userendmessages`
 --
 ALTER TABLE `userendmessages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
@@ -4695,8 +4743,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `warehouses`
 --
 ALTER TABLE `warehouses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
