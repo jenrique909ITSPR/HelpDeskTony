@@ -17,6 +17,7 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('branchgroup_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Cia') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                 <td><?= $this->Number->format($branch->SUCURSAL) ?></td>
                 <td><?= h($branch->NOMBRE) ?></td>
                 <td><?= $branch->has('branchgroup') ? $this->Html->link($branch->branchgroup->name, ['controller' => 'Branchgroups', 'action' => 'view', $branch->branchgroup->id]) : '' ?></td>
+                <td><?= $branch->has('company') ? $this->Html->link($branch->company->Nombre, ['controller' => 'Branchgroups', 'action' => 'view', $branch->company->Cia]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $branch->SUCURSAL]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $branch->SUCURSAL]) ?>

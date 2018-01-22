@@ -25,6 +25,10 @@
             <td><?= $branch->has('branchgroup') ? $this->Html->link($branch->branchgroup->name, ['controller' => 'Branchgroups', 'action' => 'view', $branch->branchgroup->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Company') ?></th>
+            <td><?= $branch->has('company') ? $this->Html->link($branch->company->Nombre, ['controller' => 'Companies', 'action' => 'view', $branch->company->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($branch->SUCURSAL) ?></td>
         </tr>

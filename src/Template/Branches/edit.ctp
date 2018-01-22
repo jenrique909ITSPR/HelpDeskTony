@@ -21,7 +21,7 @@
 									<?= $this->form->label(__('name')) ?>
 							</td>
 							<td>
-								<?php echo $this->Form->control('name',['label'=> false]); ?>
+								<?php echo $this->Form->control('Nombre',['label'=> false]); ?>
 							</td>
 							</tr>
 							<tr>
@@ -30,6 +30,14 @@
 							</td>
 							<td>
 								<?php echo $this->Form->control('branchgroup_id', ['options' => $branchgroups, 'empty' => true, 'label'=> false]);?>
+							</td>
+							</tr>
+							<tr>
+							<td  style="width:5%;">
+									<?= $this->form->label(__('company')) ?>
+							</td>
+							<td>
+								<?php echo $this->Form->control('Cia', ['options' => $companies, 'empty' => true, 'label'=> false]);?>
 							</td>
 							</tr>
 							</tbody>

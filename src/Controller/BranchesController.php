@@ -20,7 +20,7 @@ class BranchesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Branchgroups']
+            'contain' => ['Branchgroups','Companies']
         ];
         $branches = $this->paginate($this->Branches);
         
@@ -38,7 +38,7 @@ class BranchesController extends AppController
     public function view($id = null)
     {
         $branch = $this->Branches->get($id, [
-            'contain' => ['Branchgroups', 'Tickets', 'Warehouses']
+            'contain' => ['Branchgroups','Companies','Tickets', 'Warehouses']
         ]);
 
         $this->set('branch', $branch);
@@ -63,7 +63,8 @@ class BranchesController extends AppController
             $this->Flash->error(__('The branch could not be saved. Please, try again.'));
         }
         $branchgroups = $this->Branches->Branchgroups->find('list', ['limit' => 200]);
-        $this->set(compact('branch', 'branchgroups'));
+        $companies = $this->Branches->Companies->find('list', ['limit' => 200]);
+        $this->set(compact('branch', 'companies','branchgroups'));
         $this->set('_serialize', ['branch']);
     }
 
@@ -88,8 +89,9 @@ class BranchesController extends AppController
             }
             $this->Flash->error(__('The branch could not be saved. Please, try again.'));
         }
-        $branchgroups = $this->Branches->Branchgroups->find('list', ['limit' => 200]);
-        $this->set(compact('branch', 'branchgroups'));
+         $branchgroups = $this->Branches->Branchgroups->find('list', ['limit' => 200]);
+        $companies = $this->Branches->Companies->find('list', ['limit' => 200]);
+        $this->set(compact('branch', 'companies','branchgroups'));
         $this->set('_serialize', ['branch']);
     }
 

@@ -43,6 +43,10 @@ use Cake\Validation\Validator;
             'foreignKey' => 'Cia',
             'strategy' => 'select'
         ]);
+        $this->belongsTo('Companies', [
+            'foreignKey' => 'Cia',
+            'strategy' => 'select'
+        ]);
         $this->hasMany('Positiontypebranches', [
             'foreignKey' => 'branch_id'
         ]);

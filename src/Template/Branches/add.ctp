@@ -20,9 +20,31 @@
 
 		<table  cellpadding="0" cellspacing="0" style="width:100%; border:none;">
 							<tbody>
-						<tr><td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td><td><?=    $this->Form->control('name', ['label' => false]); ?></td></tr>
-						<tr><td style="width:5%;"><?= $this->form->label(__('Region')) ?></td><td><?=  $this->Form->control('branchgroup_id', ['options' => $branchgroups, 'empty' => true, 'label' => false]); ?></td></tr>
-				</tbody>
+							<tr>
+							<td  style="width:5%;">
+									<?= $this->form->label(__('name')) ?>
+							</td>
+							<td>
+								<?php echo $this->Form->control('Nombre',['label'=> false]); ?>
+							</td>
+							</tr>
+							<tr>
+							<td  style="width:5%;">
+									<?= $this->form->label(__('branchgroup')) ?>
+							</td>
+							<td>
+								<?php echo $this->Form->control('branchgroup_id', ['options' => $branchgroups, 'empty' => true, 'label'=> false]);?>
+							</td>
+							</tr>
+							<tr>
+							<td  style="width:5%;">
+									<?= $this->form->label(__('company')) ?>
+							</td>
+							<td>
+								<?php echo $this->Form->control('Cia', ['options' => $companies, 'empty' => true, 'label'=> false]);?>
+							</td>
+							</tr>
+							</tbody>
 		</table>
 
     <?= $this->Form->button(__('Submit')) ?>
