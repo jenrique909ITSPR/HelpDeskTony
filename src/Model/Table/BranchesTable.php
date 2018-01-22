@@ -35,17 +35,15 @@ use Cake\Validation\Validator;
     {
         parent::initialize($config);
 
-        $this->setTable('branches');
-        $this->setDisplayField('name');
-        $this->setPrimaryKey('id');
-
+        $this->setTable('V_Sucursales');
+        $this->setDisplayField('NOMBRE');
+        $this->setPrimaryKey('SUCURSAL');
+        
         $this->belongsTo('Branchgroups', [
-            'foreignKey' => 'branchgroup_id'
+            'foreignKey' => 'Cia',
+            'strategy' => 'select'
         ]);
-        $this->hasMany('Layouts', [
-            'foreignKey' => 'branch_id'
-        ]);
-        $this->hasMany('Positionbranches', [
+        $this->hasMany('Positiontypebranches', [
             'foreignKey' => 'branch_id'
         ]);
         $this->hasMany('Tickets', [
@@ -65,9 +63,9 @@ use Cake\Validation\Validator;
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')            ->allowEmpty('id', 'create');
+            ->integer('SUCURSAL')            ->allowEmpty('SUCURSAL', 'create');
         $validator
-            ->scalar('name')            ->allowEmpty('name');
+            ->scalar('NOMBRE')            ->allowEmpty('NOMBRE');
         return $validator;
     }
 
@@ -80,8 +78,13 @@ use Cake\Validation\Validator;
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['branchgroup_id'], 'Branchgroups'));
+        $rules->add($rules->existsIn(['Cia'], 'Branchgroups'));
 
         return $rules;
+    }
+
+
+    public static function defaultConnectionName() {
+        return 'modelSQL';
     }
 }

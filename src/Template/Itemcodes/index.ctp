@@ -61,7 +61,7 @@
                 <td><?= h($itemcode->service_tag) ?></td>
                 <td><?= $this->Number->format($itemcode->cost) ?></td>
                 <td><?= $itemcode->has('currency') ? $this->Html->link($itemcode->currency->name, ['controller' => 'Currencies', 'action' => 'view', $itemcode->currency->id]) : '' ?></td>
-                <td><?= h($itemcode->insured) ?></td>
+                <td><?= $itemcode->has('insured') ? $this->Html->link($itemcode->insured->name, ['controller' => 'Insureds', 'action' => 'view', $itemcode->insured->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $itemcode->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $itemcode->id]) ?>

@@ -5,20 +5,20 @@
 ?>
 
 <div class="branches view">
-    <h3><?= h($branch->name) ?></h3>
+    <h3><?= h($branch->NOMBRE) ?></h3>
 	<div class="actions">
 		<ul>
-			<li><?= $this->Form->postLink(__('Delete Branch'), ['action' => 'delete', $branch->id], ['confirm' => __('Are you sure you want to delete # {0}?', $branch->id)]) ?> </li>
+			<li><?= $this->Form->postLink(__('Delete Branch'), ['action' => 'delete', $branch->SUCURSAL], ['confirm' => __('Are you sure you want to delete # {0}?', $branch->id)]) ?> </li>
 			<li><?= $this->Html->link(__('New Branch'), ['action' => 'add']) ?> </li>
 			<li><?= $this->Html->link(__('List Branches'), ['action' => 'index']) ?> </li>
-			<li><?= $this->Html->link(__('Edit Branch'), ['action' => 'edit', $branch->id]) ?> </li>
+			<li><?= $this->Html->link(__('Edit Branch'), ['action' => 'edit', $branch->SUCURSAL]) ?> </li>
 		</ul>
 	</div>
 	<div class="viewdata">
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($branch->name) ?></td>
+            <td><?= h($branch->NOMBRE) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Branchgroup') ?></th>
@@ -26,7 +26,23 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($branch->id) ?></td>
+            <td><?= $this->Number->format($branch->SUCURSAL) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('email') ?></th>
+            <td><?= h($branch->EMAIL) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Telefono') ?></th>
+            <td><?= h($branch->Telefono) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('IP') ?></th>
+            <td><?= h($branch->IP) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('status') ?></th>
+            <td><?= h($branch->B_ESTATUS) ?></td>
         </tr>
     </table>
 	</div>

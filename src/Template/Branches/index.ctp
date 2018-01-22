@@ -23,13 +23,13 @@
         <tbody>
             <?php foreach ($branches as $branch): ?>
             <tr>
-                <td><?= $this->Number->format($branch->id) ?></td>
-                <td><?= h($branch->name) ?></td>
+                <td><?= $this->Number->format($branch->SUCURSAL) ?></td>
+                <td><?= h($branch->NOMBRE) ?></td>
                 <td><?= $branch->has('branchgroup') ? $this->Html->link($branch->branchgroup->name, ['controller' => 'Branchgroups', 'action' => 'view', $branch->branchgroup->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $branch->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $branch->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $branch->id], ['confirm' => __('Are you sure you want to delete # {0}?', $branch->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $branch->SUCURSAL]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $branch->SUCURSAL]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $branch->SUCURSAL], ['confirm' => __('Are you sure you want to delete # {0}?', $branch->SUCURSAL)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

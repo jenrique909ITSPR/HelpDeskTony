@@ -6,24 +6,40 @@
 ?>
 
 <div class="suppliers view">
-    <h3><?= h($supplier->name) ?></h3>
+    <h3><?= h($supplier->Nombre) ?></h3>
 	<div class="actions">
 		<ul>
-			<li><?= $this->Form->postLink(__('Delete Supplier'), ['action' => 'delete', $supplier->id], ['confirm' => __('Are you sure you want to delete # {0}?', $supplier->id)]) ?> </li>
+			<li><?= $this->Form->postLink(__('Delete Supplier'), ['action' => 'delete', $supplier->ProvServicios], ['confirm' => __('Are you sure you want to delete # {0}?', $supplier->ProvServicios)]) ?> </li>
 			<li><?= $this->Html->link(__('New Supplier'), ['action' => 'add']) ?> </li>
 			<li><?= $this->Html->link(__('List Suppliers'), ['action' => 'index']) ?> </li>
-			<li><?= $this->Html->link(__('Edit Supplier'), ['action' => 'edit', $supplier->id]) ?> </li>
+			<li><?= $this->Html->link(__('Edit Supplier'), ['action' => 'edit', $supplier->ProvServicios]) ?> </li>
 		</ul>
 	</div>
 	<div class="viewdata">
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($supplier->name) ?></td>
+            <td><?= h($supplier->Nombre) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($supplier->id) ?></td>
+            <td><?= $this->Number->format($supplier->ProvServicios) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('RFC') ?></th>
+            <td><?= h($supplier->RFC1).h($supplier->RFC2).h($supplier->RFC3) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('email') ?></th>
+            <td><?= h($supplier->eMail)?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('ciudad') ?></th>
+            <td><?= h($supplier->Ciudad) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('status') ?></th>
+            <td><?= h($supplier->B_Estatus) ?></td>
         </tr>
     </table>
 	</div>

@@ -18,7 +18,7 @@
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Branch') ?></th>
-            <td><?= $positiontypebranch->has('branch') ? $this->Html->link($positiontypebranch->branch->name, ['controller' => 'Branches', 'action' => 'view', $positiontypebranch->branch->id]) : '' ?></td>
+            <td><?= $positiontypebranch->has('branch') ? $this->Html->link($positiontypebranch->branch->NOMBRE, ['controller' => 'Branches', 'action' => 'view', $positiontypebranch->branch->SUCURSAL]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Positiontype') ?></th>

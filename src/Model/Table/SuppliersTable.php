@@ -33,9 +33,9 @@ class SuppliersTable extends Table
         parent::initialize($config);
         
 
-        $this->setTable('suppliers');
-        $this->setDisplayField('name');
-        $this->setPrimaryKey('id');
+        $this->setTable('V_ProvServicios');
+        $this->setDisplayField('Nombre');
+        $this->setPrimaryKey('ProvServicios');
 
         $this->hasMany('Invoices', [
             'foreignKey' => 'supplier_id'
@@ -51,13 +51,17 @@ class SuppliersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+            ->integer('ProvServicios')
+            ->allowEmpty('ProvServicios', 'create');
 
         $validator
-            ->scalar('name')
-            ->allowEmpty('name');
+            ->scalar('Nombre')
+            ->allowEmpty('Nombre');
 
         return $validator;
+    }
+
+    public static function defaultConnectionName() {
+        return 'modelSQL';
     }
 }

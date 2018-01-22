@@ -39,7 +39,8 @@ class WarehousesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Branches', [
-            'foreignKey' => 'branch_id'
+            'foreignKey' => 'branch_id',
+            'strategy' => 'select'
         ]);
         $this->hasMany('Stockmoves', [
             'foreignKey' => 'warehouse_id'

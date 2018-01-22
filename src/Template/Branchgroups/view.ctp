@@ -46,9 +46,9 @@
 		  <tbody>
             <?php foreach ($branchgroup->branches as $branches): ?>
             <tr>
-                <td><?= h($branches->id) ?></td>
-                <td><?= h($branches->name) ?></td>
-                <td><?= h($branches->branchgroup_id) ?></td>
+                <td><?= h($branches->SUCURSAL) ?></td>
+                <td><?= h($branches->NOMBRE) ?></td>
+                <td><?= h($branches->Cia) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Branches', 'action' => 'view', $branches->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Branches', 'action' => 'edit', $branches->id]) ?>

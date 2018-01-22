@@ -26,7 +26,7 @@ class ItemcodesController extends AppController
     public function index()
     {   
         $query = $this->Itemcodes->find()
-        ->contain(['Items', 'Invoices','Positions', 'Statusitems', 'Currencies']);
+        ->contain(['Items', 'Invoices','Positions','Insureds' ,'Statusitems', 'Currencies']);
         if($this->request->is('post')){
             $query = $this->Filters->Filtrado($this->request->getData(),$query);
             
@@ -50,7 +50,7 @@ class ItemcodesController extends AppController
     public function view($id = null)
     {
         $itemcode = $this->Itemcodes->get($id, [
-            'contain' => ['Items', 'Invoices', 'Statusitems','Positions' ,'Currencies', 'StockmovesDetails', 'Tickets']
+            'contain' => ['Items', 'Invoices', 'Statusitems','Positions','Insureds' ,'Currencies', 'StockmovesDetails', 'Tickets']
         ]);
 
         $this->set('itemcode', $itemcode);
@@ -78,8 +78,9 @@ class ItemcodesController extends AppController
         $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
         $statusitems = $this->Itemcodes->Statusitems->find('list', ['limit' => 200]);
         $positionbranches = $this->Itemcodes->Positions->find('list', ['limit' => 200]);
+        $insureds = $this->Itemcodes->Insureds->find('list', ['limit' => 200]);
         $currencies = $this->Itemcodes->Currencies->find('list', ['limit' => 200]);
-        $this->set(compact('itemcode', 'items', 'invoices', 'statusitems', 'positionbranches', 'currencies'));
+        $this->set(compact('itemcode','insureds','items', 'invoices', 'statusitems', 'positionbranches', 'currencies'));
         $this->set('_serialize', ['itemcode']);
     }
 
@@ -107,9 +108,10 @@ class ItemcodesController extends AppController
         $items = $this->Itemcodes->Items->find('list', ['limit' => 200]);
         $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
         $statusitems = $this->Itemcodes->Statusitems->find('list', ['limit' => 200]);
+        $insureds = $this->Itemcodes->Insureds->find('list', ['limit' => 200]);
         $positionbranches = $this->Itemcodes->Positions->find('list', ['limit' => 200]);
         $currencies = $this->Itemcodes->Currencies->find('list', ['limit' => 200]);
-        $this->set(compact('itemcode', 'items', 'invoices', 'statusitems', 'positionbranches', 'currencies'));
+        $this->set(compact('itemcode','insureds' ,'items', 'invoices', 'statusitems', 'positionbranches', 'currencies'));
         $this->set('_serialize', ['itemcode']);
     }
 

@@ -11,7 +11,7 @@
 			<li><?= $this->Html->link(__('List Positiontypebranches'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-
+	 <?= $this->Form->create($positiontypebranch) ?>
 	<div class="editdata">
 		<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
 				<tbody>

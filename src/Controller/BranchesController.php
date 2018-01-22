@@ -23,7 +23,7 @@ class BranchesController extends AppController
             'contain' => ['Branchgroups']
         ];
         $branches = $this->paginate($this->Branches);
-
+        
         $this->set(compact('branches'));
         $this->set('_serialize', ['branches']);
     }

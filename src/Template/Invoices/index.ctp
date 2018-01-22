@@ -29,7 +29,7 @@
             <?php foreach ($invoices as $invoice): ?>
             <tr>
                 <td><?= $this->Number->format($invoice->id) ?></td>
-                <td><?= $invoice->has('supplier') ? $this->Html->link($invoice->supplier->name, ['controller' => 'Suppliers', 'action' => 'view', $invoice->supplier->id]) : '' ?></td>
+                <td><?= $invoice->has('supplier') ? $this->Html->link($invoice->supplier->Nombre, ['controller' => 'Suppliers', 'action' => 'view', $invoice->supplier->ProvServicios]) : '' ?></td>
                 <td><?= h($invoice->number) ?></td>
                 <td><?= $invoice->has('pdf') ? $this->Html->link("<i class='fa fa-file-pdf-o' aria-hidden='true'></i> PDF", '/files/invoices/' . $invoice->pdf, ['escape' => false, 'target' => '_blank']) : '' ?></td>
                 <td><?= $invoice->has('xml') ? $this->Html->link("<i class='fa fa-file-code-o' aria-hidden='true'></i> XML", '/files/invoices/' . $invoice->po, ['escape' => false, 'target' => '_blank']) : '' ?></td>
