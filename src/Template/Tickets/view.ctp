@@ -315,12 +315,14 @@
 
 
 
-<div class="easyui-layout"  style="width:100%;height:597px;">
+<div class="easyui-layout"  style="width:100%;height:650px;">
         <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
 
            <div style="margin-left: 0px;" id='contentAjax'></div>
         </div>
         <div data-options="region:'center'"  style="width:100%;">
+        <div id="tt" class="easyui-tabs" style="width:100%;height:100%">
+            <div title="Ticket" style="padding:10px">
           <?= $this->Form->create($ticket,['url' => ['controller' => 'Tickets', 'action' => 'edit']]) ?>
              <div class="editdata">
             <table  cellpadding="0" cellspacing="0" style="width:100%; border:none;">
@@ -379,6 +381,41 @@
             <?= $this->Form->button(__('Submit'),['style'=> 'margin-top:10px']) ?>
             </div>
         </div>
+        <div title="Logs" style="padding:10px">
+            <div class="related" title="<?= __('Ticketlogs') ?>">
+                <?php if (!empty($ticket->ticketlogs)): ?>
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col"><?= __('New Status') ?></th>
+                            <th scope="col"><?= __('User Id') ?></th>
+                            <th scope="col"><?= __('Group Id') ?></th>
+                            <th scope="col"><?= __('Created') ?></th>
+                            <th scope="col"><?= __('User Transfer') ?></th>
+                            <th scope="col"><?= __('Group Transfer') ?></th>
+                            <th scope="col"><?= __('Coments') ?></th>
+                        </tr>
+                      </thead>
+                  <tbody>
+                    <?php foreach ($ticket->ticketlogs as $ticketlogs): ?>
+                    <tr>
+                        <td><?= h($ticketlogs->ticket_status->name) ?></td>
+                        <td><?= h($ticketlogs->user->name) ?></td>
+                        <td><?= h($ticketlogs->group->name) ?></td>
+                        <td><?= h($ticketlogs->created) ?></td>
+                        <td><?= h($ticketlogs->usertransfer->name) ?></td>
+                        <td><?= h($ticketlogs->grouptransfer->name) ?></td>
+                        <td><?= h($ticketlogs->coments) ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+                <?php endif; ?>
+            </div>
+        </div>    
+    </div>    
+</div>
+
     </div>
 <?= $this->Form->end() ?>
 

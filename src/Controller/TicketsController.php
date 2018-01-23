@@ -129,7 +129,7 @@ class TicketsController extends AppController
                 return $this->redirect(['action' => 'index']);
             }
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes' => ['Users'], 'Ticketlogs','Branches','Userrequerieds','Userautors']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes' => ['Users'], 'Ticketlogs' =>['Users' , 'Groups' , 'TicketStatuses','Usertransfers','Grouptransfers'],'Branches','Userrequerieds','Userautors']
             ]);
         }
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -356,12 +356,10 @@ class TicketsController extends AppController
             }
             $this->Flash->error(__('Error al cambiar de estado :('));
 
-
-
          }
 
     }
-
+    
      public function team() {
          $query = 'SELECT count(t.tickettype_id)as total, tt.name  FROM tickets t inner join tickettypes tt on tt.id = t.tickettype_id group by t.tickettype_id ';
 

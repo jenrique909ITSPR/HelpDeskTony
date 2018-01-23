@@ -38,15 +38,9 @@
 									<td><?= $this->Form->control('service_tag',['label' => false]); ?></td>
 								</tr>
                 <tr>
-<<<<<<< HEAD
-									<td><?= $this->form->label(__('Warranty')) ?></td>
-									<td colspan="5" ><?=  $this->Form->control('warranty', ['label' => false]); ?></td>
-								</tr>
-                <tr>
-=======
+
 									<td style="width:5%;"><?= $this->form->label(__('Warranty')) ?></td>
 									<td colspan="1"><?=  $this->Form->created('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
->>>>>>> 5676ea92e258690e61dc1c5f1942a4dcd54ad8a1
 									<td  style="width:5%;"><?= $this->form->label(__('Cost')) ?></td>
 									<td colspan="1"><?= $this->Form->control('cost',['label' => false]); ?></td>
 									<td  style="width:5%;"><?= $this->form->label(__('Currencies')) ?></td>

@@ -45,11 +45,31 @@ class TicketlogsTable extends Table
         $this->belongsTo('Tickets', [
             'foreignKey' => 'ticket_id'
         ]);
+        $this->belongsTo('TicketStatuses', [
+            'foreignKey' => 'new_status'
+        ]);
+        
+
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+            'className' => 'Users',
+            'foreignKey' => 'user_id',
+            'propertyName' => 'user',
+        ]);
+
+        $this->belongsTo('Usertransfers', [
+            'className' => 'Users',
+            'foreignKey' => 'user_transfer',
+            'propertyName' => 'usertransfer',
         ]);
         $this->belongsTo('Groups', [
-            'foreignKey' => 'group_id'
+            'className' => 'Groups',
+            'foreignKey' => 'group_id',
+            'propertyName' => 'group',
+        ]);
+        $this->belongsTo('Grouptransfers', [
+            'className' => 'Groups',
+            'foreignKey' => 'group_transfer',
+            'propertyName' => 'grouptransfer',
         ]);
     }
 
