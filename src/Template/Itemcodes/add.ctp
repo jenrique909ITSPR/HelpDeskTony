@@ -39,10 +39,7 @@
 								</tr>
                 <tr>
 									<td><?= $this->form->label(__('Warranty')) ?></td>
-									<td colspan="5"><?=  $this->Form->control('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
-								</tr>
-                <tr>
-
+									<td colspan="5" ><?=  $this->Form->control('warranty', ['label' => false]); ?></td>
 								</tr>
                 <tr>
 									<td  style="width:5%;"><?= $this->form->label(__('Cost')) ?></td>
