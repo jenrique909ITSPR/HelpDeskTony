@@ -106,7 +106,8 @@ use Cake\Validation\Validator;
         
         $this->belongsTo('Branches', [
             'foreignKey' => 'branch_id',
-            'joinType' => 'left'
+            'joinType' => 'left',
+            'strategy' => 'select'
         ]);
         $this->hasMany('Ticketlogs', [
             'foreignKey' => 'ticket_id'

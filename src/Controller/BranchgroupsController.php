@@ -20,7 +20,8 @@ class BranchgroupsController extends AppController
      public function index()
      {
         $this->paginate = [
-            'limit' => $this->limit_data ];
+            'limit' => $this->limit_data ,
+            'contain' => 'Users'];
          $branchgroups = $this->paginate($this->Branchgroups);
 
          $this->set(compact('branchgroups'));

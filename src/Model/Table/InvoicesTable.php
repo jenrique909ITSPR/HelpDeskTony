@@ -38,7 +38,8 @@ class InvoicesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Suppliers', [
-            'foreignKey' => 'supplier_id'
+            'foreignKey' => 'supplier_id',
+            'strategy' => 'select'
         ]);
         $this->hasMany('Itemcodes', [
             'foreignKey' => 'invoice_id'

@@ -1,7 +1,12 @@
-<ul class="easyui-tree" data-options="animate:true,lines:true" id="tt"/>
+ <!--
+ <?= $this->Form->control(__('categorySearch'),['type' => 'text','id' => 'categorySearch' , 'rel' =>  $this->Url->build(['controller' => 'Hdcategories', 'action' => 'loadcategories'])]);  ?>
+
+<?= $this->Form->control(__('viewAll'),['type' => 'submit' ,'rel' =>  $this->Url->build(['controller' => 'Hdcategories', 'action' => 'categoriesview']) ]); ?>
+-->
+<ul id="tt" class="easyui-tree" url="<?= $this->Url->build(['controller' => 'Hdcategories', 'action' => 'loadcategories']) ?>">
 
 <script type="text/javascript">
-   
+   /*
     $('#tt').tree({
     });
     $('#tt').tree({
@@ -55,7 +60,7 @@
         return nodes;
     }
 
-
+    */
     $('#tt').tree({
         onDblClick: function(node){
             var node = $('#tt').tree('getSelected');
@@ -68,11 +73,29 @@
                 $("#hdcategory_id").append("<option value='" + node.id+"'' >"+s+"</option>");
 
             }
-        },
-        onLoadSuccess: function(node){
-                $('#tt').tree('collapseAll');
-            }
+        }
+
 
     });
+    /*
+    $("#categorySearch").on("input", function(e) {
+        if(($('#categorySearch').val()).length > 2 ){
+            //var cargando = $("#contentAjax").html("<div class='loading'></div>");
+            $.ajax({
+                type: 'POST',
+                url:$(this).attr('rel'),
+                data:  'id=2',
+                beforeSend: function() {
+              //             cargando.show();
+                },
+                success: function(data) {
+                        $('#tt').attr('url',data);
+
+                }
+            });
+        }
+        return false;
+    });
+*/
 
 </script>

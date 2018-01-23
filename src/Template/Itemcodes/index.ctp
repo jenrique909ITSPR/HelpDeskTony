@@ -10,10 +10,10 @@
     <?= $this->Form->create('search') ?>
     <table class="tableTransparent">
       <tr>
-        <td><?= $this->Form->control('item_id', ['empty' => true]); ?></td>
-        <td><?= $this->Form->control('serial'); ?></td>
-        <td><?= $this->Form->control('invoice_id', ['empty' => true]); ?></td>
-        <td><?= $this->Form->control('statusitem_id', ['empty' => true]); ?></td>
+        <td><?= $this->Form->control('item_id', ['options' => $items , 'empty' => true]); ?></td>
+        <td><?= $this->Form->control('%serial',['label' => 'Serial']); ?></td>
+        <td><?= $this->Form->control('invoice_id', ['options' => $invoices , 'empty' => true]); ?></td>
+        <td><?= $this->Form->control('statusitem_id', ['options' => $statusitems , 'empty' => true]); ?></td>
         <td><?= $this->Form->control('branch_id', ['empty' => true]); ?></td>
       </tr>
     </table>
@@ -61,7 +61,7 @@
                 <td><?= h($itemcode->service_tag) ?></td>
                 <td><?= $this->Number->format($itemcode->cost) ?></td>
                 <td><?= $itemcode->has('currency') ? $this->Html->link($itemcode->currency->name, ['controller' => 'Currencies', 'action' => 'view', $itemcode->currency->id]) : '' ?></td>
-                <td><?= h($itemcode->insured) ?></td>
+                <td><?= $itemcode->has('insured') ? $this->Html->link($itemcode->insured->name, ['controller' => 'Insureds', 'action' => 'view', $itemcode->insured->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $itemcode->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $itemcode->id]) ?>

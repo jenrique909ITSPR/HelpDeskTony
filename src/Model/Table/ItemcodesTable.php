@@ -66,6 +66,9 @@ use Cake\Validation\Validator;
         $this->hasMany('Tickets', [
             'foreignKey' => 'itemcode_id'
         ]);
+        $this->belongsTo('Insureds', [
+            'foreignKey' => 'insured_id'
+        ]);
     }
 
     /**

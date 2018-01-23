@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Supplier') ?></th>
-            <td><?= $invoice->has('supplier') ? $this->Html->link($invoice->supplier->name, ['controller' => 'Suppliers', 'action' => 'view', $invoice->supplier->id]) : '' ?></td>
+            <td><?= $invoice->has('supplier') ? $this->Html->link($invoice->supplier->Nombre, ['controller' => 'Suppliers', 'action' => 'view', $invoice->supplier->ProvServicios]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Pdf') ?></th>

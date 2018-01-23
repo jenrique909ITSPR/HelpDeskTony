@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Branch') ?></th>
-            <td><?= $warehouse->has('branch') ? $this->Html->link($warehouse->branch->name, ['controller' => 'Branches', 'action' => 'view', $warehouse->branch->id]) : '' ?></td>
+            <td><?= $warehouse->has('branch') ? $this->Html->link($warehouse->branch->NOMBRE, ['controller' => 'Branches', 'action' => 'view', $warehouse->branch->SUCURSAL]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
