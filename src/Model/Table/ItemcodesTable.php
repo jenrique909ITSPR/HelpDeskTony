@@ -49,7 +49,8 @@ use Cake\Validation\Validator;
             'foreignKey' => 'item_id'
         ]);
         $this->belongsTo('Invoices', [
-            'foreignKey' => 'invoice_id'
+            'foreignKey' => 'Sucursal',
+            'strategy' => 'select'
         ]);
         $this->belongsTo('Statusitems', [
             'foreignKey' => 'statusitem_id'

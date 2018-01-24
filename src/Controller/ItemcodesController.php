@@ -39,6 +39,7 @@ class ItemcodesController extends AppController
         $this->set(compact(['itemcodes','items','invoices','statusitems']));
         $this->set('_serialize', ['itemcodes']);
     }
+   
 
     /**
      * View method

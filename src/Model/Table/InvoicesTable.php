@@ -33,12 +33,16 @@ class InvoicesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('invoices');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->setTable('V_ValesCompraTI_Fact');
+        $this->setDisplayField('Factura');
+        $this->setPrimaryKey('Factura');
 
-        $this->belongsTo('Suppliers', [
-            'foreignKey' => 'supplier_id',
+        $this->belongsTo('Branches', [
+            'foreignKey' => 'Sucursal',
+            'strategy' => 'select'
+        ]);
+        $this->belongsTo('Purchaseorders', [
+            'foreignKey' => 'CveVale',
             'strategy' => 'select'
         ]);
         $this->hasMany('Itemcodes', [
@@ -54,25 +58,25 @@ class InvoicesTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
+       /* $validator
             ->integer('id')
-            ->allowEmpty('id', 'create');
+            ->allowempty('id', 'create');
 
         $validator
             ->scalar('number')
-            ->allowEmpty('number');
+            ->allowempty('number');
 
         $validator
             ->scalar('pdf')
-            ->allowEmpty('pdf');
+            ->allowempty('pdf');
 
         $validator
             ->scalar('xml')
-            ->allowEmpty('xml');
+            ->allowempty('xml');
 
         $validator
             ->scalar('purchase_order')
-            ->allowEmpty('purchase_order');
+            ->allowempty('purchase_order');*/
 
         return $validator;
     }
@@ -86,8 +90,11 @@ class InvoicesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['supplier_id'], 'Suppliers'));
+     //   $rules->add($rules->existsIn(['supplier_id'], 'Suppliers'));
 
         return $rules;
+    }
+      public static function defaultConnectionName() {
+        return 'modelSQL';
     }
 }

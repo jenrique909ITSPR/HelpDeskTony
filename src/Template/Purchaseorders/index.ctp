@@ -3,7 +3,15 @@
   * @var \App\View\AppView $this
   * @var \App\Model\Entity\Position[]|\Cake\Collection\CollectionInterface $positions  */
 ?>
+<div class="searchbox right">
+      <?= $this->Form->create('purchaseordersearch', ['type' => 'get','url' => ['controller' => 'Purchaseorders', 'action' => 'view']]) ?>
+          <?php
+              echo $this->Form->control('purchaseordersearch',['label' => false, 'placeholder' => __('Search Orden de Compra #')]);
+          ?>
+      <?= $this->Form->end() ?>
 
+
+    </div>
 <div class="purchaseorders index">
     <h3><?= __('Purchaseorders') ?></h3>
 	

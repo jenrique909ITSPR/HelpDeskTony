@@ -24,8 +24,7 @@ class HdcategoriesController extends AppController
             'contain' => ['ParentHdcategories']
         ];
         $hdcategories = $this->paginate($this->Hdcategories);
-        $categories = TableRegistry::get('Hdcategories');
-        $categories->recover();
+
         $this->set(compact('hdcategories'));
         $this->set('_serialize', ['hdcategories']);
     }

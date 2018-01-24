@@ -81,6 +81,7 @@ $cakeDescription = 'Portal TI';
           <li><a href="#"><i class='fa fa-shopping-cart' aria-hidden='true'></i><?= __('Purchases') ?></a>
             <ul class="submenu2">
             <li><?= $this->Html->link("<i class='fa fa-handshake-o' aria-hidden='true'></i>" . __('Suppliers'), ['controller' => 'Suppliers', 'action' => 'index'], ['escape' => false]) ?></li>
+            <li><?= $this->Html->link("<i class='fa fa-credit-card' aria-hidden='true'></i>" . __('Purchaseorders'), ['controller' => 'Purchaseorders', 'action' => 'index'], ['escape' => false]) ?></li>
               <li><?= $this->Html->link("<i class='fa fa-file-text-o' aria-hidden='true'></i>" . __('Invoices'), ['controller' => 'Invoices', 'action' => 'index'], ['escape' => false]) ?></li>
               <li><?= $this->Html->link("<i class='fa fa-money' aria-hidden='true'></i>" . __('Currencies'), ['controller' => 'Currencies', 'action' => 'index'], ['escape' => false]) ?></li>
             </ul>

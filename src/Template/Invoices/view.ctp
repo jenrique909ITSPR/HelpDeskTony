@@ -6,24 +6,33 @@
 ?>
 
 <div class="invoices view">
-    <h3><?= h($invoice->id) ?></h3>
+    <h3><?= h($invoice->Factura) ?></h3>
 	<div class="actions">
 		<ul>
-			<li><?= $this->Form->postLink(__('Delete Invoice'), ['action' => 'delete', $invoice->id], ['confirm' => __('Are you sure you want to delete # {0}?', $invoice->id)]) ?> </li>
-			<li><?= $this->Html->link(__('New Invoice'), ['action' => 'add']) ?> </li>
+			
 			<li><?= $this->Html->link(__('List Invoices'), ['action' => 'index']) ?> </li>
-			<li><?= $this->Html->link(__('Edit Invoice'), ['action' => 'edit', $invoice->id]) ?> </li>
+			<!--<li><?= $this->Html->link(__('Edit Invoice'), ['action' => 'edit', $invoice->id]) ?> </li>-->
 		</ul>
 	</div>
+
+
 	<div class="viewdata">
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Number') ?></th>
-            <td><?= h($invoice->number) ?></td>
+            <th scope="row"><?= __('Factura') ?></th>
+            <td><?= h($invoice->Factura) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Supplier') ?></th>
-            <td><?= $invoice->has('supplier') ? $this->Html->link($invoice->supplier->Nombre, ['controller' => 'Suppliers', 'action' => 'view', $invoice->supplier->ProvServicios]) : '' ?></td>
+            <th scope="row"><?= __('Purchaseorder') ?></th>
+            <td><?= $invoice->has('purchaseorder') ? $this->Html->link($invoice->purchaseorder->CveVale, ['controller' => 'Purchaseorder', 'action' => 'view', $invoice->purchaseorder->CveVale]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Branch') ?></th>
+            <td><?= $invoice->has('branch') ? $this->Html->link($invoice->branch->NOMBRE, ['controller' => 'Suppliers', 'action' => 'view', $invoice->branch->NOMBRE]) : '' ?></td>
+        </tr>
+            <tr>
+            <th scope="row"><?= __('Renglon') ?></th>
+            <td><?= h($invoice->Renglon) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Pdf') ?></th>
@@ -34,12 +43,20 @@
             <td><?= h($invoice->xml) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Purchase Order') ?></th>
-            <td><?= h($invoice->purchase_order) ?></td>
+            <th scope="row"><?= __('FechaEmi') ?></th>
+            <td><?= h($invoice->FechaEmi) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($invoice->id) ?></td>
+            <th scope="row"><?= __('Importe') ?></th>
+            <td><?= h($invoice->Importe) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Subtotal') ?></th>
+            <td><?= h($invoice->Subtotal) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('ImpIva') ?></th>
+            <td><?= h($invoice->ImpIva) ?></td>
         </tr>
     </table>
 	</div>

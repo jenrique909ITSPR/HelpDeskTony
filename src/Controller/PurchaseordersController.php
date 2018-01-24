@@ -33,8 +33,22 @@ class PurchaseordersController extends AppController
      */
     public function view($id = null)
     {
+        if($this->request->is('get')){
+            $idpurchase = $this->request->query('purchaseordersearch');
+
+            if (is_null($id)){
+                $id = $idpurchase;
+            }
+            if(is_null($idpurchase) && is_null($id)){
+
+                $this->Flash->error(__('La orden de compra ingresada no existe'));
+                return $this->redirect(['action' => 'index']);
+            }
+
+
+        }
         $purchaseorder = $this->Purchaseorders->get($id, [
-            'contain' => ['Companies','Purchasedescriptions','Branches','Branchrequests','Departments','Departmentrequires','Suppliers','Purchaseinvoices']]
+            'contain' => ['Companies','Purchasedescriptions','Branches','Branchrequests','Departments','Departmentrequires','Suppliers','Invoices']]
         );
 
         $this->set('purchaseorder', $purchaseorder);

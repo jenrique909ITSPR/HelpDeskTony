@@ -234,13 +234,14 @@ class TicketsController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-          debug($this->request->getData());
+          //debug($this->request->getData());
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Datos del ticket actualizados '));
                 return $this->redirect(['action' => 'view' , $ticket->id]);
             }
             $this->Flash->error(__('Error al actualizar datos'));
+            return $this->redirect(['action' => 'view' , $ticket->id]);
         }
 
         $tickettypes = $this->Tickets->Tickettypes->find('list', ['limit' => 200]);

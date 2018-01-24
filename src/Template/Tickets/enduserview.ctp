@@ -25,22 +25,22 @@
         <tr>
             <th scope="row"><?= __('Ticket Status') ?></th>
             <td><?= $ticket->has('ticket_status') ? $this->Html->link($ticket->ticket_status->name, ['controller' => 'Ticketstatuses', 'action' => 'view', $ticket->ticket_status->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Source') ?></th>
             <td><?= $ticket->has('source') ? $this->Html->link($ticket->source->title, ['controller' => 'Sources', 'action' => 'view', $ticket->source->id]) : '' ?></td>
         </tr>
+       
         <tr>
             <th scope="row"><?= __('Title') ?></th>
             <td><?= h($ticket->title) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Solution') ?></th>
             <td><?= h($ticket->solution) ?></td>
         </tr>
+        
         <tr>
             <th scope="row"><?= __('Itemcode') ?></th>
             <td><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->name, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode->id]) : '' ?></td>
+            <th scope="row"><?= __('Ticketimpact') ?></th>
+            <td><?= $ticket->has('ticketimpact') ? $this->Html->link($ticket->ticketimpact->name, ['controller' => 'Ticketimpacts', 'action' => 'view', $ticket->ticketimpact->id]) : '' ?></td>
         </tr>
         <!--<tr>
             <th scope="row"><?= __('User') ?></th>
@@ -50,23 +50,18 @@
             <th scope="row"><?= __('Group') ?></th>
             <td><?= $ticket->has('group') ? $this->Html->link($ticket->group->name, ['controller' => 'Groups', 'action' => 'view', $ticket->group->id]) : '' ?></td>
         </tr>-->
-        <tr>
-            <th scope="row"><?= __('Ticketimpact') ?></th>
-            <td><?= $ticket->has('ticketimpact') ? $this->Html->link($ticket->ticketimpact->name, ['controller' => 'Ticketimpacts', 'action' => 'view', $ticket->ticketimpact->id]) : '' ?></td>
-        </tr>
+        
         <tr>
             <th scope="row"><?= __('Ticketurgency') ?></th>
             <td><?= $ticket->has('ticketurgency') ? $this->Html->link($ticket->ticketurgency->name, ['controller' => 'Ticketurgencies', 'action' => 'view', $ticket->ticketurgency->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Ticketpriority') ?></th>
             <td><?= $ticket->has('ticketpriority') ? $this->Html->link($ticket->ticketpriority->name, ['controller' => 'Ticketpriorities', 'action' => 'view', $ticket->ticketpriority->id]) : '' ?></td>
+
         </tr>
+        
         <tr>
             <th scope="row"><?= __('Parent Ticket') ?></th>
             <td><?= $ticket->has('parent_ticket') ? $this->Html->link($ticket->parent_ticket->title, ['controller' => 'Tickets', 'action' => 'view', $ticket->parent_ticket->id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Hdcategory') ?></th>
             <td><?= $ticket->has('hdcategory') ? $this->Html->link($ticket->hdcategory->title, ['controller' => 'Hdcategories', 'action' => 'view', $ticket->hdcategory->id]) : '' ?></td>
         </tr>
@@ -77,16 +72,14 @@
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($ticket->id) ?></td>
-        </tr>
-        <tr>
+       
             <th scope="row"><?= __('User Autor') ?></th>
             <td><?= h($ticket->userautor->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('User Requeried') ?></th>
             <td><?= h($ticket->userrequeried->name) ?></td>
-        </tr>
-        <tr>
+        
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($ticket->created) ?></td>
         </tr>
@@ -100,10 +93,9 @@
         <h4><?= __('Resolution') ?></h4>
         <?= $this->Text->autoParagraph(h($ticket->resolution)); ?>
     </div>
-</div>
-
-
+    <br>
     <div class="related clearfix" title="<?= __('Tracking Text') ?>">
+      <h4><?= __('Tracking Text') ?></h4>
       <?php if (!empty($ticket->ticketnotes)): ?>
         <?php foreach ($ticket->ticketnotes as $ticketnotes): ?>
         <?php if ($ticketnotes->ticketnotestype_id == 1): ?>
@@ -124,9 +116,11 @@
         <?php endforeach; ?>
       <?php endif; ?>
 
-
-
+    </div>
 </div>
+
+
+
 
     <div class="related" title="<?= __('Ticketsfiles') ?>">
         <?php if (!empty($ticket->ticketsfiles)): ?>

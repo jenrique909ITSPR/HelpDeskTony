@@ -61,11 +61,11 @@ class PurchaseordersTable extends Table
             'foreignKey' => 'CveVale',
             'strategy' => 'select'
         ]);
-        $this->hasMany('Purchaseinvoices', [
+        
+       $this->hasMany('Invoices', [
             'foreignKey' => 'CveVale',
             'strategy' => 'select'
         ]);
-       
     }
 
     /**
