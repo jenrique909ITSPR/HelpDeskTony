@@ -10,7 +10,14 @@
     <?= $this->Form->create('search') ?>
     <table class="tableTransparent">
       <tr>
-        <td><?= $this->Form->control('item_id', ['options' => $items , 'empty' => true]); ?></td>
+        <td>
+            <?= $this->Form->control('Items.%name',['label' => false,
+                'class' => 'easyui-combobox',
+                'data-options' => "loader: myloader,mode: 'remote',valueField: 'text',textField: 'text',label: 'Item:',labelPosition: 'top'",
+                'style'=>"width:100%;" 
+            ]); ?>
+            <!--<input name="%Items.name" class="easyui-combobox" style="width:100%;" data-options="loader: myloader,mode: 'remote',valueField: 'id',textField: 'text',label: 'Item:',labelPosition: 'top'">-->
+            </td>
         <td><?= $this->Form->control('%serial',['label' => 'Serial']); ?></td>
         <td><?= $this->Form->control('invoice_id', ['options' => $invoices , 'empty' => true]); ?></td>
         <td><?= $this->Form->control('statusitem_id', ['options' => $statusitems , 'empty' => true]); ?></td>
@@ -22,6 +29,7 @@
           <?= $this->Form->control('DatePurcharse'); ?>-->
     <?= $this->Form->button(__('Search')) ?>
     <?= $this->Form->end() ?>
+    
   </fieldset>
     <h3><?= __('Itemcodes') ?></h3>
 	<div class="actions">
@@ -82,3 +90,29 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+<script type="text/javascript">
+  
+        var myloader = function(param,success,error){
+            var q = param.q || '';
+            if (q.length <= 2){return false}
+            $.ajax({
+                url: '<?= $this->Url->build(['controller' => 'Items', 'action' => 'loaditems']) ?>',
+                dataType: 'json',
+                data: {
+                    q: q
+                },
+                success: function(data){
+                    var items = $.map(data, function(item,index){
+                        return {
+                            id: index,
+                            text : item
+                        };
+                    });
+                    success(items);
+                },
+                error: function(){
+                    error.apply(this, arguments);
+                }
+            });
+        }
+</script>

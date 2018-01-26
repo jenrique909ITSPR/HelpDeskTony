@@ -30,7 +30,7 @@ class TicketsController extends AppController
 
         $this->loadComponent('Tickettype');
         $this->loadComponent('Messages');
-
+        
     }
 
      public function favorite($id = null){

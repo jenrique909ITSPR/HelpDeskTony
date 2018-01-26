@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 
+
 /**
  * Itemcodes Controller
  *
@@ -16,6 +17,8 @@ class ItemcodesController extends AppController
     {
          parent::initialize();
         $this->loadComponent('Filters');
+        
+        
     }
 
     /**
@@ -29,7 +32,6 @@ class ItemcodesController extends AppController
         ->contain(['Items', 'Invoices','Positions','Insureds' ,'Statusitems', 'Currencies']);
         if($this->request->is('post')){
             $query = $this->Filters->Filtrado($this->request->getData(),$query);
-            
         }
         $items = $this->Itemcodes->Items->find('list', ['limit' => 200]);
         $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);

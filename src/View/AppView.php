@@ -39,7 +39,7 @@ class AppView extends View
         $this->loadHelper('Form', [
             'widgets' => [
             'autocomplete' => ['Autocomplete']
-    ]
-]);
+            ]
+        ]);
     }
 }
