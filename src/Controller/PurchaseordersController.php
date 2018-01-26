@@ -14,11 +14,17 @@ class PurchaseordersController extends AppController
      * @return \Cake\Http\Response|void
      */
     public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Companies','Branches','Branchrequests','Departments','Departmentrequires','Suppliers']
-        ];
-        $purchaseorders = $this->paginate($this->Purchaseorders);
+
+    {   
+        $purchaseorders = $this->Purchaseorders->find()
+            ->contain(['Companies','Branches','Branchrequests','Departments','Departmentrequires','Suppliers'])
+        ;
+        if($this->request->is('get')){
+            $palabra = $this->request->query('purchaseordersearch');
+            $purchaseorders->where(['OR' => ['CveVale' => $palabra , 'Justificacion LIKE' => '%'.$palabra.'%' , 'NomProveedor LIKE' => '%'.$palabra.'%' ]]);
+            
+        }
+        $purchaseorders = $this->paginate($purchaseorders);
         
         $this->set(compact('purchaseorders'));
         $this->set('_serialize', ['purchaseorders']);
@@ -33,20 +39,7 @@ class PurchaseordersController extends AppController
      */
     public function view($id = null)
     {
-        if($this->request->is('get')){
-            $idpurchase = $this->request->query('purchaseordersearch');
-
-            if (is_null($id)){
-                $id = $idpurchase;
-            }
-            if(is_null($idpurchase) && is_null($id)){
-
-                $this->Flash->error(__('La orden de compra ingresada no existe'));
-                return $this->redirect(['action' => 'index']);
-            }
-
-
-        }
+        
         $purchaseorder = $this->Purchaseorders->get($id, [
             'contain' => ['Companies','Purchasedescriptions','Branches','Branchrequests','Departments','Departmentrequires','Suppliers','Invoices']]
         );

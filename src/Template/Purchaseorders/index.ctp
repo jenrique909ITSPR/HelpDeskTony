@@ -4,7 +4,7 @@
   * @var \App\Model\Entity\Position[]|\Cake\Collection\CollectionInterface $positions  */
 ?>
 <div class="searchbox right">
-      <?= $this->Form->create('purchaseordersearch', ['type' => 'get','url' => ['controller' => 'Purchaseorders', 'action' => 'view']]) ?>
+      <?= $this->Form->create('purchaseordersearch', ['type' => 'get','url' => ['controller' => 'Purchaseorders', 'action' => 'index']]) ?>
           <?php
               echo $this->Form->control('purchaseordersearch',['label' => false, 'placeholder' => __('Search Orden de Compra #')]);
           ?>
@@ -32,7 +32,11 @@
                 <td><?= $purchaseorder->has('Suc_Solicita') ? $this->Html->link($purchaseorder->branch->NOMBRE, ['controller' => 'Branches', 'action' => 'view', $purchaseorder->branch->SUCURSAL]) : '' ?></td>
 
                 <td><?= h($purchaseorder->Justificacion) ?></td>
-                <td><?= h($purchaseorder->supplier->Nombre) ?></td>
+                <td>
+                <?php if(!is_null($purchaseorder->supplier)): ?>
+                <?= h($purchaseorder->supplier->Nombre) ?>
+                <?php endif; ?>
+                </td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $purchaseorder->CveVale]) ?>
                 </td>
