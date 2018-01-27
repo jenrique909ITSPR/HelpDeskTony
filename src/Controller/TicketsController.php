@@ -129,7 +129,7 @@ class TicketsController extends AppController
                 return $this->redirect(['action' => 'index']);
             }
              $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes' => ['Users'], 'Ticketlogs' =>['Users' , 'Groups' , 'TicketStatuses','Usertransfers','Grouptransfers'],'Branches','Userrequerieds','Userautors']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes' => ['Users'], 'Ticketlogs' =>['Users' , 'Groups'],'Branches','Userrequerieds','Userautors']
             ]);
         }
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -231,11 +231,14 @@ class TicketsController extends AppController
     public function edit($id = null)
     {
         $ticket = $this->Tickets->get($id, [
-            'contain' => []
+            'contain' => ['Ticketlogs']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-          //debug($this->request->getData());
-            $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
+            $ticketlogsTable = TableRegistry::get('Ticketlogs');
+            $ticketlog = $ticketlogsTable->newEntity($this->ticketLog($ticket,$this->request->getData()));
+            $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData(),['associated' => ['Ticketlogs']]);
+            $ticket->ticketlogs = $ticketlog;
+            
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Datos del ticket actualizados '));
                 return $this->redirect(['action' => 'view' , $ticket->id]);
@@ -263,6 +266,22 @@ class TicketsController extends AppController
          $dataTreeJson = json_encode($dataTree);
         $this->set(compact('ticket', 'tickettypes', 'ticketStatuses', 'sources', 'itemcodes', 'users', 'groups', 'ticketimpacts', 'ticketurgencies', 'ticketpriorities', 'dataTreeJson','parentTickets','branches'));
         $this->set('_serialize', ['ticket']);
+    }
+
+    public function ticketLog($ticket=null,$dataEdit=null)
+    {  $data = array();
+       foreach($dataEdit as $key => $value) {
+                if($value != $ticket[$key]){
+                    //debug('cambio '.$key.$value.'-'.$ticket[$key]);
+                    array_push($data,['ticket_id' => $ticket['id'],
+                        'user_id' => $this->request->session()->read('Auth.User.id'),
+                        'group_id' => $this->request->session()->read('Auth.User.group_id'),
+                        'field' => $key ,
+                        'valueprev' => $ticket[$key] , 
+                        'valuelater' => $value ] );
+                }
+        }
+         return $data;   
     }
 
     /**
@@ -418,6 +437,8 @@ class TicketsController extends AppController
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data,['associated' => ['Ticketnotes']]);
             $ticket->ticketnotes[0]->ticketnotestype_id = 1;
             $ticket->ticketnotes[0]->user_id = $this->request->session()->read('Auth.User.id');
+            debug($ticket);;
+            return 0;
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Ticket creado correctamente'));
 

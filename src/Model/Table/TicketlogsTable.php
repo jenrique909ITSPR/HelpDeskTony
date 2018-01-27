@@ -45,32 +45,19 @@ class TicketlogsTable extends Table
         $this->belongsTo('Tickets', [
             'foreignKey' => 'ticket_id'
         ]);
-        $this->belongsTo('TicketStatuses', [
-            'foreignKey' => 'new_status'
-        ]);
-        
-
+    
         $this->belongsTo('Users', [
             'className' => 'Users',
             'foreignKey' => 'user_id',
             'propertyName' => 'user',
         ]);
 
-        $this->belongsTo('Usertransfers', [
-            'className' => 'Users',
-            'foreignKey' => 'user_transfer',
-            'propertyName' => 'usertransfer',
-        ]);
         $this->belongsTo('Groups', [
             'className' => 'Groups',
             'foreignKey' => 'group_id',
             'propertyName' => 'group',
         ]);
-        $this->belongsTo('Grouptransfers', [
-            'className' => 'Groups',
-            'foreignKey' => 'group_transfer',
-            'propertyName' => 'grouptransfer',
-        ]);
+        
     }
 
     /**
@@ -84,22 +71,6 @@ class TicketlogsTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-
-        $validator
-            ->integer('user_transfer')
-            ->allowEmpty('user_transfer');
-
-        $validator
-            ->integer('group_transfer')
-            ->allowEmpty('group_transfer');
-
-        $validator
-            ->scalar('new_status')
-            ->allowEmpty('new_status');
-
-        $validator
-            ->scalar('coments')
-            ->allowEmpty('coments');
 
         return $validator;
     }
