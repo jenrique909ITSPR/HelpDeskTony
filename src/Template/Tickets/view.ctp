@@ -387,25 +387,25 @@
                 <table cellpadding="0" cellspacing="0">
                     <thead>
                         <tr>
-                            <th scope="col"><?= __('New Status') ?></th>
-                            <th scope="col"><?= __('User Id') ?></th>
-                            <th scope="col"><?= __('Group Id') ?></th>
                             <th scope="col"><?= __('Created') ?></th>
-                            <th scope="col"><?= __('User Transfer') ?></th>
-                            <th scope="col"><?= __('Group Transfer') ?></th>
-                            <th scope="col"><?= __('Coments') ?></th>
+                            <th scope="col"><?= __('User') ?></th>
+                            <th scope="col"><?= __('Group') ?></th>
+                            <th scope="col"><?= __('Field') ?></th>
+                            <th scope="col"><?= __('Valueprev') ?></th>
+                            <th scope="col"><?= __('Valuelater') ?></th>
                         </tr>
                       </thead>
                   <tbody>
+                    
                     <?php foreach ($ticket->ticketlogs as $ticketlogs): ?>
                     <tr>
-                        <td><?= h($ticketlogs->ticket_status->name) ?></td>
+                        <td><?= h($ticketlogs->created) ?></td>
                         <td><?= h($ticketlogs->user->name) ?></td>
                         <td><?= h($ticketlogs->group->name) ?></td>
-                        <td><?= h($ticketlogs->created) ?></td>
-                        <td><?= h($ticketlogs->usertransfer->name) ?></td>
-                        <td><?= h($ticketlogs->grouptransfer->name) ?></td>
-                        <td><?= h($ticketlogs->coments) ?></td>
+                        <td><?= h($ticketlogs->field) ?></td>
+                        <td><?= h($ticketlogs->valueprev) ?></td>
+                        <td><?= h($ticketlogs->valuelater) ?></td>
+                        
                     </tr>
                     <?php endforeach; ?>
                   </tbody>

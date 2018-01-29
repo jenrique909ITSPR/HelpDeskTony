@@ -234,12 +234,11 @@ class TicketsController extends AppController
             'contain' => ['Ticketlogs']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $ticketlogsTable = TableRegistry::get('Ticketlogs');
-            $ticketlog = $ticketlogsTable->newEntity($this->ticketLog($ticket,$this->request->getData()));
-            $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData(),['associated' => ['Ticketlogs']]);
-            $ticket->ticketlogs = $ticketlog;
-            
+            $datarequest = $this->request->getData();
+            $datarequest['ticketlogs'] = $this->ticketLog($ticket,$datarequest);
+            $ticket = $this->Tickets->patchEntity($ticket, $datarequest,['associated' => 'Ticketlogs']);
             if ($this->Tickets->save($ticket)) {
+
                 $this->Flash->success(__('Datos del ticket actualizados '));
                 return $this->redirect(['action' => 'view' , $ticket->id]);
             }
@@ -273,15 +272,26 @@ class TicketsController extends AppController
        foreach($dataEdit as $key => $value) {
                 if($value != $ticket[$key]){
                     //debug('cambio '.$key.$value.'-'.$ticket[$key]);
-                    array_push($data,['ticket_id' => $ticket['id'],
+                   array_push($data,
+                    ['ticket_id' => $ticket['id'],
                         'user_id' => $this->request->session()->read('Auth.User.id'),
                         'group_id' => $this->request->session()->read('Auth.User.group_id'),
                         'field' => $key ,
                         'valueprev' => $ticket[$key] , 
-                        'valuelater' => $value ] );
+                        'valuelater' => $value ]);
                 }
+               
         }
-         return $data;   
+        
+        return $data;
+        
+    }
+
+    public function getValueRelated($table=null,$value=null)
+    {
+        $table = TableRegistry::get($table);
+        $entity = $table->find('list')->where(['id' => $value]);
+        return $entity->toArray();
     }
 
     /**
@@ -437,8 +447,6 @@ class TicketsController extends AppController
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data,['associated' => ['Ticketnotes']]);
             $ticket->ticketnotes[0]->ticketnotestype_id = 1;
             $ticket->ticketnotes[0]->user_id = $this->request->session()->read('Auth.User.id');
-            debug($ticket);;
-            return 0;
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Ticket creado correctamente'));
 
