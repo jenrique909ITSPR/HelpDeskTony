@@ -231,11 +231,12 @@ class TicketsController extends AppController
     public function edit($id = null)
     {
         $ticket = $this->Tickets->get($id, [
-            'contain' => ['Ticketlogs']
+            'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes' => ['Users'], 'Ticketlogs' =>['Users' , 'Groups'],'Branches','Userrequerieds','Userautors']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $datarequest = $this->request->getData();
             $datarequest['ticketlogs'] = $this->ticketLog($ticket,$datarequest);
+            
             $ticket = $this->Tickets->patchEntity($ticket, $datarequest,['associated' => 'Ticketlogs']);
             if ($this->Tickets->save($ticket)) {
 
@@ -277,8 +278,8 @@ class TicketsController extends AppController
                         'user_id' => $this->request->session()->read('Auth.User.id'),
                         'group_id' => $this->request->session()->read('Auth.User.group_id'),
                         'field' => $key ,
-                        'valueprev' => $ticket[$key] , 
-                        'valuelater' => $value ]);
+                        'valueprev' => $this->getValueRelated($key,$ticket[$key]) , 
+                        'valuelater' => $this->getValueRelated($key,$value) ]);
                 }
                
         }
@@ -288,10 +289,72 @@ class TicketsController extends AppController
     }
 
     public function getValueRelated($table=null,$value=null)
-    {
-        $table = TableRegistry::get($table);
-        $entity = $table->find('list')->where(['id' => $value]);
-        return $entity->toArray();
+    {   $tableString=$this->getTableName($table);
+        $id = 'id';
+        switch ($tableString) {
+            case 'Branches':
+                $id = 'SUCURSAL';
+                break;
+            case 'default':
+                return $value;
+                break;
+        }
+        $tableE = TableRegistry::get($tableString);
+        $entity = $tableE->find('list')->where([$id => $value]);
+        $result = $entity->toArray();
+        if (is_null($result)) {
+            return '';
+        }
+        return $result[$value];
+    }
+    public function getTableName($table=null){
+        switch ($table) {
+            case 'tickettype_id':
+                return 'Tickettypes';
+                break;
+            case 'ticket_status_id':
+                return 'TicketStatuses';
+                break;
+            case 'source_id':
+                return 'Sources';
+                break;
+            case 'itemcode_id':
+                return 'Itemcodes';
+                break;
+            case 'user_id':
+                return 'Users';
+                break;
+            case 'group_id':
+                return 'Groups';
+                break;
+            case 'user_autor':
+                return 'Users';
+                break;
+            case 'user_requeried':
+                return 'Users';
+                break;
+            case 'ticketimpact_id':
+                return 'Ticketimpacts';
+                break;
+            case 'ticketurgency_id':
+                return 'Ticketurgencies';
+                break;
+            case 'ticketpriority_id':
+                return 'Ticketpriorities';
+                break;
+            case 'parent_id':
+                return 'ParentTickets';
+                break;
+            case 'hdcategory_id':
+                return 'Hdcategories';
+                break;
+            case 'branch_id':
+                return 'Branches';
+                //$id = 'SUCURSAL';
+                break;
+            default:
+                return 'default';
+        }
     }
 
     /**
@@ -352,7 +415,6 @@ class TicketsController extends AppController
     }
 
 
-
     public function changueStateTicket($id=null)
     {
          $ticket = $this->Tickets->get($id, [
@@ -363,23 +425,21 @@ class TicketsController extends AppController
         $ticketlog->ticket_id  = $id;
         $ticketlog->user_id = $ticket->user_id;
         $ticketlog->group_id = $ticket->group_id;
-        $ticketlog->user_transfer = $ticket->user_id;
-        $ticketlog->group_transfer = $ticket->group_id;
-        $ticketlog->new_status = $ticket->ticket_status_id;
-
-
+        $ticketlog->field = 'Tickettype';
          if ($this->request->is('get')){
             if ($ticket->tickettype_id == 4) {
                 $ticket->tickettype_id = 1;
-                $ticketlog->coments = 'CAMBIO A INCIDENTE';
+                $ticketlog->valueprev = 'SOLICITUD';
+                $ticketlog->valuelater = 'INCIDENTE';
             }else{
                 $ticket->tickettype_id = 4;
-                $ticketlog->coments = 'CAMBIO A SOLICITUD';
+                $ticketlog->valueprev = 'INCIDENTE';
+                $ticketlog->valuelater = 'SOLICITUD';
             }
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 if ($ticketlogsTable->save($ticketlog)) {
-                    $this->Flash->success(__('EL TICKET '.$ticketlog->coments));
+                    $this->Flash->success(__('TICKET GUARDADO CON EXITO'));
                     return $this->redirect(['action' => 'view' , $id]);
                 }
 
@@ -405,10 +465,7 @@ class TicketsController extends AppController
 
     }
 
-    public function beforeFilter(Event $event) {
-        parent::beforeFilter($event);
-        $this->viewBuilder()->layout('tickets');
-    }
+    
 
     public function enduserindex() {
         $this->viewBuilder()->layout('enduser');
@@ -553,6 +610,10 @@ class TicketsController extends AppController
 
         }
 
+    }
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('tickets');
     }
 
 
