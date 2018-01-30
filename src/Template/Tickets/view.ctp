@@ -365,7 +365,7 @@
                         <td><?= $this->form->label(__('Ip')) ?></td>
                         <td><?php   echo $this->Form->control('ip',['label' => false ]);  ?></td>
                         <td><?= $this->form->label(__('Itemcode')) ?></td>
-                        <td colspan="5" style="width: 45%;"><?php echo $this->Form->control('itemcode_id', ['label' => false ,'options' => $itemcodes, 'empty' => true]); ?></td>
+                        <td colspan="5" style="width: 45%;"><?php echo $this->Form->control('itemcodeid', ['label' => false , 'empty' => true, 'type' => 'text' , 'value' =>  (!empty($ticket->itemcode) ? $ticket->itemcode->serial : '')]); ?></td>
                     </tr>
                     <tr>
                         <td><?= $this->form->label(__('Resolution')) ?></td>
@@ -384,32 +384,29 @@
         <div title="Logs" style="padding:10px">
             <div class="related" title="<?= __('Ticketlogs') ?>">
                 <?php if (!empty($ticket->ticketlogs)): ?>
-                <table cellpadding="0" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th scope="col"><?= __('Created') ?></th>
-                            <th scope="col"><?= __('User') ?></th>
-                            <th scope="col"><?= __('Group') ?></th>
-                            <th scope="col"><?= __('Field') ?></th>
-                            <th scope="col"><?= __('Valueprev') ?></th>
-                            <th scope="col"><?= __('Valuelater') ?></th>
-                        </tr>
-                      </thead>
-                  <tbody>
-                    
-                    <?php foreach ($ticket->ticketlogs as $ticketlogs): ?>
+                
+            <?php foreach ($ticket->ticketlogs as $ticketlogs): ?>
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
                     <tr>
-                        <td><?= h($ticketlogs->created) ?></td>
-                        <td><?= h($ticketlogs->user->name) ?></td>
-                        <td><?= h($ticketlogs->group->name) ?></td>
+                        <th><?= h($ticketlogs->created) ?></td>
+                        <th><?= h($ticketlogs->user->name) ?></td>
+                        <th><?= h($ticketlogs->group->name) ?></td>
+                    </tr>
+                    <tr>
+                        <td><?= h(__('field'));  ?></td>
+                        <td><?= h(__('previous'));  ?></td>
+                        <td><?= h(__('last'));  ?></td>
+                    </tr>
+                    <tr>
                         <td><?= h($ticketlogs->field) ?></td>
                         <td><?= h($ticketlogs->valueprev) ?></td>
                         <td><?= h($ticketlogs->valuelater) ?></td>
-                        
                     </tr>
+                </tbody>
+            </table>
                     <?php endforeach; ?>
-                  </tbody>
-                </table>
+                  
                 <?php endif; ?>
             </div>
         </div>    

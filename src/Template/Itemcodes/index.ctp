@@ -10,18 +10,18 @@
     <?= $this->Form->create('search') ?>
     <table class="tableTransparent">
       <tr>
-        <td>
+        <td style="width: 20%;>
             <?= $this->Form->control('Items.%name',['label' => false,
                 'class' => 'easyui-combobox',
                 'data-options' => "loader: myloader,mode: 'remote',valueField: 'text',textField: 'text',label: 'Item:',labelPosition: 'top'",
                 'style'=>"width:100%;" 
             ]); ?>
-            <!--<input name="%Items.name" class="easyui-combobox" style="width:100%;" data-options="loader: myloader,mode: 'remote',valueField: 'id',textField: 'text',label: 'Item:',labelPosition: 'top'">-->
             </td>
         <td><?= $this->Form->control('%serial',['label' => 'Serial']); ?></td>
         <td><?= $this->Form->control('invoice_id', ['options' => $invoices , 'empty' => true]); ?></td>
         <td><?= $this->Form->control('statusitem_id', ['options' => $statusitems , 'empty' => true]); ?></td>
         <td><?= $this->Form->control('branch_id', ['empty' => true]); ?></td>
+        <td><?= $this->Form->control('insured_id',['empty' => true , 'options' => $insureds]) ?></td>
       </tr>
     </table>
       <!--<?= $this->Form->control('itemcategory_id', ['options' => $itemcategories, 'empty' => true]); ?>

@@ -36,9 +36,9 @@ class ItemcodesController extends AppController
         $items = $this->Itemcodes->Items->find('list', ['limit' => 200]);
         $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
         $statusitems = $this->Itemcodes->Statusitems->find('list', ['limit' => 200]);
-        
+        $insureds = $this->Itemcodes->Insureds->find('list', ['limit' => 200]);
         $itemcodes = $this->paginate($query);
-        $this->set(compact(['itemcodes','items','invoices','statusitems']));
+        $this->set(compact(['itemcodes','insureds','items','invoices','statusitems']));
         $this->set('_serialize', ['itemcodes']);
     }
    

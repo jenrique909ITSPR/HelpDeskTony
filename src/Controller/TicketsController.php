@@ -136,6 +136,8 @@ class TicketsController extends AppController
             $ticket = $this->Tickets->get($id, [
             'contain' => []
             ]);
+            $itemcode = $this->Tickets->Itemcodes->findBySerial($this->request->getData('itemcode_id'))->first();
+            $ticket->itemcode = $itemcode;
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Datos del ticket actualizados '));
@@ -236,8 +238,14 @@ class TicketsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $datarequest = $this->request->getData();
             $datarequest['ticketlogs'] = $this->ticketLog($ticket,$datarequest);
+            $itemcode = $this->Tickets->Itemcodes->find('all')->where(['serial' => $datarequest['itemcodeid']]);
+            $itemcodedata = $itemcode->toArray();
+            if (empty($itemcodedata)) {
+                $datarequest['itemcode_id'] = null;
+            }else{$datarequest['itemcode_id'] = $itemcodedata[0]->id;}
             
-            $ticket = $this->Tickets->patchEntity($ticket, $datarequest,['associated' => 'Ticketlogs']);
+            $ticket = $this->Tickets->patchEntity($ticket, $datarequest,['associated' => ['Ticketlogs']]);
+            
             if ($this->Tickets->save($ticket)) {
 
                 $this->Flash->success(__('Datos del ticket actualizados '));
@@ -283,9 +291,7 @@ class TicketsController extends AppController
                 }
                
         }
-        
         return $data;
-        
     }
 
     public function getValueRelated($table=null,$value=null)
@@ -302,7 +308,7 @@ class TicketsController extends AppController
         $tableE = TableRegistry::get($tableString);
         $entity = $tableE->find('list')->where([$id => $value]);
         $result = $entity->toArray();
-        if (is_null($result)) {
+        if (empty($result)) {
             return '';
         }
         return $result[$value];
@@ -317,9 +323,6 @@ class TicketsController extends AppController
                 break;
             case 'source_id':
                 return 'Sources';
-                break;
-            case 'itemcode_id':
-                return 'Itemcodes';
                 break;
             case 'user_id':
                 return 'Users';
@@ -501,6 +504,8 @@ class TicketsController extends AppController
         }
         if ($this->request->is('post')) {
              $ticket->ticket_status_id = 1;
+             $itemcode = $this->Tickets->Itemcodes->findBySerial($this->request->getData('itemcode_id'))->first();
+            $ticket->itemcode = $itemcode;
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data,['associated' => ['Ticketnotes']]);
             $ticket->ticketnotes[0]->ticketnotestype_id = 1;
             $ticket->ticketnotes[0]->user_id = $this->request->session()->read('Auth.User.id');

@@ -64,5 +64,7 @@
                         $('#contentAjax2').html(data);
                 }
             });
+   
+ 
 
 </script>

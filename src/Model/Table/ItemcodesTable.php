@@ -40,7 +40,7 @@ use Cake\Validation\Validator;
         parent::initialize($config);
 
         $this->setTable('itemcodes');
-        $this->setDisplayField('id');
+        $this->setDisplayField('serial');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
