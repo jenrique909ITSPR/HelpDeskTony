@@ -73,14 +73,7 @@
                 $("#hdcategory_id").append("<option value='" + node.id+"'' >"+s+"</option>");
 
             }
-        },
-         onClick: function(node){
-            var node = $('#tt').tree('getSelected');
-            if (node){
-                alert(' ');
-            }
         }
-
 
     });
     /*

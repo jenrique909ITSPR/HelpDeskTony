@@ -38,7 +38,7 @@
         
         <tr>
             <th scope="row"><?= __('Itemcode') ?></th>
-            <td><?= $ticket->has('itemcode') ? $this->Html->link($ticket->itemcode->name, ['controller' => 'Itemcodes', 'action' => 'view', $ticket->itemcode->id]) : '' ?></td>
+            <td><?= h(__($ticket->itemcode->serial)) ?></td>
             <th scope="row"><?= __('Ticketimpact') ?></th>
             <td><?= $ticket->has('ticketimpact') ? $this->Html->link($ticket->ticketimpact->name, ['controller' => 'Ticketimpacts', 'action' => 'view', $ticket->ticketimpact->id]) : '' ?></td>
         </tr>

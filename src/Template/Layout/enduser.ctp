@@ -47,7 +47,7 @@ $cakeDescription = 'Portal TI';
   <div id="logo" class="left">PORTAL TI</div>
   <div class="right">
     <ul class="headernav">
-      <li class="loginName"><?= $this->Html->link("<i class='fa fa-user-circle' aria-hidden='true'></i>" . $this->request->session()->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name'), ['controller' => 'Users', 'action' => 'myaccount', $this->request->session()->read('Auth.User.id')], ['escape' => false]) ?></li>
+      <li><?= $this->Html->link("<i class='fa fa-user-circle' aria-hidden='true'></i>" . $this->request->session()->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')], ['escape' => false]) ?></li>
       <li><?= $this->Html->link("<i class='fa fa-power-off' aria-hidden='true'></i>" . __('Logout'), ['controller' => 'Users', 'action' => 'logout'], ['escape' => false]) ?></li>
     </ul>
   </div>
