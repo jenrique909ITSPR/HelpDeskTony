@@ -49,6 +49,64 @@
                
             </tbody>
         </table>
-
 	</div>
+<br />
+
+
+<div class="easyui-layout" style="width:100%;height:500px;">
+		<div data-options="region:'north', collapsible:false" title="<?= __('Invoice') ?>" style="padding: 5px 5px;">
+
+			<table class="tableTransparent" cellpadding="0" cellspacing="0" style="width:auto;">
+								<tr><td  style="width:5%;"><?= $this->form->label(__('invoice_id')) ?></td><td><?=  $this->Form->control('invoice_id', ['options' => $invoices, 'empty' => true , 'label' => false  ]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('item_id')) ?></td><td><?=  $this->Form->control('item_id', ['options' => $items, 'empty' => true , 'label' => false]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('serial')) ?></td><td><?=   $this->Form->control('title',['label' => false]); ?></td></tr>
+
+								<tr><td  style="width:5%;"><?= $this->form->label(__('statusitem_id')) ?></td><td><?=  $this->Form->control('statusitem_id', ['options' => $statusitems, 'empty' => true , 'label' => false  ]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('warranty')) ?></td><td><?=  $this->Form->control('warranty', ['empty' => true , 'label' => false]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('positionbranch_id')) ?></td><td><?=  $this->Form->control('positionbranch_id', ['options' => $positionbranches, 'empty' => true , 'label' => false]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('service_tag')) ?></td><td><?=  $this->Form->control('service_tag' , ['label' => false] ) ; ?></td></tr>
+			</table>
+
+		</div>
+		<div data-options="region:'east',split:true,collapsible:false" title="<?= __('Serials') ?>" style="width:250px; padding: 5px 5px;">
+			<?=   $this->Form->control('title',['label' => false]); ?>
+			<table class="" cellpadding="0" cellspacing="0" style="">
+					<tr>
+						<td><?=   $this->Form->control('title',['label' => false]); ?></td>
+						<td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+					</tr>
+					<tr>
+						<td><?=   $this->Form->control('title',['label' => false]); ?></td>
+						<td>[Borrar]</td>
+					</tr>
+					<tr>
+						<td><?=   $this->Form->control('title',['label' => false]); ?></td>
+						<td>[Borrar]</td>
+					</tr>
+			</table>
+
+		</div>
+		<div data-options="region:'center', collapsible:false" title="<?= __('Assets') ?>" style="padding: 5px 5px;">
+			<table class="tableTransparent" cellpadding="0" cellspacing="0" style="width:auto;">
+								<tr><td  style="width:5%;"><?= $this->form->label(__('invoice_id')) ?></td><td><?=  $this->Form->control('invoice_id', ['options' => $invoices, 'empty' => true , 'label' => false  ]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('item_id')) ?></td><td><?=  $this->Form->control('item_id', ['options' => $items, 'empty' => true , 'label' => false]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('serial')) ?></td><td><?=   $this->Form->control('title',['label' => false]); ?></td></tr>
+
+								<tr><td  style="width:5%;"><?= $this->form->label(__('statusitem_id')) ?></td><td><?=  $this->Form->control('statusitem_id', ['options' => $statusitems, 'empty' => true , 'label' => false  ]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('warranty')) ?></td><td><?=  $this->Form->control('warranty', ['empty' => true , 'label' => false]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('positionbranch_id')) ?></td><td><?=  $this->Form->control('positionbranch_id', ['options' => $positionbranches, 'empty' => true , 'label' => false]); ?></td></tr>
+								<tr><td  style="width:5%;"><?= $this->form->label(__('service_tag')) ?></td><td><?=  $this->Form->control('service_tag' , ['label' => false] ) ; ?></td></tr>
+			</table>
+
+
+		</div>
+</div>
+
+
+
+
+
+
+
+
 </div>
