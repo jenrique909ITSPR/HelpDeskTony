@@ -33,23 +33,20 @@
 									<td><?= $this->form->label(__('Invoices')) ?></td>
 									<td><?= $this->Form->control('invoice_id', ['label' => false,'options' => $invoices, 'empty' => true]); ?></td>
 									<td><?= $this->form->label(__('Insured')) ?></td>
-									<td><?= $this->Form->control('insured',['label' => false]); ?></td>
+									<td><?= $this->Form->control('insured_id',['options' => $insureds,'empty' => true,'label' => false]); ?></td>
 									<td><?= $this->form->label(__('Service tag')) ?></td>
 									<td><?= $this->Form->control('service_tag',['label' => false]); ?></td>
 								</tr>
                 <tr>
-									<td><?= $this->form->label(__('Warranty')) ?></td>
-									<td colspan="5"><?=  $this->Form->control('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
-								</tr>
-                <tr>
 
-								</tr>
-                <tr>
+									<td style="width:5%;"><?= $this->form->label(__('Warranty')) ?></td>
+									<td colspan="1"><?=  $this->Form->created('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
 									<td  style="width:5%;"><?= $this->form->label(__('Cost')) ?></td>
-									<td><?= $this->Form->control('cost',['label' => false]); ?></td>
+									<td colspan="1"><?= $this->Form->control('cost',['label' => false]); ?></td>
 									<td  style="width:5%;"><?= $this->form->label(__('Currencies')) ?></td>
-									<td colspan="3"><?= $this->Form->control('currency_id', ['label' => false,'options' => $currencies, 'empty' => true]); ?></td>
+									<td colspan="1"><?= $this->Form->control('currency_id', ['label' => false,'options' => $currencies, 'empty' => true]); ?></td>
 								</tr>
+               
             </tbody>
         </table>
 	</div>

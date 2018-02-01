@@ -41,7 +41,7 @@ use Cake\Validation\Validator;
             'joinType' => 'INNER'
         ]);
         $this->hasMany('Branches', [
-            'foreignKey' => 'branchgroup_id'
+            'foreignKey' => 'Cia'
         ]);
     }
 

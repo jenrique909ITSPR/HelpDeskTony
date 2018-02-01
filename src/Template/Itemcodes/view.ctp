@@ -46,7 +46,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Insured') ?></th>
-            <td><?= h($itemcode->insured) ?></td>
+            <td><?= $itemcode->has('insured') ? $this->Html->link($itemcode->insured->name, ['controller' => 'Insureds', 'action' => 'view', $itemcode->insured->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

@@ -39,7 +39,8 @@ use Cake\Validation\Validator;
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Branches', [
-            'foreignKey' => 'branch_id'
+            'foreignKey' => 'branch_id',
+            'strategy' => 'select'
         ]);
         $this->belongsTo('Positiontypes', [
             'foreignKey' => 'positiontype_id'

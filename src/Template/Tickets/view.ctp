@@ -315,12 +315,14 @@
 
 
 
-<div class="easyui-layout"  style="width:100%;height:597px;">
+<div class="easyui-layout"  style="width:100%;height:650px;">
         <div  id="p" data-options="region:'west',collapsible:false"style="width:20%;padding:10px">
 
            <div style="margin-left: 0px;" id='contentAjax'></div>
         </div>
         <div data-options="region:'center'"  style="width:100%;">
+        <div id="tt" class="easyui-tabs" style="width:100%;height:100%">
+            <div title="Ticket" style="padding:10px">
           <?= $this->Form->create($ticket,['url' => ['controller' => 'Tickets', 'action' => 'edit']]) ?>
              <div class="editdata">
             <table  cellpadding="0" cellspacing="0" style="width:100%; border:none;">
@@ -363,7 +365,7 @@
                         <td><?= $this->form->label(__('Ip')) ?></td>
                         <td><?php   echo $this->Form->control('ip',['label' => false ]);  ?></td>
                         <td><?= $this->form->label(__('Itemcode')) ?></td>
-                        <td colspan="5" style="width: 45%;"><?php echo $this->Form->control('itemcode_id', ['label' => false ,'options' => $itemcodes, 'empty' => true]); ?></td>
+                        <td colspan="5" style="width: 45%;"><?php echo $this->Form->control('itemcodeid', ['label' => false , 'empty' => true, 'type' => 'text' , 'value' =>  (!empty($ticket->itemcode) ? $ticket->itemcode->serial : '')]); ?></td>
                     </tr>
                     <tr>
                         <td><?= $this->form->label(__('Resolution')) ?></td>
@@ -379,6 +381,38 @@
             <?= $this->Form->button(__('Submit'),['style'=> 'margin-top:10px']) ?>
             </div>
         </div>
+        <div title="Logs" style="padding:10px">
+            <div class="related" title="<?= __('Ticketlogs') ?>">
+                <?php if (!empty($ticket->ticketlogs)): ?>
+                
+            <?php foreach ($ticket->ticketlogs as $ticketlogs): ?>
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <th><?= h($ticketlogs->created) ?></td>
+                        <th><?= h($ticketlogs->user->name) ?></td>
+                        <th><?= h($ticketlogs->group->name) ?></td>
+                    </tr>
+                    <tr>
+                        <td><?= h(__('field'));  ?></td>
+                        <td><?= h(__('previous'));  ?></td>
+                        <td><?= h(__('last'));  ?></td>
+                    </tr>
+                    <tr>
+                        <td><?= h($ticketlogs->field) ?></td>
+                        <td><?= h($ticketlogs->valueprev) ?></td>
+                        <td><?= h($ticketlogs->valuelater) ?></td>
+                    </tr>
+                </tbody>
+            </table>
+                    <?php endforeach; ?>
+                  
+                <?php endif; ?>
+            </div>
+        </div>    
+    </div>    
+</div>
+
     </div>
 <?= $this->Form->end() ?>
 

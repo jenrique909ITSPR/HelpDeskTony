@@ -26,7 +26,7 @@
             <tr>
                 <td><?= $this->Number->format($warehouse->id) ?></td>
                 <td><?= h($warehouse->name) ?></td>
-                <td><?= $warehouse->has('branch') ? $this->Html->link($warehouse->branch->name, ['controller' => 'Branches', 'action' => 'view', $warehouse->branch->id]) : '' ?></td>
+                <td><?= $warehouse->has('branch') ? $this->Html->link($warehouse->branch->NOMBRE, ['controller' => 'Branches', 'action' => 'view', $warehouse->branch->SUCURSAL]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $warehouse->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $warehouse->id]) ?>

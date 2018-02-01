@@ -43,8 +43,9 @@ $(document).ready(function(){
     </div>
     <div title="<i class='fa fa-cubes' aria-hidden='true'></i> <?= __('Items') ?>" >
       <ul class="side-nav">
-        <!--<li><?= $this->Html->link(__('Items'), ['controller' => 'Items', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Itemcategories'), ['controller' => 'Itemcategories', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Items'), ['controller' => 'Items', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Purchaseorders'), ['controller' => 'Purchaseorders', 'action' => 'index']) ?></li>
+        <!--<li><?= $this->Html->link(__('Itemcategories'), ['controller' => 'Itemcategories', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Itemcodes'), ['controller' => 'Itemcodes', 'action' => 'index']) ?></li>-->
         <!--<li><?= $this->Html->link(__('Brands'), ['controller' => 'Brands', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Currencies'), ['controller' => 'Currencies', 'action' => 'index']) ?></li>

@@ -75,7 +75,6 @@
             }
         }
 
-
     });
     /*
     $("#categorySearch").on("input", function(e) {

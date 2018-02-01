@@ -23,12 +23,12 @@
         <tbody>
             <?php foreach ($suppliers as $supplier): ?>
             <tr>
-                <td><?= $this->Number->format($supplier->id) ?></td>
-                <td><?= h($supplier->name) ?></td>
+                <td><?= $this->Number->format($supplier->ProvServicios) ?></td>
+                <td><?= h($supplier->Nombre) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $supplier->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $supplier->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $supplier->id], ['confirm' => __('Are you sure you want to delete # {0}?', $supplier->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $supplier->ProvServicios]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $supplier->ProvServicios]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $supplier->ProvServicios], ['confirm' => __('Are you sure you want to delete # {0}?', $supplier->ProvServicios)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

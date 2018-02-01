@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-01-2018 a las 22:11:03
+-- Tiempo de generación: 27-01-2018 a las 16:47:11
 -- Versión del servidor: 5.7.20-0ubuntu0.16.04.1
 -- Versión de PHP: 7.0.22-0ubuntu0.16.04.1
 
@@ -272,7 +272,7 @@ CREATE TABLE `branchgroups` (
 --
 
 INSERT INTO `branchgroups` (`id`, `name`, `user_id`) VALUES
-(16, 'REGION 01', 12),
+(2, 'REGION 01', 12),
 (28, 'REGION 02', 13),
 (29, 'REGION 03', 14),
 (30, 'REGION 04', 15),
@@ -371,7 +371,7 @@ INSERT INTO `groups` (`id`, `name`, `color`) VALUES
 CREATE TABLE `hdcategories` (
   `id` int(11) NOT NULL,
   `title` varchar(100) DEFAULT NULL,
-  `parent_id` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT '0',
   `lft` int(11) NOT NULL,
   `rght` int(11) NOT NULL,
   `description` text NOT NULL
@@ -3068,7 +3068,9 @@ INSERT INTO `hdcategories` (`id`, `title`, `parent_id`, `lft`, `rght`, `descript
 (2810, 'Factura erronea', 1056, 0, 0, ''),
 (2811, 'Acceso', 1107, 0, 0, ''),
 (2812, 'Nuevo ingreso/Cambio', 622, 0, 0, ''),
-(2813, 'Habilitar Exportar', 431, 0, 0, '');
+(2813, 'Habilitar Exportar', 431, 0, 0, ''),
+(2816, 'prueba', 0, 1, 2, 'dede'),
+(2817, 'Xd', 0, 3, 4, 'asd');
 
 -- --------------------------------------------------------
 
@@ -3118,6 +3120,24 @@ INSERT INTO `hdtemplate` (`id`, `title`, `hdcategory_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `insureds`
+--
+
+CREATE TABLE `insureds` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `insureds`
+--
+
+INSERT INTO `insureds` (`id`, `name`) VALUES
+(1, 'asegurado');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `invoices`
 --
 
@@ -3128,35 +3148,35 @@ CREATE TABLE `invoices` (
   `supplier_id` int(11) NOT NULL,
   `pdf` varchar(100) DEFAULT NULL,
   `xml` varchar(100) DEFAULT NULL,
-  `purchase_order` varchar(100) DEFAULT NULL,
   `po` varchar(100) DEFAULT NULL,
   `amount` decimal(9,0) NOT NULL,
-  `currency_id` int(11) NOT NULL
+  `currency_id` int(11) NOT NULL,
+  `purchaseorder_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `invoices`
 --
 
-INSERT INTO `invoices` (`id`, `reference`, `invoicedate`, `supplier_id`, `pdf`, `xml`, `purchase_order`, `po`, `amount`, `currency_id`) VALUES
-(1, '10', '0000-00-00', 1, 'fc1484J.pdf', '6', 'SADASD32423423', NULL, '0', 0),
-(2, '11', '0000-00-00', 2, 'fc1484J.pdf', '1', 'ASGHSDD45', NULL, '0', 0),
-(3, '12', '0000-00-00', 3, 'fc1484J.pdf', '3', 'QWRT23', NULL, '0', 0),
-(4, '13', '0000-00-00', 4, 'fc1484J.pdf', '8', 'ETYRP45', NULL, '0', 0),
-(5, '14', '0000-00-00', 5, '3', '4', 'GHSA4', NULL, '0', 0),
-(6, '15', '0000-00-00', 6, '5', '6', 'HKLF5', NULL, '0', 0),
-(7, '16', '0000-00-00', 7, 'fc1484J.pdf', '8', 'XBNDF5', NULL, '0', 0),
-(8, '17', '0000-00-00', 8, '9', '5', 'ÑKOE5', NULL, '0', 0),
-(9, '18', '0000-00-00', 9, '5', '1', 'DKLS7', NULL, '0', 0),
-(10, '19', '0000-00-00', 10, '4', '4', 'NDHEI1', NULL, '0', 0),
-(11, '20', '0000-00-00', 11, '5', '5', 'EDVL532', NULL, '0', 0),
-(12, '21', '0000-00-00', 12, '9', '9', 'DGJ54', NULL, '0', 0),
-(13, 'T-45353', '0000-00-00', 1, NULL, NULL, '', NULL, '0', 0),
-(14, 'JCPP-3432', '0000-00-00', 1, NULL, NULL, '', NULL, '0', 0),
-(15, 'JCPP-23423', '0000-00-00', 1, '', NULL, '', NULL, '0', 0),
-(16, 'JCPP-2', '0000-00-00', 6, 'fc1484J.pdf', '', '', '', '0', 0),
-(17, 'JCPP-3', '0000-00-00', 2, 'fc1476J.pdf', '', '', '', '0', 0),
-(18, 'JCPP-4', '0000-00-00', 2, 'fc1484J.pdf', '', '', '', '0', 0);
+INSERT INTO `invoices` (`id`, `reference`, `invoicedate`, `supplier_id`, `pdf`, `xml`, `po`, `amount`, `currency_id`, `purchaseorder_id`) VALUES
+(1, '10', '0000-00-00', 40850, '', '', '', '0', 0, 65705),
+(2, '11', '0000-00-00', 2, 'fc1484J.pdf', '1', NULL, '0', 0, NULL),
+(3, '12', '0000-00-00', 3, 'fc1484J.pdf', '3', NULL, '0', 0, NULL),
+(4, '13', '0000-00-00', 4, 'fc1484J.pdf', '8', NULL, '0', 0, NULL),
+(5, '14', '0000-00-00', 5, '3', '4', NULL, '0', 0, NULL),
+(6, '15', '0000-00-00', 6, '5', '6', NULL, '0', 0, NULL),
+(7, '16', '0000-00-00', 7, 'fc1484J.pdf', '8', NULL, '0', 0, NULL),
+(8, '17', '0000-00-00', 8, '9', '5', NULL, '0', 0, NULL),
+(9, '18', '0000-00-00', 9, '5', '1', NULL, '0', 0, NULL),
+(10, '19', '0000-00-00', 10, '4', '4', NULL, '0', 0, NULL),
+(11, '20', '0000-00-00', 11, '5', '5', NULL, '0', 0, NULL),
+(12, '21', '0000-00-00', 12, '9', '9', NULL, '0', 0, NULL),
+(13, 'T-45353', '0000-00-00', 1, NULL, NULL, NULL, '0', 0, NULL),
+(14, 'JCPP-3432', '0000-00-00', 1, NULL, NULL, NULL, '0', 0, NULL),
+(15, 'JCPP-23423', '0000-00-00', 1, '', NULL, NULL, '0', 0, NULL),
+(16, 'JCPP-2', '0000-00-00', 6, 'fc1484J.pdf', '', '', '0', 0, NULL),
+(17, 'JCPP-3', '0000-00-00', 2, 'fc1476J.pdf', '', '', '0', 0, NULL),
+(18, 'JCPP-4', '0000-00-00', 2, 'fc1484J.pdf', '', '', '0', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -3233,15 +3253,15 @@ CREATE TABLE `itemcodes` (
   `service_tag` varchar(100) DEFAULT NULL,
   `cost` decimal(9,0) NOT NULL,
   `currency_id` int(11) DEFAULT NULL,
-  `insured` varchar(20) DEFAULT NULL
+  `insured_id` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `itemcodes`
 --
 
-INSERT INTO `itemcodes` (`id`, `item_id`, `serial`, `invoice_id`, `statusitem_id`, `created`, `warranty`, `position_id`, `service_tag`, `cost`, `currency_id`, `insured`) VALUES
-(1, 3, '3213143513213', 1, 1, '2017-09-22', '2020-08-14', NULL, '2132131435132', '0', NULL, 'asegurado'),
+INSERT INTO `itemcodes` (`id`, `item_id`, `serial`, `invoice_id`, `statusitem_id`, `created`, `warranty`, `position_id`, `service_tag`, `cost`, `currency_id`, `insured_id`) VALUES
+(1, 3, '3213143513213', 1, 1, '2017-09-22', '2020-08-14', NULL, '2132131435132', '0', NULL, '1'),
 (2, 3, '24FQL02', 2, 1, '2017-09-22', '2020-11-18', NULL, '31', '0', NULL, 'asegurado'),
 (3, 3, '2W0NYD1', 3, 1, '2017-09-22', '2016-10-23', NULL, '12341353457', '0', NULL, 'sin seguro'),
 (4, 3, '736TT12', 4, 1, '2017-09-22', '2019-07-27', 1, '354685461', '0', NULL, 'asegurado'),
@@ -3410,7 +3430,7 @@ CREATE TABLE `positiontypebranches` (
 --
 
 INSERT INTO `positiontypebranches` (`id`, `branch_id`, `positiontype_id`, `qty`) VALUES
-(15, 124, 1, 3),
+(15, 201, 1, 3),
 (16, 124, 2, 1),
 (17, 124, 7, 2),
 (18, 124, 25, 1),
@@ -3755,86 +3775,13 @@ INSERT INTO `ticketimpacts` (`id`, `name`) VALUES
 
 CREATE TABLE `ticketlogs` (
   `id` int(11) NOT NULL,
-  `ticket_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `group_id` int(11) DEFAULT NULL,
-  `user_transfer` int(11) DEFAULT NULL,
-  `group_transfer` int(11) DEFAULT NULL,
-  `new_status` varchar(100) DEFAULT NULL,
-  `created` date DEFAULT NULL,
-  `coments` text
+  `ticket_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `field` varchar(50) NOT NULL,
+  `valueprev` varchar(200) NOT NULL,
+  `valuelater` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `ticketlogs`
---
-
-INSERT INTO `ticketlogs` (`id`, `ticket_id`, `user_id`, `group_id`, `user_transfer`, `group_transfer`, `new_status`, `created`, `coments`) VALUES
-(1, 1, 1, 1, 2, 1, 'RE-ASIGNADO', '2017-09-22', 'REASIGNE EL TICKET A UN ADMINISTRADOR QUE TIENE MAS ENTENDIMIENTO DEL TEMA'),
-(2, 1, 2, 3, 2, 3, '4', '2017-10-23', 'CAMBIO DE ESTADO A PROBLEMA'),
-(3, 1, 2, 3, 2, 3, '4', '2017-10-23', 'CAMBIO DE ESTADO A INCIDENTE'),
-(4, 1, 2, 3, 2, 3, '4', '2017-10-23', 'CAMBIO DE ESTADO A PROBLEMA'),
-(5, 1, 2, 3, 2, 3, '4', '2017-10-23', 'CAMBIO DE ESTADO A INCIDENTE'),
-(6, 1, 2, 3, 2, 3, '4', '2017-10-23', 'CAMBIO DE ESTADO A PROBLEMA'),
-(7, 1, 2, 3, 2, 3, '4', '2017-10-23', 'CAMBIO DE ESTADO A INCIDENTE'),
-(8, 2, 2, 3, 2, 3, '4', '2017-10-23', 'CAMBIO DE ESTADO A INCIDENTE'),
-(9, 1, 2, 3, 2, 3, '4', '2017-10-23', 'CAMBIO DE ESTADO A PROBLEMA'),
-(10, 1, 2, 3, 2, 3, '4', '2017-10-25', 'CAMBIO DE ESTADO A SOLICITUD'),
-(11, 1, 2, 3, 2, 3, '4', '2017-10-25', 'CAMBIO DE ESTADO A INCIDENTE'),
-(12, 1, 2, 3, 2, 3, '4', '2017-10-25', 'CAMBIO DE ESTADO A SOLICITUD'),
-(13, 1, 2, 3, 2, 3, '4', '2017-10-26', 'CAMBIO DE ESTADO A INCIDENTE'),
-(14, 1, 2, 3, 2, 3, '4', '2017-10-26', 'CAMBIO DE ESTADO A SOLICITUD'),
-(15, 1, 2, 3, 2, 3, '4', '2017-10-27', 'CAMBIO DE ESTADO A SOLICITUD'),
-(16, 2, 2, 3, 2, 3, '4', '2017-10-31', 'CAMBIO DE ESTADO A SOLICITUD'),
-(17, 2, 2, 3, 2, 3, '4', '2017-10-31', 'CAMBIO DE ESTADO A INCIDENTE'),
-(18, 7, 2, 3, 2, 3, '4', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(19, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(20, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(21, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(22, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(23, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(24, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(25, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(26, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(27, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(28, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(29, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(30, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(31, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(32, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(33, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(34, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(35, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(36, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(37, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(38, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(39, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(40, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(41, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(42, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(43, 6, 2, 3, 2, 3, '2', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(44, 22, 23, 4, 23, 4, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(45, 22, 23, 4, 23, 4, '1', '2017-11-07', 'CAMBIO DE ESTADO A INCIDENTE'),
-(46, 22, 23, 4, 23, 4, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(47, 18, 1, 2, 1, 2, '1', '2017-11-07', 'CAMBIO DE ESTADO A SOLICITUD'),
-(48, 6, 2, 3, 2, 3, '2', '2017-11-08', 'CAMBIO DE ESTADO A SOLICITUD'),
-(49, 6, 2, 3, 2, 3, '2', '2017-11-08', 'CAMBIO DE ESTADO A INCIDENTE'),
-(50, 6, 2, 3, 2, 3, '2', '2017-11-08', 'CAMBIO DE ESTADO A SOLICITUD'),
-(51, 23, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO DE ESTADO A INCIDENTE'),
-(52, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO DE ESTADO A INCIDENTE'),
-(53, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO DE ESTADO A SOLICITUD'),
-(54, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO DE ESTADO A INCIDENTE'),
-(55, 19, 1, 2, 1, 2, '1', '2017-11-08', 'CAMBIO DE ESTADO A SOLICITUD'),
-(56, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO A SOLICITUD'),
-(57, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO A INCIDENTE'),
-(58, 18, 1, 2, 1, 2, '3', '2017-11-08', 'CAMBIO A SOLICITUD'),
-(59, 10, 2, 2, 2, 2, '1', '2017-11-08', 'CAMBIO A SOLICITUD'),
-(60, 18, 1, 2, 1, 2, '3', '2017-11-09', 'CAMBIO A INCIDENTE'),
-(61, 6, 2, 3, 2, 3, '2', '2017-11-09', 'CAMBIO A INCIDENTE'),
-(62, 6, 2, 3, 2, 3, '2', '2017-11-09', 'CAMBIO A SOLICITUD'),
-(63, 18, 1, 2, 1, 2, '1', '2017-11-09', 'CAMBIO A SOLICITUD'),
-(64, 20, 3, 2, 3, 2, '1', '2017-11-10', 'CAMBIO A SOLICITUD'),
-(65, 18, 1, 1, 1, 1, '1', '2017-11-23', 'CAMBIO A SOLICITUD');
 
 -- --------------------------------------------------------
 
@@ -3895,7 +3842,10 @@ INSERT INTO `ticketnotes` (`id`, `description`, `ticket_id`, `user_id`, `created
 (10, 'El usuario no ha respondido la alerta', 46, 1, '2018-01-12 15:02:54', 2),
 (11, 'categorias jalando', 85, 1, '2018-01-17 14:21:55', 1),
 (12, 'Error al pagar', 86, 1, '2018-01-18 10:04:34', 1),
-(13, 'Al momento de querer extraer un folio me arco un error asi\r\n....', 88, 1, '2018-01-19 12:47:38', 1);
+(13, 'Al momento de querer extraer un folio me arco un error asi\r\n....', 88, 1, '2018-01-19 12:47:38', 1),
+(14, 'Te paso este ticket para que lo revises', 24, 2, '2018-01-22 12:26:20', 2),
+(15, 'Checa la solución', 88, 1, '2018-01-24 15:43:59', 1),
+(16, 'Ya quedo', 88, 2, '2018-01-24 15:46:46', 1);
 
 -- --------------------------------------------------------
 
@@ -3979,26 +3929,18 @@ INSERT INTO `tickets` (`id`, `tickettype_id`, `ticket_status_id`, `source_id`, `
 (11, 5, 1, '8', 'CAMBIO DE MONITOR', 'SE CAMBIARA POR UNO NUEVO ', 'NO PRENDIO EL MONITOR Y SE REEMPLAZARA POR OTRO', 8, 11, 1, 15, 17, '2017-10-31 18:49:14', 3, 3, 3, NULL, 12, '2017-10-31 18:49:14', '', 17),
 (12, 1, 3, '4', 'TICKET', 'SE REINSTALO DRIVER DE LA IMPRESORA', 'SE INSTALO EL DRIVER Y SE VOLVIO A IMPRIMIR', 4, 2, 1, 16, 16, '2017-10-31 19:01:04', 2, 2, 2, NULL, 25, '2018-01-08 11:27:38', '9', 17),
 (13, 4, 5, '1', 'PC NO AGARRA INTERNET', 'SE LE PUSO UN ADAPTADOR WIFI', 'SE LE CONECTO UN ADAPTADOR WIFI', 8, 16, 2, 19, 19, '2017-10-31 19:08:00', 1, 1, 1, NULL, 18, '2017-12-07 17:50:48', '19849', 17),
-(14, 2, 1, '5', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'REINICAR LOS SERVICIOS DE SQL', 'SQL REINICIAR LOS SERVICIOS DE BD', 3, 2, 1, 3, 1, '2017-10-31 20:04:37', 1, 1, 1, NULL, 34, '2017-11-21 19:07:06', '1.1.1.1', 17),
+(14, 4, 1, '', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'REINICAR LOS SERVICIOS DE SQL', 'SQL REINICIAR LOS SERVICIOS DE BD', 3, 2, 1, 3, 1, '2017-10-31 20:04:37', 1, 1, 1, NULL, 34, '2018-01-24 15:00:22', '1.1.1.1', NULL),
 (16, 4, 3, '3', 'NO CARGA LA INFORMACION DE LA BASE DE DATOS DE CONOCIMIENTO', 'REVISAR SI EL MODEM ESTA ENCENDIDO', 'REINICIAR EL MODEM', 12, 11, 2, 2, 2, '2017-10-31 20:13:32', 2, 3, 2, NULL, 26, '2017-11-08 16:02:55', '', 17),
 (18, 5, 3, '2', 'ERROR 404', 'CONECTAR CABLE', 'CONECTAR CABLE', 2, 1, 1, 1, 1, '2017-11-01 15:20:21', 2, 2, 3, 13, 28, '2017-12-22 01:20:51', 'q11212aa', 17),
 (19, 4, 1, '2', 'CAJA DE COBRO NO FUNCIONA', 'CONECTAR PC POR MEDIO DE ESCRITORIO REMOTO ', 'CONECTAR PC POR MEDIO DE ESCRITORIO REMOTO ', 5, 1, 1, 1, 1, '2017-11-01 15:26:21', 1, 1, 2, NULL, 27, '2017-11-22 16:10:55', '123.123.123.123', 17),
 (20, 4, 1, '2', 'SISTEMAS OPERATIVOS', 'REVISAR LOS SERVICIOS', 'REINICIAR LOS SERVICIOS', 11, 3, 3, 20, 20, '2017-11-01 16:42:13', 2, 1, 1, NULL, 25, '2017-12-07 17:37:22', '123.123.123.123|', 17),
 (23, 1, 4, '2', 'ERROR 404', 'CONECTAR CABLE', 'CONECTAR CABLE', 2, 1, 1, 1, 1, '2017-11-08 15:52:52', 1, 1, 1, 18, 28, '2017-11-22 16:11:10', 'q11212a', 17),
-(24, 2, 3, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', '', '', 13, 2, 1, 3, 3, '2017-11-09 18:15:58', 1, 1, 1, 6, 16, '2017-11-24 15:51:36', '123.123.123.123', 17),
+(24, 1, 3, '1', 'MONITOR DEJO DE MOSTRAR IMAGEN', '', '', 13, 17, 1, 4, 1, '2017-11-09 18:15:58', 1, 1, 1, 6, 16, '2018-01-23 11:30:32', '123.123.123.123', 201),
 (34, 2, 1, '1', 'CORREO FALLIDO', 'REINICIAR EL SERVIDOR', 'REINICIAR EL SERVIDOR', 3, 1, 1, 1, 1, '2017-11-28 16:21:08', 3, 1, 1, 20, 27, '2017-11-30 19:14:36', '::1', 17),
-(46, 2, 1, '1', 'MAIL ', 'TEST', 'TWSAT', 14, 1, 1, 1, 1, '2017-12-05 17:01:39', 1, 1, 1, 24, 2689, '2018-01-19 10:43:19', '::1', 29),
-(77, 1, 1, NULL, 'sdfs', NULL, NULL, NULL, NULL, NULL, 1, 2, '2018-01-17 11:39:50', 1, 1, 1, NULL, 1, '2018-01-17 11:39:50', '334', NULL),
-(78, 1, 1, NULL, 'asas', NULL, NULL, NULL, NULL, NULL, 1, 3, '2018-01-17 11:43:50', 1, 1, 2, NULL, 1, '2018-01-17 11:43:50', 'asdasd', NULL),
-(79, 1, 1, NULL, 'uahsjdjasd123', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 11:47:50', 1, 1, 1, NULL, 2, '2018-01-17 11:47:50', '1458', NULL),
-(80, 1, 1, NULL, 'jesus', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 11:49:50', 2, 2, 2, NULL, 3, '2018-01-17 11:49:50', '123.123.123.123|', NULL),
-(81, 1, 1, NULL, 'uahsjdjasd123', NULL, NULL, NULL, NULL, NULL, 1, 2, '2018-01-17 14:03:13', 2, 1, 1, NULL, 3, '2018-01-17 14:03:13', '192.168.0.10', NULL),
-(82, 1, 1, NULL, 'uahsjdjasd123', NULL, NULL, NULL, NULL, NULL, 1, 4, '2018-01-17 14:05:27', 1, 2, 2, NULL, 3, '2018-01-17 14:05:27', '192.168.0.10', NULL),
-(83, 1, 1, NULL, 'asdsdasdf', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 14:05:57', 3, 2, 1, NULL, 12, '2018-01-17 14:05:57', '192.168.0.10', NULL),
-(84, 1, 1, NULL, 'uahsjdjasd123', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 14:11:29', 1, 1, 1, NULL, 2, '2018-01-17 14:11:29', '192.168.0.10', NULL),
+(46, 4, 3, '3', 'MAIL ', 'TEST', 'TWSAT', 14, 14, 1, 1, 1, '2017-12-05 17:01:39', 1, 1, 1, 24, 2689, '2018-01-26 15:49:38', '::1', 201),
 (85, 1, 1, NULL, 'Prueba Categorias 2', NULL, NULL, NULL, NULL, NULL, 1, 1, '2018-01-17 14:21:55', 1, 1, 1, NULL, 1, '2018-01-17 14:21:55', '192.168.0.10', NULL),
 (86, 1, 1, NULL, 'MENSAJE DE ERROR EN PAGO DE AGUINALDOS', NULL, NULL, NULL, NULL, NULL, 1, 2, '2018-01-18 10:04:34', 1, 1, 1, NULL, NULL, '2018-01-18 10:04:34', '192.168.0.10', NULL),
-(88, 1, 1, NULL, 'Problema con apertura de boveda', NULL, NULL, 1, NULL, NULL, 1, 2, '2018-01-19 12:47:37', 1, 1, 1, NULL, 2094, '2018-01-19 12:47:37', '192.168.0.10', NULL);
+(88, 1, 1, '', 'Problema con apertura de boveda', 'Forzar cierre y comprobar posteriormente x2', 'Forzar cierre y comprobar posteriormente', 1, NULL, NULL, 1, 2, '2018-01-19 12:47:37', 1, 1, 1, NULL, 2094, '2018-01-24 15:30:25', '192.168.0.10', NULL);
 
 -- --------------------------------------------------------
 
@@ -4131,10 +4073,10 @@ CREATE TABLE `userendmessages` (
 --
 
 INSERT INTO `userendmessages` (`id`, `message`, `user_id`, `created`, `modified`, `startdate`, `endingdate`) VALUES
-(8, 'Servidor de tiempo sincronizado correctamente', 1, '2017-12-12 11:05:22', '2017-12-21 10:23:51', '2017-12-21 10:16:00', '2017-12-21 23:40:00'),
 (9, 'Muchos tickets, calmados :D', 1, '2017-12-13 09:36:32', '2017-12-13 15:49:35', '2017-12-13 09:35:00', '2017-12-13 14:35:00'),
 (10, 'hola', 1, '2017-12-22 01:34:18', '2017-12-22 01:34:18', '2017-12-22 01:31:36', '2017-12-22 01:50:42'),
-(11, 'estamos en junta', 1, '2017-12-22 13:03:01', '2017-12-22 13:03:01', '2017-12-22 13:02:43', '2017-12-23 13:02:52');
+(11, 'estamos en junta', 1, '2017-12-22 13:03:01', '2017-12-22 13:03:01', '2017-12-22 13:02:43', '2017-12-23 13:02:52'),
+(12, 'Sistema de HelpDesk en pruebas. \\°o°/', 1, '2018-01-22 12:24:41', '2018-01-24 15:36:03', '2018-01-24 12:23:00', '2018-01-30 12:24:00');
 
 -- --------------------------------------------------------
 
@@ -4195,7 +4137,7 @@ CREATE TABLE `warehouses` (
 --
 
 INSERT INTO `warehouses` (`id`, `name`, `branch_id`) VALUES
-(1, 'ALMACEN 1 VERACRUZ NORTE', 5),
+(1, 'ALMACEN 1 VERACRUZ NORTE', 201),
 (2, 'ALAMACEN COORPORATIVO', 1),
 (3, 'ALMACEN XALAPA', 3),
 (4, 'ALMACEN CD VICTORIA', 4),
@@ -4211,7 +4153,7 @@ INSERT INTO `warehouses` (`id`, `name`, `branch_id`) VALUES
 (14, 'ALMACEN MERIDA', 14),
 (15, 'ALMACEN CHALCO', 15),
 (16, 'ALMACEN ZAPOPAN', 16),
-(17, '555 ALMACEN', NULL);
+(17, '555 ALMACEN', 103);
 
 --
 -- Índices para tablas volcadas
@@ -4281,6 +4223,12 @@ ALTER TABLE `hdcategories_articles`
 -- Indices de la tabla `hdtemplate`
 --
 ALTER TABLE `hdtemplate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `insureds`
+--
+ALTER TABLE `insureds`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -4553,7 +4501,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de la tabla `hdcategories`
 --
 ALTER TABLE `hdcategories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2816;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2818;
 --
 -- AUTO_INCREMENT de la tabla `hdcategories_articles`
 --
@@ -4563,6 +4511,11 @@ ALTER TABLE `hdcategories_articles`
 -- AUTO_INCREMENT de la tabla `hdtemplate`
 --
 ALTER TABLE `hdtemplate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `insureds`
+--
+ALTER TABLE `insureds`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `invoices`
@@ -4673,12 +4626,12 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT de la tabla `ticketimpacts`
 --
 ALTER TABLE `ticketimpacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `ticketlogs`
 --
 ALTER TABLE `ticketlogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `ticketmarkeds`
 --
@@ -4688,7 +4641,7 @@ ALTER TABLE `ticketmarkeds`
 -- AUTO_INCREMENT de la tabla `ticketnotes`
 --
 ALTER TABLE `ticketnotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `ticketnotestypes`
 --
@@ -4733,7 +4686,7 @@ ALTER TABLE `ticketurgencies`
 -- AUTO_INCREMENT de la tabla `userendmessages`
 --
 ALTER TABLE `userendmessages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --

@@ -33,7 +33,7 @@
 									<td><?= $this->form->label(__('Invoices')) ?></td>
 									<td><?= $this->Form->control('invoice_id', ['label' => false,'options' => $invoices, 'empty' => true]); ?></td>
 									<td><?= $this->form->label(__('Insured')) ?></td>
-									<td><?= $this->Form->control('insured',['label' => false]); ?></td>
+									<td><?= $this->Form->control('insured_id',['options' => $insureds,'empty' => true,'label' => false]); ?></td>
 									<td><?= $this->form->label(__('Service tag')) ?></td>
 									<td><?= $this->Form->control('service_tag',['label' => false]); ?></td>
 								</tr>

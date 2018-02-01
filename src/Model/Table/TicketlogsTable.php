@@ -45,12 +45,71 @@ class TicketlogsTable extends Table
         $this->belongsTo('Tickets', [
             'foreignKey' => 'ticket_id'
         ]);
+    
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+            'className' => 'Users',
+            'foreignKey' => 'user_id',
+            'propertyName' => 'user',
         ]);
+
         $this->belongsTo('Groups', [
-            'foreignKey' => 'group_id'
+            'className' => 'Groups',
+            'foreignKey' => 'group_id',
+            'propertyName' => 'group',
         ]);
+        
+        $this->belongsTo('Tickettypes', [
+            'foreignKey' => 'tickettype_id',
+            'strategy' => 'select'
+        ]);
+        $this->belongsTo('TicketStatuses', [
+            'foreignKey' => 'ticket_status_id',
+            'strategy' => 'select'
+        ]);
+        $this->belongsTo('Sources', [
+            'foreignKey' => 'source_id',
+            'strategy' => 'select'
+        ]);
+        $this->belongsTo('Itemcodes', [
+            'foreignKey' => 'itemcode_id',
+            'strategy' => 'select'
+        ]);
+         
+        $this->belongsTo('Ticketimpacts', [
+            'foreignKey' => 'ticketimpact_id',
+            'strategy' => 'select'
+        ]);
+        $this->belongsTo('Ticketurgencies', [
+            'foreignKey' => 'ticketurgency_id',
+            'strategy' => 'select'
+        ]);
+        $this->belongsTo('Ticketpriorities', [
+            'foreignKey' => 'ticketpriority_id',
+            'strategy' => 'select'
+        ]);
+        $this->belongsTo('ParentTickets', [
+            'className' => 'Tickets',
+            'foreignKey' => 'parent_id',
+            'strategy' => 'select'
+        ]);
+        $this->belongsTo('Hdcategories', [
+            'foreignKey' => 'hdcategory_id',
+            'strategy' => 'select'
+        ]);
+        
+        $this->belongsTo('Branches', [
+            'foreignKey' => 'branch_id',
+            'joinType' => 'left',
+            'strategy' => 'select'
+        ]);
+        
+        $this->hasMany('Ticketmarkeds', [
+            'foreignKey' => 'ticket_id',
+            'strategy' => 'select'
+        ]);
+             
+
+
     }
 
     /**
@@ -64,22 +123,6 @@ class TicketlogsTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-
-        $validator
-            ->integer('user_transfer')
-            ->allowEmpty('user_transfer');
-
-        $validator
-            ->integer('group_transfer')
-            ->allowEmpty('group_transfer');
-
-        $validator
-            ->scalar('new_status')
-            ->allowEmpty('new_status');
-
-        $validator
-            ->scalar('coments')
-            ->allowEmpty('coments');
 
         return $validator;
     }

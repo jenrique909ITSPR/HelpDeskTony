@@ -106,7 +106,8 @@ use Cake\Validation\Validator;
         
         $this->belongsTo('Branches', [
             'foreignKey' => 'branch_id',
-            'joinType' => 'left'
+            'joinType' => 'left',
+            'strategy' => 'select'
         ]);
         $this->hasMany('Ticketlogs', [
             'foreignKey' => 'ticket_id'
@@ -155,7 +156,7 @@ use Cake\Validation\Validator;
     {
         $rules->add($rules->existsIn(['tickettype_id'], 'Tickettypes'));
         $rules->add($rules->existsIn(['ticket_status_id'], 'TicketStatuses'));
-        $rules->add($rules->existsIn(['source_id'], 'Sources'));
+        //$rules->add($rules->existsIn(['source_id'], 'Sources'));
         $rules->add($rules->existsIn(['itemcode_id'], 'Itemcodes'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['user_requeried'], 'Users'));

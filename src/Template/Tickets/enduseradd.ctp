@@ -106,7 +106,7 @@
                       <?= $this->form->label(__('itemcodes')) ?>
                     </td>
                     <td>
-                      <?php echo $this->Form->control('itemcode_id', ['label' => false , 'id' => 'itemcode_id']);?>
+                      <?php echo $this->Form->control('itemcode_id', ['type' => 'text' , 'label' => false , 'id' => 'itemcode_id']);?>
 
                     </td>
                   </tr>

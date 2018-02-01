@@ -25,7 +25,7 @@
             <?php foreach ($positiontypebranches as $positiontypebranch): ?>
             <tr>
                 <td><?= $this->Number->format($positiontypebranch->id) ?></td>
-                <td><?= $positiontypebranch->has('branch') ? $this->Html->link($positiontypebranch->branch->name, ['controller' => 'Branches', 'action' => 'view', $positiontypebranch->branch->id]) : '' ?></td>
+                <td><?= $positiontypebranch->has('branch') ? $this->Html->link($positiontypebranch->branch->NOMBRE, ['controller' => 'Branches', 'action' => 'view', $positiontypebranch->branch->SUCURSAL]) : '' ?></td>
                 <td><?= $positiontypebranch->has('positiontype') ? $this->Html->link($positiontypebranch->positiontype->name, ['controller' => 'Positiontypes', 'action' => 'view', $positiontypebranch->positiontype->id]) : '' ?></td>
                 <td><?= $this->Number->format($positiontypebranch->qty) ?></td>
                 <td class="actions">

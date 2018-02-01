@@ -40,7 +40,7 @@ use Cake\Validation\Validator;
         parent::initialize($config);
 
         $this->setTable('itemcodes');
-        $this->setDisplayField('id');
+        $this->setDisplayField('serial');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -49,7 +49,8 @@ use Cake\Validation\Validator;
             'foreignKey' => 'item_id'
         ]);
         $this->belongsTo('Invoices', [
-            'foreignKey' => 'invoice_id'
+            'foreignKey' => 'Sucursal',
+            'strategy' => 'select'
         ]);
         $this->belongsTo('Statusitems', [
             'foreignKey' => 'statusitem_id'
@@ -65,6 +66,9 @@ use Cake\Validation\Validator;
         ]);
         $this->hasMany('Tickets', [
             'foreignKey' => 'itemcode_id'
+        ]);
+        $this->belongsTo('Insureds', [
+            'foreignKey' => 'insured_id'
         ]);
     }
 
