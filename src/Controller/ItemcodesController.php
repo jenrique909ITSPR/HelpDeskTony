@@ -137,4 +137,21 @@ class ItemcodesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function showitem()
+    {
+        $this->autoRender = false;
+        $result = array();
+        //$rs = mysql_query("select * from nodes where parentId=$id");
+        $rs = $this->Itemcodes->find()
+            ->contain(['Items'])->
+            where(['Itemcodes.serial' => $this->request->query('q')])->first();
+        if(empty($rs) || empty($this->request->query('q'))){
+            echo "";
+        }else{
+            echo json_encode($rs->item->name,JSON_UNESCAPED_UNICODE);
+        }
+        
+        die();
+    }
 }

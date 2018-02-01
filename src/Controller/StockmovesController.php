@@ -54,8 +54,10 @@ class StockmovesController extends AppController
      */
     public function add()
     {
-        $stockmove = $this->Stockmoves->newEntity();
+       $stockmove = $this->Stockmoves->newEntity();
+
         if ($this->request->is('post')) {
+            debug($this->request->getData());
             $stockmove = $this->Stockmoves->patchEntity($stockmove, $this->request->getData());
             if ($this->Stockmoves->save($stockmove)) {
                 $this->Flash->success(__('The stockmove has been saved.'));
@@ -68,8 +70,10 @@ class StockmovesController extends AppController
         $movereasons = $this->Stockmoves->Movereasons->find('list', ['limit' => 200]);
         $shippers = $this->Stockmoves->Shippers->find('list', ['limit' => 200]);
         $users = $this->Stockmoves->Users->find('list', ['limit' => 200]);
+        $stockmove->user_id = $this->request->session()->read('Auth.User.id');
         $this->set(compact('stockmove', 'warehouses', 'movereasons', 'shippers', 'users'));
         $this->set('_serialize', ['stockmove']);
+
     }
 
     /**

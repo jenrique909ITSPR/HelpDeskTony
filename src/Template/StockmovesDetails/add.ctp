@@ -27,7 +27,7 @@
 								<?= $this->form->label(__('item')) ?>
 							</td>
 							<td colspan="3">
-									<?php  echo $this->Form->control('item_id', ['options' => $items, 'empty' => true,'label'=> false]);?>
+									<?php  echo $this->Form->control('item_id', ['options' => $items, 'empty' => true,'label'=> false ,'onmouseover'=>'this.disabled=true;' ,'onmouseout'=>"this.disabled=false;" ,'onfocus'=>'this.disabled=true;','onblur'=>'this.disabled=false;']);?>
 							</td>
 						</tr>
 							<tr>

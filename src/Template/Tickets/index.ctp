@@ -52,7 +52,7 @@
                      $style = 'style="background: '.$ticket->tickettype->color . '"';
                 ?>
             <tr >
-                        <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false]); ?></td>
+                <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false , 'value' => $ticket->id]); ?></td>
                 <td><?= $this->Number->format($ticket->id) ?></td>
                 <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->tag) : '' ?></td>
                 <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>
