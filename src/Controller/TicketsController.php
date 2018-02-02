@@ -30,7 +30,7 @@ class TicketsController extends AppController
 
         $this->loadComponent('Tickettype');
         $this->loadComponent('Messages');
-        
+
     }
 
      public function favorite($id = null){
@@ -243,9 +243,9 @@ class TicketsController extends AppController
             if (empty($itemcodedata)) {
                 $datarequest['itemcode_id'] = null;
             }else{$datarequest['itemcode_id'] = $itemcodedata[0]->id;}
-            
+
             $ticket = $this->Tickets->patchEntity($ticket, $datarequest,['associated' => ['Ticketlogs']]);
-            
+
             if ($this->Tickets->save($ticket)) {
 
                 $this->Flash->success(__('Datos del ticket actualizados '));
@@ -286,10 +286,10 @@ class TicketsController extends AppController
                         'user_id' => $this->request->session()->read('Auth.User.id'),
                         'group_id' => $this->request->session()->read('Auth.User.group_id'),
                         'field' => $key ,
-                        'valueprev' => $this->getValueRelated($key,$ticket[$key]) , 
+                        'valueprev' => $this->getValueRelated($key,$ticket[$key]) ,
                         'valuelater' => $this->getValueRelated($key,$value) ]);
                 }
-               
+
         }
         return $data;
     }
@@ -452,7 +452,7 @@ class TicketsController extends AppController
          }
 
     }
-    
+
      public function team() {
          $query = 'SELECT count(t.tickettype_id)as total, tt.name  FROM tickets t inner join tickettypes tt on tt.id = t.tickettype_id group by t.tickettype_id ';
 
@@ -468,7 +468,7 @@ class TicketsController extends AppController
 
     }
 
-    
+
 
     public function enduserindex() {
         $this->viewBuilder()->layout('enduser');
@@ -622,7 +622,20 @@ class TicketsController extends AppController
     }
 
 
+public function alerts (){
 
+ header('Content-Type: text/event-stream');
+ header('Cache-Control: no-cache');
+ $alerts = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
+   ->contain(['TicketStatuses'])
+   ->where(['alert_count'=> 1]);
+   $alerts->select(['count' => $alerts->func()->count('*')]);
+   foreach ($alerts as $key => $value) {
+    echo "data:({$value['count']})\n\n";
+   }
+
+flush();
+}
 
 
 }

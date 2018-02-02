@@ -19,6 +19,7 @@
 							<tr><td  style="width:5%;"><?= $this->form->label(__('Name')) ?></td><td><?=    $this->Form->control('name', ['label' => false]); ?></td></tr>
 							<tr><td  style="width:5%;"><?= $this->form->label(__('Value Order')) ?></td><td><?=  $this->Form->control('value_order',['label' => false]); ?></td></tr>
 							<tr><td  style="width:5%;"><?= $this->form->label(__('Tickettypes')) ?></td><td><?= $this->Form->control('tickettypes._ids', ['label' => false,'options' => $tickettypes]);  ?></td></tr>
+							<tr><td  style="width:5%;"><?= $this->form->label(__('Alert_count')) ?></td><td><?= $this->Form->control('alert_count', ['label' => false]);  ?></td></tr>
 					</tbody>
 			</table>
     <?= $this->Form->button(__('Submit')) ?>

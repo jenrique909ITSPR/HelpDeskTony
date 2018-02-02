@@ -107,7 +107,7 @@ $cakeDescription = 'Portal TI';
   <div id="logo" class="left">PORTAL TI</div>
   <div class="right">
     <ul class="headernav">
-      <!--<li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i>(13)</a></li>-->
+      <li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i><span id="result">(0)</span></a></li>
       <li><?= $this->Html->link('<i class="fa fa-thumb-tack" aria-hidden="true"></i>' . __('Markeds'), ['controller' => 'Ticketmarkeds', 'action' => 'index'], ['escape' => false]) ?></li>
       <li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i>' . __('Knowledge'), ['controller' => 'Articles', 'action' => 'index'], ['escape' => false]) ?></li>
       <li><?= $this->Html->link("<i class='fa fa-user-circle' aria-hidden='true'></i>" . $this->request->session()->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')], ['escape' => false]) ?></li>
