@@ -28,7 +28,7 @@
         <tbody>
             <?php foreach ($invoices as $invoice): ?>
             <tr>
-                <td><?= h($invoice->Factura) ?></td>
+                <td><?= h($invoice->id) ?></td>
                  <td><?= $invoice->has('purchaseorder') ? $this->Html->link($invoice->purchaseorder->CveVale, ['controller' => 'Purchaseorders' , 'action' => 'view', $invoice->purchaseorder->CveVale]) : '' ?></td>
 
                 <td><?= $invoice->has('branch') ? $this->Html->link($invoice->branch->NOMBRE, ['controller' => 'Branches', 'action' => 'view', $invoice->branch->NOMBRE]) : '' ?></td>

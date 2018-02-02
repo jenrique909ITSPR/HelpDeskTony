@@ -33,21 +33,32 @@ class InvoicesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('V_ValesCompraTI_Fact');
-        $this->setDisplayField('Factura');
-        $this->setPrimaryKey('Factura');
+        $this->setTable('invoices');
+        $this->setDisplayField('invoice_number');
+        $this->setPrimaryKey('id');
 
-        $this->belongsTo('Branches', [
-            'foreignKey' => 'Sucursal',
+        $this->belongsTo('Companies', [
+            'foreignKey' => 'company_id',
             'strategy' => 'select'
+        ]);
+        $this->belongsTo('Currencies', [
+            'foreignKey' => 'currency_id'
         ]);
         $this->belongsTo('Purchaseorders', [
             'foreignKey' => 'CveVale',
             'strategy' => 'select'
         ]);
+        $this->belongsTo('Warehouses', [
+            'foreignKey' => 'warehouse_id'
+        ]);
+        $this->belongsTo('Suppliers', [
+            'foreignKey' => 'supplier_id',
+            'strategy' => 'select'
+        ]);
         $this->hasMany('Itemcodes', [
             'foreignKey' => 'invoice_id'
         ]);
+
     }
 
     /**
@@ -94,7 +105,5 @@ class InvoicesTable extends Table
 
         return $rules;
     }
-      public static function defaultConnectionName() {
-        return 'modelSQL';
-    }
+   
 }

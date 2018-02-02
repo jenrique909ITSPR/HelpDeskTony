@@ -112,4 +112,19 @@ class SuppliersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function loadsuppliers()
+    {
+       $this->autoRender = false;
+        $q = isset($_POST['q']) ? $_POST['q'] : '';
+        $result = array();
+        //$rs = mysql_query("select * from nodes where parentId=$id");
+        $rs = $this->Suppliers->find()
+            ->where(['Nombre LIKE' => '%'.$q.'%']);
+        foreach ($rs as $key => $value) {
+            array_push($result,$value['Nombre']);  
+        }
+        echo json_encode($result,JSON_UNESCAPED_UNICODE);
+        die(); 
+    }
+
 }

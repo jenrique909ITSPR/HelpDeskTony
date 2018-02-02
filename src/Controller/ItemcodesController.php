@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
 
 
 /**
@@ -69,13 +69,18 @@ class ItemcodesController extends AppController
     {
         $itemcode = $this->Itemcodes->newEntity();
         if ($this->request->is('post')) {
-            $itemcode = $this->Itemcodes->patchEntity($itemcode, $this->request->getData());
-            if ($this->Itemcodes->save($itemcode)) {
+            $entities = $this->getEntities($this->request->getData());
+             $itemcodes = $this->Itemcodes->newEntities($entities);
+            //$itemcode = $this->Itemcodes->patchEntity($itemcodes, $entities,['associated' =>['Items'] ]);
+            if ($this->Itemcodes->saveMany($itemcodes)) {
                 $this->Flash->success(__('The itemcode has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The itemcode could not be saved. Please, try again.'));
+            
+            
+            $this->Flash->success(__('The itemcode has been saved.'));
+            return $this->redirect(['action' => 'index']);
         }
         $items = $this->Itemcodes->Items->find('list', ['limit' => 200]);
         $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
@@ -83,8 +88,27 @@ class ItemcodesController extends AppController
         $positionbranches = $this->Itemcodes->Positions->find('list', ['limit' => 200]);
         $insureds = $this->Itemcodes->Insureds->find('list', ['limit' => 200]);
         $currencies = $this->Itemcodes->Currencies->find('list', ['limit' => 200]);
-        $this->set(compact('itemcode','insureds','items', 'invoices', 'statusitems', 'positionbranches', 'currencies'));
+        $itemcategories = $this->Itemcodes->Items->Itemcategories->find('list');
+        $itemtypes = $this->Itemcodes->Items->Itemtypes->find('list');
+        $brands = $this->Itemcodes->Items->Brands->find('list');
+        $warehouses = $this->Itemcodes->Invoices->Warehouses->find('list');
+    
+        $this->set(compact('itemcode','brands','purchaseorders','itemtypes','itemcategories','insureds','items', 'invoices', 'statusitems', 'positionbranches', 'currencies','warehouses'));
         $this->set('_serialize', ['itemcode']);
+    }
+    public function getEntities($data=null)
+    {   $dataEntities = array();
+        $invoiceTable = TableRegistry::get('Invoices');
+        $invoice = $invoiceTable->newEntity($data['invoices']);
+        if($invoiceTable->save($invoice)){
+            $data['invoice_id'] = $invoice->id;
+        }
+        foreach ($data['itemcodes'] as $key => $value) {
+            $data['serial'] = $value;
+            $data['statusitem_id'] = 1;
+            array_push($dataEntities,$data);
+        }
+        return $dataEntities;
     }
 
     /**

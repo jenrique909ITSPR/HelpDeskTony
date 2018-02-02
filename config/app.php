@@ -279,8 +279,6 @@ return [
             'flags' => [],
             'init' => [],
             'settings' => [],
-            
-
             'url' => env('DATABASE_URL', null),
         ],
         /**
