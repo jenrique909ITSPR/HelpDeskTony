@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Campos dinamicos</title>
+
+<link rel="stylesheet" href="css/font-awesome.css" media="screen" type="text/css" />
+<style type="text/css">
+table {
+	border: 1px solid #DDD;
+}
+td {
+	padding: 3px 5px;
+}
+thead tr {
+	background: #CCC;
+	font-weight:bold;
+}
+.arrayActions, .resetAll {
+	display: none;
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+ 
+	/* Begin CheckAll True/False */
+	$("#checkAll").on('change', function () {
+		$(".cb-element").prop('checked', $(this).prop("checked"));
+		displayAction();
+	});
+	
+	$("tbody").on('change','.cb-element',function () {
+		_tot = $(".cb-element").length;						  
+		_tot_checked = $(".cb-element:checked").length;
+		displayAction();
+			
+		if(_tot != _tot_checked){
+			$("#checkAll").prop('checked',false);
+		}
+		
+		if(_tot == _tot_checked){
+			$("#checkAll").prop('checked',true);
+		}
+	});
+	/* End CheckAll True/False */
+	
+	
+	
+	
+	/* Begin Add serial */
+	$('.inputSerial').keypress(function (e) {
+		//e.preventDefault();
+		var inputSerial = $('.inputSerial').val(); 
+    	if(e.which ==13 && inputSerial != '') {
+			var html = $('.inputTemplate:first').clone();
+			var addserial = '<tr class="inputTemplate"><td><input name="mycheckbox[]" type="checkbox" value="" class="cb-element" /></td><td><input type="text" name="myfield[]" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
+			$('tbody').prepend(addserial);
+			$('.inputSerial').val('');
+			countRows();
+				
+			$(".cb-element").prop('checked', false);
+			$("#checkAll").prop('checked',false);	
+			displayAction();	
+		}
+	});
+	/* End Add serial */
+	
+	/* Begin Delete Serial */
+	$('tbody').on("click",".removeinput", function(e){ //user click on remove text
+        e.preventDefault(); 
+		$(this).parents('.inputTemplate').remove(); 
+		countRows();
+		displayAction();
+    })	
+	/* End Delete Serial */
+
+	function countRows() {  // Count rows
+		_tot = $(".cb-element").length;	
+		$('.countItems').html(_tot);
+		if (_tot > 0) $('.resetAll').show();
+		else $('.resetAll').hide();
+	}
+	
+	function displayAction(){  // display actions for items selected
+		_tot_checked = $(".cb-element:checked").length;
+		if (_tot_checked > 0) $('.arrayActions').show();
+		else $('.arrayActions').hide();
+		$('.countSelected').html(_tot_checked);
+	}
+ 
+});
+</script>
+
+</head>
+
+<body>
+
+
+<div>
+    <i class="fa fa-barcode"></i>
+    <input type="text" name="" class="inputSerial" />
+    &nbsp; Total: <span class="countItems">0</span>
+    
+  <form action="#" name="seriales">
+        <table width=""  cellspacing="0" cellpadding="0" class="serialList">
+          <thead>
+          <tr>
+            <td><input name="" type="checkbox" value="" id="checkAll" /></td>
+            <td>Item</td>
+            <td></td>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <input type="submit" value="Borrar Todos" class="resetAll"/>
+    </form>
+</div>
+
+<p class="arrayActions">Items seleted: <span class="countSelected"></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

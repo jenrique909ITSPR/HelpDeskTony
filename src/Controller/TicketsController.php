@@ -645,9 +645,9 @@ public function editchecked(){
    if($this->request->is('Ajax')) { //<!-- Ajax Detection
        $this->autoRender = false;
 
-       $elements = explode(",", $_POST['value_to_send']);
-
-    foreach($elements as $element)
+       $elements =$_POST['value_to_send'];// explode(",", $_POST['value_to_send']);
+       echo $elements;
+  /*  foreach($elements as $element)
     {
         echo ($element);
     }
