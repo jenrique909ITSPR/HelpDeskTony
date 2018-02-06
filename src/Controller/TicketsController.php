@@ -619,6 +619,7 @@ class TicketsController extends AppController
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('tickets');
+
     }
 
 
@@ -637,5 +638,26 @@ public function alerts (){
 flush();
 }
 
+public function editchecked(){
 
+
+
+   if($this->request->is('Ajax')) { //<!-- Ajax Detection
+       $this->autoRender = false;
+
+       $elements = explode(",", $_POST['value_to_send']);
+
+    foreach($elements as $element)
+    {
+        echo ($element);
+    }
+      /* $checked= array();
+foreach ($_POST['value_to_send'] as $key => $value) {
+  array_push( $checked,$value);
+}
+ echo ($checked[0]);
+*/
+
+   }
+ }
 }

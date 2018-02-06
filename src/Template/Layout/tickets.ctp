@@ -44,10 +44,6 @@
 
     </div>
   </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 4cf9fc411b5b1180514794d86c17ec99913fa4b3
 <!--  <div class="breadcrumbs">
   HelpDesk <span class="sep">/</span> Items <span class="sep">/</span> Editar #123
 </div>-->

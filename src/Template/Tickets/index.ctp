@@ -67,7 +67,7 @@
 
                 <td><?= $ticket->has('user_requeried') ? ($ticket->userrequeried->name) : '' ?></td>
 
-                
+
                 <!--<td><?= $ticket->has('ticketimpact') ? ($ticket->ticketimpact->name) : '' ?></td>
                 <td><?= $ticket->has('ticketurgency') ? ($ticket->ticketurgency->name) : '' ?></td>-->
                 <td><?= $ticket->has('ticketpriority') ? ($ticket->ticketpriority->name) : '' ?></td>
@@ -81,7 +81,6 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
@@ -93,30 +92,67 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+<div id="debugOutput">
+</div>
 <script type="text/javascript">
     $("#checkAll").on('change', function () {
         $(".cb-element").prop('checked', $(this).prop("checked"));
         displayAction();
     });
-    
+
     $("#tbodytickets").on('change','.cb-element',function () {
-        _tot = $(".cb-element").length;                       
+        _tot = $(".cb-element").length;
         _tot_checked = $(".cb-element:checked").length;
         displayAction();
-            
+
         if(_tot != _tot_checked){
             $("#checkAll").prop('checked',false);
         }
-        
+
         if(_tot == _tot_checked){
             $("#checkAll").prop('checked',true);
         }
     });
 
     function displayAction(){  // display actions for items selected
-        _tot_checked = $(".cb-element:checked").length;
+      var checkboxValues = [];
+           $(".cb-element:checked").each(function(index, elem) {
+               checkboxValues.push($(elem).val());
+           });
+      //  _tot_checked = $(".cb-element:checked").length;
         if (_tot_checked > 0) $('.arrayActions').show();
         else $('.arrayActions').hide();
         $('.countSelected').html(_tot_checked);
+        $( "#debugOutput" ).text(checkboxValues + " are" + " checked!" );
+
+
+        $.ajax({
+                url: '<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'editchecked']) ?>',
+                type: 'POST',
+                //dataType:'json',
+                data: {value_to_send: checkboxValues.toString()},
+
+                success : function(data) {
+                    console.log(data);// will alert "ok"
+
+                },
+                error : function() {
+                    alert("false submission fail");
+                }
+            });
+          /*  $.ajax({
+                    url: '<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'editchecked']) ?>',
+                    type: 'POST',
+                    //dataType:'json',
+                    data: {value_to_send: checkboxValues},
+
+                    success : function(data) {
+                        alert(data);// will alert "ok"
+
+                    },
+                    error : function() {
+                        alert("false submission fail");
+                    }
+                });*/
     }
 </script>
