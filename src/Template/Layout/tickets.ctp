@@ -44,8 +44,6 @@
 
     </div>
   </div>
-<input type="button" id="button">
-<span id="dataresult">a</span>
 <!--  <div class="breadcrumbs">
   HelpDesk <span class="sep">/</span> Items <span class="sep">/</span> Editar #123
 </div>-->

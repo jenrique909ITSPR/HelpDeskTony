@@ -25,7 +25,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col" class="actions"><?= $this->Form->checkbox('selectedAll', ['hiddenField' => false]); ?></th>
+                <th scope="col" class="actions"><?= $this->Form->checkbox('checkAll', ['value'=> 0, 'id' => 'checkAll']); ?></th>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tickettype_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('ticket_status_id') ?></th>
@@ -46,13 +46,13 @@
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id='tbodytickets'>
 
             <?php foreach ($tickets as $ticket):
                      $style = 'style="background: '.$ticket->tickettype->color . '"';
                 ?>
             <tr >
-                <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false , 'value' => $ticket->id]); ?></td>
+                <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false ,'class' => 'cb-element' ,'value' => $ticket->id]); ?></td>
                 <td><?= $this->Number->format($ticket->id) ?></td>
                 <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->tag) : '' ?></td>
                 <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>
@@ -81,6 +81,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
@@ -92,3 +93,30 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+<script type="text/javascript">
+    $("#checkAll").on('change', function () {
+        $(".cb-element").prop('checked', $(this).prop("checked"));
+        displayAction();
+    });
+    
+    $("#tbodytickets").on('change','.cb-element',function () {
+        _tot = $(".cb-element").length;                       
+        _tot_checked = $(".cb-element:checked").length;
+        displayAction();
+            
+        if(_tot != _tot_checked){
+            $("#checkAll").prop('checked',false);
+        }
+        
+        if(_tot == _tot_checked){
+            $("#checkAll").prop('checked',true);
+        }
+    });
+
+    function displayAction(){  // display actions for items selected
+        _tot_checked = $(".cb-element:checked").length;
+        if (_tot_checked > 0) $('.arrayActions').show();
+        else $('.arrayActions').hide();
+        $('.countSelected').html(_tot_checked);
+    }
+</script>
