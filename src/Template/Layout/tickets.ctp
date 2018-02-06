@@ -44,19 +44,10 @@
 
     </div>
   </div>
-<input type="button" id="button">
-<span id="dataresult">a</span>
+
 <!--  <div class="breadcrumbs">
   HelpDesk <span class="sep">/</span> Items <span class="sep">/</span> Editar #123
 </div>-->
-<script>
-$("#button").click(function(){
-    $.get("<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'alerts']) ?>", function(data){
-    $("#button")
-    });
-});
-
-</script>
 <script type="text/javascript">
 if (!!window.EventSource) {
     var source = new EventSource("<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'alerts']) ?>");
