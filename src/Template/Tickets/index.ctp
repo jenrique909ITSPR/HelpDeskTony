@@ -126,7 +126,7 @@
         if (_tot_checked > 0) $('.arrayActions').show();
         else $('.arrayActions').hide();
         $('.countSelected').html(_tot_checked);
-        $( "#debugOutput" ).text(checkboxValues + " are" + " checked!" );
+      //  $( "#debugOutput" ).text(checkboxValues + " are" + " checked!" );
 
 
         $.ajax({
