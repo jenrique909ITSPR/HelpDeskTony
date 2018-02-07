@@ -47,17 +47,7 @@
 <!--  <div class="breadcrumbs">
   HelpDesk <span class="sep">/</span> Items <span class="sep">/</span> Editar #123
 </div>-->
-<script type="text/javascript">
-if (!!window.EventSource) {
-    var source = new EventSource("<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'alerts']) ?>");
-} else {
-    alert("Your browser does not support Server-sent events! Please upgrade it!");
-}
-source.addEventListener("message", function(e) {
-   //console.log(e.data);
-    document.getElementById("result").innerHTML= e.data;
-}, false);
-</script>
+
 
 
 <?= $this->element('footer') ?>

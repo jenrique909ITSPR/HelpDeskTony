@@ -6,12 +6,12 @@
 
 <div class="items form">
 	<h3><?= __('Add Item') ?></h3>
-	<div class="actions">
+	<!--<div class="actions">
 		<ul>
 			<li><?= $this->Html->link(__('List Items'), ['action' => 'index']) ?></li>
 		</ul>
 	</div>
-
+-->
 	<div class="editdata">
     <?= $this->Form->create($item) ?>
 
@@ -42,7 +42,7 @@
 								<?= $this->form->label(__('parent')) ?>
 							</td>
 							<td>
-									<?php  echo $this->Form->control('parent_id', ['options' => $parentItems,'label'=> false]);?>
+									<?php  echo $this->Form->control('parent_id', ['options' => $parentItems,'label'=> false, 'empty' => true]);?>
 							</td>
 						</tr>
 						<tr>
