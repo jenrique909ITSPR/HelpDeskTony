@@ -19,9 +19,9 @@
     <div class="actions">
         <ul>
             <li><?= $this->Html->link(__('New Ticket'), ['action' => 'add'], ['escape' => false]) ?></li>
-            <li>  <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ticket->id]) ?></li>
-            <li><?= $this->Html->link(__('Delete'), ['action' => 'delete']) ?></li>
-        </ul>
+          <!--  <li>  <?= $this->Html->link(__('Edit'), ['action' => 'edit',  h($elements2)]) ?></li>
+            <li>  <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', h($elements[0])], ['confirm' => __('Are you sure you want to delete # {0}?', h($elements[0]))]) ?></li>
+      -->  </ul>
     </div>
 
     <table cellpadding="0" cellspacing="0">
