@@ -645,18 +645,12 @@ public function editchecked(){
    if($this->request->is('Ajax')) { //<!-- Ajax Detection
        $this->autoRender = false;
 
-       $elements =$_POST['value_to_send'];// explode(",", $_POST['value_to_send']);
-       echo $elements;
-  /*  foreach($elements as $element)
+       $elements = explode(",", $_POST['value_to_send']);
+
+    foreach($elements as $element => $value)
     {
-        echo ($element);
+        echo ($value."\n");
     }
-      /* $checked= array();
-foreach ($_POST['value_to_send'] as $key => $value) {
-  array_push( $checked,$value);
-}
- echo ($checked[0]);
-*/
 
    }
  }

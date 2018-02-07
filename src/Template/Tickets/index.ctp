@@ -19,6 +19,8 @@
     <div class="actions">
         <ul>
             <li><?= $this->Html->link(__('New Ticket'), ['action' => 'add'], ['escape' => false]) ?></li>
+            <li>  <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ticket->id]) ?></li>
+            <li><?= $this->Html->link(__('Delete'), ['action' => 'delete']) ?></li>
         </ul>
     </div>
 
@@ -94,6 +96,7 @@
 </div>
 <div id="debugOutput">
 </div>
+
 <script type="text/javascript">
     $("#checkAll").on('change', function () {
         $(".cb-element").prop('checked', $(this).prop("checked"));
@@ -130,29 +133,15 @@
                 url: '<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'editchecked']) ?>',
                 type: 'POST',
                 //dataType:'json',
-                data: {value_to_send: checkboxValues.toString()},
+                data:  {value_to_send: checkboxValues.toString()}, //.toString()
 
                 success : function(data) {
                     console.log(data);// will alert "ok"
 
                 },
                 error : function() {
-                    alert("false submission fail");
+                    alert("Error de ajax");
                 }
             });
-          /*  $.ajax({
-                    url: '<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'editchecked']) ?>',
-                    type: 'POST',
-                    //dataType:'json',
-                    data: {value_to_send: checkboxValues},
-
-                    success : function(data) {
-                        alert(data);// will alert "ok"
-
-                    },
-                    error : function() {
-                        alert("false submission fail");
-                    }
-                });*/
     }
 </script>
