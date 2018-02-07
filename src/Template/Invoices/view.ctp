@@ -19,21 +19,22 @@
 	<div class="viewdata">
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Factura') ?></th>
-            <td><?= h($invoice->Factura) ?></td>
+            <th scope="row"><?= __('Invoice number') ?></th>
+            <td><?= h($invoice->invoice_number) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= h($invoice->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Purchaseorder') ?></th>
-            <td><?= $invoice->has('purchaseorder') ? $this->Html->link($invoice->purchaseorder->CveVale, ['controller' => 'Purchaseorder', 'action' => 'view', $invoice->purchaseorder->CveVale]) : '' ?></td>
+             <td><?= h($invoice->purchaseorder_id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Branch') ?></th>
-            <td><?= $invoice->has('branch') ? $this->Html->link($invoice->branch->NOMBRE, ['controller' => 'Suppliers', 'action' => 'view', $invoice->branch->NOMBRE]) : '' ?></td>
+            <th scope="row"><?= __('Company') ?></th>
+            <td><?= $invoice->has('company') ? $this->Html->link($invoice->company->Nombre, ['controller' => 'Companies', 'action' => 'view', $invoice->company->Nombre]) : '' ?></td>
         </tr>
-            <tr>
-            <th scope="row"><?= __('Renglon') ?></th>
-            <td><?= h($invoice->Renglon) ?></td>
-        </tr>
+
         <tr>
             <th scope="row"><?= __('Pdf') ?></th>
             <td><?= h($invoice->pdf) ?></td>
@@ -43,20 +44,20 @@
             <td><?= h($invoice->xml) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('FechaEmi') ?></th>
-            <td><?= h($invoice->FechaEmi) ?></td>
+            <th scope="row"><?= __('Invoicedate') ?></th>
+            <td><?= h($invoice->invoicedate) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Importe') ?></th>
-            <td><?= h($invoice->Importe) ?></td>
+            <td><?= h($invoice->amount) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Subtotal') ?></th>
-            <td><?= h($invoice->Subtotal) ?></td>
+            <th scope="row"><?= __('Currency') ?></th>
+            <td><?= h($invoice->currency->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('ImpIva') ?></th>
-            <td><?= h($invoice->ImpIva) ?></td>
+            <th scope="row"><?= __('Warehouse') ?></th>
+            <td><?= h($invoice->warehouse->name) ?></td>
         </tr>
     </table>
 	</div>

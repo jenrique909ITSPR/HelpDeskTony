@@ -6,50 +6,9 @@
 <?= $this->Form->create($itemcode) ?>
 <div class="itemcodes form">
 	
-	
-
-	<div class="editdata">
-        <table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
-            <tbody>
-                <!--<tr>
-					<td  style="width:5%;"><?= $this->form->label(__('Item')) ?></td>
-					<td width="55%"><?= $this->Form->control('item_id', ['label' => false,'options' => $items, 'empty' => true]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('Statusitems')) ?></td>
-					<td colspan="3"><?= $this->Form->control('statusitem_id', ['label' => false,'options' => $statusitems, 'empty' => true]); ?></td>
-				</tr>
-                <tr>
-					<td><?= $this->form->label(__('Serial')) ?></td>
-					<td><?= $this->Form->control('serial',['label' => false]); ?></td>
-					<td><?= $this->form->label(__('Positionbranches')) ?></td>
-					<td colspan="3"><?=  $this->Form->control('positionbranch_id', ['label' => false,'options' => $positionbranches, 'empty' => true]); ?></td>
-				</tr>-->
-				<tr>
-					<!--<td><?= $this->form->label(__('Invoices')) ?></td>
-					<td><?= $this->Form->control('invoice_id', ['label' => false,'options' => $invoices, 'empty' => true]); ?></td>-->
-					<td><?= $this->form->label(__('Insured')) ?></td>
-					<td><?= $this->Form->control('insured_id',['options' => $insureds,'empty' => true,'label' => false]); ?></td>
-					<td><?= $this->form->label(__('Service tag')) ?></td>
-					<td><?= $this->Form->control('service_tag',['label' => false]); ?></td>
-				</tr>
-                <tr>
-
-				<td style="width:5%;"><?= $this->form->label(__('Warranty')) ?></td>
-				<td colspan="1"><?=  $this->Form->created('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
-				<td  style="width:5%;"><?= $this->form->label(__('Cost')) ?></td>
-				<td colspan="1"><?= $this->Form->control('cost',['label' => false]); ?></td>
-				<td  style="width:5%;"><?= $this->form->label(__('Currencies')) ?></td>
-				<td colspan="1"><?= $this->Form->control('currency_id', ['label' => false,'options' => $currencies, 'empty' => true]); ?></td>
-			</tr>
-               
-            </tbody>
-        </table>
-	</div>
-<br />
-
-
 <div class="easyui-layout" style="width:100%;height:500px;">
-		<div data-options="region:'north', collapsible:false" title="<?= __('Invoice') ?>" style="height: 22%; padding: 5px;">
-			<table class="tableTransparent" cellpadding="0" cellspacing="0" style="width:auto;">
+		<div data-options="region:'north', collapsible:false" title="<?= __('Invoice') ?>" style="height: 27%; padding: 10px;">
+			<table class="tableTransparent" cellpadding="3" cellspacing="3" style="width:auto;">
 					<tr><td  style="width:5%;"><?= $this->form->label(__('invoice_number')) ?></td><td><?=  $this->Form->control('invoices.invoice_number', ['type' => 'text', 'empty' => true , 'label' => false  ]); ?></td>
 					<td  style="width:5%;"><?= $this->form->label(__('purchaseorder')) ?></td><td><?=  $this->Form->control('invoices.purchaseorder_id', ['type' => 'text', 'empty' => true , 'label' => false  ]); ?></td>
 					<td  style="width:5%;"><?= $this->form->label(__('date')) ?></td><td><?=  $this->Form->created('invoices.invoicedate', ['type' => 'date', 'empty' => true , 'label' => false  ]); ?></td>
@@ -63,30 +22,20 @@
 
 		</div>
 		<div data-options="region:'east',split:true,collapsible:false" title="<?= __('Serials') ?>" style="width:250px; padding: 5px 5px;">
-			<?=   $this->Form->control('title',['label' => false]); ?>
+			<i class="fa fa-barcode"></i>
+		    <input type="text" name="" class="inputSerial" form=""></input>
 			<table class="" cellpadding="0" cellspacing="0" style="">
-					<tr>
-						<td><?=   $this->Form->control('itemcodes[]serial',['label' => false]); ?></td>
-						<td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
-					</tr>
-					<tr>
-						<td><?=   $this->Form->control('itemcodes[]serial',['label' => false]); ?></td>
-						<td>[Borrar]</td>
-					</tr>
-					<tr>
-						<td><?=   $this->Form->control('itemcodes[]serial',['label' => false]); ?></td>
-						<td>[Borrar]</td>
-					</tr>
+					<tbody id="bodyserials"></tbody>
 			</table>
 
 		</div>
 		<div data-options="region:'center', collapsible:false" title="<?= __('Assets') ?>" style="padding: 5px 5px;">
-			<table class="tableTransparent" cellpadding="0" cellspacing="0" style="width:auto;">
+			<table class="tableTransparent" cellpadding="4" cellspacing="5" style="width:auto;">
 								<tr>
 							<td style="width:5%;">
 								<?= $this->form->label(__('name')) ?>
 							</td>
-							<td colspan="3">
+							<td colspan="5">
 								<?= $this->Form->control('item_id',['id'=>'cg','label'=> false,'style'=> "width:100%;" , 'type' => 'text']);?>
 							</td>
 						</tr>
@@ -95,13 +44,13 @@
 								<?= $this->form->label(__('itemcategory')) ?>
 							</td>
 							<td width="33%">
-									<?php  echo $this->Form->control('items.itemcategory_id', ['options' => $itemcategories, 'empty' => true,'label'=> false,'id' => 'itemcategory_id']);?>
+									<?php  echo $this->Form->control('items.itemcategory_id', ['options' => $itemcategories, 'empty' => true,'label'=> false,'id' => 'itemcategory_id','readonly']);?>
 							</td>
 							<td width="7%">
 								<?= $this->form->label(__('itemtype')) ?>
 							</td>
 							<td>
-									<?php  echo $this->Form->control('items.itemtype_id', ['options' => $itemtypes,'label'=> false,'id' => 'itemtype_id']);?>
+									<?php  echo $this->Form->control('items.itemtype_id', ['options' => $itemtypes,'label'=> false,'id' => 'itemtype_id','readonly']);?>
 							</td>
 							
 						</tr>
@@ -110,19 +59,19 @@
 								<?= $this->form->label(__('brand')) ?>
 							</td>
 							<td>
-									<?php  echo $this->Form->control('items.brand_id', ['options' => $brands,'label'=> false, 'id'=>'brand_id']);?>
+									<?php  echo $this->Form->control('items.brand_id', ['options' => $brands,'label'=> false, 'id'=>'brand_id','readonly']);?>
 							</td>
 							<td>
 								<?= $this->form->label(__('model')) ?>
 							</td>
 							<td>
-									<?php  echo $this->Form->control('items.model', ['id'=> 'model' ,'label'=> false]);?>
+									<?php  echo $this->Form->control('items.model', ['id'=> 'model' ,'label'=> false,'readonly']);?>
 							</td>
 							<td>
 								<?= $this->form->label(__('color')) ?>
 							</td>
 							<td>
-									<?php  echo $this->Form->control('items.color', ['id'=>'color' ,'label'=> false]);?>
+									<?php  echo $this->Form->control('items.color', ['id'=>'color' ,'label'=> false,'readonly']);?>
 							</td>
 						</tr>
 						<tr>
@@ -130,20 +79,34 @@
 								<?= $this->form->label(__('unit_cost')) ?>
 							</td>
 							<td>
-									<?php  echo $this->Form->control('items.unit_cost', ['id' => 'unit_cost', 'label'=> false]);?>
+									<?php  echo $this->Form->control('items.unit_cost', ['id' => 'unit_cost', 'label'=> false,'readonly']);?>
 							</td>
 							<td>
 								<?= $this->form->label(__('currency')) ?>
 							</td>
 							<td colspan="3">
-									<?php  echo $this->Form->control('items.currency_id', ['options' => $currencies,'label'=> false, 'id' => 'currency_id']);?>
+									<?php  echo $this->Form->control('items.currency_id', ['options' => $currencies,'label'=> false, 'id' => 'currency_id','readonly']);?>
 							</td>
 						</tr>
+
+						<tr >
+							<td style="width:5%;"><?= $this->form->label(__('Warranty')) ?></td>
+							<td colspan="1"><?=  $this->Form->created('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
+							<td><?= $this->form->label(__('Service tag')) ?></td>
+							<td><?= $this->Form->control('service_tag',['label' => false]); ?></td>
+						</tr>
+						<tr><td> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Add new Item</a></td></tr>
 			</table>
 			
 		</div>
 
 </div>
+</div>
+<div id="w" class="easyui-window" title="<?= h(__('Item'))  ?>" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:80%;height:60%;padding:10px;">
+   
+  <div id="contentAjax2">
+    <?= $this->fetch('content') ?>
+  </div>
 
 </div>
 <?= $this->Form->button(__('Submit')) ?>
@@ -196,4 +159,42 @@
 });
    
 
+</script>
+<script type="text/javascript">
+	$('.inputSerial').keypress(function (e) {
+		//e.preventDefault();
+		var inputSerial = $('.inputSerial').val(); 
+    	if(e.which ==13 && inputSerial != '') {
+			var html = $('.inputTemplate:first').clone();
+			var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
+			$('#bodyserials').prepend(addserial);
+			$('.inputSerial').val('');
+			displayAction();
+				
+		}
+	});
+	$('#bodyserials').on("click",".removeinput", function(e){ //user click on remove text
+        e.preventDefault(); 
+		$(this).parents('.inputTemplate').remove(); 
+		countRows();
+		displayAction();
+    })	
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+ 
+    var cargando = $("#contentAjax").html("<div class='loading'></div>");
+    $.ajax({
+        type: 'GET',
+        url: '<?= $this->Url->build(['controller' => 'Items', 'action' => 'add']) ?>',
+        //data: $('#envia').serialize(),
+        beforeSend: function() {
+            cargando.show();
+        },
+        success: function(data) {
+          $('#contentAjax2').html(data);
+      }});
+  
+});
 </script>
