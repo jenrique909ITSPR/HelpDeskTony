@@ -19,13 +19,15 @@
     <div class="actions">
         <ul>
             <li><?= $this->Html->link(__('New Ticket'), ['action' => 'add'], ['escape' => false]) ?></li>
-        </ul>
+          <!--  <li>  <?= $this->Html->link(__('Edit'), ['action' => 'edit',  h($elements2)]) ?></li>
+            <li>  <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', h($elements[0])], ['confirm' => __('Are you sure you want to delete # {0}?', h($elements[0]))]) ?></li>
+      -->  </ul>
     </div>
 
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col" class="actions"><?= $this->Form->checkbox('selectedAll', ['hiddenField' => false]); ?></th>
+                <th scope="col" class="actions"><?= $this->Form->checkbox('checkAll', ['value'=> 0, 'id' => 'checkAll']); ?></th>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tickettype_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('ticket_status_id') ?></th>
@@ -46,13 +48,13 @@
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id='tbodytickets'>
 
             <?php foreach ($tickets as $ticket):
                      $style = 'style="background: '.$ticket->tickettype->color . '"';
                 ?>
             <tr >
-                <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false , 'value' => $ticket->id]); ?></td>
+                <td><?= $this->Form->checkbox('selected.', ['hiddenField' => false ,'class' => 'cb-element' ,'value' => $ticket->id]); ?></td>
                 <td><?= $this->Number->format($ticket->id) ?></td>
                 <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->tag) : '' ?></td>
                 <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>
@@ -67,7 +69,7 @@
 
                 <td><?= $ticket->has('user_requeried') ? ($ticket->userrequeried->name) : '' ?></td>
 
-                
+
                 <!--<td><?= $ticket->has('ticketimpact') ? ($ticket->ticketimpact->name) : '' ?></td>
                 <td><?= $ticket->has('ticketurgency') ? ($ticket->ticketurgency->name) : '' ?></td>-->
                 <td><?= $ticket->has('ticketpriority') ? ($ticket->ticketpriority->name) : '' ?></td>
@@ -92,3 +94,54 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+<div id="debugOutput">
+</div>
+
+<script type="text/javascript">
+    $("#checkAll").on('change', function () {
+        $(".cb-element").prop('checked', $(this).prop("checked"));
+        displayAction();
+    });
+
+    $("#tbodytickets").on('change','.cb-element',function () {
+        _tot = $(".cb-element").length;
+        _tot_checked = $(".cb-element:checked").length;
+        displayAction();
+
+        if(_tot != _tot_checked){
+            $("#checkAll").prop('checked',false);
+        }
+
+        if(_tot == _tot_checked){
+            $("#checkAll").prop('checked',true);
+        }
+    });
+
+    function displayAction(){  // display actions for items selected
+      var checkboxValues = [];
+           $(".cb-element:checked").each(function(index, elem) {
+               checkboxValues.push($(elem).val());
+           });
+      //  _tot_checked = $(".cb-element:checked").length;
+        if (_tot_checked > 0) $('.arrayActions').show();
+        else $('.arrayActions').hide();
+        $('.countSelected').html(_tot_checked);
+      //  $( "#debugOutput" ).text(checkboxValues + " are" + " checked!" );
+
+
+        $.ajax({
+                url: '<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'editchecked']) ?>',
+                type: 'POST',
+                //dataType:'json',
+                data:  {value_to_send: checkboxValues.toString()}, //.toString()
+
+                success : function(data) {
+                    console.log(data);// will alert "ok"
+
+                },
+                error : function() {
+                    alert("Error de ajax");
+                }
+            });
+    }
+</script>

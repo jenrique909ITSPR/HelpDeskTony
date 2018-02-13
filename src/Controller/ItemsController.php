@@ -53,12 +53,13 @@ class ItemsController extends AppController
     public function add()
     {
         $item = $this->Items->newEntity();
-        if ($this->request->is('post')) {
+        if ($this->request->is('post') ) {
             $item = $this->Items->patchEntity($item, $this->request->getData());
             if ($this->Items->save($item)) {
                 $this->Flash->success(__('The item has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Itemcodes', 'action' => 'add']);
+
             }
             $this->Flash->error(__('The item could not be saved. Please, try again.'));
         }

@@ -107,7 +107,7 @@ $cakeDescription = 'Portal TI';
   <div id="logo" class="left">PORTAL TI</div>
   <div class="right">
     <ul class="headernav">
-      <li><a href="" class="blink bgalert"><i class="fa fa-bell-o" aria-hidden="true"></i><span id="result">(0)</span></a></li>
+      <li><a id='bell' href="" class=""><i class="fa fa-bell-o" aria-hidden="true"></i><span id="result">(0)</span></a></li>
       <li><?= $this->Html->link('<i class="fa fa-thumb-tack" aria-hidden="true"></i>' . __('Markeds'), ['controller' => 'Ticketmarkeds', 'action' => 'index'], ['escape' => false]) ?></li>
       <li><?= $this->Html->link('<i class="fa fa-graduation-cap" aria-hidden="true"></i>' . __('Knowledge'), ['controller' => 'Articles', 'action' => 'index'], ['escape' => false]) ?></li>
       <li><?= $this->Html->link("<i class='fa fa-user-circle' aria-hidden='true'></i>" . $this->request->session()->read('Auth.User.name').' '.$this->request->session()->read('Auth.User.last_name'), ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id')], ['escape' => false]) ?></li>
@@ -115,3 +115,23 @@ $cakeDescription = 'Portal TI';
     </ul>
   </div>
 </div>
+<script type="text/javascript">
+if (!!window.EventSource) {
+    var source = new EventSource("<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'alerts']) ?>");
+} else {
+    alert("Your browser does not support Server-sent events! Please upgrade it!");
+}
+source.addEventListener("message", function(e) {
+   //console.log(e.data);
+   
+    if(e.data == '(0)'){
+      document.getElementById("result").innerHTML= e.data;
+      $('#bell').removeClass('blink bgalert');
+    }else{
+      document.getElementById("result").innerHTML= e.data;
+      $('#bell').addClass('blink bgalert');
+    }
+    
+
+}, false);
+</script>

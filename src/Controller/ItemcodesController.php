@@ -106,6 +106,9 @@ class ItemcodesController extends AppController
         foreach ($data['itemcodes'] as $key => $value) {
             $data['serial'] = $value;
             $data['statusitem_id'] = 1;
+            $data['insured_id'] = 2;
+            $data['currency_id'] = $data['items']['currency_id'];
+            $data['cost'] = $data['items']['unit_cost'];
             array_push($dataEntities,$data);
         }
         return $dataEntities;

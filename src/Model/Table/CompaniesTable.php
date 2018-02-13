@@ -27,6 +27,11 @@ class CompaniesTable extends Table
             'foreignKey' => 'Cia',
             'strategy' => 'select'
         ]);
+
+        $this->hasMany('Invoices', [
+            'foreignKey' => 'company_id',
+            'strategy' => 'select'
+        ]);
        
         /*$this->hasMany('Empleados', [
             'foreignKey' => 'branch_id'
