@@ -123,7 +123,7 @@ if (!!window.EventSource) {
 }
 source.addEventListener("message", function(e) {
    //console.log(e.data);
-   
+
     if(e.data == '(0)'){
       document.getElementById("result").innerHTML= e.data;
       $('#bell').removeClass('blink bgalert');
@@ -131,7 +131,7 @@ source.addEventListener("message", function(e) {
       document.getElementById("result").innerHTML= e.data;
       $('#bell').addClass('blink bgalert');
     }
-    
+
 
 }, false);
 </script>

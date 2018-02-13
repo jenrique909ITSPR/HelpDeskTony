@@ -55,6 +55,7 @@ class TicketsController extends AppController
 
     public function index($typeView = null,$idTickettype = null)
     {
+
         $query = $this->Tickets->find('all')->where(['user_id' => $this->request->session()->read('Auth.User.id')])
             ->contain(['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes', 'Ticketlogs','Branches','Userrequerieds','Userautors'])
             ->order(['Tickets.created' => 'DESC']);
@@ -430,14 +431,14 @@ class TicketsController extends AppController
         $ticketlog->group_id = $ticket->group_id;
         $ticketlog->field = 'Tickettype';
          if ($this->request->is('get')){
-            if ($ticket->tickettype_id == 4) {
+            if ($ticket->tickettype_id == 2) {
                 $ticket->tickettype_id = 1;
-                $ticketlog->valueprev = 'SOLICITUD';
+                $ticketlog->valueprev = 'PROBLEMA';
                 $ticketlog->valuelater = 'INCIDENTE';
             }else{
-                $ticket->tickettype_id = 4;
+                $ticket->tickettype_id = 2;
                 $ticketlog->valueprev = 'INCIDENTE';
-                $ticketlog->valuelater = 'SOLICITUD';
+                $ticketlog->valuelater = 'PROBLEMA';
             }
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->getData());
             if ($this->Tickets->save($ticket)) {
@@ -637,32 +638,63 @@ public function alerts (){
 
 flush();
 }
-
-public function editchecked(){
-
-  $elements2 = [
-      'color' => 'pink',
-      'type' => 'sugar',
-      'base_price' => 23.95
-  ];
-  $this->set($elements2);
+public function editchecked($id=null){
 
    if($this->request->is('Ajax')) { //<!-- Ajax Detection
        $this->autoRender = false;
 
-
-
-       $elements = explode(",", $_POST['value_to_send']);
-
+  /*     $operation= $_POST['operation'];
+       echo $operation;
+    */
+      $elements= $_POST['value_to_send'];
+      $arraycheck= array();
 
     foreach($elements as $element => $value)
     {
+        array_push($arraycheck,$value);
+    }
 
-        echo ('check'.$element.'='.$value."\n");
-        $this->set('check'.$element,$value);
+$ticket = $this->Tickets->find('all')
+  ->where(['id IN'=> $arraycheck]);
+
+
+
+    if ($this->request->is('post')){
+        $ticketdata= array();
+      foreach ($ticket as $key => $value) {
+        $ticketlog= array();
+        array_push($ticketlog,[
+          'ticket_id' => $value['id'],
+          'user_id' => $value['user_id'],
+          'group_id' => $value['group_id'],
+          'field' => 'tickettype_id',
+          'valueprev' => '',
+          'valuelater' => ''
+        ]);
+
+        if ($value['tickettype_id'] == 2) {
+          $value['tickettype_id']= 1;
+          $ticketlog->valueprev = 'PROBLEMA';
+          $ticketlog->valuelater = 'INCIDENTE';
+        }else{
+          $value['tickettype_id'] = 2;
+          $ticketlog->valueprev = 'INCIDENTE';
+          $ticketlog->valuelater = 'PROBLEMA';
+        }
+        array_push($ticketdata,['ticketlogs'=> $ticketlog,
+        'id'=>$value['id']]);
+      }
+      $ticket= $this->Tickets->patchEntities($ticket,$ticketdata,['associated'=>['Ticketlogs']]);
+
+      if ($this->Tickets->saveMany($ticket)) {
+              $this->Flash->success(__('Tickets Modificados con exito'));
+          }else{
+               $this->Flash->error(__('Error al cambiar de estado :('));
+          }
+
+      }
     }
 
    }
 
  }
-}
