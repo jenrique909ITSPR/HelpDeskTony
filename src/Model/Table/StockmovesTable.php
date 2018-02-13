@@ -42,9 +42,8 @@ class StockmovesTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Warehouses', [
-            'foreignKey' => 'warehouse_id'
-        ]);
+        $this->addBehavior('Timestamp');
+
         $this->belongsTo('Movereasons', [
             'foreignKey' => 'movereason_id'
         ]);
@@ -52,8 +51,16 @@ class StockmovesTable extends Table
             'foreignKey' => 'shipper_id'
         ]);
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+            'className' => 'Users',
+            'foreignKey' => 'user_id',
+            'propertyName' => 'user',
         ]);
+        $this->belongsTo('Userreceivers', [
+            'className' => 'Users',
+            'foreignKey' => 'receiver',
+            'propertyName' => 'userreceiver'
+        ]);
+
         $this->belongsTo('ParentStockmoves', [
             'className' => 'Stockmoves',
             'foreignKey' => 'parent_id'
@@ -64,6 +71,17 @@ class StockmovesTable extends Table
         ]);
         $this->hasMany('StockmovesDetails', [
             'foreignKey' => 'stockmove_id'
+        ]);
+        $this->belongsTo('Warehouses', [
+            'className' => 'Warehouses',
+            'foreignKey' => 'warehouse_id',
+            'propertyName' => 'warehouse',
+        ]);
+
+        $this->belongsTo('Warehouses2', [
+            'className' => 'Warehouses',
+            'foreignKey' => 'warehouse_2',
+            'propertyName' => 'warehouse2',
         ]);
     }
 

@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * Stockmoves Controller
  *
@@ -12,20 +12,37 @@ use App\Controller\AppController;
  */
 class StockmovesController extends AppController
 {
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('stockmoves');
+
+    }
 
     /**
      * Index method
      *
      * @return \Cake\Http\Response|void
      */
-    public function index()
+    public function index($id = null)
     {
-        $this->paginate = [
-            'contain' => ['Warehouses', 'Movereasons', 'Shippers', 'Users']
-            ,'limit' => $this->limit_data
-        ];
-        $stockmoves = $this->paginate($this->Stockmoves);
-
+       
+        $stockmoves = $this->Stockmoves->find('all')
+        ->contain(['Warehouses','Warehouses2', 'Userreceivers','Movereasons', 'Shippers', 'Users','StockmovesDetails'])
+        ->limit([$this->limit_data]);
+       
+        
+         switch ($id) {
+            case 1:
+                $stockmoves->where(['parent_id is null']);
+                
+            case 2:
+                 //$stockmoves->where(['StockmovesDetails.confirmed' => 0]);
+            
+            default:
+            
+                break;
+        }
+        $stockmoves = $this->paginate($stockmoves);
         $this->set(compact('stockmoves'));
         $this->set('_serialize', ['stockmoves']);
     }
@@ -40,7 +57,7 @@ class StockmovesController extends AppController
     public function view($id = null)
     {
         $stockmove = $this->Stockmoves->get($id, [
-            'contain' => ['Warehouses', 'Movereasons', 'Shippers', 'Users', 'StockmovesDetails']
+            'contain' => ['Warehouses','Warehouses2' ,'Movereasons','Userreceivers', 'Shippers', 'Users', 'StockmovesDetails']
         ]);
 
         $this->set('stockmove', $stockmove);
@@ -74,6 +91,14 @@ class StockmovesController extends AppController
         $this->set(compact('stockmove', 'warehouses', 'movereasons', 'shippers', 'users'));
         $this->set('_serialize', ['stockmove']);
 
+    }
+
+    public function getSerials($data = null)
+    {
+        foreach ($data['itemcodes'] as $key => $value) {
+            $serial = $this->Stockmoves->StockmovesDetails->Itemcodes->find()->select(['Itemcodes.id'])->where(['Itemcodes.serial' => $value]);
+            $data['stockmoves_details'] = $serial->itemcode->id;
+        }
     }
 
     /**

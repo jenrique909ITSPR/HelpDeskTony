@@ -60,7 +60,7 @@ public function logout()
 
        $this->set('users', $this->Users->find('all'));
         $this->paginate = [
-            'contain' => ['Positionbranches', 'Statususers', 'Groups', 'Roles']
+            'contain' => [ 'Statususers', 'Groups', 'Roles']
             ,'limit' => $this->limit_data
         ];
         $users = $this->paginate($this->Users);
@@ -88,7 +88,7 @@ public function logout()
         $this->set(compact('user'));
 
         $user = $this->Users->get($id, [
-            'contain' => ['Positionbranches', 'Statususers', 'Groups', 'Roles', 'Articles'  , 'Movereasontemplates', 'Ticketnotes', 'Stockmoves', 'Ticketlogs', 'Tickets']
+            'contain' => [ 'Statususers', 'Groups', 'Roles', 'Articles'  , 'Movereasontemplates', 'Ticketnotes', 'Stockmoves', 'Ticketlogs', 'Tickets']
         ]);
 
         $this->set('user', $user);
@@ -112,11 +112,11 @@ public function logout()
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $positionbranches = $this->Users->Positionbranches->find('list', ['limit' => 200]);
+        //$positionbranches = $this->Users->Positionbranches->find('list', ['limit' => 200]);
         $statususers = $this->Users->Statususers->find('list', ['limit' => 200]);
         $groups = $this->Users->Groups->find('list', ['limit' => 200]);
         $roles = $this->Users->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'positionbranches', 'statususers', 'groups', 'roles'));
+        $this->set(compact('user', 'statususers', 'groups', 'roles'));
         $this->set('_serialize', ['user']);
 
 
@@ -143,7 +143,7 @@ public function logout()
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $positionbranches = $this->Users->Positionbranches->find('list', ['limit' => 200]);
+        //$positionbranches = $this->Users->Positionbranches->find('list', ['limit' => 200]);
         $statususers = $this->Users->Statususers->find('list', ['limit' => 200]);
         $groups = $this->Users->Groups->find('list', ['limit' => 200]);
         $roles = $this->Users->Roles->find('list', ['limit' => 200]);

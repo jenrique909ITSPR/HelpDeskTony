@@ -47,9 +47,9 @@ use Cake\Validation\Validator;
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Positionbranches', [
+/*        $this->belongsTo('Positionbranches', [
             'foreignKey' => 'positionbranch_id'
-        ]);
+        ]);*/
         $this->belongsTo('Statususers', [
             'foreignKey' => 'statususer_id'
         ]);
@@ -125,7 +125,7 @@ use Cake\Validation\Validator;
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['positionbranch_id'], 'Positionbranches'));
+        //$rules->add($rules->existsIn(['positionbranch_id'], 'Positionbranches'));
         $rules->add($rules->existsIn(['statususer_id'], 'Statususers'));
         $rules->add($rules->existsIn(['group_id'], 'Groups'));
         $rules->add($rules->existsIn(['role_id'], 'Roles'));

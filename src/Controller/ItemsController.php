@@ -1,8 +1,9 @@
 <?php
 namespace App\Controller;
 
+use Cake\Datasource\ConnectionManager;
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
 /**
  * Items Controller
  *
@@ -148,4 +149,7 @@ class ItemsController extends AppController
         echo json_encode($rs,JSON_UNESCAPED_UNICODE);
         die(); 
     }
+
+
+
 }

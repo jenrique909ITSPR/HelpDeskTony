@@ -53,7 +53,7 @@ class ItemcodesController extends AppController
     public function view($id = null)
     {
         $itemcode = $this->Itemcodes->get($id, [
-            'contain' => ['Items', 'Invoices', 'Statusitems','Positions','Insureds' ,'Currencies', 'StockmovesDetails', 'Tickets']
+            'contain' => ['Items', 'Invoices', 'Statusitems','Positions','Insureds' ,'Currencies', 'StockmovesDetails' => ['Stockmoves' =>['Users','Warehouses2','Warehouses','Movereasons'] ], 'Tickets']
         ]);
 
         $this->set('itemcode', $itemcode);
