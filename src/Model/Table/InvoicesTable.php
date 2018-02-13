@@ -69,11 +69,11 @@ class InvoicesTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-       /* $validator
-            ->integer('id')
-            ->allowempty('id', 'create');
-
         $validator
+            ->integer('invoice_number')
+            ->allowempty('invoice_number', 'create');
+
+       /* $validator
             ->scalar('number')
             ->allowempty('number');
 

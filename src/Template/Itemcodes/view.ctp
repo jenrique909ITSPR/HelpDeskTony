@@ -73,24 +73,24 @@
         <table cellpadding="0" cellspacing="0">
           <thead>
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Stockmove Id') ?></th>
-                <th scope="col"><?= __('Item Id') ?></th>
-                <th scope="col"><?= __('Itemcode Id') ?></th>
-                <th scope="col"><?= __('Qty') ?></th>
-                <th scope="col"><?= __('Deliverydate') ?></th>
+                <th scope="col"><?= __('warehouse') ?></th>
+                <th scope="col"><?= __('warehouse 2') ?></th>
+                <th scope="col"><?= __('movereason') ?></th>
+                <th scope="col"><?= __('user') ?></th>
+                <th scope="col"><?= __('reason') ?></th>
+                <th scope="col"><?= __('date') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
 		  </thead>
 		  <tbody>
             <?php foreach ($itemcode->stockmoves_details as $stockmovesDetails): ?>
             <tr>
-                <td><?= h($stockmovesDetails->id) ?></td>
-                <td><?= h($stockmovesDetails->stockmove_id) ?></td>
-                <td><?= h($stockmovesDetails->item_id) ?></td>
-                <td><?= h($stockmovesDetails->itemcode_id) ?></td>
-                <td><?= h($stockmovesDetails->qty) ?></td>
-                <td><?= h($stockmovesDetails->deliverydate) ?></td>
+                <td><?= h($stockmovesDetails->stockmove->warehouse->name) ?></td>
+                <td><?= h($stockmovesDetails->stockmove->warehouse2->name) ?></td>
+                <td><?= h($stockmovesDetails->stockmove->movereason->name) ?></td>
+                <td><?= h($stockmovesDetails->stockmove->user->name) ?></td>
+                <td><?= h($stockmovesDetails->stockmove->notes) ?></td>
+                <td><?= h($stockmovesDetails->stockmove->created) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'StockmovesDetails', 'action' => 'view', $stockmovesDetails->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'StockmovesDetails', 'action' => 'edit', $stockmovesDetails->id]) ?>

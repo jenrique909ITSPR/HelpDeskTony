@@ -4,8 +4,13 @@
   */
 ?>
 <?= $this->Form->create($itemcode) ?>
+<div class="actions">
+		<ul>
+			<li><?= $this->Html->link(__('Cancel'), ['action' => 'index']) ?></li>
+		</ul>
+</div>
 <div class="itemcodes form">
-	
+
 <div class="easyui-layout" style="width:100%;height:500px;">
 		<div data-options="region:'north', collapsible:false" title="<?= __('Invoice') ?>" style="height: 27%; padding: 10px;">
 			<table class="tableTransparent" cellpadding="3" cellspacing="3" style="width:auto;">

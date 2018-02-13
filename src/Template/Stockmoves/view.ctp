@@ -47,24 +47,24 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Warehouse 2') ?></th>
-            <td><?= $this->Number->format($stockmove->warehouse_2) ?></td>
+            <td><?= h($stockmove->warehouse2->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Receiver') ?></th>
-            <td><?= $this->Number->format($stockmove->receiver) ?></td>
+            <td><?= h($stockmove->userreceiver->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Packages') ?></th>
             <td><?= $this->Number->format($stockmove->packages) ?></td>
         </tr>
-        <tr>
+        <!--<tr>
             <th scope="row"><?= __('Confirmed') ?></th>
             <td><?= $this->Number->format($stockmove->confirmed) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Parent Id') ?></th>
             <td><?= $this->Number->format($stockmove->parent_id) ?></td>
-        </tr>
+        </tr>-->
     </table>
 	</div>
     <div class="row">
