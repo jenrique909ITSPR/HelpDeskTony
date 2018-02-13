@@ -27,11 +27,10 @@
 
 		</div>
 		<div data-options="region:'east',split:true,collapsible:false" title="<?= __('Serials') ?>" style="width:250px; padding: 5px 5px;">
-			<i class="fa fa-barcode"></i>
-		    <input type="text" name="" class="inputSerial" form=""></input>
-			<table class="" cellpadding="0" cellspacing="0" style="">
+				<i class="fa fa-barcode"></i><input type="text" name="" class="inputSerial" form=""></input>
+				<table class="" cellpadding="0" cellspacing="0" style="">
 					<tbody id="bodyserials"></tbody>
-			</table>
+				</table>
 
 		</div>
 		<div data-options="region:'center', collapsible:false" title="<?= __('Assets') ?>" style="padding: 5px 5px;">
@@ -57,7 +56,7 @@
 							<td>
 									<?php  echo $this->Form->control('items.itemtype_id', ['options' => $itemtypes,'label'=> false,'id' => 'itemtype_id','readonly']);?>
 							</td>
-							
+
 						</tr>
 						<tr>
 							<td>
@@ -102,13 +101,13 @@
 						</tr>
 						<tr><td> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Add new Item</a></td></tr>
 			</table>
-			
+
 		</div>
 
 </div>
 </div>
 <div id="w" class="easyui-window" title="<?= h(__('Item'))  ?>" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:80%;height:60%;padding:10px;">
-   
+
   <div id="contentAjax2">
     <?= $this->fetch('content') ?>
   </div>
@@ -135,60 +134,67 @@
             {field:'itemtype_id',title:'Itemtype',align:'center',width:60},
             {field:'currency_id',title:'Currency',align:'center',width:60},
             {field:'brand_id',title:'Brand',align:'center',width:60}
-            
+
         ]],
         onChange: function(){
         	var g = $('#cg').combogrid('grid');	// get datagrid object
 			var r = g.datagrid('getSelected');	// get the selected row
 			if(!(r === null)){
 				$('#item_id').val(r.id);
-				$('#color').val(r.color); 
-				$('#unit_cost').val(r.unit_cost); 
+				$('#color').val(r.color);
+				$('#unit_cost').val(r.unit_cost);
 				$('#model').val(r.model);
 				$('#itemcategory_id').val(r.itemcategory_id);
 				$('#itemtype_id').val(r.itemtype_id);
 				$('#currency_id').val(r.currency_id);
-				$('#brand_id').val(r.brand_id); 
+				$('#brand_id').val(r.brand_id);
 			}else{
 				$('#item_id').val("");
-				$('#color').val(""); 
-				$('#unit_cost').val(""); 
+				$('#color').val("");
+				$('#unit_cost').val("");
 				$('#model').val("");
 				$('#itemcategory_id').val(0);
 				$('#itemtype_id').val(0);
 				$('#currency_id').val(0);
-				$('#brand_id').val(0); 
+				$('#brand_id').val(0);
 			}
         }
     });
 });
-   
+
 
 </script>
 <script type="text/javascript">
+	var myArray = [];
 	$('.inputSerial').keypress(function (e) {
 		//e.preventDefault();
-		var inputSerial = $('.inputSerial').val(); 
+			var inputSerial = $('.inputSerial').val();
     	if(e.which ==13 && inputSerial != '') {
-			var html = $('.inputTemplate:first').clone();
-			var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
-			$('#bodyserials').prepend(addserial);
-			$('.inputSerial').val('');
-			displayAction();
-				
+			if($.inArray(inputSerial, myArray) >= 0) {
+				alert("Serial repedido!");
+				$('.inputSerial').val('');
+			} else {
+				myArray.push(inputSerial);
+				var html = $('.inputTemplate:first').clone();
+				var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
+				$('#bodyserials').prepend(addserial);
+				$('.inputSerial').val('');
+				displayAction();
+			}
+
 		}
 	});
 	$('#bodyserials').on("click",".removeinput", function(e){ //user click on remove text
-        e.preventDefault(); 
-		$(this).parents('.inputTemplate').remove(); 
+        e.preventDefault();
+		$(this).parents('.inputTemplate').remove();
 		countRows();
 		displayAction();
-    })	
+    })
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
 
- 
+
     var cargando = $("#contentAjax").html("<div class='loading'></div>");
     $.ajax({
         type: 'GET',
@@ -200,6 +206,6 @@ $(document).ready(function(){
         success: function(data) {
           $('#contentAjax2').html(data);
       }});
-  
+
 });
 </script>
