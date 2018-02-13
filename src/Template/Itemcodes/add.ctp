@@ -27,7 +27,13 @@
 
 		</div>
 		<div data-options="region:'east',split:true,collapsible:false" title="<?= __('Serials') ?>" style="width:250px; padding: 5px 5px;">
-				<i class="fa fa-barcode"></i><input type="text" name="" class="inputSerial" form=""></input>
+				<!--<i class="fa fa-barcode"></i>-->
+				<table class="tableTransparent" cellpadding="0" cellspacing="0" style="">
+					<tr>
+						<td class="inputSerialQTY"><input type="text" name="serialqty" class="" style="width: 20px"></td>
+						<td><input type="text" name="" class="inputSerial"></td>
+					</tr>
+				</table>
 				<table class="" cellpadding="0" cellspacing="0" style="">
 					<tbody id="bodyserials"></tbody>
 				</table>
@@ -98,6 +104,7 @@
 							<td colspan="1"><?=  $this->Form->created('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
 							<td><?= $this->form->label(__('Service tag')) ?></td>
 							<td><?= $this->Form->control('service_tag',['label' => false]); ?></td>
+							<td><input type="checkbox" name="" class="serialGeneric"/> Serial generico</td>
 						</tr>
 						<tr><td> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Add new Item</a></td></tr>
 			</table>
@@ -190,6 +197,15 @@
 		countRows();
 		displayAction();
     })
+
+		$(".inputSerialQTY").hide();
+		$('.serialGeneric').change(function() {
+				if($(".serialGeneric").is(':checked'))
+				    $(".inputSerialQTY").show();  // checked
+				else
+				    $(".inputSerialQTY").hide();  // unchecked
+    });
+
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
