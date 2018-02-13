@@ -25,21 +25,21 @@ class StockmovesController extends AppController
      */
     public function index($id = null)
     {
-       
+
         $stockmoves = $this->Stockmoves->find('all')
         ->contain(['Warehouses','Warehouses2', 'Userreceivers','Movereasons', 'Shippers', 'Users','StockmovesDetails'])
         ->limit([$this->limit_data]);
-       
-        
+
+
          switch ($id) {
             case 1:
                 $stockmoves->where(['parent_id is null']);
-                
+
             case 2:
                  //$stockmoves->where(['StockmovesDetails.confirmed' => 0]);
-            
+
             default:
-            
+
                 break;
         }
         $stockmoves = $this->paginate($stockmoves);
@@ -149,4 +149,30 @@ class StockmovesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+    public function direct()
+    {
+       $stockmove = $this->Stockmoves->newEntity();
+
+        if ($this->request->is('post')) {
+            debug($this->request->getData());
+            $stockmove = $this->Stockmoves->patchEntity($stockmove, $this->request->getData());
+            if ($this->Stockmoves->save($stockmove)) {
+                $this->Flash->success(__('The stockmove has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The stockmove could not be saved. Please, try again.'));
+        }
+        $warehouses = $this->Stockmoves->Warehouses->find('list', ['limit' => 200]);
+        $movereasons = $this->Stockmoves->Movereasons->find('list', ['limit' => 200]);
+        $shippers = $this->Stockmoves->Shippers->find('list', ['limit' => 200]);
+        $users = $this->Stockmoves->Users->find('list', ['limit' => 200]);
+        $stockmove->user_id = $this->request->session()->read('Auth.User.id');
+        $this->set(compact('stockmove', 'warehouses', 'movereasons', 'shippers', 'users'));
+        $this->set('_serialize', ['stockmove']);
+
+    }
+
 }
