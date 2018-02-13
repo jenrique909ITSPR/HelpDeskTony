@@ -24,15 +24,11 @@
                 <th scope="col"><?= $this->Paginator->sort('shipper_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('guide_number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('packages') ?></th>
-<<<<<<< HEAD
-                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-=======
+
                 <th scope="col"><?= $this->Paginator->sort('user') ?></th>
-                <!--<th scope="col"><?= $this->Paginator->sort('confirmed') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>-->
->>>>>>> 006dba82e24458f7d3fd37c523122dd73c0dbde3
+                <th scope="col"><?= $this->Paginator->sort('confirmed') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>
+
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -49,14 +45,10 @@
                 <td><?= h($stockmove->guide_number) ?></td>
                 <td><?= $this->Number->format($stockmove->packages) ?></td>
                 <td><?= $stockmove->has('user') ? $this->Html->link($stockmove->user->name, ['controller' => 'Users', 'action' => 'view', $stockmove->user->id]) : '' ?></td>
-<<<<<<< HEAD
 
+                <td><?= $this->Number->format($stockmove->confirmed) ?></td>
                 <td><?= $this->Number->format($stockmove->parent_id) ?></td>
-                <td><?= h($stockmove->created) ?></td>
-=======
-                <!--<td><?= $this->Number->format($stockmove->confirmed) ?></td>
-                <td><?= $this->Number->format($stockmove->parent_id) ?></td>-->
->>>>>>> 006dba82e24458f7d3fd37c523122dd73c0dbde3
+
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $stockmove->id]) ?>
                     <!--<?= $this->Html->link(__('Edit'), ['action' => 'edit', $stockmove->id]) ?>
