@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
-
+use Cake\Event\Event;
 
 /**
  * Itemcodes Controller
@@ -17,8 +17,8 @@ class ItemcodesController extends AppController
     {
          parent::initialize();
         $this->loadComponent('Filters');
-        
-        
+
+
     }
 
     /**
@@ -27,7 +27,7 @@ class ItemcodesController extends AppController
      * @return \Cake\Http\Response|void
      */
     public function index()
-    {   
+    {
         $query = $this->Itemcodes->find()
         ->contain(['Items', 'Invoices','Positions','Insureds' ,'Statusitems', 'Currencies']);
         if($this->request->is('post')){
@@ -41,7 +41,7 @@ class ItemcodesController extends AppController
         $this->set(compact(['itemcodes','insureds','items','invoices','statusitems']));
         $this->set('_serialize', ['itemcodes']);
     }
-   
+
 
     /**
      * View method
@@ -77,8 +77,8 @@ class ItemcodesController extends AppController
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The itemcode could not be saved. Please, try again.'));
-            
-            
+
+
             $this->Flash->success(__('The itemcode has been saved.'));
             return $this->redirect(['action' => 'index']);
         }
@@ -92,7 +92,7 @@ class ItemcodesController extends AppController
         $itemtypes = $this->Itemcodes->Items->Itemtypes->find('list');
         $brands = $this->Itemcodes->Items->Brands->find('list');
         $warehouses = $this->Itemcodes->Invoices->Warehouses->find('list');
-    
+
         $this->set(compact('itemcode','brands','purchaseorders','itemtypes','itemcategories','insureds','items', 'invoices', 'statusitems', 'positionbranches', 'currencies','warehouses'));
         $this->set('_serialize', ['itemcode']);
     }
@@ -178,7 +178,12 @@ class ItemcodesController extends AppController
         }else{
             echo json_encode($rs->item->name,JSON_UNESCAPED_UNICODE);
         }
-        
+
         die();
+    }
+
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->viewBuilder()->layout('items');
     }
 }
