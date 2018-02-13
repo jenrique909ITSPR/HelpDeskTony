@@ -16,14 +16,16 @@
   </div>
 
     <h3><?= __('Tickets') ?></h3>
+
     <div class="actions">
         <ul>
             <li><?= $this->Html->link(__('New Ticket'), ['action' => 'add'], ['escape' => false]) ?></li>
-          <!--  <li>  <?= $this->Html->link(__('Edit'), ['action' => 'edit',  h($elements2)]) ?></li>
-            <li>  <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', h($elements[0])], ['confirm' => __('Are you sure you want to delete # {0}?', h($elements[0]))]) ?></li>
-      -->  </ul>
+          <!--  <li><a id="mEdit"  class="multipleActions" title="Editar Multiples Tickets"><i class="fa fa-edit" aria-hidden="true"></i></a></li>
+            <li><a id="mBorrar" class="multipleActions" title="Borrar Multiples Tickets"><i class="fa fa-eraser" aria-hidden="true"></i></a></li>
+            <li><a id="mIP" class="multipleActions" title=" Convertir Incidente-Problema"><i class="fa fa-exchange" aria-hidden="true"></i></a></li>-->
+            <li><a id="mSC"class="multipleActions"  title="Convertir Incidente-Problema"><i class="fa fa-exchange" aria-hidden="true"></i></a></li>
+      </ul>
     </div>
-
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -122,26 +124,35 @@
            $(".cb-element:checked").each(function(index, elem) {
                checkboxValues.push($(elem).val());
            });
-      //  _tot_checked = $(".cb-element:checked").length;
+        _tot_checked = $(".cb-element:checked").length;
         if (_tot_checked > 0) $('.arrayActions').show();
         else $('.arrayActions').hide();
         $('.countSelected').html(_tot_checked);
       //  $( "#debugOutput" ).text(checkboxValues + " are" + " checked!" );
-
-
-        $.ajax({
-                url: '<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'editchecked']) ?>',
-                type: 'POST',
-                //dataType:'json',
-                data:  {value_to_send: checkboxValues.toString()}, //.toString()
-
-                success : function(data) {
-                    console.log(data);// will alert "ok"
-
-                },
-                error : function() {
-                    alert("Error de ajax");
-                }
-            });
+        return checkboxValues;
     }
+
+
+    $( ".multipleActions" ).click(function(){
+      var opt= $(this).attr('id');
+    $.ajax({
+            url: '<?= $this->Url->build(['controller' => 'Tickets', 'action' => 'editchecked']) ?>',
+            type: 'POST',
+            data:  {value_to_send: displayAction(), operation: opt},
+
+
+            success : function(data) {
+              //console.log(data);// will alert "ok"
+              // $('#debugOutput').append(data);
+               location.reload();
+
+            },
+            error : function() {
+                alert("Error de ajax");
+            }
+        });
+      }
+    );
+
+
 </script>

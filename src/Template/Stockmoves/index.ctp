@@ -24,9 +24,11 @@
                 <th scope="col"><?= $this->Paginator->sort('shipper_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('guide_number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('packages') ?></th>
+
                 <th scope="col"><?= $this->Paginator->sort('user') ?></th>
-                <!--<th scope="col"><?= $this->Paginator->sort('confirmed') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>-->
+                <th scope="col"><?= $this->Paginator->sort('confirmed') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>
+
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -43,8 +45,10 @@
                 <td><?= h($stockmove->guide_number) ?></td>
                 <td><?= $this->Number->format($stockmove->packages) ?></td>
                 <td><?= $stockmove->has('user') ? $this->Html->link($stockmove->user->name, ['controller' => 'Users', 'action' => 'view', $stockmove->user->id]) : '' ?></td>
-                <!--<td><?= $this->Number->format($stockmove->confirmed) ?></td>
-                <td><?= $this->Number->format($stockmove->parent_id) ?></td>-->
+
+                <td><?= $this->Number->format($stockmove->confirmed) ?></td>
+                <td><?= $this->Number->format($stockmove->parent_id) ?></td>
+
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $stockmove->id]) ?>
                     <!--<?= $this->Html->link(__('Edit'), ['action' => 'edit', $stockmove->id]) ?>

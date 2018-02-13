@@ -1465,3 +1465,8 @@ body.enduser {
 .tableTransparent td:last-child   {
   padding: 0 0 0 0 !important;
 }
+button:hover{
+  background: #ededed;
+  border-color: #acacac;
+  text-decoration: none;
+}
