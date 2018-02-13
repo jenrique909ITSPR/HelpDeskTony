@@ -97,7 +97,7 @@
 							<td colspan="3">
 									<?php  echo $this->Form->control('items.currency_id', ['options' => $currencies,'label'=> false, 'id' => 'currency_id','readonly']);?>
 							</td>
-							
+
 						</tr>
 
 						<tr >
@@ -105,11 +105,7 @@
 							<td colspan="1"><?=  $this->Form->created('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
 							<td><?= $this->form->label(__('Service tag')) ?></td>
 							<td><?= $this->Form->control('service_tag',['label' => false]); ?></td>
-<<<<<<< HEAD
 							<td><input type="checkbox" name="" class="serialGeneric"/> Serial generico</td>
-=======
-							
->>>>>>> be1057ae282507b062d65cc3f07092d166e27c5f
 						</tr>
 						<tr><td> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Add new Item</a></td></tr>
 			</table>
@@ -181,7 +177,7 @@
 	$('.inputSerial').keypress(function (e) {
 		//e.preventDefault();
 		if(e.which ==13 && inputSerial != '') {
-			var inputSerial = $('.inputSerial').val(); 
+			var inputSerial = $('.inputSerial').val();
 			$.ajax({
 	        type: 'GET',
 	        url: '<?= $this->Url->build(['controller' => 'Itemcodes', 'action' => 'verify']) ?>',
@@ -199,9 +195,9 @@
 				}
       		}
 	      	});
-          	
+
 			}
-    	
+
 
 	});
 	$('#bodyserials').on("click",".removeinput", function(e){ //user click on remove text
