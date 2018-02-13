@@ -91,7 +91,7 @@
 							<td colspan="3">
 									<?php  echo $this->Form->control('items.currency_id', ['options' => $currencies,'label'=> false, 'id' => 'currency_id','readonly']);?>
 							</td>
-							
+
 						</tr>
 
 						<tr >
@@ -171,7 +171,7 @@
 	$('.inputSerial').keypress(function (e) {
 		//e.preventDefault();
 		if(e.which ==13 && inputSerial != '') {
-			var inputSerial = $('.inputSerial').val(); 
+			var inputSerial = $('.inputSerial').val();
 			$.ajax({
 	        type: 'GET',
 	        url: '<?= $this->Url->build(['controller' => 'Itemcodes', 'action' => 'verify']) ?>',
@@ -189,9 +189,9 @@
 				}
       		}
 	      	});
-          	
+
 			}
-    	
+
 
 	});
 	$('#bodyserials').on("click",".removeinput", function(e){ //user click on remove text
