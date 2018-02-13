@@ -186,4 +186,20 @@ class ItemcodesController extends AppController
         parent::beforeFilter($event);
         $this->viewBuilder()->layout('items');
     }
+    public function verify()
+    {
+        $this->autoRender = false;
+        $result = array();
+        $rs = $this->Itemcodes->find()
+            ->where(['serial' => $this->request->query('q')])->first();
+            
+        if(empty($rs) || empty($this->request->query('q'))){
+            echo '0';
+        }else{
+            echo '1';
+        }
+
+        die();
+    }
+
 }
