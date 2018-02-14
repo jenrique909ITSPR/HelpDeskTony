@@ -31,7 +31,7 @@
 				<table class="tableTransparent" cellpadding="0" cellspacing="0" style="">
 					<tr>
 						<td class="inputSerialQTY"><input type="text" name="serialqty" class="" style="width: 20px"></td>
-						<td><input type="text" name="" class="inputSerial" form=""></input></td>
+						<td colspan="2"><i class="fa fa-barcode"></i><input type="text" name="" class="inputSerial" form=""></input></td>
 					</tr>
 				</table>
 				<table class="" cellpadding="0" cellspacing="0" style="">
