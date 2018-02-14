@@ -14,15 +14,15 @@
 <div class="easyui-layout" style="width:100%;height:500px;">
 		<div data-options="region:'north', collapsible:false" title="<?= __('Invoice') ?>" style="height: 27%; padding: 10px;">
 			<table class="tableTransparent" cellpadding="3" cellspacing="3" style="width:auto;">
-					<tr><td  style="width:5%;"><?= $this->form->label(__('invoice_number')) ?></td><td><?=  $this->Form->control('invoices.invoice_number', ['type' => 'text', 'empty' => true , 'label' => false  ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('purchaseorder')) ?></td><td><?=  $this->Form->control('invoices.purchaseorder_id', ['type' => 'text', 'empty' => true , 'label' => false  ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('date')) ?></td><td><?=  $this->Form->created('invoices.invoicedate', ['type' => 'date', 'empty' => true , 'label' => false  ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('amount')) ?></td><td><?=  $this->Form->control('invoices.amount', ['type' => 'number', 'empty' => true , 'label' => false  ]); ?></td></tr>
+					<tr><td  style="width:5%;"><?= $this->form->label(__('invoice_number')) ?></td><td><?=  $this->Form->control('invoices.invoice_number', ['type' => 'text', 'empty' => true , 'label' => false ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->invoice_number : '']); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('purchaseorder')) ?></td><td><?=  $this->Form->control('invoices.purchaseorder_id', ['type' => 'text', 'empty' => true , 'label' => false,'value' => $itemcode->has('invoice') ? $itemcode->invoice->purchaseorder_id :'' ]); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('date')) ?></td><td><?=  $this->Form->created('invoices.invoicedate', ['type' => 'date', 'empty' => true , 'label' => false ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->invoicedate : '' ]); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('amount')) ?></td><td><?=  $this->Form->control('invoices.amount', ['type' => 'number', 'empty' => true , 'label' => false ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->amount : '']); ?></td></tr>
 					<tr>
-					<td  style="width:5%;"><?= $this->form->label(__('supplier')) ?></td><td><?=  $this->Form->control('invoices.supplier_id', [ 'empty' => true , 'label' => false, 'type' => 'text'  ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('currency')) ?></td><td><?=  $this->Form->control('invoices.currency_id', [ 'empty' => true , 'label' => false , 'options' => $currencies ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('warehouse')) ?></td><td><?=  $this->Form->control('invoices.warehouse_id', [ 'empty' => true , 'label' => false , 'options' => $warehouses ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('empresa')) ?></td><td><?=  $this->Form->control('invoices.company_id', [ 'type' => 'text','empty' => true , 'label' => false  ]); ?></td></tr>
+					<td  style="width:5%;"><?= $this->form->label(__('supplier')) ?></td><td><?=  $this->Form->control('invoices.supplier_id', [ 'empty' => true , 'label' => false, 'type' => 'text' ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->supplier_id :'' ]); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('currency')) ?></td><td><?=  $this->Form->control('invoices.currency_id', [ 'empty' => true , 'label' => false , 'options' => $currencies ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->currency_id:'']); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('warehouse')) ?></td><td><?=  $this->Form->control('invoices.warehouse_id', [ 'empty' => true , 'label' => false , 'options' => $warehouses ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->warehouse_id:'']); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('empresa')) ?></td><td><?=  $this->Form->control('invoices.company_id', [ 'type' => 'text','empty' => true , 'label' => false ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->company_id:'']); ?></td></tr>
 			</table>
 
 		</div>

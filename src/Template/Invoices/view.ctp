@@ -69,9 +69,8 @@
           <thead>
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Item Id') ?></th>
+                <th scope="col"><?= __('Item') ?></th>
                 <th scope="col"><?= __('Serial') ?></th>
-                <th scope="col"><?= __('Invoice Id') ?></th>
                 <th scope="col"><?= __('Statusitem Id') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Warranty') ?></th>
@@ -84,18 +83,15 @@
             <?php foreach ($invoice->itemcodes as $itemcodes): ?>
             <tr>
                 <td><?= h($itemcodes->id) ?></td>
-                <td><?= h($itemcodes->item_id) ?></td>
+                <td><?= h($itemcodes->item->name) ?></td>
                 <td><?= h($itemcodes->serial) ?></td>
-                <td><?= h($itemcodes->invoice_id) ?></td>
-                <td><?= h($itemcodes->statusitem_id) ?></td>
+                <td><?= h($itemcodes->statusitem->name) ?></td>
                 <td><?= h($itemcodes->created) ?></td>
                 <td><?= h($itemcodes->warranty) ?></td>
-                <td><?= h($itemcodes->positionbranch_id) ?></td>
+                <td><?= h($itemcodes->position_id) ?></td>
                 <td><?= h($itemcodes->service_tag) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Itemcodes', 'action' => 'view', $itemcodes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Itemcodes', 'action' => 'edit', $itemcodes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Itemcodes', 'action' => 'delete', $itemcodes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $itemcodes->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

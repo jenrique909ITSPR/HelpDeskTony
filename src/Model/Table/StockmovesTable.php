@@ -121,9 +121,7 @@ class StockmovesTable extends Table
             ->scalar('notes')
             ->allowEmpty('notes');
 
-        $validator
-            ->requirePresence('confirmed', 'create')
-            ->notEmpty('confirmed');
+     
 
         return $validator;
     }

@@ -34,10 +34,13 @@ class StockmovesDetailsTable extends Table
     {
         parent::initialize($config);
 
+
         $this->setTable('stockmoves_details');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        $this->addBehavior('Timestamp');
+        
         $this->belongsTo('Stockmoves', [
             'foreignKey' => 'stockmove_id'
         ]);
@@ -65,10 +68,7 @@ class StockmovesDetailsTable extends Table
             ->integer('qty')
             ->allowEmpty('qty');
 
-        $validator
-            ->dateTime('deliverydate')
-            ->requirePresence('deliverydate', 'create')
-            ->notEmpty('deliverydate');
+        
 
         return $validator;
     }
