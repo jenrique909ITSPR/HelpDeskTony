@@ -144,7 +144,7 @@ class ItemsController extends AppController
         $result = array();
         //$rs = mysql_query("select * from nodes where parentId=$id");
         $rs = $this->Items->find()
-            ->contain(['Itemcodes'])->
+            ->contain(['Itemcodes'])
             ->where(['Items.name LIKE' => '%'. $q .'%']);
 
         echo json_encode($rs,JSON_UNESCAPED_UNICODE);
