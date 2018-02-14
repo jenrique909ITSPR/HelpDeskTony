@@ -35,9 +35,7 @@ $(document).ready(function() {
           ?>
           <tr class="selectrow">
               <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->name) : '' ?></td>
-              <td>
-                <?= $this->Html->link($this->Number->format($ticket->id) , ['action' => 'enduserview', $ticket->id]) ?>
-              </td>
+              <td><?= $this->Html->link($this->Number->format($ticket->id) , ['action' => 'enduserview', $ticket->id]) ?></td>
               <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>
               <td><?= h($ticket->title) ?></td>
               <td><?= h($ticket->solution) ?></td>
