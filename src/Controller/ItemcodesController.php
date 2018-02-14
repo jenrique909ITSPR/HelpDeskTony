@@ -192,7 +192,7 @@ class ItemcodesController extends AppController
         $result = array();
         $rs = $this->Itemcodes->find()
             ->where(['serial' => $this->request->query('q')])->first();
-            
+
         if(empty($rs) || empty($this->request->query('q'))){
             echo '0';
         }else{

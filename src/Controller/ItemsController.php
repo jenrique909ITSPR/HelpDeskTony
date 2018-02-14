@@ -131,23 +131,24 @@ class ItemsController extends AppController
             ->contain(['Itemcategories','Itemtypes'])->
             where(['Items.name LIKE' => '%'.$this->request->query('q').'%']);
         foreach ($rs as $key => $value) {
-            array_push($result,$value['name']);  
+            array_push($result,$value['name']);
         }
         echo json_encode($result,JSON_UNESCAPED_UNICODE);
-        die(); 
+        die();
     }
 
     public function loaditemsadd($id = null)
-    {   
+    {
        $this->autoRender = false;
        $q = isset($_POST['q']) ? $_POST['q'] : '';
         $result = array();
         //$rs = mysql_query("select * from nodes where parentId=$id");
         $rs = $this->Items->find()
+            ->contain(['Itemcodes'])->
             ->where(['Items.name LIKE' => '%'. $q .'%']);
-       
+
         echo json_encode($rs,JSON_UNESCAPED_UNICODE);
-        die(); 
+        die();
     }
 
 

@@ -183,18 +183,18 @@
 	        url: '<?= $this->Url->build(['controller' => 'Itemcodes', 'action' => 'verify']) ?>',
 	        data: 'q='+inputSerial,
 	        success: function(data) {
-	        	if (data == 0) {
-					var html = $('.inputTemplate:first').clone();
-					var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
-					$('#bodyserials').prepend(addserial);
-					$('.inputSerial').val('');
-					displayAction();
-				}else{
-					 $.messager.alert('Error de serie','El numero de serie ingresado ya existe','error');
-					 $('.inputSerial').val('');
-				}
+	        if (data == 0) {
+						var html = $('.inputTemplate:first').clone();
+						var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
+						$('#bodyserials').prepend(addserial);
+						$('.inputSerial').val('');
+						displayAction();
+					}else{
+						 $.messager.alert('Error de serie','El numero de serie ingresado ya existe','error');
+						 $('.inputSerial').val('');
+					}
       		}
-	      	});
+	     });
 
 			}
 
