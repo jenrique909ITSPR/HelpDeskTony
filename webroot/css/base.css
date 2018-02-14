@@ -1470,3 +1470,11 @@ button:hover{
   border-color: #acacac;
   text-decoration: none;
 }
+
+.selectrow:hover {
+  cursor: pointer;
+}
+.selectrow td a {
+  color: #000;
+  text-decoration: none;
+}
