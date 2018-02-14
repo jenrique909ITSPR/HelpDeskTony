@@ -65,25 +65,33 @@ class ItemcodesController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add($invoice=null)
+    {   
         $itemcode = $this->Itemcodes->newEntity();
-        if ($this->request->is('post')) {
-            $entities = $this->getEntities($this->request->getData());
+        if(!empty($invoice)){
+            $query = $this->Itemcodes->find('all')->where(['invoice_id' => $invoice])
+            ->contain(['Invoices'])->first();
+            if (!empty($query)) {
+                $itemcode = $query;
+            }
+        }
+        if ($this->request->is(['post','patch','put'])) {
+
+            $entities = $this->getEntities($this->request->getData(),$invoice);
              $itemcodes = $this->Itemcodes->newEntities($entities);
             //$itemcode = $this->Itemcodes->patchEntity($itemcodes, $entities,['associated' =>['Items'] ]);
             if ($this->Itemcodes->saveMany($itemcodes)) {
+             if($this->addStockmove($itemcodes)){
                 $this->Flash->success(__('The itemcode has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'add' , $itemcodes[0]['invoice_id'] ]);
+                
+              }
             }
             $this->Flash->error(__('The itemcode could not be saved. Please, try again.'));
-
-
-            $this->Flash->success(__('The itemcode has been saved.'));
-            return $this->redirect(['action' => 'index']);
+            
         }
         $items = $this->Itemcodes->Items->find('list', ['limit' => 200]);
-        $invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
+        //$invoices = $this->Itemcodes->Invoices->find('list', ['limit' => 200]);
         $statusitems = $this->Itemcodes->Statusitems->find('list', ['limit' => 200]);
         $positionbranches = $this->Itemcodes->Positions->find('list', ['limit' => 200]);
         $insureds = $this->Itemcodes->Insureds->find('list', ['limit' => 200]);
@@ -96,13 +104,19 @@ class ItemcodesController extends AppController
         $this->set(compact('itemcode','brands','purchaseorders','itemtypes','itemcategories','insureds','items', 'invoices', 'statusitems', 'positionbranches', 'currencies','warehouses'));
         $this->set('_serialize', ['itemcode']);
     }
-    public function getEntities($data=null)
+ 
+
+    public function getEntities($data=null,$invoiceD=null)
     {   $dataEntities = array();
-        $invoiceTable = TableRegistry::get('Invoices');
-        $invoice = $invoiceTable->newEntity($data['invoices']);
-        if($invoiceTable->save($invoice)){
-            $data['invoice_id'] = $invoice->id;
-        }
+        if(empty($invoiceD)){
+            $invoiceTable = TableRegistry::get('Invoices');
+            $invoice = $invoiceTable->newEntity($data['invoices']);
+            if($invoiceTable->save($invoice)){
+                $data['invoice_id'] = $invoice->id;
+            }    
+        }else{
+            $data['invoice_id'] = $invoiceD;
+        } 
         foreach ($data['itemcodes'] as $key => $value) {
             $data['serial'] = $value;
             $data['statusitem_id'] = 1;
@@ -112,6 +126,33 @@ class ItemcodesController extends AppController
             array_push($dataEntities,$data);
         }
         return $dataEntities;
+    }
+    public function addStockmove($itemcodes=null)
+    {
+        $stockmovesTable = TableRegistry::get('Stockmoves');
+        $data = [
+            'warehouse_id' => 495,
+            'warehouse_2' => 495,
+            'movereason_id' => 3,
+            'receiver' => 0,
+            'packages' => 1,
+            'user_id' => $this->request->session()->read('Auth.User.id'),
+            'notes' => 'Alta por compra',
+            'completed' => 1,
+            'stockmoves_details'=> ''
+        ];
+        $details = array();
+        foreach ($itemcodes as $key => $value) {
+            array_push($details, ['itemcode_id' => $value['id'], 'reason' => 'Alta por compra' ,'item_id'=>$value['item_id'],'qty' => 1, 'confirmed' => 1 ]);
+        }
+        $data['stockmoves_details'] = $details;
+        $stockmove = $stockmovesTable->newEntity($data, ['associated' => ['StockmovesDetails']]);
+      
+        if($stockmovesTable->save($stockmove)){
+         return true;
+        }
+        return false;
+
     }
 
     /**
