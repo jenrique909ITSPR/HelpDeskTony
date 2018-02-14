@@ -72,6 +72,7 @@ $cakeDescription = 'Portal TI';
           <li><a href="#"><i class='fa fa-cubes' aria-hidden='true'></i><?= __('Inventory') ?></a>
             <ul class="submenu2">
               <li><?= $this->Html->link("<i class='fa fa-cube' aria-hidden='true'></i>" . __('Assets'), ['controller' => 'Itemcodes', 'action' => 'index'], ['escape' => false]) ?></li>
+              <li><?= $this->Html->link("<i class='fa fa-paper-plane-o' aria-hidden='true'></i>" . __('Stockmoves'), ['controller' => 'Stockmoves', 'action' => 'index'], ['escape' => false]) ?></li>
               <li><?= $this->Html->link("<i class='fa fa-folder' aria-hidden='true'></i>" . __('Itemcategories'), ['controller' => 'Itemcategories', 'action' => 'index'], ['escape' => false]) ?></li>
               <li><?= $this->Html->link("<i class='fa fa-trademark' aria-hidden='true'></i>" . __('Brands'), ['controller' => 'Brands', 'action' => 'index'], ['escape' => false]) ?></li>
               <li><?= $this->Html->link("<i class='fa fa-home' aria-hidden='true'></i>" . __('Warehouses'), ['controller' => 'Warehouses', 'action' => 'index'], ['escape' => false]) ?></li>

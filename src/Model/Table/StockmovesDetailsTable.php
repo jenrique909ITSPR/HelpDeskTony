@@ -42,7 +42,8 @@ class StockmovesDetailsTable extends Table
         $this->addBehavior('Timestamp');
         
         $this->belongsTo('Stockmoves', [
-            'foreignKey' => 'stockmove_id'
+            'foreignKey' => 'stockmove_id',
+            'strategy' => 'select'
         ]);
         $this->belongsTo('Items', [
             'foreignKey' => 'item_id'

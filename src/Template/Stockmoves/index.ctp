@@ -25,8 +25,8 @@
                 <th scope="col"><?= $this->Paginator->sort('guide_number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('packages') ?></th>
 
-                <th scope="col"><?= $this->Paginator->sort('user') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('confirmed') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Usuario Responsable') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('completed') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('parent_id') ?></th>
 
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -37,7 +37,8 @@
             <tr>
                 <td><?= $this->Number->format($stockmove->id) ?></td>
                 <td><?= $stockmove->has('warehouse') ? $this->Html->link($stockmove->warehouse->name, ['controller' => 'Warehouses', 'action' => 'view', $stockmove->warehouse->id]) : '' ?></td>
-                <td><?= h($stockmove->warehouse2->name) ?></td>
+                <td><?= $stockmove->has('warehouse2') ? $this->Html->link($stockmove->warehouse2->name, ['controller' => 'Warehouses', 'action' => 'view', $stockmove->warehouse2->id]) : '' ?></td>
+                
                 <td><?= $stockmove->has('userreceiver') ? $this->Html->link($stockmove->userreceiver->name, ['controller' => 'Users', 'action' => 'view', $stockmove->userreceiver->id]) : '' ?></td>
                 <td><?= h($stockmove->receiver_sign) ?></td>
                 <td><?= $stockmove->has('movereason') ? $this->Html->link($stockmove->movereason->name, ['controller' => 'Movereasons', 'action' => 'view', $stockmove->movereason->id]) : '' ?></td>
@@ -46,7 +47,7 @@
                 <td><?= $this->Number->format($stockmove->packages) ?></td>
                 <td><?= $stockmove->has('user') ? $this->Html->link($stockmove->user->name, ['controller' => 'Users', 'action' => 'view', $stockmove->user->id]) : '' ?></td>
 
-                <td><?= $this->Number->format($stockmove->confirmed) ?></td>
+                <td><?= $this->Number->format($stockmove->completed) ?></td>
                 <td><?= $this->Number->format($stockmove->parent_id) ?></td>
 
                 <td class="actions">

@@ -25,19 +25,16 @@ class StockmovesController extends AppController
      */
     public function index($id = null)
     {
-
         $stockmoves = $this->Stockmoves->find('all')
         ->contain(['Warehouses','Warehouses2', 'Userreceivers','Movereasons', 'Shippers', 'Users','StockmovesDetails'])
         ->limit([$this->limit_data]);
 
-
          switch ($id) {
             case 1:
-                $stockmoves->where(['parent_id is null']);
+                $stockmoves->where(['parent_id' => 0])->orWhere(['completed' => 0]);
 
             case 2:
                  //$stockmoves->where(['StockmovesDetails.confirmed' => 0]);
-
             default:
 
                 break;
@@ -74,8 +71,9 @@ class StockmovesController extends AppController
        $stockmove = $this->Stockmoves->newEntity();
 
         if ($this->request->is('post')) {
-            debug($this->request->getData());
-            $stockmove = $this->Stockmoves->patchEntity($stockmove, $this->request->getData());
+            $datarequest = $this->getEntities($this->request->getData());
+            $stockmove = $this->Stockmoves->patchEntity($stockmove, $datarequest);
+            $stockmove->completed = 0;
             if ($this->Stockmoves->save($stockmove)) {
                 $this->Flash->success(__('The stockmove has been saved.'));
 
@@ -93,13 +91,6 @@ class StockmovesController extends AppController
 
     }
 
-    public function getSerials($data = null)
-    {
-        foreach ($data['itemcodes'] as $key => $value) {
-            $serial = $this->Stockmoves->StockmovesDetails->Itemcodes->find()->select(['Itemcodes.id'])->where(['Itemcodes.serial' => $value]);
-            $data['stockmoves_details'] = $serial->itemcode->id;
-        }
-    }
 
     /**
      * Edit method
@@ -163,7 +154,8 @@ class StockmovesController extends AppController
             $stockmove->packages = 1;
             $stockmove->user_id = $this->request->session()->read('Auth.User.id');
             $stockmove->completed = 1;
-          
+            
+            
             if ($this->Stockmoves->save($stockmove)) {
                 $this->Flash->success(__('The stockmove has been saved.'));
 

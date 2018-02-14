@@ -17,18 +17,18 @@
     	<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
 				<tbody>
 						<tr>
-							<!--<?= $this->Form->radio(
-							    'movetype',
-							    [
-							        ['value' => '1', 'text' => 'Baja', 'style' => 'color:red;'],
-							        ['value' => '2', 'text' => 'Transferencia', 'style' => 'color:blue;'],
-							        ['value' => '2', 'text' => 'Salida', 'style' => 'color:green;']
-							    ]
-							); ?>
-							<?= $this->Form->checkbox('movetype',['id'=> 'movetype']); ?></td>
-							<td style="display: none;" id="parent_id" colspan="1">
-							  <?= $this->Form->control('parent_id',['type' => 'text','label'=> 'Folio' ]);?>
-							</td>-->
+							<fieldset data-role="controlgroup">
+					      <legend>Escoge un tipo de Movimiento:</legend>
+					        <input type="radio" name="movereason_id" id="Baja" value="1">
+					        <label for="Baja">Baja</label>
+					        <input type="radio" name="movereason_id" id="Transferencia" value="7">
+					        <label for="Transferencia">Transferencia</label>
+					        <input type="radio" name="movereason_id" id="garantia" value="2">
+					        <label for="garantia">Salida a Garantia</label>
+					        <input type="radio" name="movereason_id" id="servicio" value="9">
+					        <label for="servicio">Salida a Servicio</label>
+					      </fieldset>
+						
 						</tr>
 						<tr>
 							<td style="width:7%;">

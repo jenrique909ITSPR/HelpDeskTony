@@ -610,7 +610,7 @@ fieldset legend {
 label {
     color: #4d4d4d;
     cursor: normal;
-    display: block;
+    display: inline;
     font-size: 1rem;
     font-weight: bold;
     line-height: 1.5;
@@ -776,7 +776,7 @@ select[multiple] {
 }
 
 input[type="file"], input[type="checkbox"], input[type="radio"], select {
-    margin: 0 0 1rem 0
+    
 }
 
 input[type="checkbox"]+label, input[type="radio"]+label {

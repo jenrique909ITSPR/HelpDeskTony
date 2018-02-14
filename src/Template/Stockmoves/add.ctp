@@ -15,13 +15,24 @@
     <?= $this->Form->create($stockmove) ?>
 		
 		
-	<div class="easyui-layout" style="width:100%;height:700px;">
-        <div data-options="region:'east',split:true,title:'Series',collapsible:false" style="width:450px;padding: 5px;">
-        	<i class="fa fa-barcode"></i>
-		    <input type="text" name="" class="inputSerial" form=""></input>
-			<table class="" cellpadding="0" cellspacing="0" style="">
+	<div class="easyui-layout" style="width:100%;height:600px;">
+        <div data-options="region:'east',split:true,title:'Series',collapsible:false" style="width:500px;padding: 5px;">
+        	<div>
+				<i class="fa fa-barcode"></i>
+			  <input type="text" name="" class="inputSerial" form=""></input>
+				<table class="" cellpadding="0" cellspacing="0" style="width: 100%">
+					<thead>
+						<tr>
+							<th><?= __('Serial') ?></th>
+							<th><?= __('Name') ?></th>
+							<th><?= __('Reason') ?></th>
+							<th colspan='2'></th>
+						</tr>
+					</thead>
 					<tbody id="bodyserials"></tbody>
-			</table>
+				</table>
+			</div>
+			
 
         </div>
         <div data-options="region:'center',title:'Stockmoves',iconCls:'icon-ok'" style="padding:10px">
@@ -70,21 +81,20 @@
 							<td>
 									<?php echo $this->Form->control('receiver',['type'=> 'text','label'=> false]);?>
 							</td>
-							<td>
-								<?= $this->form->label(__('user receiver_sign')) ?>
-							</td>
-							<td colspan="3">
-									<?php echo $this->Form->control('receiver_sign',['label'=> false]);?>
-							</td>
-						</tr>
-							<tr>
 							<td width="7%">
 								<?= $this->form->label(__('movereason')) ?>
 							</td>
 							<td colspan="5">
 								<?php echo $this->Form->control('movereason_id', ['options' => $movereasons, 'empty' => true,'label'=> false]);?>
 							</td>
+							<!--<td>
+								<?= $this->form->label(__('user receiver_sign')) ?>
+							</td>
+							<td colspan="3">
+									<?php echo $this->Form->control('receiver_sign',['label'=> false]);?>
+							</td>-->
 						</tr>
+
 						<tr>
 						<td>
 							<?= $this->form->label(__('shipper')) ?>
@@ -110,12 +120,12 @@
 				</tr>
 				<tr>
 				
-				<td>
+				<!--<td>
 					<?= $this->form->label(__('confirmed')) ?>
 				</td>
 				<td>
 						<?php   echo $this->Form->control('confirmed',['label'=> false]);?>
-				</td>
+				</td>-->
 			</tr>
 			<tr>
 			<td>
@@ -137,14 +147,26 @@
 <script type="text/javascript">
 	$('.inputSerial').keypress(function (e) {
 		//e.preventDefault();
-		var inputSerial = $('.inputSerial').val(); 
-    	if(e.which ==13 && inputSerial != '') {
-			var html = $('.inputTemplate:first').clone();
-			var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td><td>Motivo</td><td><input type="text" name="stockmoves_details[]reason" class="serial" value=""/></td></tr>';
-			$('#bodyserials').prepend(addserial);
-			$('.inputSerial').val('');
-			displayAction();
-				
+		var inputSerial = $('.inputSerial').val();
+    if(e.which ==13 && inputSerial != '') {
+			//var html = $('.inputTemplate:first').clone();
+			$.ajax({
+	        type: 'GET',
+	        url: '<?= $this->Url->build(['controller' => 'Itemcodes', 'action' => 'showitem']) ?>',
+	        data: 'q='+inputSerial,
+	        success: function(data) {
+		        if (data != 0) {
+							//var html = $('.inputTemplate:first').clone();
+							var addserial = '<tr class="inputTemplate"><td><input type="text" name="stockmoves_details[serial][]" class="serial" value="' + inputSerial + '"/></td><td><input type="text" name="items[]name" class="serial" value=' + data + '/></td><td><input type="text" name="stockmoves_details[reason][]" class="serial" value=""/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
+							$('#bodyserials').prepend(addserial);
+							$('.inputSerial').val('');
+							//displayAction();
+						}else{
+							 $.messager.alert('Error de serie','El numero de serie ingresado NO existe','error');
+							 $('.inputSerial').val('');
+						}
+      		}
+	     });
 		}
 	});
 	$('#bodyserials').on("click",".removeinput", function(e){ //user click on remove text
