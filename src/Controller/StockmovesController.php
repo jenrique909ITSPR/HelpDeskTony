@@ -156,8 +156,14 @@ class StockmovesController extends AppController
        $stockmove = $this->Stockmoves->newEntity();
 
         if ($this->request->is('post')) {
-            debug($this->request->getData());
-            $stockmove = $this->Stockmoves->patchEntity($stockmove, $this->request->getData());
+            
+            $datarequest = $this->getEntities($this->request->getData());
+            
+            $stockmove = $this->Stockmoves->patchEntity($stockmove, $datarequest , ['associated' => ['StockmovesDetails']]);
+            $stockmove->packages = 1;
+            $stockmove->user_id = $this->request->session()->read('Auth.User.id');
+            $stockmove->completed = 1;
+          
             if ($this->Stockmoves->save($stockmove)) {
                 $this->Flash->success(__('The stockmove has been saved.'));
 
@@ -173,6 +179,18 @@ class StockmovesController extends AppController
         $this->set(compact('stockmove', 'warehouses', 'movereasons', 'shippers', 'users'));
         $this->set('_serialize', ['stockmove']);
 
+    }
+
+    public function getEntities($data=null)
+    {   $dataEntities = array(); 
+        foreach ($data['stockmoves_details']['serial'] as $key => $value) {
+            $itemcode = $this->Stockmoves->StockmovesDetails->Itemcodes->find('all')->where(['serial' => $value])->first();
+            //$data['stockmoves_details'] = $itemcode->id;
+            array_push($dataEntities,['reason' => $data['stockmoves_details']['reason'][$key] , 'itemcode_id' => $itemcode->id, 'item_id' => $itemcode->item_id, 'qty' => 1 , 'confirmed' => 1] );
+        }
+        $data['stockmoves_details'] = "";
+        $data['stockmoves_details'] = $dataEntities;
+        return $data;
     }
 
 }

@@ -14,22 +14,21 @@
 	<div class="editdata">
     <?= $this->Form->create($stockmove) ?>
 
-
-
-
-
-
-
-
-
     	<table cellpadding="0" cellspacing="0" style="width:100%; border:none;">
 				<tbody>
 						<tr>
-							<?= $this->form->label(__('Entrada'))?>
+							<!--<?= $this->Form->radio(
+							    'movetype',
+							    [
+							        ['value' => '1', 'text' => 'Baja', 'style' => 'color:red;'],
+							        ['value' => '2', 'text' => 'Transferencia', 'style' => 'color:blue;'],
+							        ['value' => '2', 'text' => 'Salida', 'style' => 'color:green;']
+							    ]
+							); ?>
 							<?= $this->Form->checkbox('movetype',['id'=> 'movetype']); ?></td>
 							<td style="display: none;" id="parent_id" colspan="1">
 							  <?= $this->Form->control('parent_id',['type' => 'text','label'=> 'Folio' ]);?>
-							</td>
+							</td>-->
 						</tr>
 						<tr>
 							<td style="width:7%;">
@@ -73,12 +72,7 @@
 					<tbody id="bodyserials"></tbody>
 				</table>
 			</div>
-
-
 			<?php   echo $this->Form->control('notes');?>
-
-
-
 
 	</div>
 <br>
@@ -100,7 +94,7 @@
 	        success: function(data) {
 		        if (data != 0) {
 							//var html = $('.inputTemplate:first').clone();
-							var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><input type="text" name="items[]name" class="serial" value=' + data + '/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td><td>Motivo</td><td><input type="text" name="stockmoves_details[]reason" class="serial" value=""/></td></tr>';
+							var addserial = '<tr class="inputTemplate"><td><input type="text" name="stockmoves_details[serial][]" class="serial" value="' + inputSerial + '"/></td><td><input type="text" name="items[]name" class="serial" value=' + data + '/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td><td>Motivo</td><td><input type="text" name="stockmoves_details[reason][]" class="serial" value=""/></td></tr>';
 							$('#bodyserials').prepend(addserial);
 							$('.inputSerial').val('');
 							//displayAction();
