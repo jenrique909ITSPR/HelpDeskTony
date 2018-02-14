@@ -69,8 +69,11 @@ class ItemcodesController extends AppController
     {   
         $itemcode = $this->Itemcodes->newEntity();
         if(!empty($invoice)){
-            $itemcode = $this->Itemcodes->find('all')->where(['invoice_id' => $invoice])
+            $query = $this->Itemcodes->find('all')->where(['invoice_id' => $invoice])
             ->contain(['Invoices'])->first();
+            if (!empty($query)) {
+                $itemcode = $query;
+            }
         }
         if ($this->request->is(['post','patch','put'])) {
 
