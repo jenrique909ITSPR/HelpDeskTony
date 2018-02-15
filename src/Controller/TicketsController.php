@@ -121,11 +121,11 @@ class TicketsController extends AppController
 
       $dataMove = array(
     "id" => $itemcodeM->id,
-    "itemcode" => $itemcodeM->itemcode->serial,
+    //"itemcode" => $itemcodeM->itemcode->serial,
       );
 
         $this->set('dataMove',$dataMove);
-        
+
         if ($this->request->is("get")){
              $idTicket = $this->request->query('searchticket');
 

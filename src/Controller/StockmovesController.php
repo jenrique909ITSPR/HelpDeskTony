@@ -31,7 +31,6 @@ class StockmovesController extends AppController
 
          switch ($id) {
             case 1:
-                $stockmoves->where(['parent_id is null']);
                 $stockmoves->where(['parent_id' => 0])->orWhere(['completed' => 0]);
 
             case 2:
@@ -73,7 +72,7 @@ class StockmovesController extends AppController
       //debug ($this->request->query('idM').$this->request->query('itemcodeM'));
 
       $this->set('idMView',$this->request->query('idM'));
-      $this->set('itemcodeMView',$this->request->query('itemcodeM'));
+    //  $this->set('itemcodeMView',$this->request->query('itemcodeM'));
 
        $stockmove = $this->Stockmoves->newEntity();
 

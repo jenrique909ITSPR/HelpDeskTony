@@ -10,13 +10,13 @@
 	<div class="actions">
 		<ul>
       <?php $idM= $dataMove['id'];
-            $itemcodeM= $dataMove['itemcode'];
+          //  $itemcodeM= $dataMove['itemcode'];
       ?>
 			<li><?= $this->Form->postLink(__('Delete Ticket'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?> </li>
 			<li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?> </li>
 			<li><?= $this->Html->link(__('List Tickets'), ['action' => 'index']) ?> </li>
 			<li><?= $this->Html->link(__('Edit Ticket'), ['action' => 'edit', $ticket->id]) ?> </li>
-      <li><?= $this->Html->link(__('Create Stockemove'), ['controller'=> 'stockmoves','action' => 'add','idM'=>$idM, 'itemcodeM'=> $itemcodeM]) ?></li>
+      <li><?= $this->Html->link(__('Create Stockemove'), ['controller'=> 'stockmoves','action' => 'add','idM'=>$idM]) ?></li>
 		</ul>
 	</div>
 

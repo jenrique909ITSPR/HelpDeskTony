@@ -59,6 +59,12 @@
 							<td style="width:20%;">
 								<?php  echo $this->Form->created('deliverydate',['type' => 'date' , 'style' => 'width:80%;', 'label'=>false]);?>
 							</td>
+							<td style="width:7%;">
+								<?= $this->form->label(__('Ticket')) ?>
+							</td >
+							<td style="width:20%;">
+								<?php  echo $this->Form->created('ticket_id',['type' => 'text' ,'value'=>$idMView, 'readonly' => 'readonly', 'label'=>false]);?>
+							</td>
 						</tr>
 						<tr>
 							<td style="width:7%;">
