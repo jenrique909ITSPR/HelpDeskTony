@@ -25,21 +25,21 @@ class StockmovesController extends AppController
      */
     public function index($id = null)
     {
-       
+
         $stockmoves = $this->Stockmoves->find('all')
         ->contain(['Warehouses','Warehouses2', 'Userreceivers','Movereasons', 'Shippers', 'Users','StockmovesDetails'])
         ->limit([$this->limit_data]);
-       
-        
+
+
          switch ($id) {
             case 1:
                 $stockmoves->where(['parent_id is null']);
-                
+
             case 2:
                  //$stockmoves->where(['StockmovesDetails.confirmed' => 0]);
-            
+
             default:
-            
+
                 break;
         }
         $stockmoves = $this->paginate($stockmoves);
@@ -71,6 +71,12 @@ class StockmovesController extends AppController
      */
     public function add()
     {
+
+      //debug ($this->request->query('idM').$this->request->query('itemcodeM'));
+
+      $this->set('idMView',$this->request->query('idM'));
+      $this->set('itemcodeMView',$this->request->query('itemcodeM'));
+
        $stockmove = $this->Stockmoves->newEntity();
 
         if ($this->request->is('post')) {

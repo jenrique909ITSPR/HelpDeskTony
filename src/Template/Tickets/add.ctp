@@ -19,7 +19,7 @@
 
 <div class="easyui-layout"  style="width:100%;height:650px;">
         <div  id="p" data-options="region:'west',collapsible:false" style="width:20%;padding:10px">
-            
+
            <div style="margin-left: 0px;" id='contentAjax'></div>
         </div>
         <div data-options="region:'center'"  style="width:100%;">

@@ -8,7 +8,11 @@
 	<h3><?= __('Edit Ticket') ?></h3>
 	<div class="actions">
 		<ul>
+			<?php $idM= $dataMove['id'];
+						$itemcodeM= $dataMove['itemcode'];
+			?>
 			<li><?= $this->Html->link(__('List Tickets'), ['action' => 'index']) ?></li>
+			<li><?= $this->Html->link(__('Create Stockemove'), ['controller'=> 'stockmoves','action' => 'add','idM'=>$idM, 'itemcodeM'=> $itemcodeM]) ?></li>
 		</ul>
 	</div>
 

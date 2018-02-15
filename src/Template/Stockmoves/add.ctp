@@ -13,8 +13,8 @@
 	</div>
 	<div class="editdata">
     <?= $this->Form->create($stockmove) ?>
-		
-		
+
+
 	<div class="easyui-layout" style="width:100%;height:700px;">
         <div data-options="region:'east',split:true,title:'Series',collapsible:false" style="width:450px;padding: 5px;">
         	<i class="fa fa-barcode"></i>
@@ -106,15 +106,21 @@
 						</td>
 					</tr>
 					<tr>
-					
+
 				</tr>
 				<tr>
-				
+
 				<td>
 					<?= $this->form->label(__('confirmed')) ?>
 				</td>
 				<td>
 						<?php   echo $this->Form->control('confirmed',['label'=> false]);?>
+				</td>
+				<td>
+					<?= $this->form->label(__('ticket_id')) ?>
+				</td>
+				<td>
+						<?php echo $this->Form->control('ticket_id',['label'=> false, 'type'=> 'text', 'value'=> $idMView, 'readonly'=>'readonly']);?>
 				</td>
 			</tr>
 			<tr>
@@ -130,26 +136,28 @@
 		<?= $this->Form->button(__('Submit')) ?>
         </div>
     </div>
-    
+
     <?= $this->Form->end() ?>
 	</div>
 </div>
 <script type="text/javascript">
+//$('.inputSerial').val('<?php echo $itemcodeMView ?>');
+
 	$('.inputSerial').keypress(function (e) {
 		//e.preventDefault();
-		var inputSerial = $('.inputSerial').val(); 
+		var inputSerial = $('.inputSerial').val();
     	if(e.which ==13 && inputSerial != '') {
 			var html = $('.inputTemplate:first').clone();
 			var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td><td>Motivo</td><td><input type="text" name="stockmoves_details[]reason" class="serial" value=""/></td></tr>';
 			$('#bodyserials').prepend(addserial);
 			$('.inputSerial').val('');
 			displayAction();
-				
+
 		}
 	});
 	$('#bodyserials').on("click",".removeinput", function(e){ //user click on remove text
-        e.preventDefault(); 
-		$(this).parents('.inputTemplate').remove(); 
+        e.preventDefault();
+		$(this).parents('.inputTemplate').remove();
     });
 
 	$("#movetype").on('click',function()
@@ -160,12 +168,12 @@
 		}else{
 			$("#parent_id").css("display","block");
 		}
-		
+
 	});
 	$( "#movetype" ).on( "click", function() {
 	  $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
 	});
-	
+
 
 
 </script>

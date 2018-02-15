@@ -113,6 +113,19 @@ class TicketsController extends AppController
 
     public function view($id = null)
     {
+      $itemcodeM= $this->Tickets->get($id,[
+       'contain' => ['Itemcodes']
+     ]);
+
+    // echo $itemcodeM->itemcode->serial;
+
+      $dataMove = array(
+    "id" => $itemcodeM->id,
+    "itemcode" => $itemcodeM->itemcode->serial,
+      );
+
+        $this->set('dataMove',$dataMove);
+        
         if ($this->request->is("get")){
              $idTicket = $this->request->query('searchticket');
 
@@ -233,6 +246,19 @@ class TicketsController extends AppController
      */
     public function edit($id = null)
     {
+      $itemcodeM= $this->Tickets->get($id,[
+       'contain' => ['Itemcodes']
+     ]);
+
+    // echo $itemcodeM->itemcode->serial;
+
+      $dataMove = array(
+    "id" => $itemcodeM->id,
+    "itemcode" => $itemcodeM->itemcode->serial,
+      );
+
+        $this->set('dataMove',$dataMove);
+
         $ticket = $this->Tickets->get($id, [
             'contain' => ['Tickettypes', 'TicketStatuses', 'Sources', 'Itemcodes', 'Users', 'Groups', 'Ticketimpacts', 'Ticketurgencies', 'Ticketpriorities', 'Hdcategories', 'Ticketnotes' => ['Users'], 'Ticketlogs' =>['Users' , 'Groups'],'Branches','Userrequerieds','Userautors']
         ]);

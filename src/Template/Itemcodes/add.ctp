@@ -105,11 +105,7 @@
 							<td colspan="1"><?=  $this->Form->created('warranty', ['label' => false,'empty' => true, 'type'=> 'date']); ?></td>
 							<td><?= $this->form->label(__('Service tag')) ?></td>
 							<td><?= $this->Form->control('service_tag',['label' => false]); ?></td>
-<<<<<<< HEAD
 							<td><input type="checkbox" name="" class="serialGeneric"/> Serial generico</td>
-=======
-							
->>>>>>> be1057ae282507b062d65cc3f07092d166e27c5f
 						</tr>
 						<tr><td> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Add new Item</a></td></tr>
 			</table>

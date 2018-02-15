@@ -9,10 +9,14 @@
     <h3><?= $ticket->tickettype->name .' #'.$this->Number->format($ticket->id).' - '.h($ticket->title) ?></h3>
 	<div class="actions">
 		<ul>
+      <?php $idM= $dataMove['id'];
+            $itemcodeM= $dataMove['itemcode'];
+      ?>
 			<li><?= $this->Form->postLink(__('Delete Ticket'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?> </li>
 			<li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?> </li>
 			<li><?= $this->Html->link(__('List Tickets'), ['action' => 'index']) ?> </li>
 			<li><?= $this->Html->link(__('Edit Ticket'), ['action' => 'edit', $ticket->id]) ?> </li>
+      <li><?= $this->Html->link(__('Create Stockemove'), ['controller'=> 'stockmoves','action' => 'add','idM'=>$idM, 'itemcodeM'=> $itemcodeM]) ?></li>
 		</ul>
 	</div>
 
@@ -384,7 +388,7 @@
         <div title="Logs" style="padding:10px">
             <div class="related" title="<?= __('Ticketlogs') ?>">
                 <?php if (!empty($ticket->ticketlogs)): ?>
-                
+
             <?php foreach ($ticket->ticketlogs as $ticketlogs): ?>
             <table cellpadding="0" cellspacing="0">
                 <tbody>
@@ -406,11 +410,11 @@
                 </tbody>
             </table>
                     <?php endforeach; ?>
-                  
+
                 <?php endif; ?>
             </div>
-        </div>    
-    </div>    
+        </div>
+    </div>
 </div>
 
     </div>
