@@ -14,15 +14,15 @@
 <div class="easyui-layout" style="width:100%;height:500px;">
 		<div data-options="region:'north', collapsible:false" title="<?= __('Invoice') ?>" style="height: 27%; padding: 10px;">
 			<table class="tableTransparent" cellpadding="3" cellspacing="3" style="width:auto;">
-					<tr><td  style="width:5%;"><?= $this->form->label(__('invoice_number')) ?></td><td><?=  $this->Form->control('invoices.invoice_number', ['type' => 'text', 'empty' => true , 'label' => false  ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('purchaseorder')) ?></td><td><?=  $this->Form->control('invoices.purchaseorder_id', ['type' => 'text', 'empty' => true , 'label' => false  ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('date')) ?></td><td><?=  $this->Form->created('invoices.invoicedate', ['type' => 'date', 'empty' => true , 'label' => false  ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('amount')) ?></td><td><?=  $this->Form->control('invoices.amount', ['type' => 'number', 'empty' => true , 'label' => false  ]); ?></td></tr>
+					<tr><td  style="width:5%;"><?= $this->form->label(__('invoice_number')) ?></td><td><?=  $this->Form->control('invoices.invoice_number', ['type' => 'text', 'empty' => true , 'label' => false ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->invoice_number : '']); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('purchaseorder')) ?></td><td><?=  $this->Form->control('invoices.purchaseorder_id', ['type' => 'text', 'empty' => true , 'label' => false,'value' => $itemcode->has('invoice') ? $itemcode->invoice->purchaseorder_id :'' ]); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('date')) ?></td><td><?=  $this->Form->created('invoices.invoicedate', ['type' => 'date', 'empty' => true , 'label' => false ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->invoicedate : '' ]); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('amount')) ?></td><td><?=  $this->Form->control('invoices.amount', ['type' => 'number', 'empty' => true , 'label' => false ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->amount : '']); ?></td></tr>
 					<tr>
-					<td  style="width:5%;"><?= $this->form->label(__('supplier')) ?></td><td><?=  $this->Form->control('invoices.supplier_id', [ 'empty' => true , 'label' => false, 'type' => 'text'  ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('currency')) ?></td><td><?=  $this->Form->control('invoices.currency_id', [ 'empty' => true , 'label' => false , 'options' => $currencies ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('warehouse')) ?></td><td><?=  $this->Form->control('invoices.warehouse_id', [ 'empty' => true , 'label' => false , 'options' => $warehouses ]); ?></td>
-					<td  style="width:5%;"><?= $this->form->label(__('empresa')) ?></td><td><?=  $this->Form->control('invoices.company_id', [ 'type' => 'text','empty' => true , 'label' => false  ]); ?></td></tr>
+					<td  style="width:5%;"><?= $this->form->label(__('supplier')) ?></td><td><?=  $this->Form->control('invoices.supplier_id', [ 'empty' => true , 'label' => false, 'type' => 'text' ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->supplier_id :'' ]); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('currency')) ?></td><td><?=  $this->Form->control('invoices.currency_id', [ 'empty' => true , 'label' => false , 'options' => $currencies ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->currency_id:'']); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('warehouse')) ?></td><td><?=  $this->Form->control('invoices.warehouse_id', [ 'empty' => true , 'label' => false , 'options' => $warehouses ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->warehouse_id:'']); ?></td>
+					<td  style="width:5%;"><?= $this->form->label(__('empresa')) ?></td><td><?=  $this->Form->control('invoices.company_id', [ 'type' => 'text','empty' => true , 'label' => false ,'value' => $itemcode->has('invoice') ? $itemcode->invoice->company_id:'']); ?></td></tr>
 			</table>
 
 		</div>
@@ -31,7 +31,7 @@
 				<table class="tableTransparent" cellpadding="0" cellspacing="0" style="">
 					<tr>
 						<td class="inputSerialQTY"><input type="text" name="serialqty" class="" style="width: 20px"></td>
-						<td><input type="text" name="" class="inputSerial"></td>
+						<td colspan="2"><i class="fa fa-barcode"></i><input type="text" name="" class="inputSerial" form=""></input></td>
 					</tr>
 				</table>
 				<table class="" cellpadding="0" cellspacing="0" style="">
@@ -183,18 +183,18 @@
 	        url: '<?= $this->Url->build(['controller' => 'Itemcodes', 'action' => 'verify']) ?>',
 	        data: 'q='+inputSerial,
 	        success: function(data) {
-	        	if (data == 0) {
-					var html = $('.inputTemplate:first').clone();
-					var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
-					$('#bodyserials').prepend(addserial);
-					$('.inputSerial').val('');
-					displayAction();
-				}else{
-					 $.messager.alert('Error de serie','El numero de serie ingresado ya existe','error');
-					 $('.inputSerial').val('');
-				}
+	        if (data == 0) {
+						var html = $('.inputTemplate:first').clone();
+						var addserial = '<tr class="inputTemplate"><td><input type="text" name="itemcodes[]serial" class="serial" value="' + inputSerial + '"/></td><td><a href="#" class="removeinput"><i class="fa fa-times" aria-hidden="true"></i></a></td></tr>';
+						$('#bodyserials').prepend(addserial);
+						$('.inputSerial').val('');
+						displayAction();
+					}else{
+						 $.messager.alert('Error de serie','El numero de serie ingresado ya existe','error');
+						 $('.inputSerial').val('');
+					}
       		}
-	      	});
+	     });
 
 			}
 

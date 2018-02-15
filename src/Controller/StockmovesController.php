@@ -25,19 +25,17 @@ class StockmovesController extends AppController
      */
     public function index($id = null)
     {
-
         $stockmoves = $this->Stockmoves->find('all')
         ->contain(['Warehouses','Warehouses2', 'Userreceivers','Movereasons', 'Shippers', 'Users','StockmovesDetails'])
         ->limit([$this->limit_data]);
 
-
          switch ($id) {
             case 1:
                 $stockmoves->where(['parent_id is null']);
+                $stockmoves->where(['parent_id' => 0])->orWhere(['completed' => 0]);
 
             case 2:
                  //$stockmoves->where(['StockmovesDetails.confirmed' => 0]);
-
             default:
 
                 break;
@@ -80,8 +78,9 @@ class StockmovesController extends AppController
        $stockmove = $this->Stockmoves->newEntity();
 
         if ($this->request->is('post')) {
-            debug($this->request->getData());
-            $stockmove = $this->Stockmoves->patchEntity($stockmove, $this->request->getData());
+            $datarequest = $this->getEntities($this->request->getData());
+            $stockmove = $this->Stockmoves->patchEntity($stockmove, $datarequest);
+            $stockmove->completed = 0;
             if ($this->Stockmoves->save($stockmove)) {
                 $this->Flash->success(__('The stockmove has been saved.'));
 
@@ -99,13 +98,6 @@ class StockmovesController extends AppController
 
     }
 
-    public function getSerials($data = null)
-    {
-        foreach ($data['itemcodes'] as $key => $value) {
-            $serial = $this->Stockmoves->StockmovesDetails->Itemcodes->find()->select(['Itemcodes.id'])->where(['Itemcodes.serial' => $value]);
-            $data['stockmoves_details'] = $serial->itemcode->id;
-        }
-    }
 
     /**
      * Edit method
@@ -155,4 +147,49 @@ class StockmovesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+    public function direct()
+    {
+       $stockmove = $this->Stockmoves->newEntity();
+
+        if ($this->request->is('post')) {
+
+            $datarequest = $this->getEntities($this->request->getData());
+
+            $stockmove = $this->Stockmoves->patchEntity($stockmove, $datarequest , ['associated' => ['StockmovesDetails']]);
+            $stockmove->packages = 1;
+            $stockmove->user_id = $this->request->session()->read('Auth.User.id');
+            $stockmove->completed = 1;
+
+
+            if ($this->Stockmoves->save($stockmove)) {
+                $this->Flash->success(__('The stockmove has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The stockmove could not be saved. Please, try again.'));
+        }
+        $warehouses = $this->Stockmoves->Warehouses->find('list', ['limit' => 200]);
+        $movereasons = $this->Stockmoves->Movereasons->find('list', ['limit' => 200]);
+        $shippers = $this->Stockmoves->Shippers->find('list', ['limit' => 200]);
+        $users = $this->Stockmoves->Users->find('list', ['limit' => 200]);
+        $stockmove->user_id = $this->request->session()->read('Auth.User.id');
+        $this->set(compact('stockmove', 'warehouses', 'movereasons', 'shippers', 'users'));
+        $this->set('_serialize', ['stockmove']);
+
+    }
+
+    public function getEntities($data=null)
+    {   $dataEntities = array();
+        foreach ($data['stockmoves_details']['serial'] as $key => $value) {
+            $itemcode = $this->Stockmoves->StockmovesDetails->Itemcodes->find('all')->where(['serial' => $value])->first();
+            //$data['stockmoves_details'] = $itemcode->id;
+            array_push($dataEntities,['reason' => $data['stockmoves_details']['reason'][$key] , 'itemcode_id' => $itemcode->id, 'item_id' => $itemcode->item_id, 'qty' => 1 , 'confirmed' => 1] );
+        }
+        $data['stockmoves_details'] = "";
+        $data['stockmoves_details'] = $dataEntities;
+        return $data;
+    }
+
 }

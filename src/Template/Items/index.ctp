@@ -3,7 +3,6 @@
   * @var \App\View\AppView $this
   * @var \App\Model\Entity\Item[]|\Cake\Collection\CollectionInterface $items  */
 ?>
-
 <div class="items index">
     <h3><?= __('Items') ?></h3>
 	<div class="actions">
@@ -60,4 +59,3 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
-

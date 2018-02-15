@@ -70,7 +70,8 @@ class StockmovesTable extends Table
             'foreignKey' => 'parent_id'
         ]);
         $this->hasMany('StockmovesDetails', [
-            'foreignKey' => 'stockmove_id'
+            'foreignKey' => 'stockmove_id',
+            'strategy' => 'select'
         ]);
         $this->belongsTo('Warehouses', [
             'className' => 'Warehouses',
@@ -121,9 +122,7 @@ class StockmovesTable extends Table
             ->scalar('notes')
             ->allowEmpty('notes');
 
-        $validator
-            ->requirePresence('confirmed', 'create')
-            ->notEmpty('confirmed');
+     
 
         return $validator;
     }

@@ -1,3 +1,15 @@
+<script type="text/javascript">
+$(document).ready(function() {
+  $("tr.selectrow").on('click', function() {
+        var href = $(this).find("a").attr("href");
+        if (href) {
+            window.location = href;
+            //alert("You clicked my <tr>: " + href);
+        }
+    });
+  });
+</script>
+
 <div class="tickets index">
 
   <h3><?= __('My Tickets') ?></h3>
@@ -13,7 +25,7 @@
               <th scope="col"><?= $this->Paginator->sort('user_requeried') ?></th>
               <th scope="col"><?= $this->Paginator->sort('hdcategory_id') ?></th>
               <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-              <th scope="col" class="actions"><?= __('Actions') ?></th>
+              <!--<th scope="col" class="actions"><?= __('Actions') ?></th>-->
           </tr>
       </thead>
       <tbody>
@@ -21,18 +33,18 @@
                $style = 'style="background: '.$ticket->tickettype->color . '"';
                //$style = "";
           ?>
-          <tr >
+          <tr class="selectrow">
               <td <?= $style ?>><?= $ticket->has('tickettype') ? ($ticket->tickettype->name) : '' ?></td>
-              <td><?= $this->Number->format($ticket->id) ?></td>
+              <td><?= $this->Html->link($this->Number->format($ticket->id) , ['action' => 'enduserview', $ticket->id]) ?></td>
               <td><?= $ticket->has('ticket_status') ? ($ticket->ticket_status->name) : '' ?></td>
               <td><?= h($ticket->title) ?></td>
               <td><?= h($ticket->solution) ?></td>
               <td><?= h($ticket->userrequeried->name) ?></td>
               <td><?= $ticket->has('hdcategory') ? ($ticket->hdcategory->title) : '' ?></td>
               <td><?= h($ticket->created) ?></td>
-              <td class="actions">
+              <!--<td class="actions">
                   <?= $this->Html->link(__('View'), ['action' => 'enduserview', $ticket->id]) ?>
-              </td>
+              </td>-->
       </tr>
           <?php endforeach; ?>
       </tbody>

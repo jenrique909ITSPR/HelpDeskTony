@@ -24,10 +24,9 @@
 
     <div class="right">
       <ul class="topnavMenuR">
-
-          <li><?= $this->Html->link(__('Mas'), ['controller' => 'Stockmoves', 'action' => 'team']); ?></li>
+          <li><?= $this->Html->link(('<i class="fa fa-arrow-circle-o-right" aria-hidden="true" > </i> Direct'), [ 'controller' => 'Stockmoves', 'action' => 'direct' ], ['escape' => false]); ?></li>
         
-          
+          <li><?= $this->Html->link(__('Mas'), ['controller' => 'Stockmoves', 'action' => 'team']); ?></li>
       </ul>
     </div>
 

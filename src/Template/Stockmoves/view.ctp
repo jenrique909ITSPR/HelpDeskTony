@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Receiver Sign') ?></th>
-            <td><?= h($stockmove->receiver_sign) ?></td>
+            <td><?= !empty($stockmove->receiver_sign) ? h($stockmove->receiver_sign) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Movereason') ?></th>
@@ -51,7 +51,8 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Receiver') ?></th>
-            <td><?= h($stockmove->userreceiver->name) ?></td>
+            <td><?= $stockmove->has('userreceiver') ? $this->Html->link($stockmove->userreceiver->name, ['controller' => 'Users', 'action' => 'view', $stockmove->userreceiver->id]) : '' ?></td>
+            
         </tr>
         <tr>
             <th scope="row"><?= __('Packages') ?></th>
