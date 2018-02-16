@@ -151,7 +151,7 @@
 	</div>
 </div>
 <script type="text/javascript">
-//$('.inputSerial').val('<?php echo $itemcodeMView ?>');
+//$('.inputSerial').val('<?php //echo $itemcodeMView ?>');
 
 	$('.inputSerial').keypress(function (e) {
 		//e.preventDefault();

@@ -77,9 +77,24 @@ class StockmovesController extends AppController
        $stockmove = $this->Stockmoves->newEntity();
 
         if ($this->request->is('post')) {
+            $stockmove->ticket->ticketnote = [];
             $datarequest = $this->getEntities($this->request->getData());
-            $stockmove = $this->Stockmoves->patchEntity($stockmove, $datarequest);
+            $datarequest['ticket']['id']=$this->request->getData('ticket_id');
+            $datarequest['ticket']['ticketnote']=[[
+              'ticket_id'=> $this->request->getData('ticket_id')
+]
+            ];
+              debug($datarequest);
+          /*  $stockmove->ticket->ticketnote->ticket_id= $this->request->getData('ticket_id');
+            $stockmove->ticket->ticketnote->user_id=  $this->request->session()->read('Auth.User.id');
+            $stockmove->ticket->ticketnote->ticketnotestype_id=1;
+            $stockmove->ticket->ticketnote->description= 'Se genero envio/n'.'Origen: '.$stockmove->warehouse_id.'/nDestino: '.$stockmove->warehouse_2.'/nItem(s): /n'.$stockmove->stockmoves_detail->item_id;
+*/
+            $stockmove = $this->Stockmoves->patchEntity($stockmove, $datarequest, ['associated' => ['StockmovesDetails','Warehouses','Warehouses2','Tickets','Tickets.Ticketnotes']]);
             $stockmove->completed = 0;
+
+            debug($stockmove);
+            return 0;
             if ($this->Stockmoves->save($stockmove)) {
                 $this->Flash->success(__('The stockmove has been saved.'));
 
