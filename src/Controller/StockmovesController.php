@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Core\Configure;
+use Cake\ORM\TableRegistry;
 /**
  * Stockmoves Controller
  *
@@ -190,5 +192,71 @@ class StockmovesController extends AppController
         $data['stockmoves_details'] = $dataEntities;
         return $data;
     }
+
+     public function initialize()
+    {
+         parent::initialize();
+        $this->loadComponent('Messages');
+
+    }
+
+    public function enduseradd($ticket_id = null)
+    {
+        $this->viewBuilder()->layout('enduser');
+        $this->set('messages',$this->Messages->loadUserEndMessages());
+        $ticket = $this->Stockmoves->Tickets->find('all')->where(['id' => $ticket_id])->first();
+        $stockmove = $this->Stockmoves->newEntity();
+
+        if ($this->request->is('post')) {
+            $datarequest = $this->getEntities($this->request->getData());
+            $stockmove = $this->Stockmoves->patchEntity($stockmove, $datarequest,['associated' => ['Warehouses','Warehouses2','StockmovesDetails']]);
+            $stockmove->completed = 0;
+            $stockmove->ticket_id = $ticket_id;
+            $stockmove->user_id = $this->request->session()->read('Auth.User.id');
+            $stockmove->movereason_id = 8;
+            if ($this->Stockmoves->save($stockmove)) {
+                if ($this->addticketnote($stockmove)) {
+                    $this->Flash->success(__('The stockmove has been saved.'));
+                    return $this->redirect(['controller' => 'Tickets','action' => 'enduserindex']);
+                }
+                return $this->redirect(['action' => 'index']);
+                $this->Flash->error(__('The ticketnote could not be saved. Please, try again.'));
+            }
+            $this->Flash->error(__('The stockmove could not be saved. Please, try again.'));
+        }
+        $warehouses = $this->Stockmoves->Warehouses->find('list', ['limit' => 200]);
+        $movereasons = $this->Stockmoves->Movereasons->find('list', ['limit' => 200]);
+        $shippers = $this->Stockmoves->Shippers->find('list', ['limit' => 200]);
+        $users = $this->Stockmoves->Users->find('list', ['limit' => 200]);
+        
+        $stockmove->user_id = $this->request->session()->read('Auth.User.id');
+        $this->set(compact('ticket','stockmove', 'warehouses', 'movereasons', 'shippers', 'users'));
+        $this->set('_serialize', ['stockmove']);
+
+    }
+
+    public function addticketnote($data=null)
+    {
+        $noteTable = TableRegistry::get('Ticketnotes');
+        $ticketnote = $noteTable->newEntity();
+        $ticketnote->ticket_id = $data->ticket_id;
+        $warehouse = $this->Stockmoves->Warehouses->get($data->warehouse_id);
+        $warehouse2 = $this->Stockmoves->Warehouses->get($data->warehouse_2);
+        $series = '';
+        foreach ($data->stockmoves_details as $key => $value) {
+            $itemcodes = $this->Stockmoves->StockmovesDetails->Itemcodes->get($value['itemcode_id']);
+            $items = $this->Stockmoves->StockmovesDetails->Itemcodes->Items->get($value['item_id']);
+            $series = $series . $itemcodes->serial . ' - '.$items->name . ' - total: '.$value['qty']."\n";
+        }
+        $ticketnote->description ='Se genera envio equipo'."\n".
+        'Origen: '.$warehouse->name."\n".'Destino: '.$warehouse2->name.
+        "\n".' Numeros de Serie: '."\n".$series;
+        $ticketnote->user_id = $this->request->session()->read('Auth.User.id');
+        $ticketnote->ticketnotestype_id = 1;      
+        if ($noteTable->save($ticketnote)) {
+            return true;
+        }return false;
+    }
+
 
 }

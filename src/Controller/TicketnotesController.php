@@ -72,6 +72,29 @@ class TicketnotesController extends AppController
         $this->set('_serialize', ['ticketnote']);
     }
 
+    public function addpublic($ticket_id = null,$note_id = null)
+    {
+        if ($this->request->is('post')) {
+            $data = $this->request->getData();
+            $data['user_id'] = $this->request->session()->read('Auth.User.id');
+            $data['ticket_id'] = $ticket_id;
+            $data['ticketnotestype_id'] = 1;
+            $data['anwser'] = 0;
+            $data2['anwser'] = 0;
+            $ticketnote = $this->Ticketnotes->newEntities([$data,$data2]);
+            $ticketnote[1]->id = $note_id;
+            
+            if ($this->Ticketnotes->saveMany($ticketnote)) {
+                $this->Flash->success(__('The ticketnote has been saved.'));
+
+                return $this->redirect(['controller' => 'Tickets' ,'action' => 'enduserview' , $ticket_id]);
+            }
+            $this->Flash->error(__('The ticketnote could not be saved. Please, try again.'));
+        }
+
+        $this->set('_serialize', ['ticketnote']);
+    }
+
     /**
      * Edit method
      *

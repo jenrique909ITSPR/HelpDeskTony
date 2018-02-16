@@ -13,6 +13,7 @@
 			<li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?> </li>-->
 			<li><?= $this->Html->link(__('My Tickets'), ['action' => 'enduserindex']) ?> </li>
             <li><?= $this->Html->link(__('Solicitar Remplazo'), ['controller'=>'Stockmoves','action' => 'enduseradd',$ticket->id]) ?> </li>
+            <li><?= $this->Html->link(__('Upload File'), ['controller' => 'Ticketsfiles','action' => 'add']) ?> </li>
 			<!--<li><?= $this->Html->link(__('Edit Ticket'), ['action' => 'edit', $ticket->id]) ?> </li>-->
 		</ul>
 	</div>
@@ -106,13 +107,28 @@
                 <span class="noteauthor"><?= h($ticketnotes->id) ?></span> | <?= h($ticketnotes->user->name).' '.h($ticketnotes->user->last_name).' ' ?>|<?= ' '.h($ticketnotes->created) ?>
               </div>
             </div>
+            <div>
             <div class="notes">
-              <?= h($ticketnotes->description) ?>
+              <pre><?= $ticketnotes->description ?></pre>
+            </div>
+            <?php if ($ticketnotes->anwser == 1): ?>
+            <div style="width:50%;">
+                <?= $this->Form->label(__('anwser')) ?>
+              <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'addpublic' ,$ticket->id,$ticketnotes->id]]) ?>
+                  <?php
+                      echo $this->Form->textarea('description',['style' =>  'resize:none;']);
+                  ?>
+              <?= $this->Form->button(__('Submit')) ?>
+              <?= $this->Form->end() ?>
+            </div>
+            <?php endif; ?>
             </div>
             <div class="$ticketfiles">
 
             </div>
           </div>
+          
+            
           <?php endif; ?>
         <?php endforeach; ?>
       <?php endif; ?>
@@ -151,5 +167,6 @@
         </table>
         <?php endif; ?>
     </div>
+
 </div>
 </div>
