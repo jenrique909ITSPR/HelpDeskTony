@@ -50,6 +50,9 @@ class StockmovesTable extends Table
         $this->belongsTo('Shippers', [
             'foreignKey' => 'shipper_id'
         ]);
+        $this->belongsTo('Tickets', [
+            'foreignKey' => 'ticket_id'
+        ]);
         $this->belongsTo('Users', [
             'className' => 'Users',
             'foreignKey' => 'user_id',
@@ -122,7 +125,7 @@ class StockmovesTable extends Table
             ->scalar('notes')
             ->allowEmpty('notes');
 
-     
+
 
         return $validator;
     }

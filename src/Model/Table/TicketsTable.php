@@ -66,7 +66,7 @@ use Cake\Validation\Validator;
         $this->belongsTo('Itemcodes', [
             'foreignKey' => 'itemcode_id'
         ]);
-        
+
          $this->belongsTo('Users', [
             'className' => 'Users',
             'foreignKey' => 'user_id',
@@ -83,7 +83,7 @@ use Cake\Validation\Validator;
             'foreignKey' => 'user_requeried',
             'propertyName' => 'userrequeried',
         ]);
-       
+
         $this->belongsTo('Groups', [
             'foreignKey' => 'group_id'
         ]);
@@ -103,7 +103,7 @@ use Cake\Validation\Validator;
         $this->belongsTo('Hdcategories', [
             'foreignKey' => 'hdcategory_id'
         ]);
-        
+
         $this->belongsTo('Branches', [
             'foreignKey' => 'branch_id',
             'joinType' => 'left',
@@ -116,6 +116,9 @@ use Cake\Validation\Validator;
             'foreignKey' => 'ticket_id'
         ]);
         $this->hasMany('Ticketnotes', [
+            'foreignKey' => 'ticket_id'
+        ]);
+        $this->hasMany('Stockmoves', [
             'foreignKey' => 'ticket_id'
         ]);
         $this->hasMany('ChildTickets', [
