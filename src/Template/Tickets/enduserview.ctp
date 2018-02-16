@@ -12,6 +12,7 @@
 			<!--<li><?= $this->Form->postLink(__('Delete Ticket'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?> </li>
 			<li><?= $this->Html->link(__('New Ticket'), ['action' => 'add']) ?> </li>-->
 			<li><?= $this->Html->link(__('My Tickets'), ['action' => 'enduserindex']) ?> </li>
+            <li><?= $this->Html->link(__('Solicitar Remplazo'), ['controller'=>'Stockmoves','action' => 'enduseradd',$ticket->id]) ?> </li>
 			<!--<li><?= $this->Html->link(__('Edit Ticket'), ['action' => 'edit', $ticket->id]) ?> </li>-->
 		</ul>
 	</div>
@@ -38,7 +39,7 @@
         
         <tr>
             <th scope="row"><?= __('Itemcode') ?></th>
-            <td><?= h(__($ticket->itemcode->serial)) ?></td>
+            <td><?= !empty($ticket->itemcode->serial) ? h(__($ticket->itemcode->serial)) : '' ?></td>
             <th scope="row"><?= __('Ticketimpact') ?></th>
             <td><?= $ticket->has('ticketimpact') ? $this->Html->link($ticket->ticketimpact->name, ['controller' => 'Ticketimpacts', 'action' => 'view', $ticket->ticketimpact->id]) : '' ?></td>
         </tr>

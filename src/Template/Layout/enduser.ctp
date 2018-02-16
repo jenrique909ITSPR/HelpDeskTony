@@ -64,6 +64,7 @@ $cakeDescription = 'Portal TI';
           <li><?= $this->Html->link("<i class='fa fa-bug' aria-hidden='true'></i>" . __('Report incident'), ['controller' => 'tickets', 'action' => 'enduseradd' , 1], ['escape' => false]) ?></li>
           <li><?= $this->Html->link("<i class='fa fa-ticket' aria-hidden='true'></i>" . __('Create a request'), ['controller' => 'tickets', 'action' => 'enduseradd' , 2], ['escape' => false]) ?></li>
           <li><?= $this->Html->link("<i class='fa fa-graduation-cap' aria-hidden='true'></i>" . __('Knowledge'), ['controller' => 'Articles', 'action' => 'enduserindex'], ['escape' => false]) ?></li>
+          
         </ul>
       </div>
     </div>
