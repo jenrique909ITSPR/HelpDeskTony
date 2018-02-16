@@ -5,7 +5,7 @@
 ?>
 
 <div class="stockmoves form">
-	<h3><?= __('Solicitud de Remplazo'). ' - Ticket # '. $ticket->id ?></h3>
+	<h3><?= __('Solicitud de Remplazo'). ' - Ticket # '. $ticket->id . ' - '. $ticket->title ?></h3>
 	<div class="actions">
 		<ul>
 			<li><?= $this->Html->link(__('Cancel'), ['controller' =>'Tickets', 'action' => 'enduserindex']) ?> </li>

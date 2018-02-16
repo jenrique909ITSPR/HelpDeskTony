@@ -1408,12 +1408,15 @@ body.enduser {
   border-radius: 4px;*/
   padding: 5px 10px 5px 70px;
   margin: 0 0 0 0;
+
   /*-webkit-box-shadow: 3px 3px 5px 0px rgba(153,153,153,1);
   -moz-box-shadow: 3px 3px 5px 0px rgba(153,153,153,1);
   box-shadow: 3px 3px 5px 0px rgba(153,153,153,1);*/
 }
+
 .noteauthor {
   color: #C2C54D;
+
 }
 .notes {
   padding: 10px 0;

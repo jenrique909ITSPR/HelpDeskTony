@@ -424,15 +424,18 @@
     <h4><?= __('Add information') ?></h4>
     <div class="editdata">
       <?= $this->Form->create('ticketnote', ['url' => ['controller' => 'Ticketnotes', 'action' => 'add' ,$ticket->id]]) ?>
+      
           <?php
           /////Edit here
 
               echo $this->Form->radio('ticketnotestype_id',[['text' => 'Publico' , 'value' => '1'],
                 ['text' => 'Interno' , 'value' => '2']]);
+               echo $this->Form->control('anwser',['type' => 'checkbox','label'=>'Respuesta de usuario']);
               echo $this->Form->textarea('description');
               //echo $this->Form->control('ticket_id', ['options' => $tickets, 'empty' => true]);
               //echo $this->Form->control('user_id', ['options' => $users]);
           ?>
+      
       <?= $this->Form->button(__('Submit')) ?>
       <?= $this->Form->end() ?>
     </div>
